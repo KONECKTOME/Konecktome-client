@@ -1,0 +1,45 @@
+#landing-wrapper {
+    background-image: url('../Assets/landing-background.jpg');
+    height: 90vh;
+    background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+    mix-blend-mode: normal;
+    opacity: 0.9;
+}
+
+#content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+#right-col {
+    margin: 180px;
+}
+
+#left-col {
+    margin: 100px;
+}
+
+#right-col-header {
+    width: 494px;
+    height: 160px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 80px;
+    align-items: center;
+    color: #2d2d2d;
+}
+
+#right-col-text {
+    width: 354px;
+    height: 100px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    align-items: center;
+    color: #2d2d2d;
+}
