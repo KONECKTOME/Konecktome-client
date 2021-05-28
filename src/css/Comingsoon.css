@@ -1,23 +1,231 @@
 #landing-wrapper {
-    background-image: url('../Assets/landing-background.jpg');
     height: 90vh;
     background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
     mix-blend-mode: normal;
     opacity: 0.9;
 }
 
-#content-wrapper {
+#left-col2 {
+    margin-top: 80px;
+}
+
+#right-col2 {
+    margin-top: 10rem;
+}
+
+#coming-soon-text {
+    top: calc(50% - 40px / 2);
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 70px;
+    align-items: center;
+    letter-spacing: 10px;
+    color: #2d2d2d;
+}
+
+#get-notified-text {
+    top: calc(50% - 140px / 2 - 150px);
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 70px;
+    align-items: center;
+    color: #000000;
+    margin-bottom: 4rem;
+    margin-top: 1rem;
+}
+
+input[type='text'] {
+    background-color: transparent;
+    color: white;
+    border: 2px solid #000000;
+}
+
+input::placeholder {
+    text-align: center;
+    color: #000000;
+    top: calc(50% - 26px / 2 - 23px);
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+input[type='text']:active,
+input[type='text']:focus {
+    border: 2px solid #000000;
+    text-align: center;
+    color: #000000;
+}
+
+#btn {
+    background-color: #000000;
+    border-radius: 5px;
+    border: none;
+    margin-top: 2rem;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #ffffff;
+    width: 61%;
+    height: 50px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+    #landing-wrapper {
+        width: 100vw;
+        height: 90vh;
+        background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+        mix-blend-mode: normal;
+        opacity: 0.9;
+    }
+    #right-col2 {
+        display: none;
+    }
+    #coming-soon-text {
+        top: calc(50% - 40px / 2);
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 26px;
+        line-height: 70px;
+        text-align: center;
+        letter-spacing: 10px;
+        color: #2d2d2d;
+    }
+    #get-notified-text {
+        top: calc(50% - 140px / 2 - 150px);
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 37px;
+        line-height: 70px;
+        text-align: center;
+        color: #000000;
+        margin-bottom: 4rem;
+        margin-top: 1rem;
+    }
+    input[type='text'] {
+        width: 100%;
+        background-color: transparent;
+        color: white;
+        border: 2px solid #000000;
+    }
+    #btn {
+        width: 100%;
+        height: 50px;
+    }
+}
+
+
+/* Ipad*/
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+    #left-col {
+        margin-top: 10rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        display: block;
+    }
+    #right-col {
+        margin-top: 5rem;
+        margin-bottom: 3rem;
+    }
+    #explore-icon {
+        margin: 0 auto;
+        width: 400px;
+        height: 400px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+    }
+    #why-findassured-header {
+        margin-bottom: 3rem;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 160%;
+        letter-spacing: -0.03em;
+        text-align: center;
+        text-transform: capitalize;
+        color: #ffb531;
+    }
+    #why-findassured-subheader {
+        margin-bottom: 2rem;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 25px;
+        text-align: center;
+        line-height: 150%;
+        color: #0d3642;
+    }
+    #why-findassured-paragragh {
+        font-weight: normal;
+        font-size: 18px;
+        font-family: Poppins;
+        font-style: normal;
+        line-height: 160%;
+        text-align: center;
+        color: #969696;
+        margin-bottom: 8rem;
+    }
+    #sign-up-text {
+        font-family: Poppins, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 160%;
+        text-align: center;
+        color: #1b5060;
+    }
+}
+
+
+/* Ipad pro*/
+
+@media only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (-webkit-min-device-pixel-ratio: 2) {
+    #why-findassured-paragragh {
+        font-weight: normal;
+        font-size: 23px;
+        font-family: Poppins;
+        font-style: normal;
+        line-height: 160%;
+        text-align: center;
+        color: #969696;
+        margin-bottom: 12rem;
+    }
+    #sign-up-text {
+        font-family: Poppins, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 23px;
+        line-height: 160%;
+        text-align: center;
+        color: #1b5060;
+    }
+}
+
+
+/* #content-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
 }
 
 #right-col {
-    margin: 180px;
+    margin: 150px;
 }
 
 #left-col {
-    margin: 100px;
+    margin: 50px;
 }
 
 #right-col-header {
@@ -42,4 +250,4 @@
     line-height: 28px;
     align-items: center;
     color: #2d2d2d;
-}
+} */

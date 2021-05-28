@@ -8,7 +8,7 @@ function App() {
         <
         Navbar / >
         <
-        ComingSoon2 / >
+        ComingSoon / >
         <
         /div>
     )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Container } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
+import illustration from '../Assets/background.svg'
 import '../css/Comingsoon.css'
 
 class Comingsoon extends Component {
@@ -8,7 +9,22 @@ class Comingsoon extends Component {
     return (
       <div id="landing-wrapper">
         <Container>
-          <div id="content-wrapper">
+          <Row>
+            <Col id="left-col2">
+              <h3 id="coming-soon-text">Coming soon</h3>
+              <h3 id="get-notified-text">
+                Get Notified When <br></br> We Launch
+              </h3>
+              <form>
+                <input type="text" placeholder="Enter your email" /> <br></br>
+                <button id="btn">NOTIFY ME</button>
+              </form>
+            </Col>
+            <Col id="right-col2">
+              <img src={illustration} />
+            </Col>
+          </Row>
+          {/* <div id="content-wrapper">
             <div id="right-col">
               <p id="right-col-header">Konecktome Coming Soon</p>
               <p id="right-col-text">
@@ -18,8 +34,10 @@ class Comingsoon extends Component {
                 accounts, make payments online, and so much more!
               </p>
             </div>
-            <div id="left-col">sjs</div>
-          </div>
+            <div id="left-col">
+              <img src={illustration} />
+            </div>
+          </div> */}
         </Container>
       </div>
     )

@@ -1,9 +1,8 @@
 #second-coming-wrapper {
-    background-image: url('../Assets/landing.jpg');
-    height: 90vh;
-    background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
-    mix-blend-mode: normal;
-    opacity: 0.9;
+    background-image: url('../Assets/background.svg');
+    background-size: cover;
+    opacity: 0.2;
+    background-repeat: no-repeat;
 }
 
 #second-wrapper-div {
