@@ -22,7 +22,7 @@ class ComingSoon2 extends Component {
               <button id="submit-button">Notify me</button>
             </form>
           </div>
-          <div id="icons-wrapper" className="d-flex justify-content-between">
+          <div id="icons-wrapper">
             <div>
               <img src={facebook} />
             </div>
