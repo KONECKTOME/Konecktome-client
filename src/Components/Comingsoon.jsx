@@ -17,6 +17,18 @@ class Comingsoon extends Component {
     successText: false,
     noTextError: false,
     subscribe: false,
+    errorSendingEmail: false,
+    subscribeCheckBoxClass: false,
+  }
+
+  checkBox = (e) => {
+    e.preventDefault()
+    this.setState((previousState) => {
+      return {
+        subscribe: !previousState.subscribe,
+        subscribeCheckBoxClass: !previousState.subscribeCheckBoxClass,
+      }
+    })
   }
 
   updateDetails = (e) => {
@@ -24,6 +36,21 @@ class Comingsoon extends Component {
     const id = e.currentTarget.id
     details[id] = e.currentTarget.value
     this.setState({ details })
+  }
+
+  sendTransactionalEmail = async () => {
+    const response = await fetch('http://localhost:3002/mail/transactional', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: this.state.details.name,
+        email: this.state.details.email,
+      }),
+      headers: {
+        'Content-type': 'application/json',
+      },
+    })
+    const details = await response.json()
+    return details.message
   }
 
   register = async (e) => {
@@ -59,6 +86,17 @@ class Comingsoon extends Component {
           })
         }, 1200)
       } else if (details.message === 'Sign up successful') {
+        const sendEmail = this.sendTransactionalEmail()
+        if (sendEmail === 'Error sending email') {
+          this.setState({
+            errorSendingEmail: true,
+          })
+          setTimeout(() => {
+            this.setState({
+              errorSendingEmail: false,
+            })
+          }, 1200)
+        }
         if (this.state.subscribe === true) {
           const response = await fetch('http://localhost:3002/mail/marketing', {
             method: 'POST',
@@ -126,6 +164,18 @@ class Comingsoon extends Component {
                   onChange={(e) => this.updateDetails(e)}
                 />
                 <br></br>
+                <div id="checkbox-wrapper">
+                  <div
+                    onClick={(e) => this.checkBox(e)}
+                    className={
+                      this.state.subscribeCheckBoxClass ? 'active' : 'inactive'
+                    }
+                  ></div>
+                  <p id="checkbox-text">
+                    Click the box to subscribe for newsletters
+                  </p>
+                </div>
+                <p>{this.state.checkText}</p>
                 {this.state.noTextError === true ? (
                   <p id="no-text-error">Fields cannot be empty.</p>
                 ) : (

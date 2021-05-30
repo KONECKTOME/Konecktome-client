@@ -6,7 +6,7 @@
 }
 
 #left-col2 {
-    margin-top: 80px;
+    margin-top: 50px;
 }
 
 #right-col2 {
@@ -34,8 +34,8 @@
     line-height: 70px;
     align-items: center;
     color: #000000;
-    margin-bottom: 4rem;
-    margin-top: 1rem;
+    margin-bottom: 3rem;
+    margin-top: 0.5rem;
 }
 
 input[type='text'] {
@@ -108,7 +108,7 @@ input[type='email']:focus {
 #icons-wrapper {
     display: flex;
     justify-content: space-between;
-    margin-top: 4rem;
+    margin-top: 2rem;
     width: 100px;
 }
 
@@ -127,6 +127,41 @@ input[type='email']:focus {
     color: green;
 }
 
+#checkbox-wrapper {
+    margin-top: 3rem;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#checkbox-text {
+    margin-top: 1.5rem;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 10px;
+    align-items: center;
+    letter-spacing: 1px;
+    color: #2d2d2d;
+}
+
+.active {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #000000;
+    background-color: #000000;
+    cursor: pointer;
+}
+
+.inactive {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #000000;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
     #landing-wrapper {
         width: 100vw;
@@ -136,7 +171,7 @@ input[type='email']:focus {
         opacity: 0.9;
     }
     #left-col2 {
-        margin-top: 10px;
+        margin-top: 8px;
     }
     #right-col2 {
         display: none;
@@ -161,8 +196,8 @@ input[type='email']:focus {
         line-height: 70px;
         text-align: center;
         color: #000000;
-        margin-bottom: 4rem;
-        margin-top: 1rem;
+        margin-bottom: 2rem;
+        margin-top: 0.2rem;
     }
     input[type='text'] {
         width: 100%;
@@ -183,8 +218,26 @@ input[type='email']:focus {
         height: 50px;
     }
     #icons-wrapper {
-        margin-top: 5rem;
+        margin-top: 2rem;
+        width: 30%;
+    }
+    #checkbox-wrapper {
+        margin-top: 3rem;
         width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    #checkbox-text {
+        margin-top: 0.4rem;
+        margin-left: 1rem;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 17px;
+        align-items: center;
+        letter-spacing: 1px;
+        color: #2d2d2d;
     }
 }
 
@@ -234,6 +287,24 @@ input[type='email']:focus {
         font-size: 26px;
         width: 100%;
     }
+    #checkbox-wrapper {
+        margin-top: 3rem;
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+    }
+    #checkbox-text {
+        margin-top: 1rem;
+        margin-left: 1rem;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 19px;
+        line-height: 17px;
+        align-items: center;
+        letter-spacing: 1px;
+        color: #2d2d2d;
+    }
 }
 
 
@@ -280,5 +351,23 @@ input[type='email']:focus {
     }
     #btn {
         font-size: 26px;
+    }
+    #checkbox-wrapper {
+        margin-top: 3rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    #checkbox-text {
+        margin-top: 0.5rem;
+        margin-left: 1rem;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 17px;
+        align-items: center;
+        letter-spacing: 1px;
+        color: #2d2d2d;
     }
 }
