@@ -4,9 +4,7 @@ import illustration from '../Assets/background.svg'
 import '../css/Comingsoon.css'
 import facebook from '../Assets/facebook_logo.svg'
 import linkedIn from '../Assets/linkedin_logo.svg'
-import twitter from '../Assets/twitter_logo.svg'
-import emailjs from 'emailjs-com'
-
+import checkBoxIcon from '../Assets/check_mark.png'
 class Comingsoon extends Component {
   state = {
     details: {
@@ -178,7 +176,9 @@ class Comingsoon extends Component {
                     className={
                       this.state.subscribeCheckBoxClass ? 'active' : 'inactive'
                     }
-                  ></div>
+                  >
+                    <img src={checkBoxIcon} id="checkbox-icon" />
+                  </div>
                   <p id="checkbox-text">
                     Click the box to subscribe for newsletters
                   </p>
