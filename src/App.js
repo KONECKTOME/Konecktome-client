@@ -1,5 +1,5 @@
 import ComingSoon from './Components/Comingsoon'
-import ComingSoon2 from './Components/ComingSoon2'
+
 import Navbar from './Components/Navbar'
 
 function App() {

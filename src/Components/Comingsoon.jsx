@@ -13,6 +13,7 @@ class Comingsoon extends Component {
       name: '',
       email: '',
     },
+    invalidEmailError: false,
     emailExists: false,
     successText: false,
     noTextError: false,
@@ -55,7 +56,18 @@ class Comingsoon extends Component {
 
   register = async (e) => {
     e.preventDefault()
-    if (this.state.details.name === '' || this.state.details.email === '') {
+    const response = await fetch('http://localhost:3002/mail/new-user', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: this.state.details.name,
+        email: this.state.details.email,
+      }),
+      headers: {
+        'Content-type': 'application/json',
+      },
+    })
+    const details = await response.json()
+    if (details.message === "Text fields can't be empty") {
       this.setState({
         noTextError: true,
       })
@@ -64,76 +76,72 @@ class Comingsoon extends Component {
           noTextError: false,
         })
       }, 1200)
-    } else {
-      const response = await fetch('http://localhost:3002/mail/new-user', {
-        method: 'POST',
-        body: JSON.stringify({
-          name: this.state.details.name,
-          email: this.state.details.email,
-        }),
-        headers: {
-          'Content-type': 'application/json',
-        },
+    } else if (details.message === 'Invalid email') {
+      this.setState({
+        invalidEmailError: true,
       })
-      const details = await response.json()
-      if (details.message === 'This email already exists') {
+      setTimeout(() => {
         this.setState({
-          emailExists: true,
+          invalidEmailError: false,
+        })
+      }, 1200)
+    } else if (details.message === 'This email already exists') {
+      this.setState({
+        emailExists: true,
+      })
+      setTimeout(() => {
+        this.setState({
+          emailExists: false,
+        })
+      }, 1200)
+    } else if (details.message === 'Sign up successful') {
+      const sendEmail = this.sendTransactionalEmail()
+      if (sendEmail === 'Error sending email') {
+        this.setState({
+          errorSendingEmail: true,
         })
         setTimeout(() => {
           this.setState({
-            emailExists: false,
+            errorSendingEmail: false,
           })
         }, 1200)
-      } else if (details.message === 'Sign up successful') {
-        const sendEmail = this.sendTransactionalEmail()
-        if (sendEmail === 'Error sending email') {
+      }
+      if (this.state.subscribe === true) {
+        const response = await fetch('http://localhost:3002/mail/marketing', {
+          method: 'POST',
+          body: JSON.stringify({
+            name: this.state.details.name,
+            email: this.state.details.email,
+          }),
+          headers: {
+            'Content-type': 'application/json',
+          },
+        })
+        this.setState({
+          details: {
+            name: '',
+            email: '',
+          },
+          successText: true,
+        })
+        setTimeout(() => {
           this.setState({
-            errorSendingEmail: true,
+            successText: false,
           })
-          setTimeout(() => {
-            this.setState({
-              errorSendingEmail: false,
-            })
-          }, 1200)
-        }
-        if (this.state.subscribe === true) {
-          const response = await fetch('http://localhost:3002/mail/marketing', {
-            method: 'POST',
-            body: JSON.stringify({
-              name: this.state.details.name,
-              email: this.state.details.email,
-            }),
-            headers: {
-              'Content-type': 'application/json',
-            },
-          })
+        }, 1200)
+      } else if (this.state.subscribe === false) {
+        this.setState({
+          details: {
+            name: '',
+            email: '',
+          },
+          successText: true,
+        })
+        setTimeout(() => {
           this.setState({
-            details: {
-              name: '',
-              email: '',
-            },
-            successText: true,
+            successText: false,
           })
-          setTimeout(() => {
-            this.setState({
-              successText: false,
-            })
-          }, 1200)
-        } else if (this.state.subscribe === false) {
-          this.setState({
-            details: {
-              name: '',
-              email: '',
-            },
-            successText: true,
-          })
-          setTimeout(() => {
-            this.setState({
-              successText: false,
-            })
-          }, 1200)
-        }
+        }, 1200)
       }
     }
   }
@@ -178,6 +186,11 @@ class Comingsoon extends Component {
                 <p>{this.state.checkText}</p>
                 {this.state.noTextError === true ? (
                   <p id="no-text-error">Fields cannot be empty.</p>
+                ) : (
+                  <p></p>
+                )}
+                {this.state.invalidEmailError === true ? (
+                  <p id="invalid-email-error">Invalid email</p>
                 ) : (
                   <p></p>
                 )}

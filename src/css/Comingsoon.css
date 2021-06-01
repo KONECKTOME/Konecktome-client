@@ -46,6 +46,8 @@ input[type='text'] {
     border: 2px solid #000000;
     font-size: 20px;
     width: 90%;
+    height: 45px;
+    padding-left: 2rem;
 }
 
 input[type='email'] {
@@ -57,6 +59,8 @@ input[type='email'] {
     border: 2px solid #000000;
     font-size: 20px;
     width: 90%;
+    height: 45px;
+    padding-left: 2rem;
 }
 
 input[type='email']:invalid {
@@ -75,16 +79,14 @@ input::placeholder {
 
 input[type='text']:active,
 input[type='text']:focus {
-    border: 2px solid #000000;
-    text-align: center;
+    outline: none;
     color: #000000;
     font-size: 20px;
 }
 
 input[type='email']:active,
 input[type='email']:focus {
-    border: 2px solid #000000;
-    text-align: center;
+    outline: none;
     color: #000000;
     font-size: 20px;
 }
@@ -113,6 +115,14 @@ input[type='email']:focus {
 }
 
 #no-text-error {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: red;
+}
+
+#invalid-email-error {
     margin-top: 2rem;
     text-align: center;
     font-size: 20px;
@@ -149,7 +159,7 @@ input[type='email']:focus {
 .active {
     width: 40px;
     height: 40px;
-    border: 2px solid #000000;
+    border: 2px solid white;
     background-color: #000000;
     cursor: pointer;
 }
