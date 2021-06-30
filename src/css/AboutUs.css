@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Poppins bold';
+    src: url(../Fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins regular';
+    src: url(../Fonts/Poppins-Regular.ttf);
+}
+
+#all-wrapper {
+    margin-bottom: 5rem;
+}
+
+#about-text-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#about-second-text-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.about-text {
+    width: 726px;
+    font-family: Poppins regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #2d2d2d;
+    mix-blend-mode: normal;
+    opacity: 0.7;
+}
+
+.cards {
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.card {
+    background: #ffffff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.0708042);
+    border-radius: 5px;
+    height: 272px;
+}
+
+#image-holder-div {
+    margin: 2rem 2rem;
+}
+
+.card-texts {
+    width: 313px;
+    font-family: Poppins regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 28px;
+    display: flex;
+    justify-content: center;
+    color: #2d2d2d;
+    mix-blend-mode: normal;
+    margin: 0 auto;
+}
+
+@media (min-width: 1281px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

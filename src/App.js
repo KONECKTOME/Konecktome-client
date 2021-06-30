@@ -1,6 +1,8 @@
 import ComingSoon from './Components/Comingsoon'
 
 import Navbar from './Components/Navbar'
+import About from './Components/About'
+import Footer from './Components/Footer'
 
 function App() {
     return ( <
@@ -9,6 +11,10 @@ function App() {
         Navbar / >
         <
         ComingSoon / >
+        <
+        About / >
+        <
+        Footer / >
         <
         /div>
     )

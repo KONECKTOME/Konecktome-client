@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Poppins regular';
+    src: url(../Fonts/Poppins-Regular.ttf);
+}
+
+#footer-wrapper {
+    background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+    height: 79px;
+    display: flex;
+    justify-content: center;
+    font-family: Poppins regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 30px;
+    color: #2d2d2d;
+    mix-blend-mode: normal;
+    padding: 2rem 2rem;
+}

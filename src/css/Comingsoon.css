@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Poppins bold';
+    src: url(../Fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins regular';
+    src: url(../Fonts/Poppins-Regular.ttf);
+}
+
 #landing-wrapper {
     height: 90vh;
     background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
@@ -15,7 +25,7 @@
 
 #coming-soon-text {
     top: calc(50% - 40px / 2);
-    font-family: Poppins;
+    font-family: Poppins regular;
     font-style: normal;
     font-weight: 900;
     font-size: 29px;
@@ -27,7 +37,7 @@
 
 #get-notified-text {
     top: calc(50% - 140px / 2 - 150px);
-    font-family: Poppins;
+    font-family: Poppins bold;
     font-style: normal;
     font-weight: 1000;
     font-size: 54px;
@@ -70,7 +80,7 @@ input[type='email']:invalid {
 input::placeholder {
     color: #000000;
     top: calc(50% - 26px / 2 - 23px);
-    font-family: Poppins;
+    font-family: Poppins regular;
     font-style: normal;
     font-weight: 800;
     font-size: 20px;
@@ -96,7 +106,7 @@ input[type='email']:focus {
     border-radius: 50px;
     border: none;
     margin-top: 2rem;
-    font-family: Poppins;
+    font-family: Poppins regular;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -148,10 +158,10 @@ input[type='email']:focus {
 
 #checkbox-text {
     margin-top: 1.5rem;
-    font-family: Poppins;
+    font-family: Poppins regular;
     font-style: normal;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 10px;
     align-items: center;
     letter-spacing: 1px;
