@@ -29,7 +29,7 @@ class Comingsoon extends Component {
       }
     })
   }
-
+ 
   updateDetails = (e) => {
     const details = this.state.details
     const id = e.currentTarget.id
