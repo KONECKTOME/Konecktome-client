@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
-import '../css/Footer.css'
+import React, { Component } from "react";
+import "../css/Footer.css";
 
 class Footer extends Component {
-  state = {}
+  state = {};
   render() {
     return (
       <div id="footer-wrapper">
-        <p>Konecktome, All rights reserved © 2021</p>
+        <p>© 2021 KONECKTOME. All rights reserved.</p>
       </div>
-    )
+    );
   }
 }
 
-export default Footer
+export default Footer;
