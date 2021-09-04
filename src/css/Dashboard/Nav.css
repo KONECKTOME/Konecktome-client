@@ -1,0 +1,24 @@
+#dashboard-first-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#dashboard-nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.dashboard-nav-item {
+  background: #ffffff;
+  box-shadow: 1px 0px 14px #f2f2f2;
+  border-radius: 5px;
+  width: 375px;
+  height: 50px;
+}
+
+.dashboard-nav-item-for-margin {
+  margin-left: 2rem;
+}
