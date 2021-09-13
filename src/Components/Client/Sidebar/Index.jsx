@@ -15,28 +15,68 @@ import survey_icon from "../../../Assets/survey_icon.svg";
 import get_free_icon from "../../../Assets/get_free_icon.svg";
 import help_center_icon from "../../../Assets/help_center.svg";
 import settings_icon from "../../../Assets/settings_icon.svg";
+import konecktome_icon from "../../../Assets/konecktome-logo.svg";
 import { Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class Index extends Component {
-  state = {};
+  state = {
+    active: false,
+    activeCheckBoxClass: false,
+  };
+
+  activeClass = (e) => {
+    e.preventDefault();
+    this.setState((previousState) => {
+      return {
+        active: !previousState.active,
+        activeCheckBoxClass: !previousState.activeCheckBoxClass,
+      };
+    });
+  };
   render() {
     return (
       <div id="sidebar-wrapper">
+        <div id="logo-wrapper">
+          <img src={konecktome_icon} />
+        </div>
         <div id="sidebar-list">
           <ul>
+            <li id="nav-items-list">
+              <Link to="/dashboard" className="links">
+                <div className={this.state.activeCheckBoxClass ? "active" : ""}>
+                  <Row>
+                    <Col lg={2}>
+                      <div>
+                        <img src={account_icon} />
+                      </div>
+                    </Col>
+                    <Col lg={10}>
+                      <div>
+                        <p className="sidebar-item-paragraph">Dashboard</p>
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
+              </Link>
+            </li>
             <li>
-              <Row>
-                <Col lg={2}>
-                  <div>
-                    <img src={account_icon} />
-                  </div>
-                </Col>
-                <Col lg={10}>
-                  <div>
-                    <p className="sidebar-item-paragraph">My Account</p>
-                  </div>
-                </Col>
-              </Row>
+              <Link to="/account" className="links">
+                <div className={this.state.activeCheckBoxClass ? "active" : ""}>
+                  <Row>
+                    <Col lg={2}>
+                      <div>
+                        <img src={account_icon} />
+                      </div>
+                    </Col>
+                    <Col lg={10}>
+                      <div>
+                        <p className="sidebar-item-paragraph">My Account</p>
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
+              </Link>
             </li>
             <li>
               <Row>
@@ -219,6 +259,12 @@ class Index extends Component {
                   </div>
                 </Col>
               </Row>
+            </li>
+            <li>
+              <div id="sidebar-footer">
+                <p>Privacy Policy</p>
+                <p>Legal Douments</p>
+              </div>
             </li>
           </ul>
         </div>

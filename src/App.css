@@ -8,9 +8,14 @@
   height: 100vh;
   background: #ffffff;
   box-shadow: 1px 0px 14px #f2f2f2;
+  position: fixed;
+  z-index: 1;
+  left: 0px;
+  overflow-x: hidden;
 }
 
 #right-col {
   width: 85%;
   height: 100vh;
+  margin-left: 15%;
 }

@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Poppins medium";
+  src: url(../../Fonts/Poppins-Medium.ttf);
+}
+
+#top-wrapper {
+  margin-top: 3rem;
+}
+
 #dashboard-first-wrapper {
   display: flex;
   justify-content: center;
@@ -8,7 +17,7 @@
 #dashboard-nav-wrapper {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 95%;
 }
 
 .dashboard-nav-item {
@@ -17,6 +26,38 @@
   border-radius: 5px;
   width: 375px;
   height: 50px;
+  padding: 1rem 1rem;
+}
+
+#dashboard_nav_item_inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-item-text {
+  font-family: Poppins medium;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.4;
+}
+
+.nav-item-number {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 24px;
+  color: #ac7bb6;
+}
+
+#dashboard-nav-icon-wrapper {
+  /* background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%); */
+  mix-blend-mode: normal;
+  opacity: 0.9;
 }
 
 .dashboard-nav-item-for-margin {

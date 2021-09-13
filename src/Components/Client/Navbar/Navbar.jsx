@@ -1,0 +1,58 @@
+import React, { Component } from "react";
+import menu_icon from "../../../Assets/Navbar_menu_icon.svg";
+import search_icon from "../../../Assets/navbar_search_icon.svg";
+import notifications_icon from "../../../Assets/notification.svg";
+import placeholder_image from "../../../Assets/nav-placeholder-image.png";
+import dropdown_icon from "../../../Assets/dropdown-icon.svg";
+
+import "../../../css/Navbar/Navbar.css";
+import { Row, Col } from "react-bootstrap";
+
+class Navbar extends Component {
+  state = {};
+  render() {
+    return (
+      <div id="nav-wrapper">
+        <div id="nav-second-wrapper">
+          <div>
+            <img src={menu_icon} />
+          </div>
+          <div id="row-wrapper">
+            <Row>
+              <Col lg={1}>
+                <div className="line-div"></div>
+              </Col>
+              <Col lg={2}>
+                <img src={search_icon} />
+              </Col>
+              <Col lg={1}>
+                <div className="line-div"></div>
+              </Col>
+              <Col lg={2}>
+                <img src={notifications_icon} />
+              </Col>
+              <Col lg={1}>
+                <div className="line-div"></div>
+              </Col>
+              <Col lg={5}>
+                <div id="nav-right-dropdown">
+                  <div id="nav-image">
+                    <img src={placeholder_image} />
+                  </div>
+                  <div>
+                    <p>John</p>
+                  </div>
+                  <div>
+                    <img src={dropdown_icon} />
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Navbar;

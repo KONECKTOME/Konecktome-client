@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Poppins bold";
+  src: url(../../Fonts/Poppins-Bold.ttf);
+}
+
+#dashboard-div {
+  margin: 2rem 0rem 1rem 3rem;
+  font-family: Poppins bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 48px;
+  color: #000000;
+}
+
+#dashboard-hist-acc {
+  width: 95%;
+  margin-left: 3rem;
+  margin-top: 30px;
+}

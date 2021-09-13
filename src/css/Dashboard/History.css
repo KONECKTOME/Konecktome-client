@@ -8,24 +8,14 @@
   src: url(../../Fonts/Rubik-Regular.ttf);
 }
 
-#recommendations-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-#recommendations-second-wrapper {
+#hist-wrapper {
   background: #ffffff;
   box-shadow: 1px 0px 14px #f2f2f2;
   border-radius: 5px;
-  width: 95%;
-  height: auto;
+  padding: 2rem 2rem 2rem 2rem;
 }
 
-#reco-inner {
-  padding: 2rem 2rem;
-}
-
-#reco-header {
+#hist-header-text {
   font-family: Poppins medium;
   font-style: normal;
   font-weight: 600;
@@ -35,32 +25,18 @@
   mix-blend-mode: normal;
   opacity: 0.4;
 }
-#view-all-link {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 10px;
-  color: #00beff;
-}
 
-#reco-header-wrapper {
-  width: 30%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.reco-col {
+.hist-inner-div {
   background: #fafbfd;
   border-radius: 5px;
-  margin: 1rem 1rem;
+  margin-bottom: 0.8rem;
 }
 
-.reco-col-inner {
-  padding: 1rem 1rem;
+#hist-inner-div-textholder {
+  padding: 2rem;
 }
 
-.reco-col-inner-header {
+.hist-text-header {
   font-family: Poppins medium;
   font-style: normal;
   font-weight: 500;
@@ -68,8 +44,20 @@
   line-height: 27px;
   color: #000000;
 }
-.reco-col-inner-sub-text {
-  font-family: Rubik;
+
+.hist-text-date {
+  font-family: Rubik regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.4;
+}
+
+.hist-text-desc {
+  font-family: Rubik regular;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -77,13 +65,4 @@
   color: #000000;
   mix-blend-mode: normal;
   opacity: 0.7;
-}
-
-#icon-wrapper {
-  padding-top: 1rem;
-  /* width: 60px;
-  background: linear-gradient(90.09deg, #fda3d6, #ab7ab6);
-  mix-blend-mode: normal;
-  opacity: 0.9;
-  border-radius: 10px; */
 }

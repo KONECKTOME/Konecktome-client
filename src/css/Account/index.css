@@ -1,0 +1,77 @@
+#account-wrapper {
+  padding: 2rem 2rem 2rem 2rem;
+}
+
+#account-first-inner-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#account-header {
+  font-family: Poppins Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 48px;
+  color: #000000;
+}
+
+#account-first-inner-right-div {
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {
+  margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+.cards {
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.card {
+  background: #ffffff;
+  box-shadow: 1px 0px 14px #f2f2f2;
+  border-radius: 5px;
+  height: 272px;
+}
+/* 
+@media screen and (max-width: 2000px) {
+  .cards {
+    grid-template-columns: 2fr 2fr;
+  }
+} */

@@ -1,0 +1,73 @@
+@font-face {
+  font-family: "Poppins medium";
+  src: url(../../Fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Rubik regular";
+  src: url(../../Fonts/Rubik-Regular.ttf);
+}
+
+#acc-wrapper {
+  background: #ffffff;
+  box-shadow: 1px 0px 14px #f2f2f2;
+  border-radius: 5px;
+  padding: 2rem 2rem 0rem 2rem;
+}
+
+#acc-header-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+#acc-header-text {
+  font-family: Poppins medium;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 36px;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.4;
+}
+
+.acc-nav-inner-text {
+  font-family: Poppins medium;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+}
+
+table {
+  width: 100%;
+}
+
+#acc-line-div {
+  background: #000000;
+  width: 100%;
+  height: 20px;
+  mix-blend-mode: normal;
+  opacity: 0.1;
+  border: 1px solid #000000;
+}
+
+#nav-inner-main-items-wrapper {
+  padding: 0rem 2rem 2rem 2rem;
+}
+
+#star-icon {
+  width: 50%;
+  margin-top: 1rem;
+}
+
+.service-provider-text {
+  margin-top: 1rem;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #00beff;
+}
