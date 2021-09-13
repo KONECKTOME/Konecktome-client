@@ -6,7 +6,9 @@ import placeholder from "../../../Assets/my-placeholder.png";
 import star from "../../../Assets/star-icon.png";
 
 class Accounts extends Component {
-  state = {};
+  state = {
+    test: [1, 2, 3, 5, 6, 7, 8],
+  };
   render() {
     return (
       <div id="acc-wrapper">
@@ -29,125 +31,29 @@ class Accounts extends Component {
                 <p className="acc-nav-inner-text">Joined Date</p>
               </th>
             </tr>
-            <tr>
-              <td>
-                <Row>
-                  <Col lg={2}>
-                    <img src={star} id="star-icon" />
-                  </Col>
-                  <Col lg={3}>
-                    <img src={placeholder} />
-                  </Col>
-                  <Col lg={7}>
-                    <p className="service-provider-text">Service provider</p>
-                  </Col>
-                </Row>
-              </td>
-              <td>Socials</td>
-              <td>15-02-2021</td>
-            </tr>
-            <tr>
-              <td>
-                <Row>
-                  <Col lg={2}>
-                    <img src={star} id="star-icon" />
-                  </Col>
-                  <Col lg={3}>
-                    <img src={placeholder} />
-                  </Col>
-                  <Col lg={7}>
-                    <p className="service-provider-text">Service provider</p>
-                  </Col>
-                </Row>
-              </td>
-              <td>Socials</td>
-              <td>15-02-2021</td>
-            </tr>
-            <tr>
-              <td>
-                <Row>
-                  <Col lg={2}>
-                    <img src={star} id="star-icon" />
-                  </Col>
-                  <Col lg={3}>
-                    <img src={placeholder} />
-                  </Col>
-                  <Col lg={7}>
-                    <p className="service-provider-text">Service provider</p>
-                  </Col>
-                </Row>
-              </td>
-              <td>Socials</td>
-              <td>15-02-2021</td>
-            </tr>
-            <tr>
-              <td>
-                <Row>
-                  <Col lg={2}>
-                    <img src={star} id="star-icon" />
-                  </Col>
-                  <Col lg={3}>
-                    <img src={placeholder} />
-                  </Col>
-                  <Col lg={7}>
-                    <p className="service-provider-text">Service provider</p>
-                  </Col>
-                </Row>
-              </td>
-              <td>Socials</td>
-              <td>15-02-2021</td>
-            </tr>
-            <tr>
-              <td>
-                <Row>
-                  <Col lg={2}>
-                    <img src={star} id="star-icon" />
-                  </Col>
-                  <Col lg={3}>
-                    <img src={placeholder} />
-                  </Col>
-                  <Col lg={7}>
-                    <p className="service-provider-text">Service provider</p>
-                  </Col>
-                </Row>
-              </td>
-              <td>Socials</td>
-              <td>15-02-2021</td>
-            </tr>
-            <tr>
-              <td>
-                <Row>
-                  <Col lg={2}>
-                    <img src={star} id="star-icon" />
-                  </Col>
-                  <Col lg={3}>
-                    <img src={placeholder} />
-                  </Col>
-                  <Col lg={7}>
-                    <p className="service-provider-text">Service provider</p>
-                  </Col>
-                </Row>
-              </td>
-              <td>Socials</td>
-              <td>15-02-2021</td>
-            </tr>
-            <tr>
-              <td>
-                <Row>
-                  <Col lg={2}>
-                    <img src={star} id="star-icon" />
-                  </Col>
-                  <Col lg={3}>
-                    <img src={placeholder} />
-                  </Col>
-                  <Col lg={7}>
-                    <p className="service-provider-text">Service provider</p>
-                  </Col>
-                </Row>
-              </td>
-              <td>Socials</td>
-              <td>15-02-2021</td>
-            </tr>
+            {this.state.test.map((tt) => {
+              return (
+                <tr>
+                  <td>
+                    <Row>
+                      <Col lg={2}>
+                        <img src={star} id="star-icon" />
+                      </Col>
+                      <Col lg={3}>
+                        <img src={placeholder} />
+                      </Col>
+                      <Col lg={7}>
+                        <p className="service-provider-text">
+                          Service provider
+                        </p>
+                      </Col>
+                    </Row>
+                  </td>
+                  <td>Socials</td>
+                  <td>15-02-2021</td>
+                </tr>
+              );
+            })}
           </table>
         </div>
       </div>
