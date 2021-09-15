@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "Poppins medium";
+  src: url(../../Fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Poppins bold";
+  src: url(../../Fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Poppins regular";
+  src: url(../../Fonts/Poppins-Regular.ttf);
+}
+
 #account-wrapper {
   padding: 2rem 2rem 2rem 2rem;
 }
@@ -22,41 +37,6 @@
   justify-content: space-between;
 }
 
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-}
-
-/* Remove extra left and right margins, due to padding in columns */
-.row {
-  margin: 0 -5px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-}
-
-/* Responsive columns - one column layout (vertical) on small screens */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
 .cards {
   margin: 0 auto;
   display: grid;
@@ -67,11 +47,98 @@
   background: #ffffff;
   box-shadow: 1px 0px 14px #f2f2f2;
   border-radius: 5px;
-  height: 272px;
+  height: auto;
+  padding: 1.5rem;
 }
-/* 
+
+#account-card-inner-first-div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+#account-inner-header {
+  font-family: Poppins medium;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 27px;
+  color: #000000;
+}
+
+#acc-inner-desc {
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 21px;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.4;
+}
+
+#account-badge {
+  background: linear-gradient(#fda3d6 0%, #ab7ab6 100%);
+  width: 88px;
+  height: 30px;
+  border-radius: 10%;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+#badge-text {
+  font-family: Avenir;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #5e3ec5;
+}
+
+#card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#account-card-footer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#account-price-text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.6;
+}
+
+#account-price-in-number {
+  font-family: Poppins bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  color: #ac7bb6;
+}
+#account-view-details-text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 36px;
+  color: #ac7bb6;
+}
+
 @media screen and (max-width: 2000px) {
   .cards {
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: repeat(3, 1fr);
   }
-} */
+}

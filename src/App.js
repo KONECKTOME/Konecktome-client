@@ -7,6 +7,7 @@ import Index from "./Components/Client/Sidebar/Index";
 import Dashboard_home from "./Components/Client/Dashboard/Dashboard_home";
 import Explore_home from "./Components/Client/Explore/Explore_home";
 import Account_home from "./Components/Client/Account/Account_home";
+import Details_home from "./Components/Client/Details/Details_home";
 import Navbar from "./Components/Client/Navbar/Navbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../src/App.css";
@@ -24,6 +25,7 @@ function App() {
             <Navbar />
             <Route path="/dashboard" exact component={Dashboard_home} />
             <Route path="/account" exact component={Account_home} />
+            <Route path="/details" exact component={Details_home} />
             <Route path="/explore" exact component={Explore_home} />
           </div>
         </div>
