@@ -15,8 +15,12 @@ class Account_home extends React.Component {
             <p id="account-header">My Accounts</p>
           </div>
           <div id="account-first-inner-right-div">
-            <div>All</div>
-            <div>Private Listings</div>
+            <div>
+              <p className="account-header-right-options">All</p>
+            </div>
+            <div>
+              <p className="account-header-right-options">Private Listings</p>
+            </div>
           </div>
         </div>
 

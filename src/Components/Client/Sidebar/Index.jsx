@@ -95,18 +95,20 @@ class Index extends Component {
               </Link>
             </li>
             <li>
-              <Row>
-                <Col lg={2}>
-                  <div>
-                    <img src={explore_icon} />
-                  </div>
-                </Col>
-                <Col lg={10}>
-                  <div>
-                    <p className="sidebar-item-paragraph">Explore</p>
-                  </div>
-                </Col>
-              </Row>
+              <Link to="/explore" className="links">
+                <Row>
+                  <Col lg={2}>
+                    <div>
+                      <img src={explore_icon} />
+                    </div>
+                  </Col>
+                  <Col lg={10}>
+                    <div>
+                      <p className="sidebar-item-paragraph">Explore</p>
+                    </div>
+                  </Col>
+                </Row>
+              </Link>
             </li>
             <li>
               <Row>

@@ -12,6 +12,7 @@ class Details_home extends React.Component {
   render() {
     return (
       <div id="details-wrapper">
+        <p id="details-header">My details</p>
         <div className="details-cards">
           <div className="details-card">
             <div className="details-card-inner-div">
