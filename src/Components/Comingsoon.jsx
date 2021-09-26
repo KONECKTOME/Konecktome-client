@@ -42,7 +42,8 @@ class Comingsoon extends Component {
     const response = await fetch("http://localhost:3002/mail/transactional", {
       method: "POST",
       body: JSON.stringify({
-        name: this.state.details.name,
+        fName: this.state.details.firstName,
+        lName: this.state.details.lastName,
         email: this.state.details.email,
       }),
       headers: {
@@ -58,7 +59,8 @@ class Comingsoon extends Component {
     const response = await fetch("http://localhost:3002/mail/new-user", {
       method: "POST",
       body: JSON.stringify({
-        name: this.state.details.name,
+        fName: this.state.details.firstName,
+        lName: this.state.details.lastName,
         email: this.state.details.email,
       }),
       headers: {
@@ -118,7 +120,8 @@ class Comingsoon extends Component {
         });
         this.setState({
           details: {
-            name: "",
+            firstName: "",
+            lastName: "",
             email: "",
           },
           successText: true,
@@ -131,7 +134,8 @@ class Comingsoon extends Component {
       } else if (this.state.subscribe === false) {
         this.setState({
           details: {
-            name: "",
+            firstName: "",
+            lastName: "",
             email: "",
           },
           successText: true,
