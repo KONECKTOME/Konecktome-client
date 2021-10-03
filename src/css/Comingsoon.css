@@ -20,7 +20,7 @@
 }
 
 #right-col2 {
-  margin-top: 16rem;
+  margin-top: 10rem;
 }
 
 #coming-soon-text {
@@ -111,7 +111,7 @@ input[type="email"]:focus {
   line-height: 24px;
   text-align: center;
   color: #ffffff;
-  width: 90%;
+  width: 95%;
   height: 60px;
 }
 
@@ -122,14 +122,38 @@ input[type="email"]:focus {
   width: 100px;
 }
 
+@keyframes stretch {
+  0% {
+    background-color: #fda3d6;
+  }
+  100% {
+    background-color: #ff4136;
+  }
+}
+
 #no-text-error {
+  font-family: Poppins;
   text-align: center;
   font-size: 20px;
   font-weight: 600;
-  color: red;
+  background-color: red;
+  color: #000000;
+  border-radius: 90em;
+  padding: 0.5rem 1.1rem 0.5rem 1.1rem;
+  width: 95%;
+  margin-top: 1rem;
+  animation-name: stretch;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
 }
 
 #invalid-email-error {
+  font-family: Poppins bold;
   text-align: center;
   font-size: 20px;
   font-weight: 600;
@@ -137,10 +161,26 @@ input[type="email"]:focus {
 }
 
 #success-text {
+  font-family: Poppins;
   text-align: center;
   font-size: 20px;
   font-weight: 600;
-  color: green;
+  background-color: green;
+  border-radius: 90em;
+  padding: 0.5rem 1.1rem 0.5rem 1.1rem;
+  width: 95%;
+  margin-top: 1.2rem;
+}
+#email-exists {
+  font-family: Poppins;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: lightgray;
+  border-radius: 90em;
+  padding: 0.5rem 1.1rem 0.5rem 1.1rem;
+  width: 95%;
+  margin-top: 1.2rem;
 }
 
 #checkbox-wrapper {

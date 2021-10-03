@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import illustration from "../Assets/jumbo.svg";
+import illustration from "../Assets/wheel-vector.svg";
 import "../css/Comingsoon.css";
 import facebook from "../Assets/facebookIcon.svg";
 import linkedIn from "../Assets/linkedinIcon.svg";
@@ -111,7 +111,8 @@ class Comingsoon extends Component {
         const response = await fetch("http://localhost:3002/mail/marketing", {
           method: "POST",
           body: JSON.stringify({
-            name: this.state.details.name,
+            fName: this.state.details.firstName,
+            lName: this.state.details.lastName,
             email: this.state.details.email,
           }),
           headers: {
@@ -202,24 +203,40 @@ class Comingsoon extends Component {
                 </div> */}
                 <p>{this.state.checkText}</p>
                 {this.state.noTextError === true ? (
-                  <p id="no-text-error">Fields cannot be empty.</p>
+                  <div>
+                    <div id="no-text-error">
+                      <p>Bummer, text fields cannot be empty.</p>
+                    </div>
+                  </div>
                 ) : (
                   <p></p>
                 )}
                 {this.state.invalidEmailError === true ? (
-                  <p id="invalid-email-error">Invalid email</p>
+                  <div>
+                    <div id="no-text-error">
+                      <p>oops, email is invalid...</p>
+                    </div>
+                  </div>
                 ) : (
                   <p></p>
                 )}
                 {this.state.successText === true ? (
-                  <p id="success-text">
-                    You have successfully signed up on our platform.
-                  </p>
+                  <div>
+                    <div id="success-text">
+                      <p>
+                        That's what we like to see, sign up is successful !!!
+                      </p>
+                    </div>
+                  </div>
                 ) : (
                   <p></p>
                 )}
                 {this.state.emailExists === true ? (
-                  <p id="no-text-error">This email already exists.</p>
+                  <div>
+                    <div id="email-exists">
+                      <p>Yup, we've met before. Your email already exists!!!</p>
+                    </div>
+                  </div>
                 ) : (
                   <p></p>
                 )}
