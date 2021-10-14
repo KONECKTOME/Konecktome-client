@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Poppins regular";
+  src: url(../Fonts/Poppins-Regular.ttf);
+}
+
+#success-right-col-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#success-right-col-inner-wrapper {
+  width: 60%;
+}
+
+p {
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #2d2d2d;
+}

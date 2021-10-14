@@ -1,17 +1,16 @@
 import ComingSoon from "./Components/Comingsoon";
 import Navbar from "./Components/Navbar";
-import About from "./Components/About";
-import Footer from "./Components/Footer";
-import FooterForm from "./Components/FooterForm";
+import Coming_soon_home from "./Components/Coming_soon_home";
+import Success from "./Components/Success";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <ComingSoon />
-      <About />
-      <FooterForm />
-      <Footer />
+      <Router>
+        <Route path="/" exact component={Coming_soon_home} />
+        <Route path="/success" exact component={Success} />
+      </Router>
     </div>
   );
 }
