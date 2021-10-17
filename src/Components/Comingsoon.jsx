@@ -5,6 +5,10 @@ import "../css/Comingsoon.css";
 import facebook from "../Assets/facebookIcon.svg";
 import linkedIn from "../Assets/linkedinIcon.svg";
 import checkBoxIcon from "../Assets/check_mark.png";
+import Animation from "../Animation/Circles_Hover_Animation.json";
+import Lottie from "react-lottie";
+import { withRouter } from "react-router-dom";
+
 class Comingsoon extends Component {
   state = {
     details: {
@@ -19,6 +23,8 @@ class Comingsoon extends Component {
     subscribe: false,
     errorSendingEmail: false,
     subscribeCheckBoxClass: false,
+    isStopped: false,
+    isPaused: false,
   };
 
   checkBox = (e) => {
@@ -40,6 +46,22 @@ class Comingsoon extends Component {
 
   sendTransactionalEmail = async () => {
     const response = await fetch("http://localhost:3002/mail/transactional", {
+      method: "POST",
+      body: JSON.stringify({
+        fName: this.state.details.firstName,
+        lName: this.state.details.lastName,
+        email: this.state.details.email,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    const details = await response.json();
+    return details.message;
+  };
+
+  sendMartketingEmail = async () => {
+    const response = await fetch("http://localhost:3002/mail/marketing", {
       method: "POST",
       body: JSON.stringify({
         fName: this.state.details.firstName,
@@ -97,7 +119,11 @@ class Comingsoon extends Component {
       }, 1200);
     } else if (details.message === "Sign up successful") {
       const sendEmail = this.sendTransactionalEmail();
-      if (sendEmail === "Error sending email") {
+      const sendMartketingEmail = this.sendMartketingEmail();
+      if (
+        sendEmail === "Error sending email" ||
+        sendMartketingEmail === "An errored in adding to mail list"
+      ) {
         this.setState({
           errorSendingEmail: true,
         });
@@ -106,33 +132,7 @@ class Comingsoon extends Component {
             errorSendingEmail: false,
           });
         }, 1200);
-      }
-      if (this.state.subscribe === true) {
-        const response = await fetch("http://localhost:3002/mail/marketing", {
-          method: "POST",
-          body: JSON.stringify({
-            fName: this.state.details.firstName,
-            lName: this.state.details.lastName,
-            email: this.state.details.email,
-          }),
-          headers: {
-            "Content-type": "application/json",
-          },
-        });
-        this.setState({
-          details: {
-            firstName: "",
-            lastName: "",
-            email: "",
-          },
-          successText: true,
-        });
-        setTimeout(() => {
-          this.setState({
-            successText: false,
-          });
-        }, 1200);
-      } else if (this.state.subscribe === false) {
+      } else {
         this.setState({
           details: {
             firstName: "",
@@ -150,12 +150,29 @@ class Comingsoon extends Component {
     }
   };
   render() {
+    const defaultOptions = {
+      loop: true,
+      autoplay: true,
+      animationData: Animation,
+      rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+      },
+    };
     return (
       <div id="landing-wrapper">
         <Container>
           <Row>
-            <Col id="left-col2">
+            <Col id="left-col2" lg={5}>
               <h3 id="coming-soon-text">Coming soon</h3>
+              <div id="mobile-animation">
+                <Lottie
+                  options={defaultOptions}
+                  height={window.innerWidth < 600 ? 300 : 500}
+                  width={window.innerWidth < 600 ? 300 : 600}
+                  isStopped={this.state.isStopped}
+                  isPaused={this.state.isPaused}
+                />
+              </div>
               <h3 id="get-notified-text">
                 Get notified when <br></br> we launch
               </h3>
@@ -253,8 +270,21 @@ class Comingsoon extends Component {
                 </div>
               </div>
             </Col>
-            <Col id="right-col2">
-              <img src={illustration} />
+            <Col
+              id="right-col2"
+              lg={7}
+              // onMouseEnter={() => this.setState({ isStopped: false })}
+              onMouseEnter={() =>
+                this.setState({ isPaused: !this.state.isPaused })
+              }
+            >
+              <Lottie
+                options={defaultOptions}
+                height={750}
+                width={900}
+                isStopped={this.state.isStopped}
+                isPaused={this.state.isPaused}
+              />
             </Col>
           </Row>
         </Container>
@@ -263,4 +293,4 @@ class Comingsoon extends Component {
   }
 }
 
-export default Comingsoon;
+export default withRouter(Comingsoon);

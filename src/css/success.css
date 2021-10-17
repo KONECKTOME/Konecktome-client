@@ -2,20 +2,38 @@
   font-family: "Poppins regular";
   src: url(../Fonts/Poppins-Regular.ttf);
 }
+@font-face {
+  font-family: "Poppins bold";
+  src: url(../Fonts/Poppins-Bold.ttf);
+}
+
+#success-right-col {
+  margin-top: 150px;
+  padding: 1rem 2rem;
+}
 
 #success-right-col-wrapper {
   display: flex;
   justify-content: center;
 }
 
+#success-header {
+  font-family: Poppins bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
 #success-right-col-inner-wrapper {
-  width: 60%;
+  text-align: center;
+  width: 100%;
+  margin-top: 30px;
 }
 
 p {
-  font-family: Poppins regular;
+  font-family: Poppins;
   font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 26px;
   color: #2d2d2d;
 }

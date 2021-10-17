@@ -20,7 +20,11 @@
 }
 
 #right-col2 {
-  margin-top: 10rem;
+  margin-top: 1rem;
+}
+
+#mobile-animation {
+  display: none;
 }
 
 #coming-soon-text {
@@ -252,30 +256,35 @@ input[type="email"]:focus {
   cursor: pointer;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+@media screen and (max-width: 700px) {
   #landing-wrapper {
-    width: 100vw;
-    height: 90vh;
+    padding: 3rem 3rem;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
     mix-blend-mode: normal;
     opacity: 0.9;
   }
   #left-col2 {
-    margin-top: 8px;
+    margin-top: 1px;
   }
   #right-col2 {
     display: none;
   }
+  #mobile-animation {
+    display: block;
+  }
   #coming-soon-text {
-    margin-top: 3rem;
+    margin-top: 2rem;
     font-size: 26px;
     text-align: center;
   }
   #get-notified-text {
     text-align: center;
-    font-size: 37px;
-    margin-bottom: 2rem;
+    font-size: 26px;
+    margin-bottom: 3rem;
     margin-top: 0.2rem;
+    line-height: 40px;
   }
   input[type="text"] {
     width: 100%;
@@ -298,6 +307,7 @@ input[type="email"]:focus {
   }
   #icons-wrapper {
     margin-top: 2rem;
+    margin-bottom: 2rem;
     width: 30%;
   }
   #checkbox-wrapper {
@@ -320,19 +330,20 @@ input[type="email"]:focus {
   }
 }
 
-/* Ipad*/
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+@media screen and (min-width: 600px) and (max-width: 768px) {
   #landing-wrapper {
-    padding-top: 10rem;
-    height: 90vh;
-    width: 100vw;
+    padding: 3rem 3rem;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
     mix-blend-mode: normal;
     opacity: 0.9;
   }
   #right-col2 {
     display: none;
+  }
+  #mobile-animation {
+    display: block;
   }
   #coming-soon-text {
     font-size: 26px;
@@ -343,7 +354,6 @@ input[type="email"]:focus {
   .col-md-2 {
     width: 100% !important;
   }
-
   #firstName {
     margin-bottom: 1rem;
   }
@@ -352,12 +362,12 @@ input[type="email"]:focus {
     font-size: 30px;
   }
   input[type="email"] {
-    margin-top: 3rem;
+    margin-top: 1rem;
     width: 100%;
     font-size: 30px;
   }
   input::placeholder {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
   }
   input[type="text"]:active,
@@ -369,7 +379,7 @@ input[type="email"]:focus {
     font-size: 30px;
   }
   #btn {
-    margin-top: 3rem;
+    margin-top: 2rem;
     font-size: 26px;
     width: 100%;
   }
@@ -397,6 +407,79 @@ input[type="email"]:focus {
 
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
   #landing-wrapper {
+    padding: 3rem 3rem;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+    mix-blend-mode: normal;
+    opacity: 0.9;
+  }
+  .col-lg-5 {
+    width: 100% !important;
+  }
+  #right-col2 {
+    display: none;
+  }
+  #mobile-animation {
+    display: block;
+  }
+  #coming-soon-text {
+    font-size: 26px;
+  }
+  #get-notified-text {
+    font-size: 50px;
+  }
+  .col-md-2 {
+    width: 100% !important;
+  }
+  #firstName {
+    margin-bottom: 1rem;
+  }
+  input[type="text"] {
+    width: 100%;
+    font-size: 30px;
+  }
+  input[type="email"] {
+    margin-top: 1rem;
+    width: 100%;
+    font-size: 30px;
+  }
+  input::placeholder {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  input[type="text"]:active,
+  input[type="text"]:focus {
+    font-size: 30px;
+  }
+  input[type="email"]:active,
+  input[type="email"]:focus {
+    font-size: 30px;
+  }
+  #btn {
+    margin-top: 2rem;
+    font-size: 26px;
+    width: 100%;
+  }
+  #checkbox-wrapper {
+    margin-top: 3rem;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+  }
+  #checkbox-text {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 17px;
+    align-items: center;
+    letter-spacing: 1px;
+    color: #2d2d2d;
+  }
+  /* #landing-wrapper {
     padding-top: 10rem;
     height: 90vh;
     background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
@@ -404,8 +487,7 @@ input[type="email"]:focus {
     opacity: 0.9;
   }
   #right-col2 {
-    display: inline-block;
-    padding-top: 21rem;
+    display: none;
   }
   #left-col2 {
     padding-top: 15rem;
@@ -454,5 +536,5 @@ input[type="email"]:focus {
     align-items: center;
     letter-spacing: 1px;
     color: #2d2d2d;
-  }
+  } */
 }
