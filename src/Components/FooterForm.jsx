@@ -153,7 +153,7 @@ class FooterForm extends Component {
               <Row>
                 <Col lg={6}>
                   <h1 id="mail-list-text">
-                    Join our mailing list and get notified when we launch
+                    Join our mailing list and get notified when we launch.
                   </h1>
                 </Col>
                 <Col lg={6}>
