@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../../css/Explore/Explore_home.css";
 import image_placeholder from "../../../Assets/account-card-placeholder.png";
 import wishlist_icon from "../../../Assets/wishlist-card-icon.svg";
+import { Link } from "react-router-dom";
 
 class Explore_home extends Component {
   state = {
@@ -59,15 +60,20 @@ class Explore_home extends Component {
                         <p id="account-price-text"> Price</p>
                         <p id="account-price-in-number">£500</p>
                       </div>
-                      <div id="explore-view-button">
-                        <p id="view-button-text">View</p>
-                      </div>
+                      <Link className="links" to="/explore/details">
+                        <div id="explore-view-button">
+                          <p id="view-button-text">View</p>
+                        </div>
+                      </Link>
                     </div>
                   </div>
                 );
               })}
             </div>
             {/* <div className="pagination-button">dhdh</div> */}
+          </div>
+          <div>
+            <div>dhdh</div>
           </div>
         </div>
       </div>

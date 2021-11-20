@@ -12,6 +12,7 @@ import Navbar from "./Components/Client/Navbar/Navbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../src/App.css";
 import { Row, Col } from "react-bootstrap";
+import Explore_details from "./Components/Client/Explore/Explore_details";
 
 function App() {
   return (
@@ -23,10 +24,11 @@ function App() {
           </div>
           <div id="right-col">
             <Navbar />
-            <Route path="/dashboard" exact component={Dashboard_home} />
+            <Route path="/" exact component={Dashboard_home} />
             <Route path="/account" exact component={Account_home} />
             <Route path="/details" exact component={Details_home} />
             <Route path="/explore" exact component={Explore_home} />
+            <Route path="/explore/details" exact component={Explore_details} />
           </div>
         </div>
       </Router>
