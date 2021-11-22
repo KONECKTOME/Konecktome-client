@@ -8,6 +8,7 @@ import Dashboard_home from "./Components/Client/Dashboard/Dashboard_home";
 import Explore_home from "./Components/Client/Explore/Explore_home";
 import Account_home from "./Components/Client/Account/Account_home";
 import Details_home from "./Components/Client/Details/Details_home";
+import History_home from "./Components/Client/History/History_home";
 import Navbar from "./Components/Client/Navbar/Navbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../src/App.css";
@@ -29,6 +30,7 @@ function App() {
             <Route path="/details" exact component={Details_home} />
             <Route path="/explore" exact component={Explore_home} />
             <Route path="/explore/details" exact component={Explore_details} />
+            <Route path="/history" exact component={History_home} />
           </div>
         </div>
       </Router>

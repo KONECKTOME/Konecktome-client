@@ -43,7 +43,7 @@ class Index extends Component {
         <div id="sidebar-list">
           <ul>
             <li id="nav-items-list">
-              <Link to="/dashboard" className="links">
+              <Link to="/" className="links">
                 <div className={this.state.activeCheckBoxClass ? "active" : ""}>
                   <Row>
                     <Col lg={2}>
@@ -111,18 +111,20 @@ class Index extends Component {
               </Link>
             </li>
             <li>
-              <Row>
-                <Col lg={2}>
-                  <div>
-                    <img src={history_icon} />
-                  </div>
-                </Col>
-                <Col lg={10}>
-                  <div>
-                    <p className="sidebar-item-paragraph">History</p>
-                  </div>
-                </Col>
-              </Row>
+              <Link to="/history" className="links">
+                <Row>
+                  <Col lg={2}>
+                    <div>
+                      <img src={history_icon} />
+                    </div>
+                  </Col>
+                  <Col lg={10}>
+                    <div>
+                      <p className="sidebar-item-paragraph">History</p>
+                    </div>
+                  </Col>
+                </Row>
+              </Link>
             </li>
             <li>
               <Row>
