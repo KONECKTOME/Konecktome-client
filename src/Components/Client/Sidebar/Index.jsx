@@ -147,11 +147,13 @@ class Index extends Component {
                     <img src={account_icon} />
                   </div>
                 </Col>
-                <Col lg={10}>
-                  <div>
-                    <p className="sidebar-item-paragraph">Recommendations</p>
-                  </div>
-                </Col>
+                <Link to="/recommendations" className="links">
+                  <Col lg={10}>
+                    <div>
+                      <p className="sidebar-item-paragraph">Recommendation</p>
+                    </div>
+                  </Col>
+                </Link>
               </Row>
             </li>
             <li>
@@ -252,20 +254,22 @@ class Index extends Component {
                 </Col>
               </Row>
             </li>
-            <li>
-              <Row>
-                <Col lg={2}>
-                  <div>
-                    <img src={settings_icon} />
-                  </div>
-                </Col>
-                <Col lg={10}>
-                  <div>
-                    <p className="sidebar-item-paragraph">Settings</p>
-                  </div>
-                </Col>
-              </Row>
-            </li>
+            <Link to="/settings" className="links">
+              <li>
+                <Row>
+                  <Col lg={2}>
+                    <div>
+                      <img src={settings_icon} />
+                    </div>
+                  </Col>
+                  <Col lg={10}>
+                    <div>
+                      <p className="sidebar-item-paragraph">Settings</p>
+                    </div>
+                  </Col>
+                </Row>
+              </li>
+            </Link>
             <li>
               <div id="sidebar-footer">
                 <p>Privacy Policy</p>

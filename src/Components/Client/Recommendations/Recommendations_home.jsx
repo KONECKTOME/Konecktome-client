@@ -1,17 +1,16 @@
 import React, { Component } from "react";
-import "../../../css/Explore/Explore_home.css";
+import "../../../css/Recommendations/index.css";
 import image_placeholder from "../../../Assets/account-card-placeholder.png";
 import wishlist_icon from "../../../Assets/wishlist-card-icon.svg";
 import { Link } from "react-router-dom";
-
-class Explore_home extends Component {
+class Recommendations_home extends React.Component {
   state = {
-    test: [1, 2, 4],
+    test: [1, 2, 3],
   };
   render() {
     return (
-      <div id="explore-wrapper">
-        <p id="explore-header">Explore</p>
+      <div id="rec-wrapper">
+        <p id="explore-header">Broadband</p>
         <div id="form-div">
           <form>
             <input
@@ -26,7 +25,7 @@ class Explore_home extends Component {
           {/* <div id="explore-dropdown-div">dropdown placeholder</div> */}
         </div>
         <div id="explore-inner-div">
-          <p id="explore-inner-header">Top 10 services</p>
+          <p id="explore-inner-header">Top recommended services</p>
           <div id="explore-cards-pagination-wrapper">
             {/* <div className="pagination-button">dhdh</div> */}
             <div className="explore-cards">
@@ -60,11 +59,10 @@ class Explore_home extends Component {
                         <p id="account-price-text"> Price</p>
                         <p id="account-price-in-number">£500</p>
                       </div>
-                      <Link className="links" to="/explore/details">
-                        <div id="explore-view-button">
-                          <p id="view-button-text">View</p>
-                        </div>
-                      </Link>
+
+                      <div id="explore-view-button">
+                        <p id="view-button-text">Buy</p>
+                      </div>
                     </div>
                   </div>
                 );
@@ -78,4 +76,4 @@ class Explore_home extends Component {
   }
 }
 
-export default Explore_home;
+export default Recommendations_home;

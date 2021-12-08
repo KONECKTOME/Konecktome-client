@@ -1,0 +1,83 @@
+#modal_close_btn {
+  text-align: right;
+  color: #2d2d2d;
+  font-size: 18px;
+  font-family: Poppins bold;
+  font-style: normal;
+}
+
+#settings_modal_wrapper {
+}
+
+#settings_modal_header {
+  font-family: Poppins bold;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+#settings_modal_subheader {
+  font-family: Poppins;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.7;
+}
+
+#settings_modal_form_container {
+  display: flex;
+  justify-content: center;
+}
+#settings_modal_form_subcontainer {
+  background: #f6f6f8;
+  border-radius: 5px;
+  width: 400px;
+  height: 50px;
+}
+
+#settings_modal_form {
+}
+
+#settings_modal_form > input {
+  border: none;
+  width: 444px;
+  height: 50px;
+}
+#setting_modal_form_button_wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px 20px 0px;
+  cursor: pointer;
+}
+
+#settings_modal_form_button {
+  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+  border-radius: 30px;
+  width: 410px;
+  height: 50px;
+}
+
+#settings_modal_form_button_text {
+  text-align: center;
+  padding: 1rem 0rem 1rem 0rem;
+  font-family: Poppins;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 27px;
+  color: #ffffff;
+}
+
+#settings_modal_forgotten_password {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: #ab7ab6;
+}

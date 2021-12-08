@@ -1,5 +1,4 @@
 import ComingSoon from "./Components/Comingsoon";
-
 import About from "./Components/About";
 import Footer from "./Components/Footer";
 import FooterForm from "./Components/FooterForm";
@@ -10,6 +9,9 @@ import Account_home from "./Components/Client/Account/Account_home";
 import Details_home from "./Components/Client/Details/Details_home";
 import History_home from "./Components/Client/History/History_home";
 import Navbar from "./Components/Client/Navbar/Navbar";
+import Explore_comparison from "./Components/Client/Explore/Explore_comparison";
+import Recommendations_home from "./Components/Client/Recommendations/Recommendations_home";
+import Settings_home from "./Components/Client/Settings/Settings_home";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../src/App.css";
 import { Row, Col } from "react-bootstrap";
@@ -31,6 +33,17 @@ function App() {
             <Route path="/explore" exact component={Explore_home} />
             <Route path="/explore/details" exact component={Explore_details} />
             <Route path="/history" exact component={History_home} />
+            <Route path="/settings" exact component={Settings_home} />
+            <Route
+              path="/recommendations"
+              exact
+              component={Recommendations_home}
+            />
+            <Route
+              path="/explore/compare"
+              exact
+              component={Explore_comparison}
+            />
           </div>
         </div>
       </Router>

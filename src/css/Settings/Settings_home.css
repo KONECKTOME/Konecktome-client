@@ -1,0 +1,34 @@
+#settings_home_wrapper {
+  padding: 2rem 2rem 2rem 2rem;
+}
+
+#settings_home_header {
+  font-family: Poppins bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 48px;
+  color: #000000;
+}
+
+#settings_home_subcontainer {
+  background: #ffffff;
+  box-shadow: 1px 0px 14px #f2f2f2;
+  border-radius: 5px;
+  padding: 2rem 0rem 0rem 3rem;
+}
+
+#settings_home_row {
+}
+
+.settings_navbar {
+  cursor: pointer;
+}
+
+.settings_navbar_active {
+  background: black;
+}
+
+.settings_navbar_inactive {
+  background: blue;
+}
