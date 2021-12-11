@@ -1,2 +1,110 @@
 #settings_profile_wrapper {
+  margin-top: 4rem;
+}
+
+#settings_profile_inner_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+#settings-profile-image-container {
+  width: 30%;
+}
+
+#settings-profile-details-container {
+  width: 70%;
+}
+
+#settings-profile-image-sub-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+#settings_profile_image {
+  width: 100%;
+  height: auto;
+}
+
+#settings_profile_edit_icon {
+  position: absolute;
+  height: 100%;
+  width: 25%;
+  top: 60px;
+  bottom: 0;
+  left: 120px;
+  right: 0;
+}
+
+#profile-image-user-details {
+  margin: 3rem 0rem 1rem 4rem;
+}
+
+#profile-image-user-details-name {
+  font-family: Poppins bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  color: #000000;
+}
+
+#profile-image-user-details-profession {
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+.form-labels {
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.6;
+}
+
+.settings-profile-input-container {
+  border-radius: 4px;
+  height: 40px;
+  width: 250px;
+}
+
+.settings-profile-input-container > input {
+  border: none;
+  background: #f6f6f8;
+  width: 250px;
+  height: 40px;
+}
+
+.settings-profile-input-label-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+#settings-profile-button {
+  margin: 16rem 5rem 3rem 0rem;
+  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+  border-radius: 25px;
+  height: 50px;
+  padding: 1rem 0rem 1rem 0rem;
+}
+
+#settings-profile-button > p {
+  text-align: center;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
 }
