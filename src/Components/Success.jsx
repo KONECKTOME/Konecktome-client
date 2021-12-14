@@ -9,7 +9,7 @@ class Sucess extends React.Component {
     return (
       <div i>
         <Row>
-          <Col>
+          <Col id="success-left-col">
             <img src={coming_soon_left_col_image} />
           </Col>
           <Col id="success-right-col">
