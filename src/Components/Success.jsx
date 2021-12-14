@@ -21,7 +21,7 @@ class Sucess extends React.Component {
                 <p id="success-header">
                   Confirmed! You’re on the newsletter list!
                 </p>
-                <p>Thanks [User’s first name] for being awesome!</p>
+                <p>Thanks for being awesome!</p>
                 <p>
                   You’ll be receiving our congratulatory email from us shortly,
                   so make sure to keep a lookout for it! Don’t forget to check
