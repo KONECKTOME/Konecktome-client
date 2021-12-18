@@ -1,0 +1,29 @@
+#settimgs_payement_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.settings_payment_boxes {
+  width: 48%;
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+#settings_payment_right-box {
+  margin-right: 2rem;
+}
+
+#settings_payment_box_header {
+  display: flex;
+  justify-content: space-between;
+  font-family: Poppins Bold;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}

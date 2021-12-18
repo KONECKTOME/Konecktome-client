@@ -1,0 +1,48 @@
+#settings_confirmation_modal_wrapper {
+}
+
+#settings_confirmation_modal_subheader {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.7;
+}
+
+#settings_confirmation_modal_checkbox_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+#settings_profile_confirmation_modal-service-provider-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#settings-profile-confirmation-modal-image-sub-container {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+#settings_profile_modal_confirmation_image {
+  width: 100%;
+  height: auto;
+}
+
+#settings_profile_modal_confirmation-service-provider-name {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #00beff;
+}

@@ -85,14 +85,14 @@ class Settings_home extends React.Component {
   render() {
     return (
       <div>
-        {/* {this.state.showModal === true ? (
+        {this.state.showModal === true ? (
           <SettingsModal
             modalState={this.state.showModal}
             hideModal={() => this.hideModal()}
           />
         ) : (
           <div></div>
-        )} */}
+        )}
         <div id="settings_home_wrapper">
           <p id="settings_home_header">Settings</p>
           <div id="settings_home_subcontainer">

@@ -110,10 +110,14 @@ class Settings_profile extends React.Component {
             </form>
           </div>
         </div>
-        <Settings_save_changes_modal
-          showSaveChangesModal={this.state.showSaveChangesModal}
-          hideSaveChangesModal={() => this.hideSaveChangesModal()}
-        />
+        {this.state.showSaveChangesModal === true ? (
+          <Settings_save_changes_modal
+            showSaveChangesModal={this.state.showSaveChangesModal}
+            hideSaveChangesModal={() => this.hideSaveChangesModal()}
+          />
+        ) : (
+          <div></div>
+        )}
       </div>
     );
   }
