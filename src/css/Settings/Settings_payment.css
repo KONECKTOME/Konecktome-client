@@ -27,3 +27,84 @@
   align-items: center;
   color: #000000;
 }
+
+#settings_payment_user_details {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.settings_payment_user_details_inner_div {
+  margin-bottom: 2rem;
+}
+
+.settings_payment_user_details_label {
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.settings_payment_user_details_response {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}
+
+#settings_payment_right_box_inner_div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#settings_payment_right_box_inner_div_payment_card {
+  width: 60%;
+  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+#settings_payment_right_box_inner_div_payment_card_numbers_wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.settings_payment_right_box_inner_div_payment_card_numbers {
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 10px;
+  color: #ffffff;
+}
+
+#settings_payment_right_box_inner_div_payment_card_header {
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+#settings_payment_right_box_inner_div_card_instructions {
+  width: 30%;
+  font-family: Poppins;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 26px;
+  margin: 2rem;
+  text-align: center;
+
+  color: #000000;
+
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
