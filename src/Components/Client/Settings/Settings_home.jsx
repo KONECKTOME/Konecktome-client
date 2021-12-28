@@ -146,6 +146,7 @@ class Settings_home extends React.Component {
                 </p>
               </Col>
             </Row>
+            <hr></hr>
             {this.state.profile === true ? <Settings_profile /> : <div></div>}
             {this.state.account === true ? <Settings_account /> : <div></div>}
             {this.state.paymentDetails === true ? (

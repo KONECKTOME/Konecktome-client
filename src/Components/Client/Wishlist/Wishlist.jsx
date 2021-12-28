@@ -10,7 +10,7 @@ class Wishlist extends React.Component {
   render() {
     return (
       <div id="favourites_wrapper">
-        <p id="explore-header">Favorites</p>
+        <p id="explore-header">My wishlist</p>
         <div className="explore-cards">
           {this.state.test.map((tt) => {
             return (

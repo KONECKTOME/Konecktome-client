@@ -79,6 +79,11 @@
   opacity: 0.7;
 }
 
+#dashboard_reco_accordion_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 #icon-wrapper {
   padding-top: 1rem;
   /* width: 60px;
@@ -86,4 +91,30 @@
   mix-blend-mode: normal;
   opacity: 0.9;
   border-radius: 10px; */
+}
+
+#dashboard-reco-accordion-image-sub-container {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+#dashboard-reco-accordion_profile_image {
+  width: 100%;
+  height: auto;
+}
+
+#dashboard-reco-accordion-text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #00beff;
+}
+
+#dashboard_reco_accordion_inner_wrapper {
+  width: 50%;
 }

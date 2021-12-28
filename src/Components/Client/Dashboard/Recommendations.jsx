@@ -6,6 +6,7 @@ import mortgage_icon from "../../../Assets/reco-mortgage.svg";
 import pet_icon from "../../../Assets/reco-pet-icon.svg";
 import health_icon from "../../../Assets/reco-health.svg";
 import car_icon from "../../../Assets/reco-car-insurance.svg";
+import profileSettingPlaceholder from "../../../Assets/Quadri.jpg";
 import { Row, Col } from "react-bootstrap";
 
 class Recommendations extends Component {
@@ -44,6 +45,30 @@ class Recommendations extends Component {
                                 Lorem ipsum is simply a dummy text of printing
                                 and typesetting industry
                               </p>
+                              <hr></hr>
+                              <div id="dashboard_reco_accordion_wrapper">
+                                <div id="dashboard_reco_accordion_inner_wrapper">
+                                  <p>Company</p>
+                                  <Row>
+                                    <Col>
+                                      <div id="dashboard-reco-accordion-image-sub-container">
+                                        <img
+                                          src={profileSettingPlaceholder}
+                                          id="dashboard-reco-accordion_profile_image"
+                                        />
+                                      </div>
+                                    </Col>
+                                    <Col>
+                                      <p id="dashboard-reco-accordion-text">
+                                        Service provider name
+                                      </p>
+                                    </Col>
+                                  </Row>
+                                </div>
+                                <div>
+                                  <p>Action</p>
+                                </div>
+                              </div>
                             </div>
                           </Col>
                         </Row>
