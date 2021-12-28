@@ -1,16 +1,15 @@
 import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
-import placeholder from "../../../Assets/my-placeholder.png";
+import "../../../css/Notifications/Notification.css";
 import profileSettingPlaceholder from "../../../Assets/Quadri.jpg";
-import "../../../css/History/index.css";
+import { Row, Col } from "react-bootstrap";
 
-class History_home extends React.Component {
+class Notifications_home extends React.Component {
   state = {
-    test: [1, 2, 3, 4, 5, 6, 7],
+    test: [1, 2, 4, 5, 6, 7, 78, 8],
   };
   render() {
     return (
-      <div id="history-wrapper">
+      <div id="notifications_wrapper">
         <div id="history_form-div">
           <form>
             <input
@@ -30,7 +29,7 @@ class History_home extends React.Component {
               <p className="acc-nav-inner-text">Name</p>
             </th>
             <th>
-              <p className="acc-nav-inner-text">Last changed</p>
+              <p className="acc-nav-inner-text">Date</p>
             </th>
             <th>
               <p className="acc-nav-inner-text">Description</p>
@@ -51,12 +50,14 @@ class History_home extends React.Component {
                     </Col>
                     <Col lg={7}>
                       <p className="settings_account_service-provider-text">
-                        Service provider name
+                        Notification title
                       </p>
                     </Col>
                   </Row>
                 </td>
-                <td className="settings_account_type_date_text">Socials</td>
+                <td className="settings_account_type_date_text">
+                  21-3-67 | 4:30
+                </td>
                 <td className="settings_account_type_date_text">
                   <p>Lorem ipsum is simply a dummy text of printing</p>
                 </td>
@@ -69,4 +70,4 @@ class History_home extends React.Component {
   }
 }
 
-export default History_home;
+export default Notifications_home;

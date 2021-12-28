@@ -1,0 +1,64 @@
+#settings_account_inner_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+#settings_account_table_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#settings_account_items {
+  margin-top: 1rem;
+}
+
+#settings_account_unsubscribe_btn {
+  background: transparent;
+  border-radius: 25px;
+  border: 2px solid #f44236;
+  height: 50px;
+  width: 80%;
+  padding: 1rem 0rem 1rem 0rem;
+  text-align: center;
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #f44236;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+#settings_account_image_container {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+#settings_account_image {
+  width: 100%;
+  height: auto;
+}
+
+.settings_account_service-provider-text {
+  font-family: Poppins medium;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #00beff;
+}
+
+.settings_account_type_date_text {
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.7;
+}

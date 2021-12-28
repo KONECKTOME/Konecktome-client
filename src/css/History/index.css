@@ -16,3 +16,45 @@
 #history-wrapper {
   padding: 2rem 2rem 2rem 2rem;
 }
+
+#history_form-div {
+  background: #ffffff;
+  box-shadow: 0px 1px 14px #f2f2f2;
+  border-radius: 4px;
+  height: 52px;
+  width: 30%;
+  margin: 2rem 0 3rem 0;
+}
+
+.history-search-form {
+  border: none !important;
+}
+
+.history-search-form input {
+  width: 30%;
+}
+
+.history-search-form::placeholder {
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+#history_no_of_items_text {
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  margin-bottom: 2rem;
+}
+
+#history_account_items {
+  margin-bottom: 3rem !important;
+}

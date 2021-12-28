@@ -126,51 +126,56 @@ class Index extends Component {
                 </Row>
               </Link>
             </li>
-            <li>
-              <Row>
-                <Col lg={2}>
-                  <div>
-                    <img src={notifications_icon} />
-                  </div>
-                </Col>
-                <Col lg={10}>
-                  <div>
-                    <p className="sidebar-item-paragraph">Notifications</p>
-                  </div>
-                </Col>
-              </Row>
-            </li>
-            <li>
-              <Row>
-                <Col lg={2}>
-                  <div>
-                    <img src={account_icon} />
-                  </div>
-                </Col>
-                <Link to="/recommendations" className="links">
+            <Link to="/notifications" className="links">
+              <li>
+                <Row>
+                  <Col lg={2}>
+                    <div>
+                      <img src={notifications_icon} />
+                    </div>
+                  </Col>
+
+                  <Col lg={10}>
+                    <div>
+                      <p className="sidebar-item-paragraph">Notifications</p>
+                    </div>
+                  </Col>
+                </Row>
+              </li>
+            </Link>
+            <Link to="/recommendations" className="links">
+              <li>
+                <Row>
+                  <Col lg={2}>
+                    <div>
+                      <img src={account_icon} />
+                    </div>
+                  </Col>
                   <Col lg={10}>
                     <div>
                       <p className="sidebar-item-paragraph">Recommendation</p>
                     </div>
                   </Col>
-                </Link>
-              </Row>
-            </li>
-            <li>
-              <Row>
-                <Col lg={2}>
-                  <div>
-                    <img src={fav_icon} />
-                  </div>
-                </Col>
-                <Col lg={10}>
-                  <div>
-                    <p className="sidebar-item-paragraph">My Favourites</p>
-                  </div>
-                </Col>
-              </Row>
-            </li>
-            <li>
+                </Row>
+              </li>
+            </Link>
+            <Link to="favourites" className="links">
+              <li>
+                <Row>
+                  <Col lg={2}>
+                    <div>
+                      <img src={fav_icon} />
+                    </div>
+                  </Col>
+                  <Col lg={10}>
+                    <div>
+                      <p className="sidebar-item-paragraph">My Favorites</p>
+                    </div>
+                  </Col>
+                </Row>
+              </li>
+            </Link>
+            {/* <li>
               <Row>
                 <Col lg={2}>
                   <div>
@@ -183,22 +188,24 @@ class Index extends Component {
                   </div>
                 </Col>
               </Row>
-            </li>
-            <li>
-              <Row>
-                <Col lg={2}>
-                  <div>
-                    <img src={wishlist_icon} />
-                  </div>
-                </Col>
-                <Col lg={10}>
-                  <div>
-                    <p className="sidebar-item-paragraph">Wishlist</p>
-                  </div>
-                </Col>
-              </Row>
-            </li>
-            <li>
+            </li> */}
+            <Link to="wishlist" className="links">
+              <li>
+                <Row>
+                  <Col lg={2}>
+                    <div>
+                      <img src={wishlist_icon} />
+                    </div>
+                  </Col>
+                  <Col lg={10}>
+                    <div>
+                      <p className="sidebar-item-paragraph">Wishlist</p>
+                    </div>
+                  </Col>
+                </Row>
+              </li>
+            </Link>
+            {/* <li>
               <Row>
                 <Col lg={2}>
                   <div>
@@ -211,7 +218,7 @@ class Index extends Component {
                   </div>
                 </Col>
               </Row>
-            </li>
+            </li> */}
             <li>
               <Row>
                 <Col lg={2}>
@@ -226,7 +233,7 @@ class Index extends Component {
                 </Col>
               </Row>
             </li>
-            <li>
+            {/* <li>
               <Row>
                 <Col lg={2}>
                   <div>
@@ -239,8 +246,8 @@ class Index extends Component {
                   </div>
                 </Col>
               </Row>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Row>
                 <Col lg={2}>
                   <div>
@@ -253,7 +260,7 @@ class Index extends Component {
                   </div>
                 </Col>
               </Row>
-            </li>
+            </li> */}
             <Link to="/settings" className="links">
               <li>
                 <Row>

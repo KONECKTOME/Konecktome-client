@@ -12,6 +12,9 @@ import Navbar from "./Components/Client/Navbar/Navbar";
 import Explore_comparison from "./Components/Client/Explore/Explore_comparison";
 import Recommendations_home from "./Components/Client/Recommendations/Recommendations_home";
 import Settings_home from "./Components/Client/Settings/Settings_home";
+import Notifications_home from "./Components/Client/Notifications/Notifications_home";
+import Favourites_home from "./Components/Client/Favourites/Favourites_home";
+import Wishlist from "./Components/Client/Wishlist/Wishlist";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../src/App.css";
 import { Row, Col } from "react-bootstrap";
@@ -44,6 +47,9 @@ function App() {
               exact
               component={Explore_comparison}
             />
+            <Route path="/notifications" exact component={Notifications_home} />
+            <Route path="/favourites" exact component={Favourites_home} />
+            <Route path="/wishlist" exact component={Wishlist} />
           </div>
         </div>
       </Router>
