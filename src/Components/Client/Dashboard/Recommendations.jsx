@@ -6,11 +6,21 @@ import mortgage_icon from "../../../Assets/reco-mortgage.svg";
 import pet_icon from "../../../Assets/reco-pet-icon.svg";
 import health_icon from "../../../Assets/reco-health.svg";
 import car_icon from "../../../Assets/reco-car-insurance.svg";
+import inFavoriteIcon from "../../../Assets/un-fav-icon.svg";
 import profileSettingPlaceholder from "../../../Assets/Quadri.jpg";
 import { Row, Col } from "react-bootstrap";
 
 class Recommendations extends Component {
-  state = {};
+  state = {
+    test: [1, 2, 3, 4],
+    displayAccordion: false,
+  };
+
+  switchAccordion = () => {
+    this.setState({
+      displayAccordion: !this.state.displayAccordion,
+    });
+  };
   render() {
     return (
       <>
@@ -38,37 +48,64 @@ class Recommendations extends Component {
                           </Col>
                           <Col lg={11}>
                             <div>
-                              <p className="reco-col-inner-header">
-                                Life Insurance
-                              </p>
+                              <div id="rec-header_and_plus_icon">
+                                <p className="reco-col-inner-header">
+                                  Life Insurance
+                                </p>
+                                <p
+                                  id="reco-col-inner-header-plus-icon"
+                                  onClick={() => this.switchAccordion()}
+                                >
+                                  +
+                                </p>
+                              </div>
                               <p className="reco-col-inner-sub-text">
                                 Lorem ipsum is simply a dummy text of printing
                                 and typesetting industry
                               </p>
-                              <hr></hr>
-                              <div id="dashboard_reco_accordion_wrapper">
-                                <div id="dashboard_reco_accordion_inner_wrapper">
-                                  <p>Company</p>
-                                  <Row>
-                                    <Col>
-                                      <div id="dashboard-reco-accordion-image-sub-container">
-                                        <img
-                                          src={profileSettingPlaceholder}
-                                          id="dashboard-reco-accordion_profile_image"
-                                        />
-                                      </div>
-                                    </Col>
-                                    <Col>
-                                      <p id="dashboard-reco-accordion-text">
-                                        Service provider name
-                                      </p>
-                                    </Col>
-                                  </Row>
-                                </div>
+                              {this.state.displayAccordion === true ? (
                                 <div>
-                                  <p>Action</p>
+                                  <hr></hr>
+                                  <div id="dashboard_reco_accordion_wrapper">
+                                    <p className="dashboard_reco_accordion_header">
+                                      Service provider
+                                    </p>
+                                    <p className="dashboard_reco_accordion_header">
+                                      Actions
+                                    </p>
+                                  </div>
+                                  {this.state.test.map((tt) => {
+                                    return (
+                                      <div id="dashboard_reco_accordion_wrapper">
+                                        <div>
+                                          <div id="dashboard_reco_accordion_inner_div_wrapper">
+                                            <div>
+                                              <div id="dashboard-reco-accordion-image-sub-container">
+                                                <img
+                                                  src={
+                                                    profileSettingPlaceholder
+                                                  }
+                                                  id="dashboard-reco-accordion_profile_image"
+                                                />
+                                              </div>
+                                            </div>
+                                            <div>
+                                              <p id="dashboard-reco-accordion-text">
+                                                Service provider name
+                                              </p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div>
+                                          <img src={inFavoriteIcon} />
+                                        </div>
+                                      </div>
+                                    );
+                                  })}
                                 </div>
-                              </div>
+                              ) : (
+                                <div></div>
+                              )}
                             </div>
                           </Col>
                         </Row>

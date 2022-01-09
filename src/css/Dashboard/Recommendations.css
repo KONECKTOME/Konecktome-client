@@ -68,6 +68,16 @@
   line-height: 27px;
   color: #000000;
 }
+
+#reco-col-inner-header-plus-icon {
+  font-family: Poppins medium;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 27px;
+  color: #000000;
+  cursor: pointer;
+}
 .reco-col-inner-sub-text {
   font-family: Rubik;
   font-style: normal;
@@ -80,6 +90,31 @@
 }
 
 #dashboard_reco_accordion_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+#dashboard_reco_accordion_inner_wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+#dashboard_reco_accordion_inner_div_wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.dashboard_reco_accordion_header {
+  font-family: Poppins medium;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000000;
+}
+
+#rec-header_and_plus_icon {
   display: flex;
   justify-content: space-between;
 }
