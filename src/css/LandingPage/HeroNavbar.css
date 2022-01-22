@@ -1,0 +1,33 @@
+#hero-navbar-wrapper {
+  height: auto;
+  padding: 1rem 4rem 1rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  background: #ffffff;
+}
+
+#logo-img {
+  width: 60px;
+}
+
+#hero-navbar-demo-button {
+  background: #000000;
+  border-radius: 30px;
+  width: 170px;
+  height: 60px;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+#hero-navbar-demo-button-text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  color: #ffffff;
+}

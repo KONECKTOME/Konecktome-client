@@ -15,6 +15,7 @@ import Settings_home from "./Components/Client/Settings/Settings_home";
 import Notifications_home from "./Components/Client/Notifications/Notifications_home";
 import Favourites_home from "./Components/Client/Favourites/Favourites_home";
 import Wishlist from "./Components/Client/Wishlist/Wishlist";
+import Home from "./Components/Client/LandingPage/Home";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../src/App.css";
 import { Row, Col } from "react-bootstrap";
@@ -24,13 +25,14 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div id="fe-wrapper">
+        <Route path="/" exact component={Home} />
+        {/* <div id="fe-wrapper">
           <div id="left-col">
             <Index />
           </div>
           <div id="right-col">
             <Navbar />
-            <Route path="/" exact component={Dashboard_home} />
+            <Route path="/dashboard" exact component={Dashboard_home} />
             <Route path="/account" exact component={Account_home} />
             <Route path="/details" exact component={Details_home} />
             <Route path="/explore" exact component={Explore_home} />
@@ -51,7 +53,7 @@ function App() {
             <Route path="/favourites" exact component={Favourites_home} />
             <Route path="/wishlist" exact component={Wishlist} />
           </div>
-        </div>
+        </div> */}
       </Router>
       {/* <Row>
         <Col lg={2}>

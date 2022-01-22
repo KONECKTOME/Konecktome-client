@@ -1,0 +1,259 @@
+@font-face {
+  font-family: "Poppins bold";
+  src: url(../Fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Poppins regular";
+  src: url(../Fonts/Poppins-Regular.ttf);
+}
+
+#all-wrapper {
+  margin-bottom: 5rem;
+}
+
+#about-text-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#about-second-text-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.about-text {
+  width: 726px;
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #2d2d2d;
+  mix-blend-mode: normal;
+  opacity: 0.7;
+}
+
+.cards {
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.cards-with-vector {
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+}
+.card-with-vector {
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.0708042);
+  border-radius: 5px;
+  height: 272px;
+}
+
+.card {
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.0708042);
+  border-radius: 5px;
+  height: 272px;
+}
+
+#image-holder-div {
+  margin: 2rem 2rem;
+}
+
+.card-texts {
+  width: 313px;
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 28px;
+  display: flex;
+  justify-content: center;
+  color: #2d2d2d;
+  mix-blend-mode: normal;
+  margin: 0 auto;
+}
+
+.vector-width {
+  height: 300px;
+  width: 449.2660217285156px;
+}
+.vector-width2 {
+  height: 350.00030517578125px;
+  width: 387.0038146972656px;
+}
+.vector-width3 {
+  height: 300.00042724609375px;
+  width: 448.96527099609375px;
+}
+#vector3-holder {
+  margin-right: 7rem !important;
+}
+
+.vector-all-wrapper {
+  margin: 10rem 10rem;
+}
+
+#vector-text-wrapper {
+  margin-top: 50px;
+}
+
+.about-us-vector-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.about-us-vector-snd-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+#real-and-true {
+  margin-top: 20px !important;
+}
+#real-time-text-holder {
+  width: 372px;
+  height: 132px;
+  margin-top: 12rem;
+  margin-right: 17rem;
+}
+
+#text-holder {
+  width: 372px;
+  height: 132px;
+  margin: 6rem 6rem;
+}
+
+#head-text {
+  font-family: Poppins bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 28px;
+  color: #2d2d2d;
+  mix-blend-mode: normal;
+  opacity: 0.7;
+}
+
+#sub-text {
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 28px;
+  color: #2d2d2d;
+  mix-blend-mode: normal;
+  opacity: 0.7;
+  height: 84px;
+  width: 372px;
+}
+
+@media screen and (max-width: 700px) {
+  #all-wrapper {
+    padding: 1rem 3rem;
+  }
+  .about-us-vector-wrapper {
+    display: block;
+  }
+  .about-us-vector-snd-wrapper {
+    flex-direction: row-reverse;
+  }
+
+  #real-and-true {
+    padding-top: 7rem;
+  }
+  .vector-width {
+    height: 95%;
+    width: 95%;
+  }
+  .vector-width2 {
+    height: 100%;
+    width: 100%;
+  }
+  .vector-width3 {
+    height: 140%;
+    width: 140%;
+  }
+  #text-holder {
+    width: auto;
+    height: auto;
+    margin: 0rem 0rem;
+  }
+
+  #head-text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  #sub-text {
+    font-size: 14px;
+    line-height: 20px;
+    height: auto;
+    width: auto;
+  }
+  #real-and-true {
+    margin-top: 0px !important;
+  }
+  #real-time-text-holder {
+    width: auto;
+    height: auto;
+    margin-top: 0rem;
+    margin-right: 0rem;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+  #text-holder {
+    width: auto;
+    height: auto;
+    margin: 0rem;
+    padding-top: 6rem;
+  }
+
+  #head-text {
+    font-size: 25px;
+    line-height: 28px;
+  }
+  #sub-text {
+    font-size: 18px;
+    line-height: 20px;
+    height: auto;
+    width: auto;
+  }
+  #real-and-true {
+    margin-top: 0px !important;
+  }
+  #real-time-text-holder {
+    width: auto;
+    height: auto;
+    margin-top: 9rem;
+    margin-right: 0rem;
+  }
+  #real-and-true {
+    padding-top: 7rem;
+  }
+  .vector-width {
+    height: 100%;
+    width: 100%;
+  }
+  .vector-width2 {
+    height: 100%;
+    width: 100%;
+  }
+  .vector-width3 {
+    height: 120%;
+    width: 120%;
+  }
+
+  .scnd-text-holder {
+    padding-left: 2rem;
+  }
+}
