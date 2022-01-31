@@ -9,7 +9,7 @@
 }
 
 #landing-wrapper {
-  height: 90vh;
+  height: 100vh;
   background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
   mix-blend-mode: normal;
   opacity: 0.9;

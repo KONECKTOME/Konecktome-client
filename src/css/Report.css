@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "Poppins bold";
+  src: url(../Fonts/Poppins-Bold.ttf);
+}
+
+#report-wrapper {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#report-accordion-click {
+  display: flex;
+  justify-content: space-between;
+}
+
+#report-accordion {
+  padding: 2rem;
+  width: 50%;
+  border-radius: 10px;
+  text-align: center;
+  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+}
+.report-headers {
+  font-family: Poppins bold;
+}
+
+#report-accordion-inner-div {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  #report-accordion {
+    padding: 2rem;
+    width: 100%;
+  }
+  #report-accordion-click {
+    display: block;
+  }
+  .report-headers {
+    font-size: 20px;
+  }
+}
