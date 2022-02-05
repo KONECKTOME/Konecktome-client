@@ -152,6 +152,7 @@ class FooterForm extends Component {
             <div className="row-wrapper">
               <Row>
                 <Col lg={6}>
+                  <p id="mail-list-text-coming-soon">We are coming soon...</p>
                   <h1 id="mail-list-text">
                     Join our mailing list and get notified when we launch.
                   </h1>

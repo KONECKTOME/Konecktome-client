@@ -9,7 +9,18 @@
 }
 
 #all-wrapper {
+  margin-top: 5rem;
   margin-bottom: 5rem;
+}
+
+#about-us-header {
+  text-align: center;
+  font-family: Poppins bold;
+  font-size: 26px;
+  line-height: 70px;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
 #about-text-wrapper {
