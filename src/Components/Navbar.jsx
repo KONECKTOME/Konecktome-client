@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Container } from 'react-bootstrap'
-import logo from '../Assets/konecktome_logo.svg'
-import stayTuned from '../Assets/stay_tuned.svg'
-import '../css/Navbar.css'
+import React, { Component } from "react";
+import { Container } from "react-bootstrap";
+import logo from "../Assets/logo-with-text.svg";
+import stayTuned from "../Assets/stay_tuned.svg";
+import "../css/Navbar.css";
 
 class Navbar extends Component {
-  state = {}
+  state = {};
   render() {
     return (
       <Container>
@@ -14,8 +14,8 @@ class Navbar extends Component {
           <img src={stayTuned} id="stay-tuned" />
         </div>
       </Container>
-    )
+    );
   }
 }
 
-export default Navbar
+export default Navbar;

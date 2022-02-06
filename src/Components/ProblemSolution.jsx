@@ -1,15 +1,85 @@
 import React, { Component } from "react";
-import downArrow from "../Assets/down-arrow.png";
+import downArrow from "../Assets/closee.png";
+import tick from "../Assets/tick.png";
 import "../css/ProblemSolution.css";
 
 class ProblemSolution extends React.Component {
   render() {
     return (
       <div id="problem-solution-wrapper">
-        <h1 id="problem-soultion-header">
-          We are here to ensure you get the best value for yourself
-        </h1>
+        <h1 id="problem-soultion-header">The problem</h1>
         <div id="ps-card-holder">
+          <div>
+            <p>
+              We are continuously faced with making life decisions on which
+              growing list of insurances, financial services, and home utilities
+              to purchase from.
+            </p>
+          </div>
+          <div>
+            <p>
+              We are continuously faced with making life decisions on which
+              growing list of insurances, financial services, and home utilities
+              to purchase from.
+            </p>
+          </div>
+          <div>
+            <p>
+              We are continuously faced with making life decisions on which
+              growing list of insurances, financial services, and home utilities
+              to purchase from.
+            </p>
+          </div>
+        </div>
+        <div id="ps-card-holder">
+          <div id="arrow-holder">
+            <img src={downArrow} id="arrow" />
+          </div>
+          <div id="arrow-holder">
+            <img src={downArrow} id="arrow" />
+          </div>
+          <div id="arrow-holder">
+            <img src={downArrow} id="arrow" />
+          </div>
+        </div>
+        <div id="solution-wrapper">
+          <h1 id="problem-soultion-header">Our Solution</h1>
+          <div id="ps-card-holder">
+            <div>
+              <p>
+                We are continuously faced with making life decisions on which
+                growing list of insurances, financial services, and home
+                utilities to purchase from.
+              </p>
+            </div>
+            <div>
+              <p>
+                We are continuously faced with making life decisions on which
+                growing list of insurances, financial services, and home
+                utilities to purchase from.
+              </p>
+            </div>
+            <div>
+              <p>
+                We are continuously faced with making life decisions on which
+                growing list of insurances, financial services, and home
+                utilities to purchase from.
+              </p>
+            </div>
+          </div>
+          <div id="ps-card-holder">
+            <div id="arrow-holder">
+              <img src={tick} id="arrow" />
+            </div>
+            <div id="arrow-holder">
+              <img src={tick} id="arrow" />
+            </div>
+            <div id="arrow-holder">
+              <img src={tick} id="arrow" />
+            </div>
+          </div>
+        </div>
+        {/* <div id="ps-card-holder">
           <div id="ps-card">
             <div className="problem-holder">
               <p>
@@ -38,7 +108,7 @@ class ProblemSolution extends React.Component {
               </p>
             </div>
             <div id="arrow-holder">
-              <img src={downArrow} id="arrow2" />
+              <img src={downArrow} id="arrow" />
             </div>
             <div className="problem-holder">
               <p>
@@ -66,7 +136,7 @@ class ProblemSolution extends React.Component {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }

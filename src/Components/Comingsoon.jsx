@@ -177,17 +177,15 @@ class Comingsoon extends Component {
           <Row>
             <Col id="left-col2" lg={5}>
               <h3 id="get-notified-text">
-                Are you getting the
-                <br></br>best value for yourself ?
+                How do you truly know <br></br> if you’re getting the <br></br>
+                best value for yourself?
               </h3>
               <h3 id="get-notified-text-mobile">
                 Are you getting the best value for yourself ?
               </h3>
               <h3 id="coming-soon-text">
-                Konecktome takes the stress out of life by providing you with a
-                free and personalised platform that uses your data to give you
-                the best of the best services, to make decision making and
-                purchasing the simplest it has ever been.
+                Konecktome Is Your Personal Marketplace For All Your Utilities
+                And Financial Services Needs
               </h3>
               <div id="mobile-animation">
                 <Lottie

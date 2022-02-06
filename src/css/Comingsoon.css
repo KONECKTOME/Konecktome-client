@@ -16,7 +16,7 @@
 }
 
 #left-col2 {
-  margin-top: 50px;
+  margin-top: 12rem;
 }
 
 #right-col2 {
@@ -28,13 +28,14 @@
 }
 
 #coming-soon-text {
-  font-family: Poppins;
+  font-family: Poppins regular;
   font-style: normal;
   font-weight: 800;
   font-size: 16px;
   color: #2d2d2d;
-  margin-top: 15px;
-  margin-bottom: 44px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  line-height: 24px;
 }
 
 #get-notified-text {
@@ -42,8 +43,8 @@
   font-family: Poppins bold;
   font-style: normal;
   font-weight: 1000;
-  font-size: 50px;
-  line-height: 70px;
+  font-size: 32px;
+  line-height: 45px;
   align-items: center;
   color: #000000;
   margin-bottom: 1rem;
