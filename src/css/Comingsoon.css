@@ -9,7 +9,7 @@
 }
 
 #landing-wrapper {
-  height: 100vh;
+  height: 100%;
   background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
   mix-blend-mode: normal;
   opacity: 0.9;
@@ -28,7 +28,7 @@
 }
 
 #coming-soon-text {
-  font-family: Poppins regular;
+  font-family: Poppins;
   font-style: normal;
   font-weight: 800;
   font-size: 16px;
@@ -281,7 +281,7 @@ input[type="email"]:focus {
   }
   #coming-soon-text {
     margin-top: 2rem;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
   }
   #get-notified-text {

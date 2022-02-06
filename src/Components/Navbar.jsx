@@ -10,7 +10,7 @@ class Navbar extends Component {
     return (
       <Container>
         <div className="d-flex justify-content-between" id="logo-container">
-          <img src={logo} />
+          <img src={logo} id="logo-with-text" />
           <img src={stayTuned} id="stay-tuned" />
         </div>
       </Container>
