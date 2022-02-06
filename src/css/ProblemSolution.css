@@ -1,12 +1,11 @@
 #problem-solution-wrapper {
   padding: 3rem;
-  box-shadow: 1px 0px 14px #f2f2f2;
-  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+  background: #ffffff;
 }
 
 #problem-soultion-header {
   font-family: Poppins bold;
-  font-size: 42px;
+  font-size: 32px;
   line-height: 70px;
   color: #000000;
   text-align: center;
@@ -16,16 +15,24 @@
 #ps-card-holder {
   display: flex;
   justify-content: space-between;
+  font-family: Poppins Bold;
 }
 
-#ps-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.ps-card {
+  max-width: 30%;
+  align-items: center;
   padding: 3rem;
   width: calc(100% / 3 - 20px);
-  border: 1px solid black;
+  border: 1px solid #fda3d6;
   border-radius: 16px;
+  text-align: center;
+}
+
+#test {
+  letter-spacing: 14px;
+  font-family: Poppins Bold;
+  text-align: center;
+  margin-top: 10rem;
 }
 
 #arrow-holder {

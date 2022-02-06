@@ -184,8 +184,8 @@ class Comingsoon extends Component {
                 Are you getting the best value for yourself ?
               </h3>
               <h3 id="coming-soon-text">
-                Konecktome Is Your Personal Marketplace For All Your Utilities
-                And Financial Services Needs
+                Your Personal Marketplace For All Your Utilities And Financial
+                Services Needs
               </h3>
               <div id="mobile-animation">
                 <Lottie

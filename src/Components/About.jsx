@@ -18,7 +18,7 @@ class About extends Component {
               <img src={centralisedPlatform} className="vector-width" />
             </div>
             <div id="text-holder" className="scnd-text-holder">
-              <h3 id="head-text">Centralised Platform</h3>
+              <h3 id="head-text">Safe And Secure</h3>
               <p id="sub-text">
                 Safe and secure centralised platform with user personalisation
                 at its root.
