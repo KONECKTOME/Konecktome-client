@@ -148,8 +148,8 @@
   font-family: Poppins bold;
   font-style: normal;
   font-weight: bold;
-  font-size: 32px;
-  line-height: 28px;
+  font-size: 25px;
+  line-height: inherit;
   color: #2d2d2d;
   mix-blend-mode: normal;
   opacity: 0.7;
@@ -162,14 +162,6 @@
   mix-blend-mode: normal;
   height: 84px;
   width: 372px;
-}
-
-#instagram-holder {
-  height: 45px;
-  width: 45px;
-  border-radius: 50%;
-  padding: 1rem;
-  border: 1px solid #000000;
 }
 
 .coming-soon-sm-icons {
