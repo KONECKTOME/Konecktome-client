@@ -33,6 +33,21 @@ class FooterForm extends Component {
     details[id] = e.currentTarget.value;
     this.setState({ details });
   };
+  sendMartketingEmail = async () => {
+    const response = await fetch("http://localhost:3002/mail/marketing", {
+      method: "POST",
+      body: JSON.stringify({
+        fName: this.state.details.firstName,
+        lName: this.state.details.lastName,
+        email: this.state.details.email,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    const details = await response.json();
+    return details.message;
+  };
 
   sendTransactionalEmail = async () => {
     const response = await fetch("http://localhost:3002/mail/transactional", {
@@ -75,6 +90,11 @@ class FooterForm extends Component {
       }, 1200);
     } else if (details.message === "Invalid email") {
       this.setState({
+        details: {
+          firstName: "",
+          lastName: "",
+          email: "",
+        },
         invalidEmailError: true,
       });
       setTimeout(() => {
@@ -85,6 +105,11 @@ class FooterForm extends Component {
     } else if (details.message === "This email already exists") {
       this.setState({
         emailExists: true,
+        details: {
+          firstName: "",
+          lastName: "",
+          email: "",
+        },
       });
       setTimeout(() => {
         this.setState({
@@ -93,7 +118,11 @@ class FooterForm extends Component {
       }, 1200);
     } else if (details.message === "Sign up successful") {
       const sendEmail = this.sendTransactionalEmail();
-      if (sendEmail === "Error sending email") {
+      const sendMartketingEmail = this.sendMartketingEmail();
+      if (
+        sendEmail === "Error sending email" ||
+        sendMartketingEmail === "An errored in adding to mail list"
+      ) {
         this.setState({
           errorSendingEmail: true,
         });
@@ -102,18 +131,7 @@ class FooterForm extends Component {
             errorSendingEmail: false,
           });
         }, 1200);
-      }
-      if (this.state.subscribe === true) {
-        const response = await fetch("http://localhost:3002/mail/marketing", {
-          method: "POST",
-          body: JSON.stringify({
-            name: this.state.details.name,
-            email: this.state.details.email,
-          }),
-          headers: {
-            "Content-type": "application/json",
-          },
-        });
+      } else {
         this.setState({
           details: {
             firstName: "",
@@ -127,20 +145,7 @@ class FooterForm extends Component {
             successText: false,
           });
         }, 1200);
-      } else if (this.state.subscribe === false) {
-        this.setState({
-          details: {
-            firstName: "",
-            lastName: "",
-            email: "",
-          },
-          successText: true,
-        });
-        setTimeout(() => {
-          this.setState({
-            successText: false,
-          });
-        }, 1200);
+        window.location.href = "http://localhost:3000/success";
       }
     }
   };

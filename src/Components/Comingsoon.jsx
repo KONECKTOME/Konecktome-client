@@ -115,6 +115,11 @@ class Comingsoon extends Component {
     } else if (details.message === "Invalid email") {
       this.setState({
         invalidEmailError: true,
+        details: {
+          firstName: "",
+          lastName: "",
+          email: "",
+        },
       });
       setTimeout(() => {
         this.setState({
@@ -124,6 +129,11 @@ class Comingsoon extends Component {
     } else if (details.message === "This email already exists") {
       this.setState({
         emailExists: true,
+        details: {
+          firstName: "",
+          lastName: "",
+          email: "",
+        },
       });
       setTimeout(() => {
         this.setState({
