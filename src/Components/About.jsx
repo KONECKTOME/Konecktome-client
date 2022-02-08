@@ -18,7 +18,7 @@ class About extends Component {
               <img src={centralisedPlatform} className="vector-width" />
             </div>
             <div id="text-holder" className="scnd-text-holder">
-              <h3 id="head-text">Safe And Secure</h3>
+              <h3 id="head-text">Personal And Secure</h3>
               <p id="sub-text">
                 Safe and secure centralised platform with user personalisation
                 at its root.
@@ -29,7 +29,7 @@ class About extends Component {
         <div className="about-us-vector-wrapper" id="real-and-true">
           <div className="about-us-vector-snd-wrapper">
             <div id="real-time-text-holder">
-              <h3 id="head-text">Real-Time Updates</h3>
+              <h3 id="head-text">First-Class User Experience</h3>
               <p id="sub-text">
                 The entire process of purchasing and switching, and subsequent
                 bill management is performed all in-platform, enabling for a
@@ -47,7 +47,7 @@ class About extends Component {
               <img src={truePerson} className="vector-width3" />
             </div>
             <div id="text-holder">
-              <h3 id="head-text">True Personalisation</h3>
+              <h3 id="head-text">Reviews And Essentials</h3>
               <p id="sub-text">
                 Customer reviews, alongside a clear and concise listing of any
                 additional information (e.g. T&Cs and additional costs)

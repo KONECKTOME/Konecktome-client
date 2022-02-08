@@ -1,6 +1,12 @@
 #logo-container {
   padding: 1rem 1rem;
   height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  background: #ffffff;
 }
 
 #stay-tuned {
@@ -8,20 +14,33 @@
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-  #stay-tuned {
+  /* #stay-tuned {
     display: none;
-  }
+  } */
 
   #logo-with-text {
     width: 40%;
+  }
+
+  #stay-tuned {
+    width: 30%;
   }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
   #stay-tuned {
-    display: none;
+    width: 30%;
   }
   #logo-with-text {
-    width: 40%;
+    width: 30%;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  #stay-tuned {
+    width: 20%;
+  }
+  #logo-with-text {
+    width: 20%;
   }
 }

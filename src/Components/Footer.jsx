@@ -6,7 +6,7 @@ class Footer extends Component {
   render() {
     return (
       <div id="footer-wrapper">
-        <p>© 2021 KONECKTOME. All rights reserved.</p>
+        <p>© 2022 KONECKTOME (R). All rights reserved.</p>
       </div>
     );
   }

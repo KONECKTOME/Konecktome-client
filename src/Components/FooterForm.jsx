@@ -231,7 +231,7 @@ class FooterForm extends Component {
                       id="subscribe-btn"
                       onClick={(e) => this.register(e)}
                     >
-                      Subscribe
+                      SUBSCRIBE
                     </button>
                   </form>
                 </Col>

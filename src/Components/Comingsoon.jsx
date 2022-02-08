@@ -4,6 +4,7 @@ import illustration from "../Assets/wheel-vector.svg";
 import "../css/Comingsoon.css";
 import facebook from "../Assets/facebookIcon.svg";
 import linkedIn from "../Assets/linkedinIcon.svg";
+import instagram from "../Assets/instagram-2.png";
 import checkBoxIcon from "../Assets/check_mark.png";
 import Animation from "../Animation/Circles_Hover_Animation.json";
 import Lottie from "react-lottie";
@@ -181,7 +182,8 @@ class Comingsoon extends Component {
                 best value for yourself?
               </h3>
               <h3 id="get-notified-text-mobile">
-                Are you getting the best value for yourself ?
+                How do you truly know if you're getting the best value for
+                yourself ?
               </h3>
               <h3 id="coming-soon-text">
                 Your Personal Marketplace For All Your Utilities And Financial
@@ -282,12 +284,27 @@ class Comingsoon extends Component {
                 </button>
               </form>
               <div id="icons-wrapper">
-                <div>
-                  <img src={facebook} />
-                </div>
-                <div>
-                  <img src={linkedIn} />
-                </div>
+                <a
+                  href="https://www.linkedin.com/company/konecktome/"
+                  target="_blank"
+                >
+                  <div>
+                    <img src={linkedIn} />
+                  </div>
+                </a>
+                <a
+                  href="https://www.facebook.com/Konecktome-101748959105629"
+                  target="_blank"
+                >
+                  <div>
+                    <img src={facebook} />
+                  </div>
+                </a>
+                <a href="https://www.instagram.com/konecktome/" target="_blank">
+                  <div id="instagram-holder">
+                    <img src={instagram} className="coming-soon-sm-icons" />
+                  </div>
+                </a>
               </div>
             </Col>
             <Col

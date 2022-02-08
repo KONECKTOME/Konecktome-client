@@ -8,12 +8,12 @@ class Navbar extends Component {
   state = {};
   render() {
     return (
-      <Container>
-        <div className="d-flex justify-content-between" id="logo-container">
+      <div id="main-container-nav">
+        <div id="logo-container">
           <img src={logo} id="logo-with-text" />
           <img src={stayTuned} id="stay-tuned" />
         </div>
-      </Container>
+      </div>
     );
   }
 }

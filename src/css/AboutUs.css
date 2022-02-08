@@ -157,11 +157,23 @@
 
 #sub-text {
   font-family: Poppins;
-  line-height: 28px;
-  color: #000000;
+  line-height: inherit;
+  color: #2d2d2d;
   mix-blend-mode: normal;
   height: 84px;
   width: 372px;
+}
+
+#instagram-holder {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  padding: 1rem;
+  border: 1px solid #000000;
+}
+
+.coming-soon-sm-icons {
+  width: 25px;
 }
 
 @media screen and (max-width: 700px) {
@@ -171,9 +183,15 @@
   .about-us-vector-wrapper {
     display: block;
   }
-  .about-us-vector-snd-wrapper {
-    flex-direction: row-reverse;
+  #about-us-header {
+    text-align: center;
+    font-family: Poppins bold;
+    font-size: 26px;
+    line-height: 30px;
   }
+  /* .about-us-vector-snd-wrapper {
+    flex-direction: row-reverse;
+  } */
 
   #real-and-true {
     padding-top: 7rem;
@@ -202,7 +220,7 @@
   }
   #sub-text {
     font-size: 14px;
-    line-height: 20px;
+
     height: auto;
     width: auto;
   }
@@ -231,7 +249,6 @@
   }
   #sub-text {
     font-size: 18px;
-    line-height: 20px;
     height: auto;
     width: auto;
   }
@@ -244,9 +261,7 @@
     margin-top: 9rem;
     margin-right: 0rem;
   }
-  #real-and-true {
-    padding-top: 7rem;
-  }
+
   .vector-width {
     height: 100%;
     width: 100%;

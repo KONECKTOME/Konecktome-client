@@ -66,11 +66,6 @@ class ProblemSolution extends React.Component {
               </p>
             </div>
           </div>
-          <div>
-            <p id="test">
-              -----------------------------------------------------
-            </p>
-          </div>
           {/* <div id="ps-card-holder">
             <div id="arrow-holder">
               <img src={tick} id="arrow" />
