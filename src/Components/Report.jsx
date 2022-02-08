@@ -15,12 +15,15 @@ class Report extends React.Component {
   };
 
   componentDidMount = async () => {
-    const response = await fetch("http://localhost:3002/reporting", {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://konecktome-dark-side-sudvc.ondigitalocean.app/reporting",
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     const details = await response.json();
     this.setState({
       details,

@@ -34,50 +34,59 @@ class FooterForm extends Component {
     this.setState({ details });
   };
   sendMartketingEmail = async () => {
-    const response = await fetch("http://localhost:3002/mail/marketing", {
-      method: "POST",
-      body: JSON.stringify({
-        fName: this.state.details.firstName,
-        lName: this.state.details.lastName,
-        email: this.state.details.email,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://konecktome-dark-side-sudvc.ondigitalocean.app/mail/marketing",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          fName: this.state.details.firstName,
+          lName: this.state.details.lastName,
+          email: this.state.details.email,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     const details = await response.json();
     return details.message;
   };
 
   sendTransactionalEmail = async () => {
-    const response = await fetch("http://localhost:3002/mail/transactional", {
-      method: "POST",
-      body: JSON.stringify({
-        fName: this.state.details.firstName,
-        lName: this.state.details.lastName,
-        email: this.state.details.email,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://konecktome-dark-side-sudvc.ondigitalocean.app/mail/transactional",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          fName: this.state.details.firstName,
+          lName: this.state.details.lastName,
+          email: this.state.details.email,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     const details = await response.json();
     return details.message;
   };
 
   register = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3002/mail/new-user", {
-      method: "POST",
-      body: JSON.stringify({
-        fName: this.state.details.firstName,
-        lName: this.state.details.lastName,
-        email: this.state.details.email,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://konecktome-dark-side-sudvc.ondigitalocean.app/mail/new-user",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          fName: this.state.details.firstName,
+          lName: this.state.details.lastName,
+          email: this.state.details.email,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     const details = await response.json();
     if (details.message === "Text fields can't be empty") {
       this.setState({
