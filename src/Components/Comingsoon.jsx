@@ -297,6 +297,7 @@ class Comingsoon extends Component {
                 <a
                   href="https://www.linkedin.com/company/konecktome/"
                   target="_blank"
+                  className="hero-sm-icons"
                 >
                   <div>
                     <img src={linkedIn} />
@@ -305,12 +306,17 @@ class Comingsoon extends Component {
                 <a
                   href="https://www.facebook.com/Konecktome-101748959105629"
                   target="_blank"
+                  className="hero-sm-icons"
                 >
                   <div>
                     <img src={facebook} />
                   </div>
                 </a>
-                <a href="https://www.instagram.com/konecktome/" target="_blank">
+                <a
+                  href="https://www.instagram.com/konecktome/"
+                  target="_blank"
+                  className="hero-sm-icons"
+                >
                   <div id="instagram-holder">
                     <img src={instagram} className="coming-soon-sm-icons" />
                   </div>

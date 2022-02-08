@@ -262,6 +262,10 @@ input[type="email"]:focus {
   cursor: pointer;
 }
 
+.hero-sm-icons {
+  margin-left: 1rem;
+}
+
 .inactive {
   width: 40px;
   height: 40px;
