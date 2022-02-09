@@ -212,7 +212,6 @@
   }
   #sub-text {
     font-size: 14px;
-
     height: auto;
     width: auto;
   }
@@ -224,6 +223,9 @@
     height: auto;
     margin-top: 0rem;
     margin-right: 0rem;
+  }
+  #vector3-holder {
+    margin-right: 2rem !important;
   }
 }
 
@@ -269,5 +271,8 @@
 
   .scnd-text-holder {
     padding-left: 2rem;
+  }
+  #vector3-holder {
+    margin-right: 2rem !important;
   }
 }

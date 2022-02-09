@@ -434,7 +434,7 @@ input[type="email"]:focus {
 
 /* Ipad pro*/
 
-@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-width: 1024px) and (max-width: 1370px) and (-webkit-min-device-pixel-ratio: 2) {
   #landing-wrapper {
     padding: 3rem 3rem;
     width: 100%;

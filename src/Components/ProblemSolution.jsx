@@ -60,7 +60,7 @@ class ProblemSolution extends React.Component {
             </div>
             <div className="ps-card">
               <p>
-                At Konecktome, we provide Management of subscription payments
+                At Konecktome, we provide management of subscription payments
                 that allows the need for multiple apps and websites to become
                 obsolete.
               </p>
