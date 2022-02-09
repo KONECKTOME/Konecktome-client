@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "../css/AboutUs.css";
 import aboutUsIcon from "../Assets/about_us_icon.svg";
-import centralisedPlatform from "../Assets/centralPlatform.svg";
-import realTime from "../Assets/real-time.svg";
-import truePerson from "../Assets/true-person.svg";
+import customerReview from "../Assets/customer-review.svg";
+import entireProcess from "../Assets/Entire-process.svg";
+import safeAndSecure from "../Assets/safe-and-secure.svg";
 import { Row, Col } from "react-bootstrap";
 
 class About extends Component {
@@ -15,7 +15,7 @@ class About extends Component {
         <div className="about-us-vector-wrapper">
           <div className="about-us-vector-snd-wrapper">
             <div>
-              <img src={centralisedPlatform} className="vector-width" />
+              <img src={safeAndSecure} className="vector-width" />
             </div>
             <div id="text-holder" className="scnd-text-holder">
               <h3 id="head-text">Personal And Secure</h3>
@@ -37,14 +37,14 @@ class About extends Component {
               </p>
             </div>
             <div>
-              <img src={realTime} className="vector-width2" />
+              <img src={entireProcess} className="vector-width2" />
             </div>
           </div>
         </div>
         <div className="about-us-vector-wrapper" id="real-and-true">
           <div className="about-us-vector-snd-wrapper">
             <div id="vector3-holder">
-              <img src={truePerson} className="vector-width3" />
+              <img src={customerReview} className="vector-width3" />
             </div>
             <div id="text-holder">
               <h3 id="head-text">Reviews And Essentials</h3>
