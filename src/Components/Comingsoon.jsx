@@ -178,7 +178,7 @@ class Comingsoon extends Component {
             successText: false,
           });
         }, 1200);
-        window.location.href = "http://localhost:3000/success";
+        window.location.href = "https://konecktome.com/success";
       }
     }
   };
