@@ -28,9 +28,9 @@ class Sucess extends React.Component {
                   your spam section too just in case we end up there.
                 </p>
                 <p>
-                  Feel free to also spread the word about the upcoming and FREE
-                  service that puts you back in the driver’s seat, with
-                  first-class treatment, and your own virtual life assistant
+                  Feel free to also spread the word about the upcoming platform
+                  that ensures you get the best value for yourself at no cost at
+                  all. Who wouldn't love that!
                 </p>
               </div>
             </div>
