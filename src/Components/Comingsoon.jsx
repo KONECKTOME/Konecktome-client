@@ -8,6 +8,7 @@ import instagram from "../Assets/instagram-2.png";
 import checkBoxIcon from "../Assets/check_mark.png";
 import Animation from "../Animation/Circles_Hover_Animation.json";
 import Lottie from "react-lottie";
+import loveHeart from "../Assets/love-heart.png";
 import { withRouter } from "react-router-dom";
 
 class Comingsoon extends Component {
@@ -19,7 +20,7 @@ class Comingsoon extends Component {
     },
     invalidEmailError: false,
     emailExists: false,
-    successText: false,
+    successText: true,
     noTextError: false,
     subscribe: false,
     errorSendingEmail: false,
@@ -282,7 +283,8 @@ class Comingsoon extends Component {
                   <div>
                     <div id="success-text">
                       <p>
-                        That's what we like to see, sign up is successful !!!
+                        That's what we like to see, sign up is successful{" "}
+                        <img src={loveHeart} id="love-heart-icon" />
                       </p>
                     </div>
                   </div>
