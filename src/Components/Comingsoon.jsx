@@ -20,7 +20,7 @@ class Comingsoon extends Component {
     },
     invalidEmailError: false,
     emailExists: false,
-    successText: true,
+    successText: false,
     noTextError: false,
     subscribe: false,
     errorSendingEmail: false,
