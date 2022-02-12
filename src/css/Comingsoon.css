@@ -70,7 +70,7 @@ input[type="text"] {
   background-color: transparent;
   color: #000000;
   border: 2px solid #000000;
-  font-size: 20px;
+  font-size: 18px;
   width: 90%;
   height: 55px;
   padding-left: 2rem;
@@ -83,7 +83,7 @@ input[type="email"] {
   background-color: transparent;
   color: #000000;
   border: 2px solid #000000;
-  font-size: 20px;
+  font-size: 18px;
   width: 95%;
   height: 55px;
   padding-left: 2rem;
@@ -488,7 +488,7 @@ input[type="email"]:focus {
   #firstName {
     margin-bottom: 1rem;
   }
-  input[type="text"] {
+  /* input[type="text"] {
     width: 100%;
     font-size: 30px;
   }
@@ -496,19 +496,19 @@ input[type="email"]:focus {
     margin-top: 1rem;
     width: 100%;
     font-size: 30px;
-  }
-  input::placeholder {
+  } */
+  /* input::placeholder {
     font-size: 20px;
     font-weight: 600;
   }
   input[type="text"]:active,
   input[type="text"]:focus {
-    font-size: 30px;
+    font-size: 16px;
   }
   input[type="email"]:active,
   input[type="email"]:focus {
-    font-size: 30px;
-  }
+    font-size: 16px;
+  } */
   #btn {
     margin-top: 2rem;
     font-size: 18px;
@@ -532,64 +532,6 @@ input[type="email"]:focus {
     letter-spacing: 1px;
     color: #2d2d2d;
   }
-  /* #landing-wrapper {
-    padding-top: 10rem;
-    height: 90vh;
-    background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
-    mix-blend-mode: normal;
-    opacity: 0.9;
-  }
-  #right-col2 {
-    display: none;
-  }
-  #left-col2 {
-    padding-top: 15rem;
-  }
-  #coming-soon-text {
-    font-size: 46px;
-  }
-  #get-notified-text {
-    font-size: 60px;
-  }
-  input[type="text"] {
-    font-size: 30px;
-  }
-  input[type="email"] {
-    font-size: 30px;
-  }
-  input::placeholder {
-    font-size: 30px;
-    font-weight: 600;
-  }
-  input[type="text"]:active,
-  input[type="text"]:focus {
-    font-size: 30px;
-  }
-  input[type="email"]:active,
-  input[type="email"]:focus {
-    font-size: 30px;
-  }
-  #btn {
-    font-size: 26px;
-  }
-  #checkbox-wrapper {
-    margin-top: 3rem;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  #checkbox-text {
-    margin-top: 0.5rem;
-    margin-left: 1rem;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 19px;
-    line-height: 17px;
-    align-items: center;
-    letter-spacing: 1px;
-    color: #2d2d2d;
-  } */
 }
 
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
@@ -628,7 +570,7 @@ input[type="email"]:focus {
   #firstName {
     margin-bottom: 1rem;
   }
-  input[type="text"] {
+  /* input[type="text"] {
     width: 100%;
     font-size: 30px;
   }
@@ -636,19 +578,19 @@ input[type="email"]:focus {
     margin-top: 1rem;
     width: 100%;
     font-size: 30px;
-  }
+  } */
   input::placeholder {
     font-size: 20px;
     font-weight: 600;
   }
-  input[type="text"]:active,
+  /* input[type="text"]:active,
   input[type="text"]:focus {
-    font-size: 30px;
+    font-size: 18px;
   }
   input[type="email"]:active,
   input[type="email"]:focus {
-    font-size: 30px;
-  }
+    font-size: 18px;
+  } */
   #btn {
     margin-top: 2rem;
     font-size: 18px;

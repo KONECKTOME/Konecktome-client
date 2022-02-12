@@ -4,14 +4,16 @@ import aboutUsIcon from "../Assets/about_us_icon.svg";
 import customerReview from "../Assets/customer-review.svg";
 import entireProcess from "../Assets/Entire-process.svg";
 import safeAndSecure from "../Assets/safe-and-secure.svg";
-import { Row, Col } from "react-bootstrap";
+import tradeMarkIcon from "../Assets/trademark.png";
 
 class About extends Component {
   state = {};
   render() {
     return (
       <div className="container" id="all-wrapper">
-        <h1 id="about-us-header">Why KONECKTOME?</h1>
+        <h1 id="about-us-header">
+          Why KONECKTOME <img src={tradeMarkIcon} id="trademark-about-us" /> ?
+        </h1>
         <div className="about-us-vector-wrapper">
           <div className="about-us-vector-snd-wrapper">
             <div>

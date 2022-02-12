@@ -36,6 +36,11 @@
   margin-bottom: 50px;
 }
 
+#trademark-about-us {
+  width: 2%;
+  margin-bottom: 4rem;
+}
+
 .about-text {
   width: 726px;
   font-family: Poppins;
@@ -206,6 +211,10 @@
     margin: 0rem 0rem;
   }
 
+  #trademark-about-us {
+    width: 6%;
+  }
+
   #head-text {
     font-size: 20px;
     line-height: 28px;
@@ -231,10 +240,12 @@
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
   #text-holder {
-    width: auto;
-    height: auto;
     margin: 0rem;
-    padding-top: 12rem;
+    padding-top: 7rem;
+  }
+
+  #trademark-about-us {
+    width: 3%;
   }
 
   #head-text {
@@ -250,22 +261,21 @@
     margin-top: 0px !important;
   }
   #real-time-text-holder {
-    width: auto;
     height: auto;
-    margin-top: 12rem;
+    margin-top: 6rem;
     margin-right: 0rem;
   }
 
   .vector-width {
-    height: 395.83px;
+    height: auto;
     width: 277.27px;
   }
   .vector-width2 {
-    height: 395.83px;
+    height: auto;
     width: 277.27px;
   }
   .vector-width3 {
-    height: 395.83px;
+    height: auto;
     width: 277.27px;
   }
 

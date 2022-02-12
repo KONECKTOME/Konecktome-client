@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import downArrow from "../Assets/closee.png";
-import tick from "../Assets/tick.png";
 import "../css/ProblemSolution.css";
 
 class ProblemSolution extends React.Component {
@@ -11,9 +9,9 @@ class ProblemSolution extends React.Component {
         <div id="ps-card-holder">
           <div className="ps-card">
             <p>
-              We are continuously faced with making life decisions on which
-              growing list of insurances, financial services, and home utilities
-              to purchase from.
+              The amount of insurance providers, financial services, and home
+              utilities companies available to us are overwhelming which in turn
+              doesn't allow us know which one is right for us.
             </p>
           </div>
           <div className="ps-card">
