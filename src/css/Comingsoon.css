@@ -95,11 +95,11 @@ input[type="email"]:invalid {
 
 input::placeholder {
   color: #000000;
-  top: calc(50% - 26px / 2 - 23px);
+  margin-bottom: 3rem !important;
   font-family: Poppins regular;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 16px !important;
   line-height: 24px;
 }
 
@@ -107,14 +107,14 @@ input[type="text"]:active,
 input[type="text"]:focus {
   outline: none;
   color: #000000;
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 input[type="email"]:active,
 input[type="email"]:focus {
   outline: none;
   color: #000000;
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 #btn {
@@ -166,7 +166,7 @@ input[type="email"]:focus {
   color: #000000;
   border-radius: 90em;
   padding: 0.5rem 1.1rem 0.5rem 1.1rem;
-  width: 95%;
+  width: 100%;
   margin-top: 1rem;
   animation-name: stretch-no-text;
   animation-duration: 1.5s;
@@ -187,7 +187,7 @@ input[type="email"]:focus {
   color: #000000;
   border-radius: 90em;
   padding: 0.5rem 1.1rem 0.5rem 1.1rem;
-  width: 95%;
+  width: 100%;
   margin-top: 1rem;
   animation-name: stretch-no-text;
   animation-duration: 1.5s;
@@ -207,7 +207,7 @@ input[type="email"]:focus {
   background-color: green;
   border-radius: 90em;
   padding: 0.5rem 1.1rem 0.5rem 1.1rem;
-  width: 95%;
+  width: 100%;
   margin-top: 1.2rem;
 }
 #email-exists {
@@ -219,7 +219,7 @@ input[type="email"]:focus {
   color: #000000;
   border-radius: 90em;
   padding: 0.5rem 1.1rem 0.5rem 1.1rem;
-  width: 95%;
+  width: 100%;
   margin-top: 1rem;
   animation-name: stretch-email-exists-text;
   animation-duration: 1.5s;
@@ -304,6 +304,19 @@ input[type="email"]:focus {
   }
   #get-notified-text {
     display: none;
+  }
+
+  #success-text,
+  #no-text-error,
+  #email-exists {
+    width: 100%;
+  }
+
+  #success-text > p,
+  #no-text-error > p,
+  #email-exists > p {
+    font-family: Poppins Medium;
+    font-size: 15px;
   }
   #get-notified-text-mobile {
     font-family: Poppins Bold;

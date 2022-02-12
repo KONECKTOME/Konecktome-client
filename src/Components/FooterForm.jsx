@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "../css/FooterForm.css";
 import { Container, Row, Col } from "react-bootstrap";
+import loveHeart from "../Assets/star-struck.png";
+import winkFace from "../Assets/wink_face.png";
+import pleadFace from "../Assets/plead-face-color.png";
 class FooterForm extends Component {
   state = {
     details: {
@@ -203,7 +206,10 @@ class FooterForm extends Component {
                     {this.state.noTextError === true ? (
                       <div>
                         <div id="no-text-error">
-                          <p>Bummer, text fields cannot be empty.</p>
+                          <p>
+                            Bummer, text fields cannot be empty{" "}
+                            <img src={pleadFace} id="love-heart-icon" />
+                          </p>
                         </div>
                       </div>
                     ) : (
@@ -212,7 +218,10 @@ class FooterForm extends Component {
                     {this.state.invalidEmailError === true ? (
                       <div>
                         <div id="no-text-error">
-                          <p>oops, email is invalid...</p>
+                          <p>
+                            oops, email is invalid{" "}
+                            <img src={pleadFace} id="love-heart-icon" />
+                          </p>
                         </div>
                       </div>
                     ) : (
@@ -223,7 +232,7 @@ class FooterForm extends Component {
                         <div id="success-text">
                           <p>
                             That's what we like to see, sign up is successful
-                            !!!
+                            <img src={loveHeart} id="love-heart-icon" />
                           </p>
                         </div>
                       </div>
@@ -234,7 +243,8 @@ class FooterForm extends Component {
                       <div>
                         <div id="email-exists">
                           <p>
-                            Yup, we've met before. Your email already exists!!!
+                            Yup, we've met before. Your email already exists{" "}
+                            <img src={winkFace} id="love-heart-icon" />
                           </p>
                         </div>
                       </div>

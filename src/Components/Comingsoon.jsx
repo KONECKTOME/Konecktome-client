@@ -8,7 +8,9 @@ import instagram from "../Assets/instagram-2.png";
 import checkBoxIcon from "../Assets/check_mark.png";
 import Animation from "../Animation/Circles_Hover_Animation.json";
 import Lottie from "react-lottie";
-import loveHeart from "../Assets/love-heart.png";
+import loveHeart from "../Assets/star-struck.png";
+import winkFace from "../Assets/wink_face.png";
+import pleadFace from "../Assets/plead-face-color.png";
 import { withRouter } from "react-router-dom";
 
 class Comingsoon extends Component {
@@ -178,7 +180,7 @@ class Comingsoon extends Component {
           this.setState({
             successText: false,
           });
-        }, 1200);
+        }, 2000);
         window.location.href = "https://konecktome.com/success";
       }
     }
@@ -264,7 +266,10 @@ class Comingsoon extends Component {
                 {this.state.noTextError === true ? (
                   <div>
                     <div id="no-text-error">
-                      <p>Bummer, text fields cannot be empty.</p>
+                      <p>
+                        Bummer, text fields cannot be empty{" "}
+                        <img src={pleadFace} id="love-heart-icon" />
+                      </p>
                     </div>
                   </div>
                 ) : (
@@ -273,7 +278,10 @@ class Comingsoon extends Component {
                 {this.state.invalidEmailError === true ? (
                   <div>
                     <div id="no-text-error">
-                      <p>oops, email is invalid...</p>
+                      <p>
+                        oops, email is invalid{" "}
+                        <img src={pleadFace} id="love-heart-icon" />
+                      </p>
                     </div>
                   </div>
                 ) : (
@@ -294,7 +302,10 @@ class Comingsoon extends Component {
                 {this.state.emailExists === true ? (
                   <div>
                     <div id="email-exists">
-                      <p>Yup, we've met before. Your email already exists!!!</p>
+                      <p>
+                        Yup, we've met before. Your email already exists{" "}
+                        <img src={winkFace} id="love-heart-icon" />
+                      </p>
                     </div>
                   </div>
                 ) : (
