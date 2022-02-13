@@ -44,21 +44,21 @@ class ProblemSolution extends React.Component {
           <div id="ps-card-holder">
             <div className="ps-card">
               <p>
-                At Konecktome, we provide secure storage and synchronisation of
+                At KONECKTOME, we provide secure storage and synchronisation of
                 your personal and financial data to enable quick and easy
                 purchases or switching of services.
               </p>
             </div>
             <div className="ps-card">
               <p>
-                At Konecktome, we provide personal recommendation of the best
+                At KONECKTOME, we provide personal recommendation of the best
                 financial services or utility provider that is specific to your
                 needs.
               </p>
             </div>
             <div className="ps-card">
               <p>
-                At Konecktome, we provide management of subscription payments
+                At KONECKTOME, we provide management of subscription payments
                 that allows the need for multiple apps and websites to become
                 obsolete.
               </p>
