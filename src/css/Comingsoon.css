@@ -129,7 +129,7 @@ input[type="email"]:focus {
   line-height: 24px;
   text-align: center;
   color: #ffffff;
-  width: 95%;
+  width: 95% !important;
   height: 60px;
 }
 
@@ -166,7 +166,7 @@ input[type="email"]:focus {
   color: #000000;
   border-radius: 90em;
   padding: 0.5rem 1.1rem 0.5rem 1.1rem;
-  width: 100%;
+  width: 95%;
   margin-top: 1rem;
   animation-name: stretch-no-text;
   animation-duration: 1.5s;
@@ -187,7 +187,7 @@ input[type="email"]:focus {
   color: #000000;
   border-radius: 90em;
   padding: 0.5rem 1.1rem 0.5rem 1.1rem;
-  width: 100%;
+  width: 95%;
   margin-top: 1rem;
   animation-name: stretch-no-text;
   animation-duration: 1.5s;
@@ -207,7 +207,7 @@ input[type="email"]:focus {
   background-color: green;
   border-radius: 90em;
   padding: 0.5rem 1.1rem 0.5rem 1.1rem;
-  width: 100%;
+  width: 95%;
   margin-top: 1.2rem;
 }
 #email-exists {
@@ -219,7 +219,7 @@ input[type="email"]:focus {
   color: #000000;
   border-radius: 90em;
   padding: 0.5rem 1.1rem 0.5rem 1.1rem;
-  width: 100%;
+  width: 95%;
   margin-top: 1rem;
   animation-name: stretch-email-exists-text;
   animation-duration: 1.5s;
