@@ -11,9 +11,7 @@ class About extends Component {
   render() {
     return (
       <div className="container" id="all-wrapper">
-        <h1 id="about-us-header">
-          Why KONECKTOME <img src={tradeMarkIcon} id="trademark-about-us" /> ?
-        </h1>
+        <h1 id="about-us-header">Why KONECKTOME ?</h1>
         <div className="about-us-vector-wrapper">
           <div className="about-us-vector-snd-wrapper">
             <div>
