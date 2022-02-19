@@ -11,7 +11,7 @@ class About extends Component {
   render() {
     return (
       <div className="container" id="all-wrapper">
-        <h1 id="about-us-header">Why KONECKTOME ?</h1>
+        <h1 id="about-us-header">Why KONECKTOME ? </h1>
         <div className="about-us-vector-wrapper">
           <div className="about-us-vector-snd-wrapper">
             <div>
@@ -50,8 +50,7 @@ class About extends Component {
               <h3 id="head-text">Reviews And Essentials</h3>
               <p id="sub-text">
                 Customer reviews, alongside a clear and concise listing of any
-                additional information (e.g. T&Cs and additional costs)
-                provided.
+                additional information (e.g T&Cs and additional costs) provided.
               </p>
             </div>
           </div>
