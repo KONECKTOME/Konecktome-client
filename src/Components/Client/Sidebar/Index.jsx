@@ -78,7 +78,7 @@ class Index extends Component {
                 </div>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/details" className="links">
                 <Row>
                   <Col lg={2}>
@@ -93,7 +93,7 @@ class Index extends Component {
                   </Col>
                 </Row>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/explore" className="links">
                 <Row>
@@ -143,7 +143,7 @@ class Index extends Component {
                 </Row>
               </li>
             </Link>
-            <Link to="/recommendations" className="links">
+            {/* <Link to="/recommendations" className="links">
               <li>
                 <Row>
                   <Col lg={2}>
@@ -158,8 +158,8 @@ class Index extends Component {
                   </Col>
                 </Row>
               </li>
-            </Link>
-            <Link to="favourites" className="links">
+            </Link> */}
+            {/* <Link to="favourites" className="links">
               <li>
                 <Row>
                   <Col lg={2}>
@@ -174,7 +174,7 @@ class Index extends Component {
                   </Col>
                 </Row>
               </li>
-            </Link>
+            </Link> */}
             {/* <li>
               <Row>
                 <Col lg={2}>

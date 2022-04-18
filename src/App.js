@@ -25,16 +25,16 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Route path="/" exact component={Home} />
-        {/* <div id="fe-wrapper">
+        {/* <Route path="/" exact component={Home} /> */}
+        <div id="fe-wrapper">
           <div id="left-col">
             <Index />
           </div>
           <div id="right-col">
             <Navbar />
-            <Route path="/dashboard" exact component={Dashboard_home} />
+            <Route path="/" exact component={Dashboard_home} />
             <Route path="/account" exact component={Account_home} />
-            <Route path="/details" exact component={Details_home} />
+            {/* <Route path="/details" exact component={Details_home} /> */}
             <Route path="/explore" exact component={Explore_home} />
             <Route path="/explore/details" exact component={Explore_details} />
             <Route path="/history" exact component={History_home} />
@@ -53,7 +53,7 @@ function App() {
             <Route path="/favourites" exact component={Favourites_home} />
             <Route path="/wishlist" exact component={Wishlist} />
           </div>
-        </div> */}
+        </div>
       </Router>
       {/* <Row>
         <Col lg={2}>
