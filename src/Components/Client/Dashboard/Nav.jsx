@@ -18,7 +18,7 @@ class Nav extends Component {
                 <div id="dashboard-nav-icon-wrapper">
                   <img src={service_prov_icon} />
                 </div>
-                <div className="nav-item-text">Service Providers</div>
+                <div className="desktop-nav-header">Service Providers</div>
                 <div>
                   <p className="nav-item-number">60</p>
                 </div>
@@ -29,7 +29,7 @@ class Nav extends Component {
                 <div id="dashboard-nav-icon-wrapper">
                   <img src={fav_icon} />
                 </div>
-                <div className="nav-item-text">My Favourites</div>
+                <div className="desktop-nav-header">My Favourites</div>
                 <div>
                   <p className="nav-item-number">60</p>
                 </div>
@@ -40,7 +40,7 @@ class Nav extends Component {
                 <div id="dashboard-nav-icon-wrapper">
                   <img src={email_icon} />
                 </div>
-                <div className="nav-item-text">Email Updates</div>
+                <div className="desktop-nav-header">Email Updates</div>
                 <div>
                   <p className="nav-item-number">60</p>
                 </div>
@@ -51,7 +51,7 @@ class Nav extends Component {
                 <div id="dashboard-nav-icon-wrapper">
                   <img src={wishlist_icon} />
                 </div>
-                <div className="nav-item-text">Wish List</div>
+                <div className="desktop-nav-header">Wish List</div>
                 <div>
                   <p className="nav-item-number">60</p>
                 </div>

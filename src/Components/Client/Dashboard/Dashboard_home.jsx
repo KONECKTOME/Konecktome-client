@@ -11,7 +11,7 @@ class Dashboard_home extends Component {
   render() {
     return (
       <>
-        <div id="dashboard-div">
+        <div className="desktop-header">
           <p>Dashboard</p>
         </div>
         <Nav />
