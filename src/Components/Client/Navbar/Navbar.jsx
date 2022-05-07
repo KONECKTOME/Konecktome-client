@@ -13,27 +13,47 @@ class Navbar extends Component {
   render() {
     return (
       <div id="nav-wrapper">
-        <div id="nav-second-wrapper">
-          <div>
-            <img src={menu_icon} />
+        <div id="nav-right-wrapper">
+          <div id="nav-right">
+            <div className="nav-right-item nav-right-item-text">
+              <img src={notifications_icon} />
+            </div>
+            <div id="nav-image" className="nav-right-item">
+              <img src={placeholder_image} />
+            </div>
+            <div className="nav-right-item">
+              <p className="desktop-text nav-right-item-text">Timilehin .A</p>
+            </div>
+            <div className="nav-right-item-text">
+              <img src={dropdown_icon} />
+            </div>
           </div>
+          {/* <Row>
+            <Col>
+              <div id="nav-image">
+                <img src={placeholder_image} />
+              </div>
+            </Col>
+            <Col>
+              <p>Jhn dddddoe</p>
+            </Col>
+            <Col>
+              <div>
+                <img src={dropdown_icon} />
+              </div>
+            </Col>
+          </Row> */}
+          {/* <div id="nav-image">
+            <img src={placeholder_image} />
+          </div> */}
+        </div>
+        {/* <div id="nav-second-wrapper">
           <div id="row-wrapper">
             <Row>
-              <Col lg={1}>
-                <div className="line-div"></div>
-              </Col>
-              <Col lg={2}>
-                <img src={search_icon} />
-              </Col>
-              <Col lg={1}>
-                <div className="line-div"></div>
-              </Col>
               <Col lg={2}>
                 <img src={notifications_icon} />
               </Col>
-              <Col lg={1}>
-                <div className="line-div"></div>
-              </Col>
+
               <Col lg={5}>
                 <div id="nav-right-dropdown">
                   <div id="nav-image">
@@ -49,7 +69,7 @@ class Navbar extends Component {
               </Col>
             </Row>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }

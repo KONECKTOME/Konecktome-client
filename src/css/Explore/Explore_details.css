@@ -56,18 +56,10 @@
 }
 
 #explore-details-inner-right-text {
-  padding: 1rem 1rem 0rem 1rem;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 21px;
-  color: #000000;
-  mix-blend-mode: normal;
-  opacity: 0.9;
+  padding: 1rem 1rem 0rem 0rem;
 }
 
-#explore-details-features-text {
+/* #explore-details-features-text {
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
@@ -76,7 +68,7 @@
   color: #000000;
   mix-blend-mode: normal;
   opacity: 0.9;
-}
+} */
 
 #explore-details-inner-wrapper {
   display: flex;
@@ -118,25 +110,7 @@
 #left {
   width: 35%;
 }
-#explore-details-price-text {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 21px;
-  color: #000000;
-  mix-blend-mode: normal;
-  opacity: 0.6;
-}
 
-#explore-details-price-in-number {
-  font-family: Rubik;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 28px;
-  color: #ac7bb6;
-}
 #explore-details-review {
   margin-top: 1.5rem;
 }
@@ -162,7 +136,7 @@
   margin-left: 1rem;
 }
 
-#explore-details-right-col-buy-now-btn {
+/* #explore-details-right-col-buy-now-btn {
   width: 100%;
   height: 45px;
   background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
@@ -180,8 +154,8 @@
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
-}
-#explore-details-right-col-btn {
+} */
+/* #explore-details-right-col-btn {
   width: 100%;
   height: 45px;
   background: transparent;
@@ -200,9 +174,9 @@
   font-size: 16px;
   line-height: 24px;
   color: #ae7cb8;
-}
+} */
 
-.explore-details-card {
+/* .explore-details-card {
   background: #ffffff;
   box-shadow: 1px 0px 14px #f2f2f2;
   border-radius: 5px;
@@ -229,4 +203,4 @@
   font-size: 16px;
   line-height: 24px;
   color: #ae7cb8;
-}
+} */

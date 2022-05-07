@@ -10,7 +10,7 @@ class Dashboard_home extends Component {
   state = {};
   render() {
     return (
-      <>
+      <div>
         <div className="desktop-header">
           <p>Dashboard</p>
         </div>
@@ -26,7 +26,7 @@ class Dashboard_home extends Component {
             </Col>
           </Row>
         </div>
-      </>
+      </div>
     );
   }
 }

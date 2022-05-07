@@ -1,26 +1,39 @@
 #nav-wrapper {
   background: #ffffff;
   box-shadow: 0px 1px 14px #f2f2f2;
-  height: 60px;
+  height: 8%;
 }
 
-#nav-second-wrapper {
+/* #nav-second-wrapper {
   display: flex;
   justify-content: space-between;
   padding: 2rem 2rem;
-}
+} */
 
-.line-div {
+/* .line-div {
   width: 1px;
   height: 20px;
   mix-blend-mode: normal;
   opacity: 0.1;
   border: 1px solid #000000;
+} */
+
+#nav-right-wrapper {
+  padding: 1.5rem 2rem 1.5rem 0;
+  float: right;
 }
 
-#nav-right-dropdown {
+#nav-right {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.nav-right-item {
+  padding-right: 5rem;
+}
+
+.nav-right-item-text {
+  padding-top: 1rem;
 }
 
 #nav-image {

@@ -7,17 +7,12 @@ import star from "../../../Assets/star-icon.png";
 
 class Accounts extends Component {
   state = {
-    test: [1, 2, 3, 5, 6, 7, 8],
+    test: [1, 2, 3, 4, 5, 6],
   };
   render() {
     return (
       <div id="acc-wrapper">
-        <div id="acc-header-wrapper">
-          <div>
-            <p id="acc-header-text">My Accounts</p>
-          </div>
-          <div>dropdown placeholder</div>
-        </div>
+        <p className="desktop-sub-header1">My Accounts</p>
         <div id="acc-nav-wrapper">
           <table>
             <tr>
@@ -28,7 +23,7 @@ class Accounts extends Component {
                 <p className="acc-nav-inner-text">Type</p>
               </th>
               <th>
-                <p className="acc-nav-inner-text">Joined Date</p>
+                <p className="acc-nav-inner-text">Join Date</p>
               </th>
             </tr>
             {this.state.test.map((tt) => {
@@ -36,9 +31,6 @@ class Accounts extends Component {
                 <tr>
                   <td>
                     <Row>
-                      <Col lg={2}>
-                        <img src={star} id="star-icon" />
-                      </Col>
                       <Col lg={3}>
                         <img src={placeholder} />
                       </Col>
@@ -49,8 +41,12 @@ class Accounts extends Component {
                       </Col>
                     </Row>
                   </td>
-                  <td>Socials</td>
-                  <td>15-02-2021</td>
+                  <td>
+                    <div className="desktop-text">Social</div>
+                  </td>
+                  <td>
+                    <div className="desktop-text">14/23/09</div>
+                  </td>
                 </tr>
               );
             })}

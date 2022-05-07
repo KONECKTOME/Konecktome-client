@@ -17,14 +17,14 @@
   padding: 2rem 2rem 2rem 2rem;
 }
 
-#explore-header {
+/* #explore-header {
   font-family: Poppins Bold;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 48px;
   color: #000000;
-}
+} */
 
 #form-div {
   background: #ffffff;
@@ -62,21 +62,21 @@
   margin-top: 3rem;
 }
 
-#explore-inner-header {
+/* #explore-inner-header {
   font-family: Poppins bold;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 36px;
   color: #000000;
-}
+} */
 
 #explore-cards-pagination-wrapper {
   display: flex;
   justify-content: space-between;
 }
 
-.explore-cards {
+/* .explore-cards {
   margin: 0 auto;
   display: grid;
   grid-gap: 1rem;
@@ -88,9 +88,9 @@
   border-radius: 5px;
   height: auto;
   padding: 1.5rem;
-}
+} */
 
-#explore-view-button {
+/* #explore-view-button {
   width: 124px;
   height: 45px;
   background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
@@ -99,19 +99,13 @@
   display: flex;
   justify-content: center;
   padding-top: 1rem;
-}
+} */
 
-#view-button-text {
+/* #view-button-text {
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
-}
-
-@media screen and (max-width: 2000px) {
-  .explore-cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+} */

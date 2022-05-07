@@ -1,3 +1,7 @@
 #notifications_wrapper {
   padding: 2rem;
 }
+
+#table {
+  width: 100%;
+}

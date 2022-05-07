@@ -12,6 +12,10 @@
   font-family: "Poppins regular";
   src: url(./Fonts/Poppins-Regular.ttf);
 }
+@font-face {
+  font-family: "Rubik";
+  src: url(./Fonts/Rubik-Regular.ttf);
+}
 
 #fe-wrapper {
   display: flex;
@@ -50,6 +54,9 @@
   margin-bottom: 3px;
 }
 
+.desktop-dashboard-ultimate-wrapper {
+  padding: 2rem;
+}
 .desktop-header {
   margin: 2rem 0rem 1rem 3rem;
   font-family: Poppins bold;
@@ -74,8 +81,8 @@
 .desktop-sub-header2 {
   font-family: Poppins medium;
   font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 16px;
   line-height: 27px;
   color: #000000;
 }
@@ -92,17 +99,57 @@
 }
 
 .desktop-text {
-  font-family: Rubik;
+  font-family: Poppins;
   font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 22px;
   color: #000000;
   mix-blend-mode: normal;
-  opacity: 0.7;
+  /* opacity: 1; */
 }
 
 .desktop-big-button {
+  width: 100%;
+  height: 45px;
+  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+  opacity: 0.9;
+  border-radius: 90em;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.desktop-big-button-text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.desktop-big-button-transparent {
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  opacity: 0.9;
+  border-radius: 90em;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  border: 1px solid #ae7cb8;
+  margin-bottom: 1.5rem;
+}
+
+.desktop-big-button-transparent-text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ae7cb8;
 }
 
 .desktop-medium-button {
@@ -129,14 +176,85 @@
 .mobile-small-button {
 }
 
+.desktop-badge1 {
+  width: 100px;
+  height: 35px;
+  background: #ab7ab6;
+  opacity: 0.9;
+  border-radius: 90em;
+  display: flex;
+  justify-content: center;
+  padding-top: 0.4rem;
+}
+
+.desktop-badge-text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  padding-top: 0.1rem;
+}
+
 .desktop-cta {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 36px;
+  color: #ac7bb6;
+  border-bottom: 2px solid #ac7bb6;
 }
 
 .mobile-cta {
 }
 
 .desktop-price {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.6;
+}
+
+.desktop-price-number {
+  font-family: Poppins bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  color: #ac7bb6;
 }
 
 .mobile-price {
+}
+
+.cards {
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.card {
+  background: #ffffff;
+  box-shadow: 1px 0px 14px #f2f2f2;
+  border-radius: 5px;
+  height: auto;
+  padding: 1.5rem;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 2000px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

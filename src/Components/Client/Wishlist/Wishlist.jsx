@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../../../css/Wishlist/Wishlist.css";
 import image_placeholder from "../../../Assets/account-card-placeholder.png";
 import wishlist_icon from "../../../Assets/wishlist-card-icon.svg";
 
@@ -10,39 +9,36 @@ class Wishlist extends React.Component {
   render() {
     return (
       <div id="favourites_wrapper">
-        <p id="explore-header">My wishlist</p>
-        <div className="explore-cards">
+        <p className="desktop-header">My wishlist</p>
+        <div className="cards">
           {this.state.test.map((tt) => {
             return (
-              <div className="explore-card">
+              <div className="card">
                 <div id="image-holder">
-                  <img src={image_placeholder} id="card-image" />
+                  <img src={image_placeholder} className="card-image" />
                 </div>
                 <div id="account-card-inner-first-div">
-                  <p id="account-inner-header">Some Service Provider Name</p>
-                  <div>
-                    <img src={wishlist_icon} />
-                    <img src={wishlist_icon} />
-                  </div>
+                  <p className="desktop-sub-header2">
+                    Some Service Provider Name
+                  </p>
                 </div>
                 <div>
-                  <p id="acc-inner-desc">
+                  <p className="desktop-text">
                     Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's
                     standard dummy text ever since the…
                   </p>
-                  <div id="account-badge">
-                    <p id="badge-text">Financial</p>
+                  <div className="desktop-badge1">
+                    <p className="desktop-badge-text">Financial</p>
                   </div>
                 </div>
                 <div id="account-card-footer">
                   <div>
-                    <p id="account-price-text"> Price</p>
-                    <p id="account-price-in-number">£500</p>
+                    <p className="desktop-price"> Price</p>
+                    <p className="desktop-price-number">£500</p>
                   </div>
-
-                  <div id="explore-view-button">
-                    <p id="view-button-text">Buy</p>
+                  <div>
+                    <p className="desktop-cta">View details</p>
                   </div>
                 </div>
               </div>

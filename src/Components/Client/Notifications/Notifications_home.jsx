@@ -23,7 +23,7 @@ class Notifications_home extends React.Component {
         <div id="history_no_of_items_text">
           <p>Showing 7 of 78</p>
         </div>
-        <table>
+        <table id="table">
           <tr>
             <th>
               <p className="acc-nav-inner-text">Name</p>

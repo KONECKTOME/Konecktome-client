@@ -35,14 +35,6 @@
   mix-blend-mode: normal;
   opacity: 0.4;
 }
-#view-all-link {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 10px;
-  color: #00beff;
-}
 
 #reco-header-wrapper {
   width: 30%;
@@ -53,11 +45,16 @@
 .reco-col {
   background: #fafbfd;
   border-radius: 5px;
-  margin: 1rem 1rem;
+  padding: 2rem 2rem;
 }
 
 .reco-col-inner {
   padding: 1rem 1rem;
+}
+
+#dashboard-reco-deals {
+  display: flex;
+  justify-content: space-between;
 }
 
 .reco-col-inner-header {
@@ -89,9 +86,13 @@
   opacity: 0.7;
 }
 
-#dashboard_reco_accordion_wrapper {
+.dashboard_reco_accordion_wrapper_show {
   display: flex;
   justify-content: space-between;
+}
+
+.dashboard_reco_accordion_wrapper_hide {
+  display: none;
 }
 
 #dashboard_reco_accordion_inner_wrapper {

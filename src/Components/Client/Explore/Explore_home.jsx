@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 
 class Explore_home extends Component {
   state = {
-    test: [1, 2, 4],
+    test: [1, 2, 4, 4, 5, 6],
   };
   render() {
     return (
       <div id="explore-wrapper">
-        <p id="explore-header">Explore</p>
+        <p className="desktop-header">Explore</p>
         <div id="form-div">
           <form>
             <input
@@ -26,45 +26,41 @@ class Explore_home extends Component {
           {/* <div id="explore-dropdown-div">dropdown placeholder</div> */}
         </div>
         <div id="explore-inner-div">
-          <p id="explore-inner-header">Top 10 services</p>
+          <p className="desktop-header">Top 10 services</p>
           <div id="explore-cards-pagination-wrapper">
             {/* <div className="pagination-button">dhdh</div> */}
-            <div className="explore-cards">
+            <div className="cards">
               {this.state.test.map((tt) => {
                 return (
-                  <div className="explore-card">
+                  <div className="card">
                     <div id="image-holder">
-                      <img src={image_placeholder} id="card-image" />
+                      <img src={image_placeholder} className="card-image" />
                     </div>
                     <div id="account-card-inner-first-div">
-                      <p id="account-inner-header">
+                      <p className="desktop-sub-header2">
                         Some Service Provider Name
                       </p>
-                      <div>
-                        <img src={wishlist_icon} />
-                        <img src={wishlist_icon} />
-                      </div>
                     </div>
                     <div>
-                      <p id="acc-inner-desc">
+                      <p className="desktop-text">
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry. Lorem Ipsum has been the
                         industry's standard dummy text ever since the…
                       </p>
-                      <div id="account-badge">
-                        <p id="badge-text">Financial</p>
+                      <div className="desktop-badge1">
+                        <p className="desktop-badge-text">Financial</p>
                       </div>
                     </div>
                     <div id="account-card-footer">
                       <div>
-                        <p id="account-price-text"> Price</p>
-                        <p id="account-price-in-number">£500</p>
+                        <p className="desktop-price"> Price</p>
+                        <p className="desktop-price-number">£500</p>
                       </div>
-                      <Link className="links" to="/explore/details">
-                        <div id="explore-view-button">
-                          <p id="view-button-text">View</p>
-                        </div>
-                      </Link>
+                      <div>
+                        <Link className="links" to="/explore/details">
+                          <p className="desktop-cta">View details</p>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 );

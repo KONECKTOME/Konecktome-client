@@ -34,33 +34,19 @@
   border-bottom: 2px solid #ac7bb6;
 }
 
-#account-header {
+/* #account-header {
   font-family: Poppins Bold;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 48px;
   color: #000000;
-}
+} */
 
 #account-first-inner-right-div {
   width: 15%;
   display: flex;
   justify-content: space-between;
-}
-
-.cards {
-  margin: 0 auto;
-  display: grid;
-  grid-gap: 1rem;
-}
-
-.card {
-  background: #ffffff;
-  box-shadow: 1px 0px 14px #f2f2f2;
-  border-radius: 5px;
-  height: auto;
-  padding: 1.5rem;
 }
 
 #account-card-inner-first-div {
@@ -69,7 +55,7 @@
   margin-top: 1rem;
 }
 
-#account-inner-header {
+/* #account-inner-header {
   font-family: Poppins medium;
   font-style: normal;
   font-weight: 600;
@@ -108,13 +94,7 @@
   line-height: 24px;
   color: #ffffff;
   padding-top: 0.1rem;
-}
-
-#card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+} */
 
 #account-card-footer {
   margin-top: 2rem;
@@ -122,7 +102,7 @@
   justify-content: space-between;
 }
 
-#account-price-text {
+/* #account-price-text {
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
@@ -148,10 +128,4 @@
   font-size: 14px;
   line-height: 36px;
   color: #ac7bb6;
-}
-
-@media screen and (max-width: 2000px) {
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+} */
