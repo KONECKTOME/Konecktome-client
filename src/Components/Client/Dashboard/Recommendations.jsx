@@ -49,7 +49,14 @@ class Recommendations extends Component {
                               </p>
                               <p className="desktop-text">
                                 Lorem ipsum is simply a dummy text of printing
-                                and typesetting industry
+                                and typesetting industry Lorem ipsum is simply a
+                                dummy text of printing and typesetting industry
+                                Lorem ipsum is simply a dummy text of printing
+                                and typesetting industry Lorem ipsum is simply a
+                                dummy text of printing and
+                                typesettingdugqdougqcuqgcquicgqeci7eqcuiqwegcqecqed7cg
+                                industry.dhdugdjgug Lorem ipsum is simply a
+                                dummy text of printing and typesetting industry
                               </p>
                             </div>
                             <p
