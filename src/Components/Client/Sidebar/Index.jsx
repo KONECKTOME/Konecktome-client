@@ -43,7 +43,7 @@ class Index extends Component {
         <div id="sidebar-list">
           <ul>
             <li id="nav-items-list">
-              <Link to="/" className="links">
+              <Link to="/dashboard/:userid" className="links">
                 <div className={this.state.activeCheckBoxClass ? "active" : ""}>
                   <Row>
                     <Col lg={2}>
@@ -61,7 +61,7 @@ class Index extends Component {
               </Link>
             </li>
             <li>
-              <Link to="/account" className="links">
+              <Link to="/account/userid" className="links">
                 <div className={this.state.activeCheckBoxClass ? "active" : ""}>
                   <Row>
                     <Col lg={2}>
@@ -95,7 +95,7 @@ class Index extends Component {
               </Link>
             </li> */}
             <li>
-              <Link to="/explore" className="links">
+              <Link to="/explore/:userid" className="links">
                 <Row>
                   <Col lg={2}>
                     <div>
@@ -111,7 +111,7 @@ class Index extends Component {
               </Link>
             </li>
             <li>
-              <Link to="/history" className="links">
+              <Link to="/history/:userid" className="links">
                 <Row>
                   <Col lg={2}>
                     <div>
@@ -126,7 +126,7 @@ class Index extends Component {
                 </Row>
               </Link>
             </li>
-            <Link to="/notifications" className="links">
+            <Link to="/notifications/:userid" className="links">
               <li>
                 <Row>
                   <Col lg={2}>
@@ -189,7 +189,7 @@ class Index extends Component {
                 </Col>
               </Row>
             </li> */}
-            <Link to="wishlist" className="links">
+            <Link to="/wishlist/:userid" className="links">
               <li>
                 <Row>
                   <Col lg={2}>
@@ -261,7 +261,7 @@ class Index extends Component {
                 </Col>
               </Row>
             </li> */}
-            <Link to="/settings" className="links">
+            <Link to="/settings/:userid" className="links">
               <li>
                 <Row>
                   <Col lg={2}>

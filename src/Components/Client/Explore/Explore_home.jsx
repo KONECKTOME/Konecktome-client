@@ -28,7 +28,6 @@ class Explore_home extends Component {
         <div id="explore-inner-div">
           <p className="desktop-header">Top 10 services</p>
           <div id="explore-cards-pagination-wrapper">
-            {/* <div className="pagination-button">dhdh</div> */}
             <div className="cards">
               {this.state.test.map((tt) => {
                 return (
@@ -36,10 +35,14 @@ class Explore_home extends Component {
                     <div id="image-holder">
                       <img src={image_placeholder} className="card-image" />
                     </div>
-                    <div id="account-card-inner-first-div">
+                    <div className="card-inner-first-div">
                       <p className="desktop-sub-header2">
                         Some Service Provider Name
                       </p>
+                      <div>
+                        <p>Stars</p>
+                        <p>Trust Pilot ratings</p>
+                      </div>
                     </div>
                     <div>
                       <p className="desktop-text">
@@ -57,7 +60,7 @@ class Explore_home extends Component {
                         <p className="desktop-price-number">£500</p>
                       </div>
                       <div>
-                        <Link className="links" to="/explore/details">
+                        <Link className="links" to="/explore/details/:userId">
                           <p className="desktop-cta">View details</p>
                         </Link>
                       </div>

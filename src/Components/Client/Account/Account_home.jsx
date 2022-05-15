@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "../../../css/Account/index.css";
 import image_placeholder from "../../../Assets/account-card-placeholder.png";
-import wishlist_icon from "../../../Assets/wishlist-card-icon.svg";
+import Modal from "../ReviewModal/Modal";
 
 class Account_home extends React.Component {
   state = {
     test: [1, 2, 3, 4, 5, 6],
+    showModal: true,
   };
   render() {
     return (
@@ -32,11 +33,14 @@ class Account_home extends React.Component {
                 <div id="image-holder">
                   <img src={image_placeholder} className="card-image" />
                 </div>
-
                 <div id="account-card-inner-first-div">
                   <p className="desktop-sub-header2">
                     Some Service Provider Name
                   </p>
+                  <div>
+                    <p>Stars</p>
+                    <p>Trust Pilot ratings</p>
+                  </div>
                 </div>
                 <div>
                   <p className="desktop-text">
@@ -56,11 +60,15 @@ class Account_home extends React.Component {
                   <div>
                     <p className="desktop-cta">View details</p>
                   </div>
+                  <div>
+                    <p className="desktop-cta">Write a review</p>
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
+        {this.state.showModal === true ? <Modal /> : null}
       </div>
     );
   }

@@ -25,33 +25,43 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <Route path="/" exact component={Home} /> */}
         <div id="fe-wrapper">
           <div id="left-col">
             <Index />
           </div>
           <div id="right-col">
             <Navbar />
-            <Route path="/" exact component={Dashboard_home} />
-            <Route path="/account" exact component={Account_home} />
-            {/* <Route path="/details" exact component={Details_home} /> */}
-            <Route path="/explore" exact component={Explore_home} />
-            <Route path="/explore/details" exact component={Explore_details} />
-            <Route path="/history" exact component={History_home} />
-            <Route path="/settings" exact component={Settings_home} />
+            <Route path="/dashboard/:userid" exact component={Dashboard_home} />
+            <Route path="/account/userid" exact component={Account_home} />
+            <Route path="/explore/:userId" exact component={Explore_home} />
             <Route
-              path="/recommendations"
+              path="/explore/details/:userId"
+              exact
+              component={Explore_details}
+            />
+            <Route path="/history/:userId" exact component={History_home} />
+            <Route path="/settings/:userId" exact component={Settings_home} />
+            <Route
+              path="/recommendations/:userId"
               exact
               component={Recommendations_home}
             />
             <Route
-              path="/explore/compare"
+              path="/explore/compare/:userId"
               exact
               component={Explore_comparison}
             />
-            <Route path="/notifications" exact component={Notifications_home} />
-            <Route path="/favourites" exact component={Favourites_home} />
-            <Route path="/wishlist" exact component={Wishlist} />
+            <Route
+              path="/notifications/:userId"
+              exact
+              component={Notifications_home}
+            />
+            <Route
+              path="/favourites/:userId"
+              exact
+              component={Favourites_home}
+            />
+            <Route path="/wishlist/:userId" exact component={Wishlist} />
           </div>
         </div>
       </Router>

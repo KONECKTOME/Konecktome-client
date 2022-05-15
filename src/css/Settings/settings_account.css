@@ -30,7 +30,7 @@
   cursor: pointer;
 }
 
-#settings_account_image_container {
+/* #settings_account_image_container {
   position: relative;
   width: 50px;
   height: 50px;
@@ -41,7 +41,7 @@
 #settings_account_image {
   width: 100%;
   height: auto;
-}
+} */
 
 .settings_account_service-provider-text {
   font-family: Poppins medium;

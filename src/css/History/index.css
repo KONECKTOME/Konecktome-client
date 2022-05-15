@@ -58,3 +58,34 @@
 #history_account_items {
   margin-bottom: 3rem !important;
 }
+
+#history-main-content,
+#history-main-content-item {
+  display: flex;
+}
+
+.history-service-provider-text {
+  margin: 1rem;
+  color: #00beff !important;
+}
+
+#resp-table {
+  width: 100%;
+  display: table;
+}
+#resp-table-header {
+  display: table-header-group;
+}
+.table-header-cell {
+  display: table-cell;
+  text-align: justify;
+}
+#resp-table-body {
+  display: table-row-group;
+}
+.resp-table-row {
+  display: table-row;
+}
+.table-body-cell {
+  display: table-cell;
+}

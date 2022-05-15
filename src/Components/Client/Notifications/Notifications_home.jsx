@@ -41,10 +41,10 @@ class Notifications_home extends React.Component {
                 <td>
                   <Row>
                     <Col lg={3}>
-                      <div id="settings_account_image_container">
+                      <div className="small-profile-image-container">
                         <img
                           src={profileSettingPlaceholder}
-                          id="settings_account_image"
+                          className="small-profile-image"
                         />
                       </div>
                     </Col>
