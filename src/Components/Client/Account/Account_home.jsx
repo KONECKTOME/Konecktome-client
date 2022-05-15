@@ -6,7 +6,7 @@ import Modal from "../ReviewModal/Modal";
 class Account_home extends React.Component {
   state = {
     test: [1, 2, 3, 4, 5, 6],
-    showModal: true,
+    showModal: false,
   };
   render() {
     return (

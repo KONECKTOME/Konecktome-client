@@ -17,7 +17,7 @@ class Footer extends Component {
           </div>
           <div id="footer-second-wrapper">
             <p className="footer-text">
-              © 2021 KONECKTOME. All rights reserved.
+              © 2022 KONECKTOME. All rights reserved.
             </p>
           </div>
         </div>

@@ -1,5 +1,5 @@
-.modal {
-  display: block; /* Hidden by default */
+.review-modal {
+  display: block !important; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -11,21 +11,22 @@
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
+.review-modal-content {
+  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 30%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
+#review-modal-close {
+  font-family: Poppins medium;
+  font-style: normal;
   font-weight: bold;
+  font-size: 28px;
+  line-height: 27px;
+  color: #000000;
 }
 
 .close:hover,
@@ -33,4 +34,78 @@
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+#review-modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#review-modal-body {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+#review-modal-body > form {
+  width: 100% !important;
+  border-radius: 25px;
+}
+
+#review-modal-body textarea[type="text"] {
+  width: 100% !important;
+  border-radius: 5px;
+}
+
+#review-modal-body textarea[type="text"]:active,
+#review-modal-body textarea[type="text"]:focus {
+  outline: none;
+  color: #000000;
+  font-size: 16px !important;
+  width: 100% !important;
+  font-family: Poppins;
+  padding: 1rem;
+}
+
+#review-modal-message::placeholder {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  text-align: center;
+}
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.on {
+  color: #000;
+}
+.off {
+  color: #ccc;
+}
+#review-modal-body > .star-rating > button > span {
+  width: 90vw;
+}
+
+#review-modal-button {
+  width: 50%;
+  height: 45px;
+  background: white;
+  opacity: 0.9;
+  border-radius: 90em;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-button-text {
+  color: #000000 !important;
 }

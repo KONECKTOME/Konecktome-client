@@ -6,11 +6,13 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./Components/Client/LandingPage/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Signup from "./Components/Client/Login & Signup/Signup";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Route path="/" exact component={Home} />
+      <Route path="/signup" exact component={Signup} />
       <Route path="/dashboard/:userid" exact component={App}></Route>
     </Router>
   </React.StrictMode>,

@@ -34,15 +34,6 @@
   border-bottom: 2px solid #ac7bb6;
 }
 
-/* #account-header {
-  font-family: Poppins Bold;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 48px;
-  color: #000000;
-} */
-
 #account-first-inner-right-div {
   width: 15%;
   display: flex;
@@ -55,77 +46,8 @@
   margin-top: 1rem;
 }
 
-/* #account-inner-header {
-  font-family: Poppins medium;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 27px;
-  color: #000000;
-}
-
-#acc-inner-desc {
-  font-family: Poppins regular;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 21px;
-  color: #000000;
-  mix-blend-mode: normal;
-  opacity: 0.4;
-}
-
-#account-badge {
-  width: 100px;
-  height: 35px;
-  background: #ab7ab6;
-  opacity: 0.9;
-  border-radius: 90em;
-  display: flex;
-  justify-content: center;
-  padding-top: 0.4rem;
-}
-
-#badge-text {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  color: #ffffff;
-  padding-top: 0.1rem;
-} */
-
 #account-card-footer {
   margin-top: 2rem;
   display: flex;
   justify-content: space-between;
 }
-
-/* #account-price-text {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 21px;
-  color: #000000;
-  mix-blend-mode: normal;
-  opacity: 0.6;
-}
-
-#account-price-in-number {
-  font-family: Poppins bold;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 36px;
-  color: #ac7bb6;
-}
-#account-view-details-text {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 36px;
-  color: #ac7bb6;
-} */

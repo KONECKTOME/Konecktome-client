@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import illustration from "../../../Assets/wheel-vector.svg";
 import "../../../css/LandingPage/Hero.css";
-
+import { Link } from "react-router-dom";
 import Animation from "../../../Animation/Circles_Hover_Animation.json";
 import Lottie from "react-lottie";
 import { withRouter } from "react-router-dom";
@@ -41,9 +41,11 @@ class Hero extends Component {
               {/* <span id="hero-to-konecktome-text">KONECKTOME</span> */}
               <p id="hero-life-assistant-text">Your Virtual Life Assistant</p>
               <div id="hero-btn-wrapper">
-                <div id="hero-sign-up-btn-wrapper">
-                  <p id="hero-sign-up-btn-text">Sign Up</p>
-                </div>
+                <Link to="/signup" className="links">
+                  <div id="hero-sign-up-btn-wrapper">
+                    <p id="hero-sign-up-btn-text">Sign Up</p>
+                  </div>
+                </Link>
                 <div id="hero-login-btn-wrapper">
                   <p id="hero-login-btn-text">Login</p>
                 </div>

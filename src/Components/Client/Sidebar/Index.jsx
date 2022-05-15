@@ -61,7 +61,7 @@ class Index extends Component {
               </Link>
             </li>
             <li>
-              <Link to="/account/userid" className="links">
+              <Link to="/dashboard/account/:userid" className="links">
                 <div className={this.state.activeCheckBoxClass ? "active" : ""}>
                   <Row>
                     <Col lg={2}>
@@ -95,7 +95,7 @@ class Index extends Component {
               </Link>
             </li> */}
             <li>
-              <Link to="/explore/:userid" className="links">
+              <Link to="/dashboard/explore/:userid" className="links">
                 <Row>
                   <Col lg={2}>
                     <div>
@@ -111,7 +111,7 @@ class Index extends Component {
               </Link>
             </li>
             <li>
-              <Link to="/history/:userid" className="links">
+              <Link to="/dashboard/history/:userid" className="links">
                 <Row>
                   <Col lg={2}>
                     <div>
@@ -126,7 +126,7 @@ class Index extends Component {
                 </Row>
               </Link>
             </li>
-            <Link to="/notifications/:userid" className="links">
+            <Link to="/dashboard/notifications/:userid" className="links">
               <li>
                 <Row>
                   <Col lg={2}>
@@ -189,7 +189,7 @@ class Index extends Component {
                 </Col>
               </Row>
             </li> */}
-            <Link to="/wishlist/:userid" className="links">
+            <Link to="/dashboard/wishlist/:userid" className="links">
               <li>
                 <Row>
                   <Col lg={2}>
@@ -261,7 +261,7 @@ class Index extends Component {
                 </Col>
               </Row>
             </li> */}
-            <Link to="/settings/:userid" className="links">
+            <Link to="/dashboard/settings/:userid" className="links">
               <li>
                 <Row>
                   <Col lg={2}>

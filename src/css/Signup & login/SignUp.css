@@ -1,0 +1,34 @@
+#sign-up-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+#sign-up-right-col {
+  padding: 17rem 0rem 0rem 2rem;
+}
+
+.sign-up-header {
+  margin: 0 !important;
+}
+
+.input-holder {
+  margin-top: 2rem;
+}
+
+.sign-up-span-link {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  color: #ab7ab6 !important;
+  font-weight: bold !important;
+}
+
+.sign-up-footer {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+#sign-up-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}

@@ -15,7 +15,7 @@ import Settings_home from "./Components/Client/Settings/Settings_home";
 import Notifications_home from "./Components/Client/Notifications/Notifications_home";
 import Favourites_home from "./Components/Client/Favourites/Favourites_home";
 import Wishlist from "./Components/Client/Wishlist/Wishlist";
-import Home from "./Components/Client/LandingPage/Home";
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "../src/App.css";
 import { Row, Col } from "react-bootstrap";
@@ -32,36 +32,57 @@ function App() {
           <div id="right-col">
             <Navbar />
             <Route path="/dashboard/:userid" exact component={Dashboard_home} />
-            <Route path="/account/userid" exact component={Account_home} />
-            <Route path="/explore/:userId" exact component={Explore_home} />
             <Route
-              path="/explore/details/:userId"
+              path="/dashboard/account/:userid"
+              exact
+              component={Account_home}
+            />
+            <Route
+              path="/dashboard/explore/:userId"
+              exact
+              component={Explore_home}
+            />
+            <Route
+              path="/dashboard/explore/details/:userId"
               exact
               component={Explore_details}
             />
-            <Route path="/history/:userId" exact component={History_home} />
-            <Route path="/settings/:userId" exact component={Settings_home} />
             <Route
-              path="/recommendations/:userId"
+              path="/dashboard/history/:userId"
+              exact
+              component={History_home}
+            />
+
+            <Route
+              path="/dashboard/settings/:userId"
+              exact
+              component={Settings_home}
+            />
+            <Route
+              path="/dashboard/recommendations/:userId"
               exact
               component={Recommendations_home}
             />
             <Route
-              path="/explore/compare/:userId"
+              path="/dashboard/explore/compare/:userId"
               exact
               component={Explore_comparison}
             />
             <Route
-              path="/notifications/:userId"
+              path="/dashboard/notifications/:userId"
               exact
               component={Notifications_home}
             />
             <Route
-              path="/favourites/:userId"
+              path="/dashboard/favourites/:userId"
               exact
               component={Favourites_home}
             />
-            <Route path="/wishlist/:userId" exact component={Wishlist} />
+            <Route
+              path="/dashboard/wishlist/:userId"
+              exact
+              component={Wishlist}
+            />
           </div>
         </div>
       </Router>

@@ -70,6 +70,18 @@ input[type="email"] {
   height: 55px;
   padding-left: 2rem;
 }
+input[type="password"] {
+  text-align: left;
+  border-radius: 10px;
+  margin-top: 1rem;
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  font-size: 20px;
+  width: 95%;
+  height: 55px;
+  padding-left: 2rem;
+}
 
 input[type="email"]:invalid {
   border: 2px solid red;
@@ -94,6 +106,13 @@ input[type="text"]:focus {
 
 input[type="email"]:active,
 input[type="email"]:focus {
+  outline: none;
+  color: #000000;
+  font-size: 16px;
+}
+
+input[type="password"]:active,
+input[type="password"]:focus {
   outline: none;
   color: #000000;
   font-size: 16px;
