@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import "../../../css/LandingPage/Footer.css";
 
 class Footer extends Component {
-  state = {};
+  state = {
+    currentYear: new Date().getFullYear(),
+  };
   render() {
     return (
       <>
@@ -17,7 +19,7 @@ class Footer extends Component {
           </div>
           <div id="footer-second-wrapper">
             <p className="footer-text">
-              © 2022 KONECKTOME. All rights reserved.
+              © {this.state.currentYear} KONECKTOME. All rights reserved.
             </p>
           </div>
         </div>
