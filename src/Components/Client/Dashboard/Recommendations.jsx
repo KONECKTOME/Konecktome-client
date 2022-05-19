@@ -44,19 +44,10 @@ class Recommendations extends Component {
                               <img src={life_insurance} />
                             </div>
                             <div>
-                              <p className="desktop-sub-header2">
-                                Life Insurance
-                              </p>
+                              <p className="desktop-sub-header2">Broadband</p>
                               <p className="desktop-text">
                                 Lorem ipsum is simply a dummy text of printing
                                 and typesetting industry Lorem ipsum is simply a
-                                dummy text of printing and typesetting industry
-                                Lorem ipsum is simply a dummy text of printing
-                                and typesetting industry Lorem ipsum is simply a
-                                dummy text of printing and
-                                typesettingdugqdougqcuqgcquicgqeci7eqcuiqwegcqecqed7cg
-                                industry.dhdugdjgug Lorem ipsum is simply a
-                                dummy text of printing and typesetting industry
                               </p>
                             </div>
                             <p

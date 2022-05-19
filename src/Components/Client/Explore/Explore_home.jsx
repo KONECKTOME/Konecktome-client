@@ -60,7 +60,10 @@ class Explore_home extends Component {
                         <p className="desktop-price-number">£500</p>
                       </div>
                       <div>
-                        <Link className="links" to="/explore/details/:userId">
+                        <Link
+                          className="links"
+                          to="/dashboard/explore/details/:userId"
+                        >
                           <p className="desktop-cta">View details</p>
                         </Link>
                       </div>

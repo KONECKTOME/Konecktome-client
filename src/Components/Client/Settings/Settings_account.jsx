@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Row, Col } from "react-bootstrap";
 import placeholder from "../../../Assets/my-placeholder.png";
 import profileSettingPlaceholder from "../../../Assets/Quadri.jpg";
+import image_placeholder from "../../../Assets/account-card-placeholder.png";
 import "../../../css/Settings/settings_account.css";
 
 class Settings_account extends React.Component {
@@ -33,10 +34,10 @@ class Settings_account extends React.Component {
                   <td>
                     <Row>
                       <Col lg={3}>
-                        <div id="settings_account_image_container">
+                        <div className="small-profile-image-container">
                           <img
-                            src={profileSettingPlaceholder}
-                            id="settings_account_image"
+                            src={image_placeholder}
+                            className="small-profile-image"
                           />
                         </div>
                       </Col>
