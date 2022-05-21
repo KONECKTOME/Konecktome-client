@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../../css/Account/index.css";
 import image_placeholder from "../../../Assets/account-card-placeholder.png";
 import Modal from "../ReviewModal/Modal";
+import { Link } from "react-router-dom";
 
 class Account_home extends React.Component {
   state = {
@@ -14,18 +15,6 @@ class Account_home extends React.Component {
         <div>
           <p className="desktop-header">My Accounts</p>
         </div>
-        {/* <div id="account-first-inner-div">
-          <div></div>
-          <div id="account-first-inner-right-div">
-            <div>
-              <p className="account-header-right-options">All</p>
-            </div>
-            <div>
-              <p className="account-header-right-options">Private Listings</p>
-            </div>
-          </div>
-        </div> */}
-
         <div className="cards">
           {this.state.test.map((t) => {
             return (
@@ -57,9 +46,14 @@ class Account_home extends React.Component {
                     <p className="desktop-price"> Price</p>
                     <p className="desktop-price-number">£500</p>
                   </div>
-                  <div>
-                    <p className="desktop-cta">View details</p>
-                  </div>
+                  <Link
+                    className="links"
+                    to="/dashboard/explore/details/:userId"
+                  >
+                    <div>
+                      <p className="desktop-cta">View details</p>
+                    </div>
+                  </Link>
                   <div>
                     <p className="desktop-cta">Write a review</p>
                   </div>

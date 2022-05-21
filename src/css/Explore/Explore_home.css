@@ -17,15 +17,6 @@
   padding: 2rem 2rem 2rem 2rem;
 }
 
-/* #explore-header {
-  font-family: Poppins Bold;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 48px;
-  color: #000000;
-} */
-
 #form-div {
   background: #ffffff;
   box-shadow: 0px 1px 14px #f2f2f2;
@@ -62,50 +53,7 @@
   margin-top: 3rem;
 }
 
-/* #explore-inner-header {
-  font-family: Poppins bold;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 36px;
-  color: #000000;
-} */
-
 #explore-cards-pagination-wrapper {
   display: flex;
   justify-content: space-between;
 }
-
-/* .explore-cards {
-  margin: 0 auto;
-  display: grid;
-  grid-gap: 1rem;
-}
-
-.explore-card {
-  background: #ffffff;
-  box-shadow: 1px 0px 14px #f2f2f2;
-  border-radius: 5px;
-  height: auto;
-  padding: 1.5rem;
-} */
-
-/* #explore-view-button {
-  width: 124px;
-  height: 45px;
-  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
-  opacity: 0.9;
-  border-radius: 90em;
-  display: flex;
-  justify-content: center;
-  padding-top: 1rem;
-} */
-
-/* #view-button-text {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  color: #ffffff;
-} */

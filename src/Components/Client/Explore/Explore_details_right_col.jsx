@@ -9,17 +9,15 @@ class Explore_details_right_col extends React.Component {
     exploreRightColClass: "right",
   };
 
-  //   componentDidMount = () => {
-  //     this.checkExploreRightColClass();
-  //   };
-
-  checkExploreRightColClass = (id) => {
-    const url = this.props.to;
-    window.alert(url);
+  componentDidMount = () => {
+    if (window.location.href.indexOf("/dashboard/explore/compare") > -1) {
+      this.setState({ exploreRightColClass: "right-with-compare" });
+    }
   };
+
   render(props) {
     return (
-      <div id="right">
+      <div id={this.state.exploreRightColClass}>
         <div id="explore-details-inner-right">
           <img src={image_placeholder} />
           <div id="explore-details-sub-inner-right-subheader-wrapper">
@@ -94,11 +92,19 @@ class Explore_details_right_col extends React.Component {
                 Add to wishlist
               </p>
             </div>
-            <Link to="/explore/compare" className="links">
-              <div className="desktop-big-button-transparent">
-                <p className="desktop-big-button-transparent-text">Compare</p>
-              </div>
-            </Link>
+            <div
+              id={
+                this.state.exploreRightColClass === "right"
+                  ? "display-compare-btn"
+                  : "hide-compare-btn"
+              }
+            >
+              <Link to="/dashboard/explore/compare/:userId" className="links">
+                <div className="desktop-big-button-transparent">
+                  <p className="desktop-big-button-transparent-text">Compare</p>
+                </div>
+              </Link>
+            </div>
           </div>
           <div id="explore-details-review">
             <p className="desktop-sub-header2"> Reviews</p>

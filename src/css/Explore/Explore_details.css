@@ -59,23 +59,23 @@
   padding: 1rem 1rem 0rem 0rem;
 }
 
-/* #explore-details-features-text {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 21px;
-  color: #000000;
-  mix-blend-mode: normal;
-  opacity: 0.9;
-} */
-
 #explore-details-inner-wrapper {
   display: flex;
   justify-content: space-between;
 }
 
 #right {
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0px 1px 14px #f2f2f2;
+  border-radius: 4px;
+  margin-right: 2rem;
+}
+
+#right-with-compare {
   padding: 1.5rem 1rem 1.5rem 1rem;
   display: flex;
   justify-content: space-between;
@@ -136,71 +136,10 @@
   margin-left: 1rem;
 }
 
-/* #explore-details-right-col-buy-now-btn {
-  width: 100%;
-  height: 45px;
-  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
-  opacity: 0.9;
-  border-radius: 90em;
-  display: flex;
-  justify-content: center;
-  padding-top: 1rem;
-  margin-bottom: 1.5rem;
-}
-#explore-details-right-col-buy-now-btn-text {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  color: #ffffff;
-} */
-/* #explore-details-right-col-btn {
-  width: 100%;
-  height: 45px;
-  background: transparent;
-  opacity: 0.9;
-  border-radius: 90em;
-  display: flex;
-  justify-content: center;
-  padding-top: 1rem;
-  border: 1px solid #ae7cb8;
-  margin-bottom: 1.5rem;
-}
-#explore-details-right-col-btn-text {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  color: #ae7cb8;
-} */
-
-/* .explore-details-card {
-  background: #ffffff;
-  box-shadow: 1px 0px 14px #f2f2f2;
-  border-radius: 5px;
-  height: auto;
-  padding: 1.5rem;
+#display-compare-btn {
+  display: block;
 }
 
-#explore-details-view-button {
-  width: 124px;
-  height: 45px;
-  background: transparent;
-  opacity: 0.9;
-  border-radius: 90em;
-  display: flex;
-  justify-content: center;
-  padding-top: 1rem;
-  border: 1px solid #ae7cb8;
+#hide-compare-btn {
+  display: none;
 }
-
-#explore-details-view-button-text {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  color: #ae7cb8;
-} */
