@@ -6,6 +6,62 @@ import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 class Signup extends React.Component {
+  state = {
+    details: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    },
+  };
+
+  updateDetails = (e) => {
+    const details = this.state.details;
+    const id = e.currentTarget.id;
+    details[id] = e.currentTarget.value;
+    this.setState({ details });
+  };
+
+  isValidEmail = (email) => {
+    var mailformat =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (email.match(mailformat)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  register = async (e) => {
+    e.preventDefault();
+    if (this.isValidEmail(this.state.details.email) === false) {
+      console.log("invalid email");
+    } else {
+      const response = await fetch("http://localhost:3002/users/sign-up", {
+        method: "POST",
+        body: JSON.stringify({
+          firstName: this.state.details.firstName,
+          lastName: this.state.details.lastName,
+          email: this.state.details.email,
+          password: this.state.details.password,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      const details = await response.json();
+      this.setState({
+        details: {
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+        },
+      });
+      alert(details.id);
+    }
+  };
   render() {
     return (
       <div id="sign-up-main">
@@ -26,6 +82,8 @@ class Signup extends React.Component {
                         id="firstName"
                         type="text"
                         placeholder="First Name"
+                        value={this.state.details.firstName}
+                        onChange={(e) => this.updateDetails(e)}
                       />
                     </div>
                   </Col>
@@ -35,15 +93,29 @@ class Signup extends React.Component {
                         id="lastName"
                         type="text"
                         placeholder="Last Name"
+                        value={this.state.details.lastName}
+                        onChange={(e) => this.updateDetails(e)}
                       />
                     </div>
                   </Col>
                 </Row>
                 <div className="input-holder">
-                  <input id="email" type="email" placeholder="Email Address" />
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="Email Address"
+                    value={this.state.details.email}
+                    onChange={(e) => this.updateDetails(e)}
+                  />
                 </div>
                 <div className="input-holder">
-                  <input id="password" type="password" placeholder="Password" />
+                  <input
+                    id="password"
+                    type="password"
+                    placeholder="Password"
+                    value={this.state.details.password}
+                    onChange={(e) => this.updateDetails(e)}
+                  />
                 </div>
               </form>
               <div className="desktop-text sign-up-footer">
@@ -62,7 +134,7 @@ class Signup extends React.Component {
                   </span>
                 </span>
               </div>
-              <div id="sign-up-btn">
+              <div id="sign-up-btn" onClick={(e) => this.register(e)}>
                 <div className="desktop-medium-button">
                   <p className="desktop-big-button-text">Sign up</p>
                 </div>

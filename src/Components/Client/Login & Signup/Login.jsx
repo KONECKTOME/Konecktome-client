@@ -7,6 +7,50 @@ import Footer from "../LandingPage/Footer";
 class Login extends React.Component {
   state = {
     check: false,
+    details: {
+      email: "",
+      password: "",
+    },
+  };
+  updateDetails = (e) => {
+    const details = this.state.details;
+    const id = e.currentTarget.id;
+    details[id] = e.currentTarget.value;
+    this.setState({ details });
+  };
+  login = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:3002/users/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.details.email,
+        password: this.state.details.password,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    const token = await response.json();
+    console.log(token);
+    if (token) {
+      const authorize = await fetch(
+        `http://localhost:3002/users/get-user-after-login`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: "Bearer " + token.newAccessToken,
+          },
+        }
+      );
+      const userDetails = await authorize.json();
+      console.log(userDetails);
+      this.setState({
+        details: {
+          email: "",
+          password: "",
+        },
+      });
+    }
   };
   render() {
     return (
@@ -22,10 +66,22 @@ class Login extends React.Component {
               <p className="desktop-header sign-up-header">Welcome Back!</p>
               <form>
                 <div className="input-holder">
-                  <input id="email" type="email" placeholder="Email Address" />
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="Email Address"
+                    value={this.state.details.email}
+                    onChange={(e) => this.updateDetails(e)}
+                  />
                 </div>
                 <div className="input-holder">
-                  <input id="password" type="password" placeholder="Password" />
+                  <input
+                    id="password"
+                    type="password"
+                    placeholder="Password"
+                    value={this.state.details.password}
+                    onChange={(e) => this.updateDetails(e)}
+                  />
                 </div>
               </form>
               <div
@@ -42,7 +98,7 @@ class Login extends React.Component {
                   </Link>
                 </div>
               </div>
-              <div id="sign-up-btn">
+              <div id="sign-up-btn" onClick={(e) => this.login(e)}>
                 <div className="desktop-medium-button">
                   <p className="desktop-big-button-text">Login</p>
                 </div>
