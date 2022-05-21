@@ -39,17 +39,17 @@
 }
 
 .links.active #nav-items-list {
-  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
   mix-blend-mode: normal;
   opacity: 0.9;
-  border-radius: 10px;
-  width: auto;
+  width: 180px;
   padding: 1rem;
   margin-top: 2rem;
+  border-radius: 25px;
+  border: 2px solid #ab7ab6;
 }
-.links.active #nav-items-list .sidebar-item-paragraph {
+/* .links.active #nav-items-list .sidebar-item-paragraph {
   color: black !important;
-}
+} */
 
 .sidebar-item-paragraph {
   font-family: Poppins medium;
