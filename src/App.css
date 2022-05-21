@@ -60,6 +60,15 @@
 .desktop-dashboard-ultimate-wrapper {
   padding: 2rem;
 }
+
+.desktop-header-loader {
+  font-family: Poppins bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 48px;
+  color: #000000;
+}
 .desktop-header {
   margin: 2rem 0rem 1rem 3rem;
   font-family: Poppins bold;

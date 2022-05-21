@@ -7,6 +7,12 @@
   }
 }
 
+#loader-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
 .loader {
   transform: perspective(140px) rotateX(-45deg);
   width: 32px;
@@ -14,9 +20,7 @@
   position: relative;
   border: 2px solid #000000;
   animation: load 1s linear infinite;
-  position: absolute;
-  left: 50%;
-  top: 50%;
+
   /* -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); */
 }

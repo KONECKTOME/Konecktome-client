@@ -3,7 +3,12 @@ import "../../../css/Loader/loader.css";
 
 class Loader extends React.Component {
   render() {
-    return <div class="loader"></div>;
+    return (
+      <div id="loader-container">
+        <div class="loader"></div>
+        <p className="desktop-header-loader">Loading...</p>
+      </div>
+    );
   }
 }
 

@@ -13,8 +13,8 @@ class Account_home extends React.Component {
   render() {
     return (
       <div id="account-wrapper">
-        <Loader />
-        {/* <div>
+        {/* <Loader /> */}
+        <div>
           <p className="desktop-header">My Accounts</p>
         </div>
         <div className="cards">
@@ -64,7 +64,7 @@ class Account_home extends React.Component {
             );
           })}
         </div>
-        {this.state.showModal === true ? <Modal /> : null} */}
+        {this.state.showModal === true ? <Modal /> : null}
       </div>
     );
   }
