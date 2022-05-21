@@ -7,12 +7,16 @@ import reportWebVitals from "./reportWebVitals";
 import Home from "./Components/Client/LandingPage/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Signup from "./Components/Client/Login & Signup/Signup";
+import Login from "./Components/Client/Login & Signup/Login";
+import ForgotPassword from "./Components/Client/Login & Signup/ForgotPassword";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Route path="/" exact component={Home} />
       <Route path="/signup" exact component={Signup} />
+      <Route path="/login" exact component={Login} />
+      <Route path="/forgot-password" exact component={ForgotPassword} />
       <Route path="/dashboard/:userid" exact component={App}></Route>
     </Router>
   </React.StrictMode>,

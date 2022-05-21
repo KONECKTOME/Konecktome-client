@@ -46,9 +46,11 @@ class Hero extends Component {
                     <p id="hero-sign-up-btn-text">Sign Up</p>
                   </div>
                 </Link>
-                <div id="hero-login-btn-wrapper">
-                  <p id="hero-login-btn-text">Login</p>
-                </div>
+                <Link to="/login" className="links">
+                  <div id="hero-login-btn-wrapper">
+                    <p id="hero-login-btn-text">Login</p>
+                  </div>
+                </Link>
               </div>
             </Col>
             <Col

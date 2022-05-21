@@ -71,7 +71,9 @@ class Signup extends React.Component {
                 <span className="desktop-text">
                   Already have an account?{" "}
                   <span>
-                    <Link className="links sign-up-span-link">Login here</Link>
+                    <Link to="/login" className="links sign-up-span-link">
+                      Login here
+                    </Link>
                   </span>
                 </span>
               </div>
