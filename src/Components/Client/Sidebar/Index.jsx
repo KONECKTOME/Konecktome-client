@@ -17,7 +17,7 @@ import help_center_icon from "../../../Assets/help_center.svg";
 import settings_icon from "../../../Assets/settings_icon.svg";
 import konecktome_icon from "../../../Assets/konecktome-logo.svg";
 import { Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class Index extends Component {
   state = {
@@ -42,9 +42,13 @@ class Index extends Component {
         </div>
         <div id="sidebar-list">
           <ul>
-            <li id="nav-items-list">
-              <Link to="/dashboard/:userid" className="links">
-                <div className={this.state.activeCheckBoxClass ? "active" : ""}>
+            <NavLink
+              to="/dashboard/:userid"
+              className="links"
+              activeClassName="active"
+            >
+              <li id="nav-items-list">
+                <div>
                   <Row>
                     <Col lg={2}>
                       <div>
@@ -58,11 +62,15 @@ class Index extends Component {
                     </Col>
                   </Row>
                 </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard/account/:userid" className="links">
-                <div className={this.state.activeCheckBoxClass ? "active" : ""}>
+              </li>
+            </NavLink>
+            <NavLink
+              to="/dashboard/account/:userid"
+              className="links"
+              activeClassName="active"
+            >
+              <li id="nav-items-list">
+                <div>
                   <Row>
                     <Col lg={2}>
                       <div>
@@ -76,8 +84,8 @@ class Index extends Component {
                     </Col>
                   </Row>
                 </div>
-              </Link>
-            </li>
+              </li>
+            </NavLink>
             {/* <li>
               <Link to="/details" className="links">
                 <Row>
@@ -94,8 +102,12 @@ class Index extends Component {
                 </Row>
               </Link>
             </li> */}
-            <li>
-              <Link to="/dashboard/explore/:userid" className="links">
+            <NavLink
+              to="/dashboard/explore/:userid"
+              className="links"
+              activeClassName="active"
+            >
+              <li id="nav-items-list">
                 <Row>
                   <Col lg={2}>
                     <div>
@@ -108,10 +120,14 @@ class Index extends Component {
                     </div>
                   </Col>
                 </Row>
-              </Link>
-            </li>
-            <li>
-              <Link to="/dashboard/history/:userid" className="links">
+              </li>
+            </NavLink>
+            <NavLink
+              to="/dashboard/history/:userid"
+              className="links"
+              activeClassName="active"
+            >
+              <li id="nav-items-list">
                 <Row>
                   <Col lg={2}>
                     <div>
@@ -124,10 +140,14 @@ class Index extends Component {
                     </div>
                   </Col>
                 </Row>
-              </Link>
-            </li>
-            <Link to="/dashboard/notifications/:userid" className="links">
-              <li>
+              </li>
+            </NavLink>
+            <NavLink
+              to="/dashboard/notifications/:userid"
+              className="links"
+              activeClassName="active"
+            >
+              <li id="nav-items-list">
                 <Row>
                   <Col lg={2}>
                     <div>
@@ -142,7 +162,7 @@ class Index extends Component {
                   </Col>
                 </Row>
               </li>
-            </Link>
+            </NavLink>
             {/* <Link to="/recommendations" className="links">
               <li>
                 <Row>
@@ -189,8 +209,12 @@ class Index extends Component {
                 </Col>
               </Row>
             </li> */}
-            <Link to="/dashboard/wishlist/:userid" className="links">
-              <li>
+            <NavLink
+              to="/dashboard/wishlist/:userid"
+              className="links"
+              activeClassName="active"
+            >
+              <li id="nav-items-list">
                 <Row>
                   <Col lg={2}>
                     <div>
@@ -204,7 +228,7 @@ class Index extends Component {
                   </Col>
                 </Row>
               </li>
-            </Link>
+            </NavLink>
             {/* <li>
               <Row>
                 <Col lg={2}>
@@ -219,20 +243,24 @@ class Index extends Component {
                 </Col>
               </Row>
             </li> */}
-            <li>
-              <Row>
-                <Col lg={2}>
-                  <div>
-                    <img src={survey_icon} />
-                  </div>
-                </Col>
-                <Col lg={10}>
-                  <div>
-                    <p className="sidebar-item-paragraph">Survey & Feedback</p>
-                  </div>
-                </Col>
-              </Row>
-            </li>
+            <NavLink to="/survey" className="links">
+              <li id="nav-items-list">
+                <Row>
+                  <Col lg={2}>
+                    <div>
+                      <img src={survey_icon} />
+                    </div>
+                  </Col>
+                  <Col lg={10}>
+                    <div>
+                      <p className="sidebar-item-paragraph">
+                        Survey & Feedback
+                      </p>
+                    </div>
+                  </Col>
+                </Row>
+              </li>
+            </NavLink>
             {/* <li>
               <Row>
                 <Col lg={2}>
@@ -261,8 +289,12 @@ class Index extends Component {
                 </Col>
               </Row>
             </li> */}
-            <Link to="/dashboard/settings/:userid" className="links">
-              <li>
+            <NavLink
+              to="/dashboard/settings/:userid"
+              className="links"
+              activeClassName="active"
+            >
+              <li id="nav-items-list">
                 <Row>
                   <Col lg={2}>
                     <div>
@@ -276,7 +308,7 @@ class Index extends Component {
                   </Col>
                 </Row>
               </li>
-            </Link>
+            </NavLink>
             <li>
               <div id="sidebar-footer">
                 <p>Privacy Policy</p>

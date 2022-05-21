@@ -17,11 +17,6 @@
   src: url(../../Fonts/Rubik-Regular.ttf);
 }
 
-/* #sidebar-wrapper {
-  background: #ffffff;
-  box-shadow: 1px 0px 14px #f2f2f2;
-} */
-
 #sidebar-list {
   margin-top: 54px;
   display: flex;
@@ -43,19 +38,17 @@
   margin-top: 1rem;
 }
 
-.active {
+.links.active #nav-items-list {
   background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
   mix-blend-mode: normal;
-  opacity: 1;
+  opacity: 0.9;
   border-radius: 10px;
-  width: fit-content;
-  padding-top: 0.8rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  width: auto;
+  padding: 1rem;
+  margin-top: 2rem;
 }
-
-.inactive {
-  background: #ffffff;
+.links.active #nav-items-list .sidebar-item-paragraph {
+  color: black !important;
 }
 
 .sidebar-item-paragraph {
