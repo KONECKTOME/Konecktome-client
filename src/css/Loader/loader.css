@@ -1,0 +1,22 @@
+@keyframes load {
+  0% {
+    box-shadow: 0 0 #ab7ab6 inset;
+  }
+  100% {
+    box-shadow: 0 -70px #ab7ab6 inset;
+  }
+}
+
+.loader {
+  transform: perspective(140px) rotateX(-45deg);
+  width: 32px;
+  height: 72px;
+  position: relative;
+  border: 2px solid #000000;
+  animation: load 1s linear infinite;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+}

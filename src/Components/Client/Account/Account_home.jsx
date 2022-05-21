@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../../css/Account/index.css";
 import image_placeholder from "../../../Assets/account-card-placeholder.png";
 import Modal from "../ReviewModal/Modal";
+import Loader from "../Loader/Loader";
 import { Link } from "react-router-dom";
 
 class Account_home extends React.Component {
@@ -12,7 +13,8 @@ class Account_home extends React.Component {
   render() {
     return (
       <div id="account-wrapper">
-        <div>
+        <Loader />
+        {/* <div>
           <p className="desktop-header">My Accounts</p>
         </div>
         <div className="cards">
@@ -62,7 +64,7 @@ class Account_home extends React.Component {
             );
           })}
         </div>
-        {this.state.showModal === true ? <Modal /> : null}
+        {this.state.showModal === true ? <Modal /> : null} */}
       </div>
     );
   }
