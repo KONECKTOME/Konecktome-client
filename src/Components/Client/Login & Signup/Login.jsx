@@ -4,6 +4,8 @@ import "../../../css/Signup & login/SignUp.css";
 import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Footer from "../LandingPage/Footer";
+import googleIcon from "../../../Assets/google-icon.png";
+import facebookIcon from "../../../Assets/facebook.png";
 class Login extends React.Component {
   state = {
     check: false,
@@ -11,6 +13,12 @@ class Login extends React.Component {
       email: "",
       password: "",
     },
+  };
+
+  updateCheckBox = () => {
+    this.setState({
+      check: !this.state.check,
+    });
   };
   updateDetails = (e) => {
     const details = this.state.details;
@@ -52,9 +60,17 @@ class Login extends React.Component {
       });
     }
   };
+
+  loginWithGoogle = async () => {
+    window.location.href = "http://localhost:3002/users/auth/google";
+  };
+
+  loginWithFacebook = async () => {
+    window.location.href = "http://localhost:3002/users/login/facebook";
+  };
   render() {
     return (
-      <div id="sign-up-main">
+      <div>
         <Row>
           <Col md={6}>
             <div>
@@ -62,8 +78,26 @@ class Login extends React.Component {
             </div>
           </Col>
           <Col md={6}>
-            <div id="sign-up-right-col">
+            <div id="login-right-col">
               <p className="desktop-header sign-up-header">Welcome Back!</p>
+              <p className="desktop-sub-header2 sign-up-header">Login with</p>
+              <div id="login-icon-wrapper">
+                <div
+                  className="icons-holder"
+                  onClick={() => this.loginWithGoogle()}
+                >
+                  <img src={googleIcon} className="auth-icons" />
+                  <p className="desktop-text">Google</p>
+                </div>
+                <div
+                  className="icons-holder"
+                  onClick={() => this.loginWithFacebook()}
+                >
+                  <img src={facebookIcon} className="auth-icons" />
+                  <p className="desktop-text">Facebook</p>
+                </div>
+              </div>
+              <div className="desktop-header sign-up-header">OR</div>
               <form>
                 <div className="input-holder">
                   <input
@@ -89,7 +123,10 @@ class Login extends React.Component {
                 className="checkbox-forgot-pass desktop-text"
               >
                 <div id={this.state.check ? "check-wrapper2" : "check-wrapper"}>
-                  <div id={this.state.check ? "checked2" : "checkbox"}></div>
+                  <div
+                    id={this.state.check ? "checked2" : "checkbox"}
+                    onClick={() => this.updateCheckBox()}
+                  ></div>
                   <p>Remember me </p>
                 </div>
                 <div>

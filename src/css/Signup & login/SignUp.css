@@ -6,9 +6,13 @@
 #sign-up-right-col {
   padding: 17rem 0rem 0rem 2rem;
 }
+#login-right-col {
+  padding: 9rem 0rem 0rem 2rem;
+}
 
 .sign-up-header {
   margin: 0 !important;
+  text-align: center;
 }
 
 .input-holder {
@@ -44,14 +48,7 @@
   transition: transform 0.5s, border-color 0.5s, width 0.5s;
   border: 1px solid #ab7ab6;
 }
-#checked1 {
-  height: 40px;
-  width: 40px;
-  transform: rotate(0) translate(0);
-  transition: transform 0.5s, border-color 0.5s, width 0.5s;
-  border: 1px solid #ab7ab6;
-  transform: rotate(45deg);
-}
+
 #checked2 {
   height: 30px;
   width: 15px;
@@ -71,4 +68,27 @@
   width: 23%;
   display: flex;
   justify-content: space-between;
+}
+
+#login-icon-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 3rem 0rem 3rem 0rem;
+}
+
+.icons-holder {
+  padding: 1rem;
+  width: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  border: 2px solid #000000;
+  border-radius: 25px;
+}
+
+.auth-icons {
+  width: 20%;
+}
+
+.icons-holder > p {
+  margin-top: 0.5rem;
 }
