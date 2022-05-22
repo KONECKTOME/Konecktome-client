@@ -33,8 +33,8 @@ class Settings_profile extends React.Component {
               <img src={profilePictureIcon} id="settings_profile_edit_icon" />
             </div>
             <div id="profile-image-user-details">
-              <p id="profile-image-user-details-name">Timothy D.</p>
-              <p id="profile-image-user-details-profession">UI/UX Designer</p>
+              <p class="desktop-header-loader">Timothy D.</p>
+              <p className="desktop-sub-header1">UI/UX Designer</p>
             </div>
           </div>
           <div id="settings-profile-details-container">

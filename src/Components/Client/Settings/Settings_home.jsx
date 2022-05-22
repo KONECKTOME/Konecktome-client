@@ -17,6 +17,7 @@ class Settings_home extends React.Component {
     importData: false,
     passSecurity: false,
     closeAccounts: false,
+    activeClass: false,
   };
   hideModal = () => {
     this.setState({
@@ -100,7 +101,11 @@ class Settings_home extends React.Component {
               <Col>
                 <p
                   onClick={(e) => this.alternateNav(e)}
-                  className="settings_navbar"
+                  className={
+                    this.state.profile === true
+                      ? "settings_navbar_active"
+                      : "settings_navbar"
+                  }
                 >
                   Profile
                 </p>
@@ -108,7 +113,11 @@ class Settings_home extends React.Component {
               <Col>
                 <p
                   onClick={(e) => this.alternateNav(e)}
-                  className="settings_navbar"
+                  className={
+                    this.state.account === true
+                      ? "settings_navbar_active"
+                      : "settings_navbar"
+                  }
                 >
                   Accounts
                 </p>
@@ -116,7 +125,11 @@ class Settings_home extends React.Component {
               <Col>
                 <p
                   onClick={(e) => this.alternateNav(e)}
-                  className="settings_navbar"
+                  className={
+                    this.state.paymentDetails === true
+                      ? "settings_navbar_active"
+                      : "settings_navbar"
+                  }
                 >
                   Payment Details
                 </p>
@@ -124,7 +137,11 @@ class Settings_home extends React.Component {
               <Col>
                 <p
                   onClick={(e) => this.alternateNav(e)}
-                  className="settings_navbar"
+                  className={
+                    this.state.importData === true
+                      ? "settings_navbar_active"
+                      : "settings_navbar"
+                  }
                 >
                   Import Data
                 </p>
@@ -132,7 +149,11 @@ class Settings_home extends React.Component {
               <Col>
                 <p
                   onClick={(e) => this.alternateNav(e)}
-                  className="settings_navbar"
+                  className={
+                    this.state.passSecurity === true
+                      ? "settings_navbar_active"
+                      : "settings_navbar"
+                  }
                 >
                   Password and Security
                 </p>
@@ -140,35 +161,27 @@ class Settings_home extends React.Component {
               <Col>
                 <p
                   onClick={(e) => this.alternateNav(e)}
-                  className="settings_navbar"
+                  className={
+                    this.state.closeAccounts === true
+                      ? "settings_navbar_active"
+                      : "settings_navbar"
+                  }
                 >
                   Close Accounts
                 </p>
               </Col>
             </Row>
             <hr></hr>
-            {this.state.profile === true ? <Settings_profile /> : <div></div>}
-            {this.state.account === true ? <Settings_account /> : <div></div>}
-            {this.state.paymentDetails === true ? (
-              <Settings_payment />
-            ) : (
-              <div></div>
-            )}
-            {this.state.importData === true ? (
-              <Settings_import_data />
-            ) : (
-              <div></div>
-            )}
+            {this.state.profile === true ? <Settings_profile /> : null}
+            {this.state.account === true ? <Settings_account /> : null}
+            {this.state.paymentDetails === true ? <Settings_payment /> : null}
+            {this.state.importData === true ? <Settings_import_data /> : null}
             {this.state.passSecurity === true ? (
               <Settings_password_security />
-            ) : (
-              <div></div>
-            )}
+            ) : null}
             {this.state.closeAccounts === true ? (
               <Settings_close_account />
-            ) : (
-              <div></div>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
