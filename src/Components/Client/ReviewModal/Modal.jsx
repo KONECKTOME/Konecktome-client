@@ -12,7 +12,9 @@ class Modal extends React.Component {
         <div class="review-modal-content">
           <div id="review-modal-header">
             <p className="desktop-sub-header2">Some servive provider name</p>
-            <h1 id="review-modal-close">X</h1>
+            <h1 id="review-modal-close" onClick={() => this.props.hide()}>
+              X
+            </h1>
           </div>
           <hr></hr>
           <div id="review-modal-body">

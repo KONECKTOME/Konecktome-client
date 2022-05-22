@@ -10,10 +10,18 @@ class Account_home extends React.Component {
     test: [1, 2, 3, 4, 5, 6],
     showModal: false,
   };
+
+  showReviewModal = () => {
+    this.setState({ showModal: true });
+  };
+
+  hideReviewModal = () => {
+    this.setState({ showModal: false });
+  };
   render() {
     return (
       <div id="account-wrapper">
-        {/* <Loader /> */}
+        <Loader />
         <div>
           <p className="desktop-header">My Accounts</p>
         </div>
@@ -56,7 +64,7 @@ class Account_home extends React.Component {
                       <p className="desktop-cta">View details</p>
                     </div>
                   </Link>
-                  <div>
+                  <div onClick={() => this.showReviewModal()}>
                     <p className="desktop-cta">Write a review</p>
                   </div>
                 </div>
@@ -64,7 +72,9 @@ class Account_home extends React.Component {
             );
           })}
         </div>
-        {this.state.showModal === true ? <Modal /> : null}
+        {this.state.showModal === true ? (
+          <Modal hide={() => this.hideReviewModal()} />
+        ) : null}
       </div>
     );
   }

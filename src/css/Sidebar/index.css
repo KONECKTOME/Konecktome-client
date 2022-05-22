@@ -41,11 +41,11 @@
 .links.active #nav-items-list {
   mix-blend-mode: normal;
   opacity: 0.9;
-  width: 180px;
-  padding: 1rem;
+  width: auto;
+  /* padding: 1rem; */
   margin-top: 2rem;
-  border-radius: 25px;
-  border: 2px solid #ab7ab6;
+  /* border-radius: 25px; */
+  border-bottom: 2px solid #ab7ab6;
 }
 /* .links.active #nav-items-list .sidebar-item-paragraph {
   color: black !important;
