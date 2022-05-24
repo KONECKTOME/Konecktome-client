@@ -7,6 +7,31 @@
   }
 }
 
+.loader-modal {
+  display: block !important; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  /* overflow: auto; Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.loader-modal-content {
+  background: transparent;
+  margin: 15% auto; /* 15% from the top and centered */
+  width: 30%; /* Could be more or less, depending on screen size */
+}
+
+#loader-modal-body {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
 #loader-container {
   position: absolute;
   left: 50%;
@@ -18,9 +43,18 @@
   width: 32px;
   height: 72px;
   position: relative;
-  border: 2px solid #000000;
+  border: 2px solid white;
   animation: load 1s linear infinite;
 
   /* -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); */
+}
+
+.desktop-header-loader {
+  font-family: Poppins bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 48px;
+  color: white;
 }

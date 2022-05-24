@@ -9,6 +9,7 @@ class Account_home extends React.Component {
   state = {
     test: [1, 2, 3, 4, 5, 6],
     showModal: false,
+    loader: false,
   };
 
   showReviewModal = () => {
@@ -21,7 +22,7 @@ class Account_home extends React.Component {
   render() {
     return (
       <div id="account-wrapper">
-        <Loader />
+        {this.state.loader === true ? <Loader /> : null}
         <div>
           <p className="desktop-header">My Accounts</p>
         </div>
