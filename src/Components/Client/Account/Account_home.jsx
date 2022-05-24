@@ -57,14 +57,14 @@ class Account_home extends React.Component {
                     <p className="desktop-price"> Price</p>
                     <p className="desktop-price-number">£500</p>
                   </div>
-                  <Link
+                  {/* <Link
                     className="links"
                     to="/dashboard/explore/details/:userId"
                   >
                     <div>
                       <p className="desktop-cta">View details</p>
                     </div>
-                  </Link>
+                  </Link> */}
                   <div onClick={() => this.showReviewModal()}>
                     <p className="desktop-cta">Write a review</p>
                   </div>
