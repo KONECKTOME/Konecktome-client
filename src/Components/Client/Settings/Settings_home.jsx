@@ -44,7 +44,7 @@ class Settings_home extends React.Component {
         passSecurity: false,
         closeAccounts: false,
       });
-    } else if (event.target.innerText === "Payment Details") {
+    } else if (event.target.innerText === "Address Details") {
       this.setState({
         profile: false,
         account: false,
@@ -114,6 +114,18 @@ class Settings_home extends React.Component {
                 <p
                   onClick={(e) => this.alternateNav(e)}
                   className={
+                    this.state.paymentDetails === true
+                      ? "settings_navbar_active"
+                      : "settings_navbar"
+                  }
+                >
+                  Address Details
+                </p>
+              </Col>
+              <Col>
+                <p
+                  onClick={(e) => this.alternateNav(e)}
+                  className={
                     this.state.account === true
                       ? "settings_navbar_active"
                       : "settings_navbar"
@@ -122,19 +134,8 @@ class Settings_home extends React.Component {
                   Accounts
                 </p>
               </Col>
-              <Col>
-                <p
-                  onClick={(e) => this.alternateNav(e)}
-                  className={
-                    this.state.paymentDetails === true
-                      ? "settings_navbar_active"
-                      : "settings_navbar"
-                  }
-                >
-                  Payment Details
-                </p>
-              </Col>
-              <Col>
+
+              {/* <Col>
                 <p
                   onClick={(e) => this.alternateNav(e)}
                   className={
@@ -145,7 +146,7 @@ class Settings_home extends React.Component {
                 >
                   Import Data
                 </p>
-              </Col>
+              </Col> */}
               <Col>
                 <p
                   onClick={(e) => this.alternateNav(e)}
@@ -158,7 +159,7 @@ class Settings_home extends React.Component {
                   Password and Security
                 </p>
               </Col>
-              <Col>
+              {/* <Col>
                 <p
                   onClick={(e) => this.alternateNav(e)}
                   className={
@@ -169,7 +170,7 @@ class Settings_home extends React.Component {
                 >
                   Close Accounts
                 </p>
-              </Col>
+              </Col> */}
             </Row>
             <hr></hr>
             {this.state.profile === true ? <Settings_profile /> : null}

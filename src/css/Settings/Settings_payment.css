@@ -1,14 +1,15 @@
-#settimgs_payement_wrapper {
+/* #settimgs_payement_wrapper {
   display: flex;
-  justify-content: space-between;
-}
+  flex-direction: ro;
+} */
 
 .settings_payment_boxes {
-  width: 48%;
+  width: 100%;
   background: #ffffff;
   border: 2px solid #e5e5e5;
   border-radius: 4px;
   padding: 1rem;
+  margin-right: 1rem;
 }
 
 #settings_payment_right-box {
@@ -29,7 +30,7 @@
 }
 
 #settings_payment_user_details {
-  width: 60%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }

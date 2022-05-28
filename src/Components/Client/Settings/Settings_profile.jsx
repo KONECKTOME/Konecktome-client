@@ -32,82 +32,60 @@ class Settings_profile extends React.Component {
               />
               <img src={profilePictureIcon} id="settings_profile_edit_icon" />
             </div>
-            <div id="profile-image-user-details">
+            {/* <div id="profile-image-user-details">
               <p class="desktop-header-loader">Timothy D.</p>
               <p className="desktop-sub-header1">UI/UX Designer</p>
-            </div>
+            </div> */}
           </div>
           <div id="settings-profile-details-container">
-            <form>
-              <Row>
-                <Col>
-                  <div className="settings-profile-input-label-container">
-                    <p className="form-labels">Name</p>
-                    <div className="settings-profile-input-container">
+            <Row>
+              <Col>
+                <div className="settings-profile-input-label-container">
+                  <p id="settings_profile_details_header">Name</p>
+                  <p id="settings_profile_details_sub_header">Timothy</p>
+                  {/* <div className="settings-profile-input-container">
                       <input />
-                    </div>
-                  </div>
-                  <div className="settings-profile-input-label-container">
-                    <p className="form-labels">Phone</p>
-                    <div className="settings-profile-input-container">
+                    </div> */}
+                </div>
+                <div className="settings-profile-input-label-container">
+                  <p id="settings_profile_details_header">Phone</p>
+                  <p id="settings_profile_details_sub_header">Timothy</p>
+                  {/* <div className="settings-profile-input-container">
                       <input />
-                    </div>
-                  </div>
-                  <div className="settings-profile-input-label-container">
-                    <p className="form-labels">Address Line 1</p>
-                    <div className="settings-profile-input-container">
-                      <input />
-                    </div>
-                  </div>
-                </Col>
-                <Col>
-                  <div className="settings-profile-input-label-container">
-                    <p className="form-labels">Middle Name</p>
-                    <div className="settings-profile-input-container">
-                      <input />
-                    </div>
-                  </div>
-                  <div className="settings-profile-input-label-container">
-                    <p className="form-labels">Email</p>
-                    <div className="settings-profile-input-container">
-                      <input />
-                    </div>
-                  </div>
-                  <div className="settings-profile-input-label-container">
-                    <p className="form-labels">Address line 2</p>
-                    <div className="settings-profile-input-container">
-                      <input />
-                    </div>
-                  </div>
-                </Col>
-                <Col>
-                  <div className="settings-profile-input-label-container">
-                    <p className="form-labels">Last Name</p>
-                    <div className="settings-profile-input-container">
-                      <input />
-                    </div>
-                  </div>
-                  <div className="settings-profile-input-label-container">
-                    <p className="form-labels">Profession</p>
-                    <div className="settings-profile-input-container">
-                      <input />
-                    </div>
-                  </div>
-                  <div className="settings-profile-input-label-container">
-                    <p className="form-labels">Post Code</p>
-                    <div className="settings-profile-input-container">
-                      <input />
-                    </div>
-                  </div>
-                  <div
-                    id="settings-profile-button"
-                    onClick={() => this.showSaveChangesModalfn()}
-                  >
-                    <p>Save changes</p>
-                  </div>
-                </Col>
-              </Row>
-            </form>
+                    </div> */}
+                </div>
+                <div className="settings-profile-input-label-container">
+                  <p id="settings_profile_details_header">Age</p>
+                  <p id="settings_profile_details_sub_header">Timothy</p>
+                </div>
+              </Col>
+              <Col>
+                <div className="settings-profile-input-label-container">
+                  <p id="settings_profile_details_header">Last Name</p>
+                  <p id="settings_profile_details_sub_header">Timothy</p>
+                </div>
+                <div className="settings-profile-input-label-container">
+                  <p id="settings_profile_details_header">Profession</p>
+                  <p id="settings_profile_details_sub_header">Timothy</p>
+                </div>
+              </Col>
+              <Col>
+                <div className="settings-profile-input-label-container">
+                  <p id="settings_profile_details_header">Email</p>
+                  <p id="settings_profile_details_sub_header">Timothy</p>
+                </div>
+                <div className="settings-profile-input-label-container">
+                  <p id="settings_profile_details_header">Gender</p>
+                  <p id="settings_profile_details_sub_header">Timothy</p>
+                </div>
+                <div
+                  id="settings-profile-button"
+                  onClick={() => this.showSaveChangesModalfn()}
+                >
+                  <p>Edit Profile</p>
+                </div>
+              </Col>
+            </Row>
           </div>
         </div>
         {this.state.showSaveChangesModal === true ? (

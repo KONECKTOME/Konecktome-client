@@ -8,34 +8,54 @@
 }
 
 #settings-profile-image-container {
-  width: 30%;
+  width: 50%;
 }
 
 #settings-profile-details-container {
   width: 70%;
+  margin-top: 7rem;
 }
 
 #settings-profile-image-sub-container {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: 10%;
 }
 
 #settings_profile_image {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 #settings_profile_edit_icon {
   position: absolute;
   height: 100%;
-  width: 25%;
-  top: 60px;
-  bottom: 0;
-  left: 120px;
-  right: 0;
+  width: 18%;
+  top: 160px;
+  bottom: 0px;
+  left: 326px;
+  right: 0px;
+}
+
+#settings_profile_details_header {
+  font-family: Poppins regular;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 18px;
+  color: #000000;
+}
+
+#settings_profile_details_sub_header {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 32px;
+  color: #000000;
 }
 
 #profile-image-user-details {
