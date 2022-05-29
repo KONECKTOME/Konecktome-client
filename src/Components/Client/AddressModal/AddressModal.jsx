@@ -246,7 +246,7 @@ class AddressModal extends React.Component {
                           </p>
                           <input
                             type="date"
-                            placeholder="Enter post code"
+                            placeholder="dd-mm-yyyy"
                             id="address-modal-message"
                           />
                         </div>
@@ -258,7 +258,7 @@ class AddressModal extends React.Component {
                           </p>
                           <input
                             type="date"
-                            placeholder="Enter post code"
+                            placeholder="dd-mm-yyyy"
                             id="address-modal-message"
                           />
                         </div>

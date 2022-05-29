@@ -68,6 +68,10 @@ class Settings_profile extends React.Component {
                   <p id="settings_profile_details_header">Profession</p>
                   <p id="settings_profile_details_sub_header">Timothy</p>
                 </div>
+                <div className="settings-profile-input-label-container">
+                  <p id="settings_profile_details_header">Date Of Birth</p>
+                  <p id="settings_profile_details_sub_header">Timothy</p>
+                </div>
               </Col>
               <Col>
                 <div className="settings-profile-input-label-container">
