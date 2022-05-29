@@ -39,6 +39,7 @@
 #review-modal-header {
   display: flex;
   justify-content: space-between;
+  padding-top: 3rem;
 }
 
 #review-modal-body {
@@ -107,5 +108,5 @@ button {
 }
 
 .modal-button-text {
-  color: #000000 !important;
+  color: #ffffff !important;
 }

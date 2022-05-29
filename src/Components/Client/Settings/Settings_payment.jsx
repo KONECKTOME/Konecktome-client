@@ -138,7 +138,10 @@ class Settings_payment extends React.Component {
           </div>
         </div> */}
         {this.state.editStatus === true ? (
-          <AddressModal hideAddressModal={() => this.handleOpenEditIcon()} />
+          <AddressModal
+            hideAddressModal={() => this.handleOpenEditIcon()}
+            show={this.state.editStatus}
+          />
         ) : null}
       </div>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
+import { Modal, Row, Col } from "react-bootstrap";
 import "../../../css/AddressModal/AddressModal.css";
 
 class AddressModal extends React.Component {
@@ -12,6 +13,7 @@ class AddressModal extends React.Component {
     postCode: "",
     userAddress: "",
     addressSelected: false,
+    sentSuccess: false,
   };
 
   getAddresses = async (e) => {
@@ -35,21 +37,49 @@ class AddressModal extends React.Component {
     this.setState({
       userAddress: document.getElementById("address-text").textContent,
       addressSelected: true,
+      addresses: [],
     });
+  };
+
+  sendAddress = () => {
+    this.setState({
+      addressSelected: false,
+      userAddress: "",
+      postCode: "",
+      sentSuccess: true,
+    });
+    setTimeout(() => {
+      this.setState({
+        sentSuccess: false,
+      });
+    }, 1200);
   };
   render() {
     return (
-      <div>
-        <div class="address-modal">
-          <div class="address-modal-content">
+      <>
+        <Modal
+          show={this.props.show}
+          onHide={() => this.props.hideAddressModal()}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Body>
+            {this.state.sentSuccess === true ? (
+              <div id="notification-holder">
+                <p className="desktop-big-button-text modal-button-text">
+                  Yay, address added successfully !!!
+                </p>
+              </div>
+            ) : null}
             <div id="review-modal-header">
               <p className="desktop-sub-header2">Add Address</p>
-              <h1
-                id="review-modal-close"
+              <div
+                id="modal_close_btn"
                 onClick={() => this.props.hideAddressModal()}
               >
                 X
-              </h1>
+              </div>
             </div>
             <div id="address-modal-body">
               <form>
@@ -82,131 +112,172 @@ class AddressModal extends React.Component {
                 </p>
               </div>
             ) : null}
+
             <div id="addresses-container">
               {this.state.addresses.length !== 0 ? (
                 <div>
-                  {this.state.addresses.map((rr) => {
-                    return (
-                      <div
-                        id="addresses"
-                        onClick={(e) => this.getAddressContent(e)}
-                      >
-                        <p
-                          className="desktop-big-button-text modal-button-text"
-                          id="address-text"
-                        >
-                          {rr}
-                        </p>
-                      </div>
-                    );
-                  })}
+                  <Row>
+                    {this.state.addresses.map((rr) => {
+                      return (
+                        <Col md={6}>
+                          <div
+                            id="addresses"
+                            onClick={(e) => this.getAddressContent(e)}
+                          >
+                            <p
+                              className="desktop-big-button-text modal-button-text"
+                              id="address-text"
+                            >
+                              {rr}
+                            </p>
+                          </div>
+                        </Col>
+                      );
+                    })}
+                  </Row>
                 </div>
               ) : null}
             </div>
+
             {this.state.addressSelected === false ? (
               <div>
                 <div id="or-holder">
                   <p className="desktop-sub-header2">Enter Address Manually</p>
                 </div>
                 <form>
-                  <div id="address-inputholder">
-                    <p className="settings_payment_user_details_label">
-                      Building name
-                    </p>
-                    <input
-                      type="text"
-                      placeholder="Enter post code"
-                      id="address-modal-message"
-                      // value={this.state.details.email}
-                      // onChange={(e) => this.updateDetails(e)}
-                    />
-                  </div>
-                  <div id="address-inputholder">
-                    <p className="settings_payment_user_details_label">
-                      Address Line 1
-                    </p>
-                    <input
-                      type="text"
-                      placeholder="Enter post code"
-                      id="address-modal-message"
-                      // value={this.state.details.email}
-                      // onChange={(e) => this.updateDetails(e)}
-                    />
-                  </div>
-                  <div id="address-inputholder">
-                    <p className="settings_payment_user_details_label">
-                      Address Line 2
-                    </p>
-                    <input
-                      type="text"
-                      placeholder="Enter post code"
-                      id="address-modal-message"
-                      // value={this.state.details.email}
-                      // onChange={(e) => this.updateDetails(e)}
-                    />
-                  </div>
-                  <div id="address-inputholder">
-                    <p className="settings_payment_user_details_label">Town</p>
-                    <input
-                      type="text"
-                      placeholder="Enter post code"
-                      id="address-modal-message"
-                      // value={this.state.details.email}
-                      // onChange={(e) => this.updateDetails(e)}
-                    />
-                  </div>
-                  <div id="address-inputholder">
-                    <p className="settings_payment_user_details_label">
-                      Post Code
-                    </p>
-                    <input
-                      type="text"
-                      placeholder="Enter post code"
-                      id="address-modal-message"
-                      // value={this.state.details.email}
-                      // onChange={(e) => this.updateDetails(e)}
-                    />
-                  </div>
+                  <Row>
+                    <Col>
+                      <div id="address-inputholder">
+                        <p className="settings_payment_user_details_label">
+                          Building name
+                        </p>
+                        <input
+                          type="text"
+                          placeholder="Enter post code"
+                          id="address-modal-message"
+                          // value={this.state.details.email}
+                          // onChange={(e) => this.updateDetails(e)}
+                        />
+                      </div>
+                    </Col>
+                    <Col>
+                      <div id="address-inputholder">
+                        <p className="settings_payment_user_details_label">
+                          Address Line 1
+                        </p>
+                        <input
+                          type="text"
+                          placeholder="Enter post code"
+                          id="address-modal-message"
+                          // value={this.state.details.email}
+                          // onChange={(e) => this.updateDetails(e)}
+                        />
+                      </div>
+                    </Col>
+                    <Col>
+                      <div id="address-inputholder">
+                        <p className="settings_payment_user_details_label">
+                          Address Line 2
+                        </p>
+                        <input
+                          type="text"
+                          placeholder="Enter post code"
+                          id="address-modal-message"
+                          // value={this.state.details.email}
+                          // onChange={(e) => this.updateDetails(e)}
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <div id="address-inputholder">
+                        <p className="settings_payment_user_details_label">
+                          Town
+                        </p>
+                        <input
+                          type="text"
+                          placeholder="Enter post code"
+                          id="address-modal-message"
+                          // value={this.state.details.email}
+                          // onChange={(e) => this.updateDetails(e)}
+                        />
+                      </div>
+                    </Col>
+                    <Col>
+                      <div id="address-inputholder">
+                        <p className="settings_payment_user_details_label">
+                          Post Code
+                        </p>
+                        <input
+                          type="text"
+                          placeholder="Enter post code"
+                          id="address-modal-message"
+                          // value={this.state.details.email}
+                          // onChange={(e) => this.updateDetails(e)}
+                        />
+                      </div>
+                    </Col>
+                    <Col>
+                      <div id="address-inputholder">
+                        <p className="settings_payment_user_details_label">
+                          City
+                        </p>
+                        <input
+                          type="text"
+                          placeholder="Enter post code"
+                          id="address-modal-message"
+                          // value={this.state.details.email}
+                          // onChange={(e) => this.updateDetails(e)}
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+
                   <div id="address-inputholder">
                     <p className="settings_payment_user_details_label">
                       How long did you stay at this address?
                     </p>
-                    <div id="address-modal-body">
-                      <div>
-                        <p className="settings_payment_user_details_label">
-                          From
-                        </p>
-                        <input
-                          type="date"
-                          placeholder="Enter post code"
-                          id="address-modal-message"
-                        />
-                      </div>
-                      <div>
-                        <p className="settings_payment_user_details_label">
-                          Till
-                        </p>
-                        <input
-                          type="date"
-                          placeholder="Enter post code"
-                          id="address-modal-message"
-                        />
-                      </div>
-                    </div>
+                    <Row>
+                      <Col>
+                        <div>
+                          <p className="settings_payment_user_details_label">
+                            From
+                          </p>
+                          <input
+                            type="date"
+                            placeholder="Enter post code"
+                            id="address-modal-message"
+                          />
+                        </div>
+                      </Col>
+                      <Col>
+                        <div>
+                          <p className="settings_payment_user_details_label">
+                            Till
+                          </p>
+                          <input
+                            type="date"
+                            placeholder="Enter post code"
+                            id="address-modal-message"
+                          />
+                        </div>
+                      </Col>
+                    </Row>
                   </div>
                 </form>
               </div>
             ) : null}
-            <div id="submit-btn">
+            <div id="submit-btn" onClick={() => this.sendAddress()}>
               <div id="address-modal-button">
                 <p className="desktop-big-button-text modal-button-text">
                   Submit address
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </Modal.Body>
+        </Modal>
+      </>
     );
   }
 }
