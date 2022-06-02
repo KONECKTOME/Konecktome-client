@@ -51,13 +51,13 @@ class Login extends React.Component {
         }
       );
       const userDetails = await authorize.json();
-      console.log(userDetails);
       this.setState({
         details: {
           email: "",
           password: "",
         },
       });
+      window.location.href = `http://localhost:3000/dashboard/${userDetails}`;
     }
   };
 

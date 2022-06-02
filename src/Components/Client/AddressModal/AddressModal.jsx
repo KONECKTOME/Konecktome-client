@@ -72,13 +72,13 @@ class AddressModal extends React.Component {
                 </p>
               </div>
             ) : null}
-            <div id="review-modal-header">
+            <div id="address-modal-body" className="review-modal-header">
               <p className="desktop-sub-header2">Add Address</p>
               <div
                 id="modal_close_btn"
                 onClick={() => this.props.hideAddressModal()}
               >
-                X
+                <p className="modal-close-button-text">X</p>
               </div>
             </div>
             <div id="address-modal-body">
