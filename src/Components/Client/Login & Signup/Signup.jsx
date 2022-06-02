@@ -3,6 +3,8 @@ import Footer from "../LandingPage/Footer";
 import signUpImage from "../../../Assets/signup-left-image.png";
 import "../../../css/Signup & login/SignUp.css";
 import { Row, Col } from "react-bootstrap";
+import googleIcon from "../../../Assets/google-icon.png";
+import facebookIcon from "../../../Assets/facebook.png";
 import { Link } from "react-router-dom";
 
 class Signup extends React.Component {
@@ -51,16 +53,28 @@ class Signup extends React.Component {
         },
       });
       const details = await response.json();
-      this.setState({
-        details: {
-          firstName: "",
-          lastName: "",
-          email: "",
-          password: "",
-        },
-      });
-      alert(details.id);
+      if (details.message === "Email already exists") {
+        alert("EMail exists");
+      } else {
+        this.setState({
+          details: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+          },
+        });
+        window.location.href = `http://localhost:3000/dashboard/${details.id}`;
+      }
     }
+  };
+
+  loginWithGoogle = async () => {
+    window.location.href = "http://localhost:3002/users/auth/google";
+  };
+
+  loginWithFacebook = async () => {
+    window.location.href = "http://localhost:3002/users/login/facebook";
   };
   render() {
     return (
@@ -73,7 +87,25 @@ class Signup extends React.Component {
           </Col>
           <Col md={6}>
             <div id="sign-up-right-col">
-              <p className="desktop-header sign-up-header">Create Account</p>
+              <p className="desktop-header sign-up-header">Register</p>
+              <p className="desktop-header sign-up-header">Continue With</p>
+              <div id="login-icon-wrapper">
+                <div
+                  className="icons-holder"
+                  onClick={() => this.loginWithGoogle()}
+                >
+                  <img src={googleIcon} className="auth-icons" />
+                  <p className="desktop-text">Google</p>
+                </div>
+                <div
+                  className="icons-holder"
+                  onClick={() => this.loginWithFacebook()}
+                >
+                  <img src={facebookIcon} className="auth-icons" />
+                  <p className="desktop-text">Facebook</p>
+                </div>
+              </div>
+              <div className="desktop-header sign-up-header">OR</div>
               <form>
                 <Row>
                   <Col>

@@ -9,7 +9,9 @@ import "../../../css/Navbar/Navbar.css";
 import { Row, Col } from "react-bootstrap";
 
 class Navbar extends Component {
-  state = {};
+  state = {
+    imageUrl: this.props.userImage,
+  };
   render() {
     return (
       <div id="nav-wrapper">
@@ -19,10 +21,18 @@ class Navbar extends Component {
               <img src={notifications_icon} />
             </div>
             <div id="nav-image" className="nav-right-item">
-              <img src={placeholder_image} />
+              <img
+                src={
+                  this.state.imageUrl === undefined
+                    ? placeholder_image
+                    : this.state.imageUrl
+                }
+              />
             </div>
             <div className="nav-right-item">
-              <p className="desktop-text nav-right-item-text">Timilehin .A</p>
+              <p className="desktop-text nav-right-item-text">
+                {this.props.userName}
+              </p>
             </div>
             <div className="nav-right-item-text">
               <img src={dropdown_icon} />

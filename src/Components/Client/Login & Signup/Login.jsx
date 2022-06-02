@@ -57,7 +57,7 @@ class Login extends React.Component {
           password: "",
         },
       });
-      window.location.href = `http://localhost:3000/dashboard/${userDetails}`;
+      window.location.href = `http://localhost:3000/dashboard/${userDetails.id}`;
     }
   };
 
