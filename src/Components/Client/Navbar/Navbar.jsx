@@ -12,6 +12,9 @@ class Navbar extends Component {
   state = {
     imageUrl: this.props.userImage,
   };
+  componentDidMount = () => {
+    console.log("nav", this.props.userImage);
+  };
   render() {
     return (
       <div id="nav-wrapper">

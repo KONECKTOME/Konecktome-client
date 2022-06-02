@@ -30,7 +30,7 @@ class App extends Component {
 
   componentDidMount = async () => {
     const response = await fetch(
-      "http://localhost:3002/users/get-user-by-id/6298c26a9cc578cba1c6f926",
+      "http://localhost:3002/users/get-user-by-id/6298ca59d1f969d1a9f15fca",
       {
         method: "GET",
         headers: {
@@ -40,7 +40,8 @@ class App extends Component {
     );
     const userDetails = await response.json();
     this.setState({ userDetails });
-    console.log("here", this.state.userDetails);
+
+    console.log("here", this.state.userDetails.imageUrl);
   };
 
   render() {
