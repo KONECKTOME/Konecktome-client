@@ -18,6 +18,7 @@ class Settings_home extends React.Component {
     passSecurity: false,
     closeAccounts: false,
     activeClass: false,
+    userDetails: {},
   };
   hideModal = () => {
     this.setState({
@@ -81,6 +82,21 @@ class Settings_home extends React.Component {
         closeAccounts: true,
       });
     }
+  };
+
+  componentDidMount = async () => {
+    const id = this.props.match.params.userid;
+    const response = await fetch(
+      `http://localhost:3002/users/get-user-by-id/${id}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const userDetails = await response.json();
+    this.setState({ userDetails });
   };
 
   render() {
@@ -173,7 +189,9 @@ class Settings_home extends React.Component {
               </Col> */}
             </Row>
             <hr></hr>
-            {this.state.profile === true ? <Settings_profile /> : null}
+            {this.state.profile === true ? (
+              <Settings_profile userDetails={this.state.userDetails} />
+            ) : null}
             {this.state.account === true ? <Settings_account /> : null}
             {this.state.paymentDetails === true ? <Settings_payment /> : null}
             {this.state.importData === true ? <Settings_import_data /> : null}

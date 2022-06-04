@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ComingSoon from "./Components/Comingsoon";
 import About from "./Components/About";
 import Footer from "./Components/Footer";
@@ -17,7 +17,7 @@ import Notifications_home from "./Components/Client/Notifications/Notifications_
 import Favourites_home from "./Components/Client/Favourites/Favourites_home";
 import Wishlist from "./Components/Client/Wishlist/Wishlist";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, useParams } from "react-router-dom";
 import "../src/App.css";
 import { Row, Col } from "react-bootstrap";
 import Explore_details from "./Components/Client/Explore/Explore_details";
@@ -29,8 +29,9 @@ class App extends Component {
   };
 
   componentDidMount = async () => {
+    const id = this.props.match.params.userid;
     const response = await fetch(
-      "http://localhost:3002/users/get-user-by-id/6298ca59d1f969d1a9f15fca",
+      `http://localhost:3002/users/get-user-by-id/${id}`,
       {
         method: "GET",
         headers: {
@@ -40,80 +41,97 @@ class App extends Component {
     );
     const userDetails = await response.json();
     this.setState({ userDetails });
-
-    console.log("here", this.state.userDetails.imageUrl);
   };
 
-  render() {
+  render(props) {
+    const details = this.state.userDetails;
     return (
       <div className="App">
         <Router>
           <div id="fe-wrapper">
             <div id="left-col">
-              <Index />
+              <Index {...props} />
             </div>
             <div id="right-col">
               <Navbar
-                userName={
-                  this.state.userDetails.firstName +
-                  " " +
-                  this.state.userDetails.lastName
-                }
-                userImage={this.state.userDetails.imageUrl}
+                user={{
+                  userName:
+                    this.state.userDetails.firstName +
+                    " " +
+                    this.state.userDetails.lastName,
+                  image: this.state.userDetails.imageUrl,
+                }}
+                // userName={
+                //   this.state.userDetails.firstName +
+                //   " " +
+                //   this.state.userDetails.lastName
+                // }
+                // userImage={this.state.userDetails.imageUrl}
               />
+              {/* <Route
+                path="/dashboard/:userid"
+                exact
+                render={(props) => {
+                  <Dashboard_home {...props} userDetails={details} />;
+                }}
+                component={Dashboard_home}
+              /> */}
               <Route
+                {...props}
                 path="/dashboard/:userid"
                 exact
                 component={Dashboard_home}
+                userDetails={this.state.userDetails}
               />
+
               <Route
                 path="/dashboard/account/:userid"
                 exact
                 component={Account_home}
               />
               <Route
-                path="/dashboard/explore/:userId"
+                path="/dashboard/explore/:userid"
                 exact
                 component={Explore_home}
               />
               <Route
-                path="/dashboard/explore/details/:userId"
+                path="/dashboard/explore/details/:userid/:dealId"
                 exact
                 component={Explore_details}
               />
               <Route
-                path="/dashboard/history/:userId"
+                path="/dashboard/history/:userid"
                 exact
                 component={History_home}
               />
 
               <Route
-                path="/dashboard/settings/:userId"
+                path="/dashboard/settings/:userid"
                 exact
                 component={Settings_home}
               />
               <Route
-                path="/dashboard/recommendations/:userId"
+                path="/dashboard/recommendations/:userid"
                 exact
                 component={Recommendations_home}
               />
               <Route
-                path="/dashboard/explore/compare/:userId"
+                path="/dashboard/explore/compare/:userid"
                 exact
                 component={Explore_comparison}
               />
               <Route
-                path="/dashboard/notifications/:userId"
+                path="/dashboard/notifications/:userid"
                 exact
                 component={Notifications_home}
               />
               <Route
-                path="/dashboard/favourites/:userId"
+                path="/dashboard/favourites/:userid"
                 exact
                 component={Favourites_home}
               />
               <Route
-                path="/dashboard/wishlist/:userId"
+                path="/dashboard/wishlist/:userid"
                 exact
                 component={Wishlist}
               />

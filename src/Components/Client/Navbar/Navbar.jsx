@@ -4,17 +4,20 @@ import search_icon from "../../../Assets/navbar_search_icon.svg";
 import notifications_icon from "../../../Assets/notification.svg";
 import placeholder_image from "../../../Assets/nav-placeholder-image.png";
 import dropdown_icon from "../../../Assets/dropdown-icon.svg";
-
 import "../../../css/Navbar/Navbar.css";
 import { Row, Col } from "react-bootstrap";
 
 class Navbar extends Component {
-  state = {
-    imageUrl: this.props.userImage,
-  };
-  componentDidMount = () => {
-    console.log("nav", this.props.userImage);
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      imageUrl: this.props.user.image,
+    };
+  }
+  // componentDidMount = async (props) => {
+  //   await console.log("nav", this.props.user.image);
+  // };
+
   render() {
     return (
       <div id="nav-wrapper">
@@ -26,15 +29,16 @@ class Navbar extends Component {
             <div id="nav-image" className="nav-right-item">
               <img
                 src={
-                  this.state.imageUrl === undefined
+                  this.props.user.image === undefined
                     ? placeholder_image
-                    : this.state.imageUrl
+                    : this.props.user.image
                 }
+                id="nav-img"
               />
             </div>
             <div className="nav-right-item">
               <p className="desktop-text nav-right-item-text">
-                {this.props.userName}
+                {this.props.user.userName}
               </p>
             </div>
             <div className="nav-right-item-text">

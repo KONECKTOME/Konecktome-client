@@ -37,9 +37,16 @@
 }
 
 #nav-image {
-  width: 44px;
-  height: 44px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
   margin-bottom: 2rem;
+}
+
+#nav-img {
+  width: 100%;
+  height: auto;
 }
 
 /* #row-wrapper {

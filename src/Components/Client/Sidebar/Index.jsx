@@ -17,12 +17,23 @@ import help_center_icon from "../../../Assets/help_center.svg";
 import settings_icon from "../../../Assets/settings_icon.svg";
 import konecktome_icon from "../../../Assets/konecktome-logo.svg";
 import { Row, Col } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 
 class Index extends Component {
   state = {
     active: false,
     activeCheckBoxClass: false,
+    userId: "",
+  };
+
+  componentDidMount = () => {
+    this.getUserId();
+    console.log(this.props.location.pathname);
+  };
+
+  getUserId = () => {
+    const split = this.props.location.pathname.split("/");
+    this.setState({ userId: split[split.length - 1] });
   };
 
   activeClass = (e) => {
@@ -43,7 +54,7 @@ class Index extends Component {
         <div id="sidebar-list">
           <ul>
             <NavLink
-              to="/dashboard/:userid"
+              to={"/dashboard/" + this.state.userId}
               className="links"
               activeClassName="active"
             >
@@ -65,7 +76,7 @@ class Index extends Component {
               </li>
             </NavLink>
             <NavLink
-              to="/dashboard/account/:userid"
+              to={"/dashboard/account/" + this.state.userId}
               className="links"
               activeClassName="active"
             >
@@ -103,7 +114,7 @@ class Index extends Component {
               </Link>
             </li> */}
             <NavLink
-              to="/dashboard/explore/:userid"
+              to={"/dashboard/explore/" + this.state.userId}
               className="links"
               activeClassName="active"
             >
@@ -123,7 +134,7 @@ class Index extends Component {
               </li>
             </NavLink>
             <NavLink
-              to="/dashboard/history/:userid"
+              to={"/dashboard/history/" + this.state.userId}
               className="links"
               activeClassName="active"
             >
@@ -143,7 +154,7 @@ class Index extends Component {
               </li>
             </NavLink>
             <NavLink
-              to="/dashboard/notifications/:userid"
+              to={"/dashboard/notifications/" + this.state.userId}
               className="links"
               activeClassName="active"
             >
@@ -210,7 +221,7 @@ class Index extends Component {
               </Row>
             </li> */}
             <NavLink
-              to="/dashboard/wishlist/:userid"
+              to={"/dashboard/wishlist/" + this.state.userId}
               className="links"
               activeClassName="active"
             >
@@ -243,7 +254,7 @@ class Index extends Component {
                 </Col>
               </Row>
             </li> */}
-            <NavLink to="/survey" className="links">
+            {/* <NavLink to="/survey" className="links">
               <li id="nav-items-list">
                 <Row>
                   <Col lg={2}>
@@ -260,7 +271,7 @@ class Index extends Component {
                   </Col>
                 </Row>
               </li>
-            </NavLink>
+            </NavLink> */}
             {/* <li>
               <Row>
                 <Col lg={2}>
@@ -290,7 +301,7 @@ class Index extends Component {
               </Row>
             </li> */}
             <NavLink
-              to="/dashboard/settings/:userid"
+              to={"/dashboard/settings/" + this.state.userId}
               className="links"
               activeClassName="active"
             >
@@ -322,4 +333,4 @@ class Index extends Component {
   }
 }
 
-export default Index;
+export default withRouter(Index);

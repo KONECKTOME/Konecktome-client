@@ -7,6 +7,24 @@ import { Link } from "react-router-dom";
 class Explore_home extends Component {
   state = {
     test: [1, 2, 4, 4, 5, 6],
+    companies: [],
+    deals: [],
+  };
+
+  componentDidMount = async () => {
+    const dealArr = [];
+    const response = await fetch(`http://localhost:3002/companies`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    const companies = await response.json();
+    companies.map((com) => {
+      return dealArr.push(com.deals);
+    });
+    this.setState({ companies, deals: dealArr[0] });
+    console.log("was", this.state.deals);
   };
   render() {
     return (
@@ -29,40 +47,41 @@ class Explore_home extends Component {
           <p className="desktop-header">Top 10 services</p>
           <div id="explore-cards-pagination-wrapper">
             <div className="cards">
-              {this.state.test.map((tt) => {
+              {this.state.deals.map((deal) => {
                 return (
                   <div className="card">
                     <div id="image-holder">
                       <img src={image_placeholder} className="card-image" />
                     </div>
                     <div className="card-inner-first-div">
-                      <p className="desktop-sub-header2">
-                        Some Service Provider Name
-                      </p>
+                      <p className="desktop-sub-header2">{deal.companyName}</p>
                       <div>
                         <p>Stars</p>
                         <p>Trust Pilot ratings</p>
                       </div>
                     </div>
                     <div>
-                      <p className="desktop-text">
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the…
-                      </p>
+                      <p className="desktop-sub-header2">{deal.dealName}</p>
                       <div className="desktop-badge1">
-                        <p className="desktop-badge-text">Financial</p>
+                        <p className="desktop-badge-text">{deal.tag}</p>
                       </div>
                     </div>
                     <div id="account-card-footer">
                       <div>
                         <p className="desktop-price"> Price</p>
-                        <p className="desktop-price-number">£500</p>
+                        <p className="desktop-price-number">
+                          £{deal.dealPrice}
+                        </p>
                       </div>
                       <div>
                         <Link
                           className="links"
-                          to="/dashboard/explore/details/:userId"
+                          to={
+                            "/dashboard/explore/details/" +
+                            this.props.match.params.userid +
+                            "/" +
+                            deal._id
+                          }
                         >
                           <p className="desktop-cta">View details</p>
                         </Link>
