@@ -26,9 +26,15 @@ import { Component } from "react";
 class App extends Component {
   state = {
     userDetails: {},
+    loading: true,
   };
 
   componentDidMount = async () => {
+    console.log("app mounted");
+    this.getUser();
+  };
+
+  getUser = async () => {
     const id = this.props.match.params.userid;
     const response = await fetch(
       `http://localhost:3002/users/get-user-by-id/${id}`,
@@ -40,7 +46,7 @@ class App extends Component {
       }
     );
     const userDetails = await response.json();
-    this.setState({ userDetails });
+    this.setState({ userDetails, loading: false });
   };
 
   render(props) {
@@ -85,11 +91,15 @@ class App extends Component {
               />
 
               <Route
+                {...props}
                 path="/dashboard/account/:userid"
                 exact
                 component={Account_home}
+                loading={this.state.loading}
+                data={this.state.userDetails}
               />
               <Route
+                {...props}
                 path="/dashboard/explore/:userid"
                 exact
                 component={Explore_home}
@@ -116,7 +126,7 @@ class App extends Component {
                 component={Recommendations_home}
               />
               <Route
-                path="/dashboard/explore/compare/:userid"
+                path="/dashboard/explore/compare/:userid/:dealId"
                 exact
                 component={Explore_comparison}
               />

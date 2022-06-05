@@ -13,18 +13,31 @@ class Explore_home extends Component {
 
   componentDidMount = async () => {
     const dealArr = [];
-    const response = await fetch(`http://localhost:3002/companies`, {
+
+    const response = await fetch(`http://localhost:3002/companies/all-deals`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
       },
     });
-    const companies = await response.json();
-    companies.map((com) => {
-      return dealArr.push(com.deals);
-    });
-    this.setState({ companies, deals: dealArr[0] });
-    console.log("was", this.state.deals);
+    const deals = await response.json();
+
+    this.setState({ deals });
+  };
+
+  getDealById = async () => {
+    const response = await fetch(
+      `http://localhost:3002/companies/get-deal-by-id/${this.props.match.params.dealId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const deal = await response.json();
+    this.setState({ deal: deal.message });
+    console.log(this.state.deal);
   };
   render() {
     return (
@@ -41,10 +54,8 @@ class Explore_home extends Component {
               // onChange={(e) => this.updateDetails(e)}
             />
           </form>
-          {/* <div id="explore-dropdown-div">dropdown placeholder</div> */}
         </div>
         <div id="explore-inner-div">
-          <p className="desktop-header">Top 10 services</p>
           <div id="explore-cards-pagination-wrapper">
             <div className="cards">
               {this.state.deals.map((deal) => {

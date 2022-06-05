@@ -1,12 +1,38 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import Explore_details_right_col from "./Explore_details_right_col";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class Explore_details extends React.Component {
+  constructor(props) {
+    super(props);
+    this.Ref = React.createRef();
+  }
   state = {
     arr: [1, 2],
+    deal: [],
+    loading: true,
+    show: null,
   };
-  render() {
+
+  componentDidMount = async () => {
+    const response = await fetch(
+      `http://localhost:3002/companies/get-deal-by-id/${this.props.match.params.dealId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const deal = await response.json();
+    this.setState({ deal: deal.message, loading: false });
+    console.log(this.state.deal);
+  };
+  // show_comparison = createRef();
+  // show_comp = (data) => {
+  //   this.show_comparison.current.showCompare();
+  // };
+  render(props) {
     return (
       <div id="explore-details-wrapper">
         <div id="explore-details-header-wrapper">
@@ -15,10 +41,15 @@ class Explore_details extends React.Component {
           </Link>
           <p id="explore-details-header">Some service provider name</p>
         </div>
-        <Explore_details_right_col />
+        <Explore_details_right_col
+          deal={this.state.deal}
+          loading={this.state.loading}
+          {...props}
+          ref={this.show_comparison}
+        />
       </div>
     );
   }
 }
 
-export default Explore_details;
+export default withRouter(Explore_details);
