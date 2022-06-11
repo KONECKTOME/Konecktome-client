@@ -43,18 +43,28 @@
 }
 
 .reco-col {
-  background: #fafbfd;
   border-radius: 5px;
-  padding: 2rem 2rem;
+  padding: 1rem 1rem;
 }
 
 .reco-col-inner {
   padding: 1rem 1rem;
 }
 
-#dashboard-reco-deals {
+#dashboard-reco {
+  background: #fafbfd;
+  padding: 1rem 1rem;
+}
+
+/* #dashboard-reco-deals {
   display: flex;
   justify-content: space-between;
+} */
+
+#more-details-holder {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
 }
 
 .reco-col-inner-header {

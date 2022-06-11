@@ -8,13 +8,26 @@ import health_icon from "../../../Assets/reco-health.svg";
 import car_icon from "../../../Assets/reco-car-insurance.svg";
 import inFavoriteIcon from "../../../Assets/un-fav-icon.svg";
 import profileSettingPlaceholder from "../../../Assets/Quadri.jpg";
+import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 
 class Recommendations extends Component {
   state = {
     test: [1, 2, 3, 4],
     displayAccordion: false,
-    deals: [1, 2, 3, 4, 5, 6],
+    deals: [],
+  };
+
+  componentDidMount = async () => {
+    const response = await fetch(`http://localhost:3002/companies/all-deals`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    const deals = await response.json();
+
+    this.setState({ deals });
   };
 
   switchAccordion = () => {
@@ -30,34 +43,44 @@ class Recommendations extends Component {
             <div id="reco-inner">
               <div id="reco-header-wrapper">
                 <div>
-                  <p id="reco-header">Personal Recommendations</p>
+                  <p id="reco-header">Recommendations</p>
                 </div>
               </div>
               <div>
                 <Row>
-                  {this.state.deals.map((deal) => {
+                  {this.state.deals.slice(0, 4).map((deal) => {
                     return (
                       <Col lg={6} className="reco-col">
-                        <div>
-                          <div id="dashboard-reco-deals">
-                            <div id="icon-wrapper">
-                              <img src={life_insurance} />
-                            </div>
-                            <div>
-                              <p className="desktop-sub-header2">Broadband</p>
-                              <p className="desktop-text">
-                                Lorem ipsum is simply a dummy text of printing
-                                and typesetting industry Lorem ipsum is simply a
-                              </p>
-                            </div>
-                            <p
-                              id="reco-col-inner-header-plus-icon"
-                              onClick={() => this.switchAccordion()}
-                            >
-                              +
-                            </p>
-                          </div>
-                          {this.state.test.map((tt) => {
+                        <div id="dashboard-reco">
+                          <Row>
+                            <Col lg={2}>
+                              <div id="icon-wrapper">
+                                <img src={life_insurance} />
+                              </div>
+                            </Col>
+                            <Col lg={10}>
+                              <div id="dashboard-reco-deals">
+                                <div>
+                                  <p className="desktop-sub-header2">
+                                    {deal.dealName} by {deal.companyName}
+                                  </p>
+                                  <p className="desktop-text">{deal.speed}</p>
+                                </div>
+                              </div>
+                              <div id="more-details-holder">
+                                <Link
+                                  className="links"
+                                  to={
+                                    "/dashboard/explore/details/" +
+                                    this.props.userId +
+                                    "/" +
+                                    deal._id
+                                  }
+                                >
+                                  <p className="desktop-cta">View Details</p>
+                                </Link>
+                              </div>
+                              {/* {this.state.test.map((tt) => {
                             return (
                               <div
                                 className={
@@ -88,7 +111,9 @@ class Recommendations extends Component {
                                 </div>
                               </div>
                             );
-                          })}
+                          })} */}
+                            </Col>
+                          </Row>
                         </div>
                       </Col>
                     );

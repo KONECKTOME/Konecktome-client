@@ -29,7 +29,11 @@ class History extends Component {
             })}
           </div>
         ) : (
-          <div>NO</div>
+          <div id="no-services">
+            <p className="desktop-sub-header2">
+              You haven't purchased any services yet...
+            </p>
+          </div>
         )}
       </div>
     );

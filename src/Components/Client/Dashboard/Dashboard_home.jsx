@@ -5,7 +5,6 @@ import Nav from "./Nav";
 import Recommendations from "./Recommendations";
 import { Row, Col } from "react-bootstrap";
 import "../../../css/Dashboard/Home.css";
-import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
 
 class Dashboard_home extends Component {
   state = {
@@ -30,10 +29,10 @@ class Dashboard_home extends Component {
     return (
       <div>
         <div className="desktop-header">
-          <p>Dashboard</p>
+          <p>Wassup, {this.state.userDetails.firstName}</p>
         </div>
         <Nav />
-        <Recommendations />
+        <Recommendations userId={this.props.match.params.userid} />
         <div id="dashboard-hist-acc">
           <Row>
             <Col lg={6}>

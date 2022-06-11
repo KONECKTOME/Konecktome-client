@@ -51,3 +51,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+#no-services {
+  text-align: center;
+  padding: 2rem 0rem 3rem 0;
+}

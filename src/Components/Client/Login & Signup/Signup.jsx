@@ -15,6 +15,11 @@ class Signup extends React.Component {
       email: "",
       password: "",
     },
+    emptyFields: false,
+    error: false,
+    success: false,
+    emailExists: false,
+    invalidEmail: false,
   };
 
   updateDetails = (e) => {
@@ -37,8 +42,17 @@ class Signup extends React.Component {
 
   register = async (e) => {
     e.preventDefault();
-    if (this.isValidEmail(this.state.details.email) === false) {
-      console.log("invalid email");
+    if (
+      this.state.details.firstName === "" ||
+      this.state.details.lastName === "" ||
+      this.state.details.email === "" ||
+      this.state.details.password === ""
+    ) {
+      this.setState({ emptyFields: true });
+      setTimeout(() => this.setState({ emptyFields: false }), 1500);
+    } else if (this.isValidEmail(this.state.details.email) === false) {
+      this.setState({ invalidEmail: true });
+      setTimeout(() => this.setState({ invalidEmail: false }), 1500);
     } else {
       const response = await fetch("http://localhost:3002/users/sign-up", {
         method: "POST",
@@ -54,9 +68,11 @@ class Signup extends React.Component {
       });
       const details = await response.json();
       if (details.message === "Email already exists") {
-        alert("EMail exists");
-      } else {
+        this.setState({ emailExists: true });
+        setTimeout(() => this.setState({ emailExists: false }), 1500);
+      } else if (details.id) {
         this.setState({
+          success: true,
           details: {
             firstName: "",
             lastName: "",
@@ -64,6 +80,8 @@ class Signup extends React.Component {
             password: "",
           },
         });
+        setTimeout(() => this.setState({ success: false }), 1500);
+
         window.location.href = `http://localhost:3000/dashboard/${details.id}`;
       }
     }
@@ -150,6 +168,32 @@ class Signup extends React.Component {
                   />
                 </div>
               </form>
+              {this.state.success === true ? (
+                <div className="success-notification-holder">
+                  <p>Yay, Sign Up Successful</p>
+                </div>
+              ) : null}
+              {this.state.error === true ? (
+                <div className="error-notification-holder">
+                  <p>I know, these things happen. Error </p>
+                </div>
+              ) : null}
+
+              {this.state.emailExists === true ? (
+                <div className="exist-notification-holder">
+                  <p>Yup, we've met before. Email already exists</p>
+                </div>
+              ) : null}
+              {this.state.emptyFields === true ? (
+                <div className="error-notification-holder">
+                  <p>Input fields cannot be empty</p>
+                </div>
+              ) : null}
+              {this.state.invalidEmail === true ? (
+                <div className="error-notification-holder">
+                  <p>Invalid Email</p>
+                </div>
+              ) : null}
               <div className="desktop-text sign-up-footer">
                 <span>
                   By signing up, you agree to our

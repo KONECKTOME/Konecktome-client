@@ -9,7 +9,7 @@ class Account_home extends React.Component {
   state = {
     test: [1, 2, 3, 4, 5, 6],
     showModal: false,
-    loader: false,
+    loading: false,
     accounts: [],
   };
 
@@ -29,7 +29,13 @@ class Account_home extends React.Component {
       }
     );
     const userDetails = await response.json();
-    this.setState({ accounts: userDetails.accounts, loading: false });
+    if (!userDetails.accounts) {
+      this.setState({
+        loading: true,
+      });
+    } else {
+      this.setState({ accounts: userDetails.accounts, loading: false });
+    }
   };
 
   showReviewModal = () => {
@@ -42,7 +48,7 @@ class Account_home extends React.Component {
   render() {
     return (
       <div id="account-wrapper">
-        {this.props.loading === true ? (
+        {this.state.loading === true ? (
           <Loader />
         ) : (
           <div>
@@ -51,35 +57,34 @@ class Account_home extends React.Component {
             </div>
             {this.state.accounts.length !== 0 ? (
               <div className="cards">
-                {this.state.test.map((t) => {
+                {this.state.accounts.map((acc) => {
                   return (
                     <div className="card">
                       <div id="image-holder">
-                        <img src={image_placeholder} className="card-image" />
+                        <img src={acc.companyImage} className="card-image" />
                       </div>
                       <div id="account-card-inner-first-div">
                         <p className="desktop-sub-header2">
-                          Servie providername
+                          {acc.serviceProviderName}
                         </p>
-                        <div>
+                        {/* <div>
                           <p>Stars</p>
                           <p>Trust Pilot ratings</p>
-                        </div>
+                        </div> */}
                       </div>
                       <div>
                         <p className="desktop-text">
-                          Lorem Ipsum is simply dummy text of the printing and
-                          typesetting industry. Lorem Ipsum has been the
-                          industry's standard dummy text ever since the…
+                          You subscribed to {acc.dealName} on {acc.joinDate}
+                          Details are {acc.description}
                         </p>
                         <div className="desktop-badge1">
-                          <p className="desktop-badge-text">Financial</p>
+                          <p className="desktop-badge-text">{acc.tag}</p>
                         </div>
                       </div>
                       <div id="account-card-footer">
                         <div>
                           <p className="desktop-price"> Price</p>
-                          <p className="desktop-price-number">£500</p>
+                          <p className="desktop-price-number">£{acc.price}</p>
                         </div>
                         {/* <Link
                     className="links"
@@ -98,7 +103,21 @@ class Account_home extends React.Component {
                 })}
               </div>
             ) : (
-              <div>None</div>
+              <div className="empty-services-holder">
+                <p className="empty-services-text">
+                  You Haven't Purchased Any Service Yet. Check Services Out
+                  <span>
+                    <Link
+                      to={
+                        "/dashboard/explore/" + this.props.match.params.userid
+                      }
+                      className="links sign-up-span-link"
+                    >
+                      here
+                    </Link>
+                  </span>
+                </p>
+              </div>
             )}
 
             {this.state.showModal === true ? (

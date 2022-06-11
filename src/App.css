@@ -123,6 +123,7 @@
   justify-content: center;
   padding-top: 1rem;
   margin-bottom: 1.5rem;
+  cursor: pointer;
 }
 
 .desktop-big-button-text {
@@ -166,6 +167,7 @@
   justify-content: center;
   padding-top: 1rem;
   margin-bottom: 1.5rem;
+  cursor: pointer;
 }
 
 .desktop-small-button {
@@ -282,6 +284,74 @@
 .small-profile-image {
   width: 100%;
   height: auto;
+}
+
+.empty-services-holder {
+  position: absolute;
+  top: 50%;
+  left: 37%;
+  margin-left: -100px;
+  margin-top: -30px;
+  text-align: center;
+}
+
+.empty-services-text {
+  font-family: Poppins medium;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 22px;
+  color: #000000;
+  mix-blend-mode: normal;
+}
+
+.success-notification-holder {
+  font-family: Poppins;
+  font-size: 18px;
+  width: auto;
+  height: 45px;
+  background: green;
+  border-radius: 90em;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  margin-top: 2rem;
+  color: #ffffff;
+  font-weight: 900;
+  line-height: 22px;
+  mix-blend-mode: normal;
+}
+.error-notification-holder {
+  font-family: Poppins;
+  font-size: 18px;
+  width: auto;
+  height: 45px;
+  background: red;
+  border-radius: 90em;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  margin-top: 2rem;
+  color: #ffffff;
+  font-weight: 900;
+  line-height: 22px;
+  mix-blend-mode: normal;
+}
+.exist-notification-holder {
+  font-family: Poppins;
+  font-size: 18px;
+  width: auto;
+  height: 45px;
+  background: grey;
+  border-radius: 90em;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  margin-top: 2rem;
+  color: #ffffff;
+  font-weight: 900;
+  line-height: 22px;
+  mix-blend-mode: normal;
 }
 
 @media screen and (max-width: 2000px) {

@@ -60,7 +60,11 @@ class Accounts extends Component {
             </table>
           </div>
         ) : (
-          <div>no</div>
+          <div id="no-services">
+            <p className="desktop-sub-header2">
+              You haven't purchased any services yet...
+            </p>
+          </div>
         )}
       </div>
     );
