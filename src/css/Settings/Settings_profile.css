@@ -11,6 +11,14 @@
   width: 50%;
 }
 
+#image-upload-holder {
+  cursor: pointer;
+}
+
+#image-upload-holder > input {
+  display: none;
+}
+
 #settings-profile-details-container {
   width: 70%;
   margin-top: 7rem;

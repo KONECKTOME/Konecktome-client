@@ -190,7 +190,7 @@ class Settings_home extends React.Component {
             </Row>
             <hr></hr>
             {this.state.profile === true ? (
-              <Settings_profile userDetails={this.state.userDetails} />
+              <Settings_profile userId={this.props.match.params.userid} />
             ) : null}
             {this.state.account === true ? <Settings_account /> : null}
             {this.state.paymentDetails === true ? <Settings_payment /> : null}
