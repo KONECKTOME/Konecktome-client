@@ -7,7 +7,7 @@ import linkedIn from "../Assets/linkedinIcon.svg";
 import instagram from "../Assets/instagram-2.png";
 import checkBoxIcon from "../Assets/check_mark.png";
 import Animation from "../Animation/Circles_Hover_Animation.json";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import loveHeart from "../Assets/star-struck.png";
 import winkFace from "../Assets/wink_face.png";
 import pleadFace from "../Assets/plead-face-color.png";
@@ -187,13 +187,11 @@ class Comingsoon extends Component {
   };
   render() {
     const defaultOptions = {
+      animationData: Animation,
       loop: true,
       autoplay: true,
-      animationData: Animation,
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice",
-      },
     };
+
     return (
       <div id="landing-wrapper">
         <Container>
@@ -214,12 +212,18 @@ class Comingsoon extends Component {
               </h3>
               <div id="mobile-animation">
                 <Lottie
+                  animationData={Animation}
+                  aria-aria-labelledby="use lottie animation"
+                  loop="true"
+                  autoplay="true"
+                />
+                {/* <Lottie
                   options={defaultOptions}
                   height={window.innerWidth < 600 ? 300 : 500}
                   width={window.innerWidth < 600 ? 300 : 600}
                   isStopped={this.state.isStopped}
                   isPaused={this.state.isPaused}
-                />
+                /> */}
               </div>
               <form>
                 <Row>
@@ -354,12 +358,18 @@ class Comingsoon extends Component {
                 this.setState({ isPaused: !this.state.isPaused })
               }
             >
-              <Lottie
+              {/* <Lottie
                 options={defaultOptions}
                 height={750}
                 width={900}
                 isStopped={this.state.isStopped}
                 isPaused={this.state.isPaused}
+              /> */}
+              <Lottie
+                animationData={Animation}
+                aria-aria-labelledby="use lottie animation"
+                loop="true"
+                autoplay="true"
               />
             </Col>
           </Row>
