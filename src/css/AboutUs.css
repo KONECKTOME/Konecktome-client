@@ -286,4 +286,7 @@
   #vector3-holder {
     margin-right: 2rem !important;
   }
+  .test {
+    width: 23px;
+  }
 }
