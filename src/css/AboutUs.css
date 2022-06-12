@@ -100,16 +100,16 @@
 }
 
 .vector-width {
-  height: 300px;
-  width: 449.2660217285156px;
+  height: 400px;
+  width: 400px;
 }
 .vector-width2 {
-  height: 350.00030517578125px;
-  width: 387.0038146972656px;
+  height: 400px;
+  width: 400px;
 }
 .vector-width3 {
-  height: 300.00042724609375px;
-  width: 448.96527099609375px;
+  height: 400px;
+  width: 400px;
 }
 #vector3-holder {
   margin-right: 7rem !important;
@@ -161,6 +161,7 @@
 }
 
 #sub-text {
+  font-size: 18px;
   font-family: Poppins;
   line-height: inherit;
   color: #2d2d2d;
@@ -194,16 +195,16 @@
     padding-top: 7rem;
   }
   .vector-width {
-    height: 196.8px;
-    width: 181.39px;
+    height: 200px;
+    width: 200px;
   }
   .vector-width2 {
-    height: 196.8px;
-    width: 181.39px;
+    height: 200px;
+    width: 200px;
   }
   .vector-width3 {
-    height: 196.8px;
-    width: 181.39px;
+    height: 200px;
+    width: 200px;
   }
   #text-holder {
     width: auto;

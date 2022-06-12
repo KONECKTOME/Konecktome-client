@@ -12,7 +12,7 @@ class Coming_soon_home extends React.Component {
       <div>
         <Navbar />
         <ComingSoon />
-        <ProblemSolution />
+        {/* <ProblemSolution /> */}
         <About />
         <FooterForm />
         <Footer />

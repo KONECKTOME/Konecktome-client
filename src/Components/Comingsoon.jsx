@@ -199,17 +199,18 @@ class Comingsoon extends Component {
         <Container>
           <Row>
             <Col id="left-col2" lg={5}>
-              <h3 id="get-notified-text">
+              {/* <h3 id="get-notified-text">
                 How do you truly know <br></br> if you’re getting the <br></br>
                 best value for yourself?
+              </h3> */}
+              <h3 id="get-notified-text">
+                Quality: For People Who Deserve The Best.
               </h3>
               <h3 id="get-notified-text-mobile">
-                How do you truly know if you're getting the best value for
-                yourself ?
+                Quality: For People Who Deserve The Best.
               </h3>
               <h3 id="coming-soon-text">
-                Your Personal Marketplace For All Your Utilities And Financial
-                Services Needs
+                The Comparison Site For Highly-Rated Services.
               </h3>
               <div id="mobile-animation">
                 <Lottie
