@@ -4,7 +4,7 @@ import illustration from "../../../Assets/wheel-vector.svg";
 import "../../../css/LandingPage/Hero.css";
 import { Link } from "react-router-dom";
 import Animation from "../../../Animation/Circles_Hover_Animation.json";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import { withRouter } from "react-router-dom";
 
 class Hero extends Component {
@@ -62,11 +62,10 @@ class Hero extends Component {
               }
             >
               <Lottie
-                options={defaultOptions}
-                height={750}
-                width={900}
-                isStopped={this.state.isStopped}
-                isPaused={this.state.isPaused}
+                animationData={Animation}
+                aria-aria-labelledby="use lottie animation"
+                loop="true"
+                autoplay="true"
               />
             </Col>
           </Row>
