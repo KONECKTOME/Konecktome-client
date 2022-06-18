@@ -4,7 +4,6 @@ import penc_edit_icon from "../../../Assets/pencil_icon.svg";
 import AddressModal from "../AddressModal/AddressModal";
 class Settings_payment extends React.Component {
   state = {
-    arr: [1, 2, 3, 5, 7, 9],
     editStatus: false,
   };
 
@@ -19,7 +18,8 @@ class Settings_payment extends React.Component {
         {this.props.userDetails.addressHistory.length === 0 ? (
           <div className="empty-services-holder">
             <p className="empty-services-text">
-              You Haven't Purchased Any Service Yet. Check Services Out
+              Please Update your Address Details{" "}
+              <span onClick={() => this.handleOpenEditIcon()}>Here</span>
             </p>
           </div>
         ) : (

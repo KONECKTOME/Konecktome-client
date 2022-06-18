@@ -105,7 +105,9 @@ class Settings_profile extends React.Component {
                   <div className="settings-profile-input-label-container">
                     <p id="settings_profile_details_header">Phone</p>
                     <p id="settings_profile_details_sub_header">
-                      {this.props.userDetails.phone}
+                      {this.props.userDetails.phone === undefined
+                        ? "Note Provided"
+                        : this.props.userDetails.phone}
                     </p>
                     {/* <div className="settings-profile-input-container">
                       <input />
@@ -114,7 +116,9 @@ class Settings_profile extends React.Component {
                   <div className="settings-profile-input-label-container">
                     <p id="settings_profile_details_header">Age</p>
                     <p id="settings_profile_details_sub_header">
-                      {this.props.userDetails.age}
+                      {this.props.userDetails.age === undefined
+                        ? "Note Provided"
+                        : this.props.userDetails.age}
                     </p>
                   </div>
                 </Col>
@@ -128,13 +132,17 @@ class Settings_profile extends React.Component {
                   <div className="settings-profile-input-label-container">
                     <p id="settings_profile_details_header">Profession</p>
                     <p id="settings_profile_details_sub_header">
-                      {this.props.userDetails.profession}
+                      {this.props.userDetails.profession === undefined
+                        ? "Note Provided"
+                        : this.props.userDetails.profession}
                     </p>
                   </div>
                   <div className="settings-profile-input-label-container">
                     <p id="settings_profile_details_header">Date Of Birth</p>
                     <p id="settings_profile_details_sub_header">
-                      {this.props.userDetails.dob}
+                      {this.props.userDetails.dob === undefined
+                        ? "Note Provided"
+                        : this.props.userDetails.dob}
                     </p>
                   </div>
                 </Col>
@@ -148,7 +156,9 @@ class Settings_profile extends React.Component {
                   <div className="settings-profile-input-label-container">
                     <p id="settings_profile_details_header">Gender</p>
                     <p id="settings_profile_details_sub_header">
-                      {this.props.userDetails.gender}
+                      {this.props.userDetails.gender === undefined
+                        ? "Note Provided"
+                        : this.props.userDetails.gender}
                     </p>
                   </div>
                   <div
