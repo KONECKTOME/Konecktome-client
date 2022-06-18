@@ -53,7 +53,7 @@ class Nav extends Component {
                 </div>
                 <div className="desktop-nav-header">Wish List</div>
                 <div>
-                  <p className="nav-item-number">60</p>
+                  <p className="nav-item-number">{this.props.wishlistLength}</p>
                 </div>
               </div>
             </div>

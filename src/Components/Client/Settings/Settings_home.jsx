@@ -196,7 +196,9 @@ class Settings_home extends React.Component {
               <Settings_profile userDetails={this.context.userDetails} />
             ) : null}
             {this.state.account === true ? <Settings_account /> : null}
-            {this.state.paymentDetails === true ? <Settings_payment /> : null}
+            {this.state.paymentDetails === true ? (
+              <Settings_payment userDetails={this.context.userDetails} />
+            ) : null}
             {this.state.importData === true ? <Settings_import_data /> : null}
             {this.state.passSecurity === true ? (
               <Settings_password_security />

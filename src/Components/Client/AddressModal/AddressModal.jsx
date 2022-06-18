@@ -14,6 +14,18 @@ class AddressModal extends React.Component {
     userAddress: "",
     addressSelected: false,
     sentSuccess: false,
+    addressDetails: {
+      buildingName: "",
+      postCode: "",
+      addressLine1: "",
+      addressLine2: "",
+      town: "",
+      city: "",
+      currentAddress: null,
+      postCode: "",
+    },
+    dateOfArrival: "",
+    dateOfDeparture: "",
   };
 
   getAddresses = async (e) => {
@@ -43,18 +55,55 @@ class AddressModal extends React.Component {
     });
   };
 
-  sendAddress = () => {
-    this.setState({
-      addressSelected: false,
-      userAddress: "",
-      postCode: "",
-      sentSuccess: true,
+  updateAddressDetails = (e) => {
+    const addressDetails = this.state.addressDetails;
+    const id = e.currentTarget.id;
+    addressDetails[id] = e.currentTarget.value;
+    this.setState({ addressDetails });
+  };
+
+  fixDateString = (dateToBeFixed) => {
+    const arr = dateToBeFixed.split("-");
+    let year = arr[0].split("")[2] + arr[0].split("")[3];
+    const dateStringNeeded = year + "-" + arr[1] + "-" + arr[2];
+    return dateStringNeeded;
+  };
+
+  sendAddress = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:3002/users/update-address", {
+      method: "POST",
+      body: JSON.stringify({
+        userId: this.props.userId,
+        buildingName: this.state.addressDetails.buildingName,
+        addressLine1: this.state.addressDetails.addressLine1,
+        addressLine2: this.state.addressDetails.addressLine2,
+        town: this.state.addressDetails.town,
+        city: this.state.addressDetails.city,
+        currentAddress: false,
+        postCode: this.state.addressDetails.postCode,
+        dateOfArrival: this.fixDateString(this.state.dateOfArrival),
+        dateOfDeparture: this.fixDateString(this.state.dateOfDeparture),
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
     });
-    setTimeout(() => {
-      this.setState({
-        sentSuccess: false,
-      });
-    }, 1200);
+    const details = await response.json();
+    if (details.message === "Address added") {
+      alert("success");
+    }
+    // this.setState({
+    //   addressSelected: false,
+    //   userAddress: "",
+    //   postCode: "",
+    //   sentSuccess: true,
+    // });
+    // setTimeout(() => {
+    //   this.setState({
+    //     sentSuccess: false,
+    //   });
+    // }, 1200);
   };
   render() {
     return (
@@ -155,10 +204,10 @@ class AddressModal extends React.Component {
                         </p>
                         <input
                           type="text"
-                          placeholder="Enter post code"
-                          id="address-modal-message"
-                          // value={this.state.details.email}
-                          // onChange={(e) => this.updateDetails(e)}
+                          placeholder="Enter Building Name"
+                          id="buildingName"
+                          value={this.state.addressDetails.buildingName}
+                          onChange={(e) => this.updateAddressDetails(e)}
                         />
                       </div>
                     </Col>
@@ -170,9 +219,9 @@ class AddressModal extends React.Component {
                         <input
                           type="text"
                           placeholder="Enter post code"
-                          id="address-modal-message"
-                          // value={this.state.details.email}
-                          // onChange={(e) => this.updateDetails(e)}
+                          id="addressLine1"
+                          value={this.state.addressDetails.addressLine1}
+                          onChange={(e) => this.updateAddressDetails(e)}
                         />
                       </div>
                     </Col>
@@ -184,9 +233,9 @@ class AddressModal extends React.Component {
                         <input
                           type="text"
                           placeholder="Enter post code"
-                          id="address-modal-message"
-                          // value={this.state.details.email}
-                          // onChange={(e) => this.updateDetails(e)}
+                          id="addressLine2"
+                          value={this.state.addressDetails.addressLine2}
+                          onChange={(e) => this.updateAddressDetails(e)}
                         />
                       </div>
                     </Col>
@@ -200,9 +249,9 @@ class AddressModal extends React.Component {
                         <input
                           type="text"
                           placeholder="Enter post code"
-                          id="address-modal-message"
-                          // value={this.state.details.email}
-                          // onChange={(e) => this.updateDetails(e)}
+                          id="town"
+                          value={this.state.addressDetails.town}
+                          onChange={(e) => this.updateAddressDetails(e)}
                         />
                       </div>
                     </Col>
@@ -214,9 +263,9 @@ class AddressModal extends React.Component {
                         <input
                           type="text"
                           placeholder="Enter post code"
-                          id="address-modal-message"
-                          // value={this.state.details.email}
-                          // onChange={(e) => this.updateDetails(e)}
+                          id="postCode"
+                          value={this.state.addressDetails.postCode}
+                          onChange={(e) => this.updateAddressDetails(e)}
                         />
                       </div>
                     </Col>
@@ -228,9 +277,9 @@ class AddressModal extends React.Component {
                         <input
                           type="text"
                           placeholder="Enter post code"
-                          id="address-modal-message"
-                          // value={this.state.details.email}
-                          // onChange={(e) => this.updateDetails(e)}
+                          id="city"
+                          value={this.state.addressDetails.city}
+                          onChange={(e) => this.updateAddressDetails(e)}
                         />
                       </div>
                     </Col>
@@ -249,7 +298,12 @@ class AddressModal extends React.Component {
                           <input
                             type="date"
                             placeholder="dd-mm-yyyy"
-                            id="address-modal-message"
+                            id="dateOfArrival"
+                            onChange={(e) =>
+                              this.setState({
+                                dateOfArrival: e.currentTarget.value,
+                              })
+                            }
                           />
                         </div>
                       </Col>
@@ -261,7 +315,12 @@ class AddressModal extends React.Component {
                           <input
                             type="date"
                             placeholder="dd-mm-yyyy"
-                            id="address-modal-message"
+                            id="dateOfDeparture"
+                            onChange={(e) =>
+                              this.setState({
+                                dateOfDeparture: e.currentTarget.value,
+                              })
+                            }
                           />
                         </div>
                       </Col>
@@ -270,7 +329,7 @@ class AddressModal extends React.Component {
                 </form>
               </div>
             ) : null}
-            <div id="submit-btn" onClick={() => this.sendAddress()}>
+            <div id="submit-btn" onClick={(e) => this.sendAddress(e)}>
               <div id="address-modal-button">
                 <p className="desktop-big-button-text modal-button-text">
                   Submit address

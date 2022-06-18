@@ -1,11 +1,11 @@
-import React, { Component, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import placeholder from "../../../Assets/my-placeholder.png";
 import profileSettingPlaceholder from "../../../Assets/Quadri.jpg";
 import { Link } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import "../../../css/History/index.css";
-import { useState } from "react";
+
 import { UserDetailsContext } from "../Context/UserDetailsContext";
 
 const History_home = () => {
