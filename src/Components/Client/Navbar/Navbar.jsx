@@ -1,51 +1,36 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import menu_icon from "../../../Assets/Navbar_menu_icon.svg";
 import search_icon from "../../../Assets/navbar_search_icon.svg";
 import notifications_icon from "../../../Assets/notification.svg";
 import placeholder_image from "../../../Assets/nav-placeholder-image.png";
 import dropdown_icon from "../../../Assets/dropdown-icon.svg";
+import { UserDetailsContext } from "../Context/UserDetailsContext";
 import "../../../css/Navbar/Navbar.css";
-import { Row, Col } from "react-bootstrap";
 
-class Navbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      imageUrl: this.props.user.image,
-    };
-  }
-  // componentDidMount = async (props) => {
-  //   await console.log("nav", this.props.user.image);
-  // };
+const Navbar = () => {
+  const { userDetails } = useContext(UserDetailsContext);
+  console.log("estate", userDetails);
 
-  render() {
-    return (
-      <div id="nav-wrapper">
-        <div id="nav-right-wrapper">
-          <div id="nav-right">
-            <div className="nav-right-item nav-right-item-text">
-              <img src={notifications_icon} />
-            </div>
-            <div id="nav-image" className="nav-right-item">
-              <img
-                src={
-                  this.props.user.image === undefined
-                    ? placeholder_image
-                    : this.props.user.image
-                }
-                id="nav-img"
-              />
-            </div>
-            <div className="nav-right-item">
-              <p className="desktop-text nav-right-item-text">
-                {this.props.user.userName}
-              </p>
-            </div>
-            <div className="nav-right-item-text">
-              <img src={dropdown_icon} />
-            </div>
+  return (
+    <div id="nav-wrapper">
+      <div id="nav-right-wrapper">
+        <div id="nav-right">
+          <div className="nav-right-item nav-right-item-text">
+            <img src={notifications_icon} />
           </div>
-          {/* <Row>
+          <div id="nav-image" className="nav-right-item">
+            <img src={userDetails.imageUrl} id="nav-img" />
+          </div>
+          <div className="nav-right-item">
+            <p className="desktop-text nav-right-item-text">
+              {userDetails.firstName + " " + userDetails.lastName}
+            </p>
+          </div>
+          <div className="nav-right-item-text">
+            <img src={dropdown_icon} />
+          </div>
+        </div>
+        {/* <Row>
             <Col>
               <div id="nav-image">
                 <img src={placeholder_image} />
@@ -60,11 +45,11 @@ class Navbar extends Component {
               </div>
             </Col>
           </Row> */}
-          {/* <div id="nav-image">
+        {/* <div id="nav-image">
             <img src={placeholder_image} />
           </div> */}
-        </div>
-        {/* <div id="nav-second-wrapper">
+      </div>
+      {/* <div id="nav-second-wrapper">
           <div id="row-wrapper">
             <Row>
               <Col lg={2}>
@@ -87,9 +72,8 @@ class Navbar extends Component {
             </Row>
           </div>
         </div> */}
-      </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Navbar;

@@ -5,6 +5,7 @@ class History extends Component {
   state = {
     history: [],
   };
+
   render() {
     return (
       <div id="hist-wrapper">

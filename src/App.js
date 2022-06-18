@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, createContext, useState, useEffect } from "react";
 import ComingSoon from "./Components/Comingsoon";
 import About from "./Components/About";
 import Footer from "./Components/Footer";
@@ -16,26 +16,22 @@ import Settings_home from "./Components/Client/Settings/Settings_home";
 import Notifications_home from "./Components/Client/Notifications/Notifications_home";
 import Favourites_home from "./Components/Client/Favourites/Favourites_home";
 import Wishlist from "./Components/Client/Wishlist/Wishlist";
-
 import { BrowserRouter as Router, Route, useParams } from "react-router-dom";
 import "../src/App.css";
 import { Row, Col } from "react-bootstrap";
 import Explore_details from "./Components/Client/Explore/Explore_details";
-import { Component } from "react";
+import { UserDetailsContext } from "./Components/Client/Context/UserDetailsContext";
 
-class App extends Component {
-  state = {
-    userDetails: {},
-    loading: true,
-  };
+const App = (props) => {
+  const [userDetails, setUserDetails] = useState({});
+  let user = { name: "Tania", loggedIn: true };
 
-  componentDidMount = async () => {
-    console.log("app mounted");
-    this.getUser();
-  };
+  useEffect(() => {
+    getUser();
+  }, []);
 
-  getUser = async () => {
-    const id = this.props.match.params.userid;
+  const getUser = async () => {
+    const id = props.match.params.userid;
     const response = await fetch(
       `http://localhost:3002/users/get-user-by-id/${id}`,
       {
@@ -46,89 +42,38 @@ class App extends Component {
       }
     );
     const userDetails = await response.json();
-    this.setState({ userDetails, loading: false });
+    await setUserDetails(userDetails);
   };
 
-  render(props) {
-    const details = this.state.userDetails;
-    return (
-      <div className="App">
-        <Router>
-          <div id="fe-wrapper">
-            <div id="left-col">
-              <Index {...props} />
-            </div>
-            <div id="right-col">
-              <Navbar
-                user={{
-                  userName:
-                    this.state.userDetails.firstName +
-                    " " +
-                    this.state.userDetails.lastName,
-                  image: this.state.userDetails.imageUrl,
-                }}
-                // userName={
-                //   this.state.userDetails.firstName +
-                //   " " +
-                //   this.state.userDetails.lastName
-                // }
-                // userImage={this.state.userDetails.imageUrl}
-              />
-              {/* <Route
-                path="/dashboard/:userid"
-                exact
-                render={(props) => {
-                  <Dashboard_home {...props} userDetails={details} />;
-                }}
-                component={Dashboard_home}
-              /> */}
+  return (
+    <div className="App">
+      <Router>
+        <div id="fe-wrapper">
+          <div id="left-col">
+            <Index />
+          </div>
+          <div id="right-col">
+            <UserDetailsContext.Provider value={{ userDetails }}>
+              <Navbar />
               <Route
-                {...props}
                 path="/dashboard/:userid"
                 exact
                 component={Dashboard_home}
-                userDetails={this.state.userDetails}
               />
-
-              <Route
-                {...props}
-                path="/dashboard/account/:userid"
-                exact
-                component={Account_home}
-                loading={this.state.loading}
-                data={this.state.userDetails}
-              />
-              <Route
-                {...props}
-                path="/dashboard/explore/:userid"
-                exact
-                component={Explore_home}
-              />
-              <Route
-                path="/dashboard/explore/details/:userid/:dealId"
-                exact
-                component={Explore_details}
-              />
-              <Route
-                path="/dashboard/history/:userid"
-                exact
-                component={History_home}
-              />
-
               <Route
                 path="/dashboard/settings/:userid"
                 exact
                 component={Settings_home}
               />
               <Route
-                path="/dashboard/recommendations/:userid"
+                path="/dashboard/account/:userid"
                 exact
-                component={Recommendations_home}
+                component={Account_home}
               />
               <Route
-                path="/dashboard/explore/compare/:userid/:dealId"
+                path="/dashboard/history/:userid"
                 exact
-                component={Explore_comparison}
+                component={History_home}
               />
               <Route
                 path="/dashboard/notifications/:userid"
@@ -145,10 +90,34 @@ class App extends Component {
                 exact
                 component={Wishlist}
               />
-            </div>
+            </UserDetailsContext.Provider>
+
+            <Route
+              path="/dashboard/explore/:userid"
+              exact
+              component={Explore_home}
+            />
+            <Route
+              path="/dashboard/explore/details/:userid/:dealId"
+              exact
+              component={Explore_details}
+            />
+
+            <Route
+              path="/dashboard/recommendations/:userid"
+              exact
+              component={Recommendations_home}
+            />
+            <Route
+              path="/dashboard/explore/compare/:userid/:dealId"
+              exact
+              component={Explore_comparison}
+            />
           </div>
-        </Router>
-        {/* <Row>
+        </div>
+      </Router>
+
+      {/* <Row>
           <Col lg={2}>
             <Index />
           </Col>
@@ -156,14 +125,13 @@ class App extends Component {
             <div>dhdh</div>
           </Col>
         </Row> */}
-        {/* <Navbar />
+      {/* <Navbar />
         <ComingSoon />
         <About />
         <FooterForm />
         <Footer /> */}
-      </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;

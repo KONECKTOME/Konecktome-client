@@ -8,7 +8,10 @@ import Settings_import_data from "./Settings_import_data";
 import Settings_password_security from "./Settings_password_security";
 import Settings_payment from "./Settings_payment";
 import { Row, Col } from "react-bootstrap";
+import { UserDetailsContext } from "../Context/UserDetailsContext";
 class Settings_home extends React.Component {
+  static contextType = UserDetailsContext;
+
   state = {
     showModal: true,
     profile: true,
@@ -190,7 +193,7 @@ class Settings_home extends React.Component {
             </Row>
             <hr></hr>
             {this.state.profile === true ? (
-              <Settings_profile userId={this.props.match.params.userid} />
+              <Settings_profile userDetails={this.context.userDetails} />
             ) : null}
             {this.state.account === true ? <Settings_account /> : null}
             {this.state.paymentDetails === true ? <Settings_payment /> : null}

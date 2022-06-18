@@ -11,6 +11,7 @@ class Settings_profile extends React.Component {
     profileImage: null,
     showSaveChangesModal: false,
     loading: false,
+    imageUploadStatus: false,
   };
 
   handleImageUpload = async () => {
@@ -27,15 +28,24 @@ class Settings_profile extends React.Component {
     const details = await response.json();
 
     if (details.message === "Image added successfully") {
-      alert("suc");
+      this.setState({ imageUploadStatus: true });
+      setTimeout(
+        () =>
+          this.setState({
+            imageUploadStatus: false,
+          }),
+        1000
+      );
+    } else if (details.message === "An error occured while uploading image") {
+      alert("errir");
     }
   };
   handleChange = (e) => {
     const profileImage = e.target.files[0];
     this.setState({
       profileImage,
+      loading: true,
     });
-
     setTimeout(() => this.handleImageUpload(), 1000);
   };
 
@@ -52,13 +62,15 @@ class Settings_profile extends React.Component {
   render() {
     return (
       <>
-        {this.state.loading === true ? <Loader /> : null}
+        {this.state.loading === true ? (
+          <Loader imageUploadStatus={this.state.imageUploadStatus} />
+        ) : null}
         <div id="settings_profile_wrapper">
           <div id="settings_profile_inner_wrapper">
             <div id="settings-profile-image-container">
               <div id="settings-profile-image-sub-container">
                 <img
-                  src={profileSettingPlaceholder}
+                  src={this.props.userDetails.imageUrl}
                   id="settings_profile_image"
                 />
                 <div id="image-upload-holder">
@@ -83,45 +95,61 @@ class Settings_profile extends React.Component {
                 <Col>
                   <div className="settings-profile-input-label-container">
                     <p id="settings_profile_details_header">Name</p>
-                    <p id="settings_profile_details_sub_header">Timothy</p>
+                    <p id="settings_profile_details_sub_header">
+                      {this.props.userDetails.firstName}
+                    </p>
                     {/* <div className="settings-profile-input-container">
                       <input />
                     </div> */}
                   </div>
                   <div className="settings-profile-input-label-container">
                     <p id="settings_profile_details_header">Phone</p>
-                    <p id="settings_profile_details_sub_header">Timothy</p>
+                    <p id="settings_profile_details_sub_header">
+                      {this.props.userDetails.phone}
+                    </p>
                     {/* <div className="settings-profile-input-container">
                       <input />
                     </div> */}
                   </div>
                   <div className="settings-profile-input-label-container">
                     <p id="settings_profile_details_header">Age</p>
-                    <p id="settings_profile_details_sub_header">Timothy</p>
+                    <p id="settings_profile_details_sub_header">
+                      {this.props.userDetails.age}
+                    </p>
                   </div>
                 </Col>
                 <Col>
                   <div className="settings-profile-input-label-container">
                     <p id="settings_profile_details_header">Last Name</p>
-                    <p id="settings_profile_details_sub_header">Timothy</p>
+                    <p id="settings_profile_details_sub_header">
+                      {this.props.userDetails.lastName}
+                    </p>
                   </div>
                   <div className="settings-profile-input-label-container">
                     <p id="settings_profile_details_header">Profession</p>
-                    <p id="settings_profile_details_sub_header">Timothy</p>
+                    <p id="settings_profile_details_sub_header">
+                      {this.props.userDetails.profession}
+                    </p>
                   </div>
                   <div className="settings-profile-input-label-container">
                     <p id="settings_profile_details_header">Date Of Birth</p>
-                    <p id="settings_profile_details_sub_header">Timothy</p>
+                    <p id="settings_profile_details_sub_header">
+                      {this.props.userDetails.dob}
+                    </p>
                   </div>
                 </Col>
                 <Col>
                   <div className="settings-profile-input-label-container">
                     <p id="settings_profile_details_header">Email</p>
-                    <p id="settings_profile_details_sub_header">Timothy</p>
+                    <p id="settings_profile_details_sub_header">
+                      {this.props.userDetails.email}
+                    </p>
                   </div>
                   <div className="settings-profile-input-label-container">
                     <p id="settings_profile_details_header">Gender</p>
-                    <p id="settings_profile_details_sub_header">Timothy</p>
+                    <p id="settings_profile_details_sub_header">
+                      {this.props.userDetails.gender}
+                    </p>
                   </div>
                   <div
                     id="settings-profile-button"
