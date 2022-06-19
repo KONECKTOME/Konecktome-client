@@ -1,5 +1,6 @@
 #settings_profile_wrapper {
   margin-top: 4rem;
+  padding-right: 2rem;
 }
 
 #settings_profile_inner_wrapper {
@@ -104,13 +105,13 @@
 .settings-profile-input-container {
   border-radius: 4px;
   height: 40px;
-  width: 250px;
+  width: 100%;
 }
 
 .settings-profile-input-container > input {
   border: none;
   background: #f6f6f8;
-  width: 250px;
+  width: 100%;
   height: 40px;
 }
 
