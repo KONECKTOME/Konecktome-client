@@ -35,7 +35,7 @@ class Settings_profile extends React.Component {
     const photo = new FormData();
     photo.append("image", this.state.profileImage);
     const response = await fetch(
-      `http://localhost:3002/users/image-upload/${this.props.userId}`,
+      `http://localhost:3002/users/image-upload/${this.props.userDetails._id}`,
       {
         method: "POST",
         body: photo,
@@ -50,6 +50,7 @@ class Settings_profile extends React.Component {
         () =>
           this.setState({
             imageUploadStatus: false,
+            loading: false,
           }),
         1000
       );
@@ -296,6 +297,7 @@ class Settings_profile extends React.Component {
                         {this.props.userDetails.age === undefined
                           ? "Note Provided"
                           : this.props.userDetails.age}
+                        years
                       </p>
                     </div>
                   </Col>
