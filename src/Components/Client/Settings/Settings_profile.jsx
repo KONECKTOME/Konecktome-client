@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "../../../css/Settings/Settings_profile.css";
-import profileSettingPlaceholder from "../../../Assets/Quadri.jpg";
 import profilePictureIcon from "../../../Assets/edit-profile-picture-icon.svg";
-import Settings_save_changes_modal from "./Settings_save_changes_modal";
 import Loader from "../Loader/Loader";
 import { Row, Col } from "react-bootstrap";
 
@@ -46,6 +44,7 @@ class Settings_profile extends React.Component {
 
     if (details.message === "Image added successfully") {
       this.setState({ imageUploadStatus: true });
+      this.props.fetchUser();
       setTimeout(
         () =>
           this.setState({
@@ -135,6 +134,7 @@ class Settings_profile extends React.Component {
     e.preventDefault();
     this.editUser(e);
     this.editProfessionAndDOB(e);
+    this.props.fetchUser();
     this.setState({
       showEditProfile: false,
     });
@@ -286,7 +286,8 @@ class Settings_profile extends React.Component {
                     <div className="settings-profile-input-label-container">
                       <p id="settings_profile_details_header">Phone</p>
                       <p id="settings_profile_details_sub_header">
-                        {this.props.userDetails.phone === undefined
+                        {this.props.userDetails.phone === undefined ||
+                        this.props.userDetails.phone === null
                           ? "Note Provided"
                           : this.props.userDetails.phone}
                       </p>
@@ -294,7 +295,8 @@ class Settings_profile extends React.Component {
                     <div className="settings-profile-input-label-container">
                       <p id="settings_profile_details_header">Age</p>
                       <p id="settings_profile_details_sub_header">
-                        {this.props.userDetails.age === undefined
+                        {this.props.userDetails.age === undefined ||
+                        this.props.userDetails.age === null
                           ? "Note Provided"
                           : this.props.userDetails.age}
                         years
@@ -311,7 +313,8 @@ class Settings_profile extends React.Component {
                     <div className="settings-profile-input-label-container">
                       <p id="settings_profile_details_header">Profession</p>
                       <p id="settings_profile_details_sub_header">
-                        {this.props.userDetails.profession === undefined
+                        {this.props.userDetails.profession === undefined ||
+                        this.props.userDetails.profession === null
                           ? "Note Provided"
                           : this.props.userDetails.profession}
                       </p>
@@ -319,7 +322,8 @@ class Settings_profile extends React.Component {
                     <div className="settings-profile-input-label-container">
                       <p id="settings_profile_details_header">Date Of Birth</p>
                       <p id="settings_profile_details_sub_header">
-                        {this.props.userDetails.dob === undefined
+                        {this.props.userDetails.dob === undefined ||
+                        this.props.userDetails.dob === null
                           ? "Note Provided"
                           : this.props.userDetails.dob}
                       </p>
@@ -335,8 +339,9 @@ class Settings_profile extends React.Component {
                     <div className="settings-profile-input-label-container">
                       <p id="settings_profile_details_header">Gender</p>
                       <p id="settings_profile_details_sub_header">
-                        {this.props.userDetails.gender === undefined
-                          ? "Note Provided"
+                        {this.props.userDetails.gender === undefined ||
+                        this.props.userDetails.gender === null
+                          ? "Not Provided"
                           : this.props.userDetails.gender}
                       </p>
                     </div>
