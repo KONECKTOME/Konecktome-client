@@ -370,6 +370,8 @@ class Comingsoon extends Component {
                 aria-aria-labelledby="use lottie animation"
                 loop="true"
                 autoplay="true"
+                height={window.innerWidth < 600 ? 300 : 500}
+                width={window.innerWidth < 600 ? 300 : 600}
               />
             </Col>
           </Row>

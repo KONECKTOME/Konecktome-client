@@ -21,10 +21,6 @@ class About extends Component {
               />
             </div>
             <div id="text-holder" className="scnd-text-holder">
-              {/* <h3 id="head-text">
-                Receieve the best and exclusive deals from services rated 4
-                stars or more(out of 5)
-              </h3> */}
               <p id="sub-text">
                 Receieve the best and exclusive deals from services rated 4
                 stars or more(out of 5).

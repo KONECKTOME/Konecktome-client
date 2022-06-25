@@ -5,6 +5,7 @@ import About from "./About";
 import Footer from "./Footer";
 import ProblemSolution from "./ProblemSolution";
 import FooterForm from "./FooterForm";
+import Benefits from "./Benefits";
 
 class Coming_soon_home extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class Coming_soon_home extends React.Component {
         <Navbar />
         <ComingSoon />
         {/* <ProblemSolution /> */}
-        <About />
+        <Benefits />
         <FooterForm />
         <Footer />
       </div>
