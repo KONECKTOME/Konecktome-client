@@ -21,6 +21,7 @@ import "../src/App.css";
 import { Row, Col } from "react-bootstrap";
 import Explore_details from "./Components/Client/Explore/Explore_details";
 import { UserDetailsContext } from "./Components/Client/Context/UserDetailsContext";
+import { Alert } from "bootstrap";
 
 const App = (props) => {
   const [userDetails, setUserDetails] = useState({});
@@ -63,7 +64,9 @@ const App = (props) => {
               <Route
                 path="/dashboard/settings/:userid"
                 exact
-                component={Settings_home}
+                render={(props) => (
+                  <Settings_home fetchUser={() => getUser()} {...props} />
+                )}
               />
               <Route
                 path="/dashboard/account/:userid"

@@ -26,8 +26,8 @@ class Recommendations extends Component {
       },
     });
     const deals = await response.json();
-
-    this.setState({ deals });
+    const shuffledDeals = [...deals].sort(() => 0.5 - Math.random());
+    this.setState({ deals: shuffledDeals });
   };
 
   switchAccordion = () => {

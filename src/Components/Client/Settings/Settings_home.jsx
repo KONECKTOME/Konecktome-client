@@ -193,7 +193,10 @@ class Settings_home extends React.Component {
             </Row>
             <hr></hr>
             {this.state.profile === true ? (
-              <Settings_profile userDetails={this.context.userDetails} />
+              <Settings_profile
+                userDetails={this.context.userDetails}
+                fetchUser={() => this.props.fetchUser()}
+              />
             ) : null}
             {this.state.account === true ? <Settings_account /> : null}
             {this.state.paymentDetails === true ? (

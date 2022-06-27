@@ -121,6 +121,7 @@
 }
 
 #settings-profile-button {
+  cursor: pointer;
   margin: 16rem 5rem 3rem 0rem;
   background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
   border-radius: 25px;
