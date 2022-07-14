@@ -11,11 +11,10 @@ import { useState } from "react";
 const Navbar = () => {
   const { userDetails } = useContext(UserDetailsContext);
 
-  const { displayNotifications, setdisplayNotifications } = useState(false);
+  const [displayNotifications, setDisplayNotifications] = useState(false);
 
   const displayNotificationsFn = () => {
-    alert("here");
-    setdisplayNotifications(true);
+    setDisplayNotifications(!displayNotifications);
   };
 
   return (

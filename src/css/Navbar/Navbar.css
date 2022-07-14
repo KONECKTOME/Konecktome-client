@@ -59,7 +59,7 @@
 
 #display-notification-drop-down-wrapper {
   display: block;
-  height: 400px;
+  height: 300px;
   background: #fff;
   border-radius: 5px;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.125);
@@ -67,9 +67,10 @@
   padding: 15px;
   position: relative;
 }
+
 #notification-drop-down-wrapper {
   display: none;
-  height: 400px;
+  height: 300px;
   background: #fff;
   border-radius: 5px;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.125);
