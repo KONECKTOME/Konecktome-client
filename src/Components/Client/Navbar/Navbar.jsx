@@ -6,20 +6,36 @@ import placeholder_image from "../../../Assets/nav-placeholder-image.png";
 import dropdown_icon from "../../../Assets/dropdown-icon.svg";
 import { UserDetailsContext } from "../Context/UserDetailsContext";
 import "../../../css/Navbar/Navbar.css";
+import { useState } from "react";
 
 const Navbar = () => {
   const { userDetails } = useContext(UserDetailsContext);
-  console.log("estate", userDetails);
+
+  const { displayNotifications, setdisplayNotifications } = useState(false);
+
+  const displayNotificationsFn = () => {
+    alert("here");
+    setdisplayNotifications(true);
+  };
 
   return (
     <div id="nav-wrapper">
       <div id="nav-right-wrapper">
         <div id="nav-right">
           <div id="notifcations-holder">
-            <div className="nav-right-item nav-right-item-text">
+            <div
+              className="nav-right-item nav-right-item-text"
+              onClick={() => displayNotificationsFn()}
+            >
               <img src={notifications_icon} />
             </div>
-            <div id="notification-drop-down-wrapper">
+            <div
+              id={
+                displayNotifications === true
+                  ? "display-notification-drop-down-wrapper"
+                  : "notification-drop-down-wrapper"
+              }
+            >
               <div id="notification-drop-down-inner">
                 <img src={placeholder_image} />
                 <div>
