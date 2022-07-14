@@ -51,13 +51,18 @@ class Login extends React.Component {
         }
       );
       const userDetails = await authorize.json();
-      this.setState({
-        details: {
-          email: "",
-          password: "",
-        },
-      });
-      window.location.href = `http://localhost:3000/dashboard/${userDetails.id}`;
+      if (userDetails.message === "User Found") {
+        alert("Success");
+        this.setState({
+          details: {
+            email: "",
+            password: "",
+          },
+        });
+        window.location.href = `http://localhost:3000/dashboard/${userDetails.userId}`;
+      } else if (userDetails.message === "User Not Found") {
+        alert("User not found");
+      }
     }
   };
 

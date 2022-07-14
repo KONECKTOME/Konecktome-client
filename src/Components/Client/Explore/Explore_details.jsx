@@ -1,6 +1,7 @@
 import React, { Component, createRef } from "react";
 import Explore_details_right_col from "./Explore_details_right_col";
 import { Link, withRouter } from "react-router-dom";
+import Explore_details_left_col from "./Explore_details_left_col";
 
 class Explore_details extends React.Component {
   constructor(props) {
@@ -41,12 +42,14 @@ class Explore_details extends React.Component {
           </Link>
           <p id="explore-details-header">Some service provider name</p>
         </div>
-        <Explore_details_right_col
-          deal={this.state.deal}
-          loading={this.state.loading}
-          {...props}
-          ref={this.show_comparison}
-        />
+        <div id="explore-details">
+          <Explore_details_right_col
+            deal={this.state.deal}
+            loading={this.state.loading}
+            {...props}
+          />
+          <Explore_details_left_col />
+        </div>
       </div>
     );
   }

@@ -5,6 +5,64 @@ import "../../../css/Settings/Settings_modal.css";
 class SettingsModal extends React.Component {
   state = {
     showModal: this.props.modalState,
+    pin: {
+      pin1: "",
+      pin2: "",
+      pin3: "",
+      pin4: "",
+    },
+    emptyFields: false,
+    notFound: false,
+    success: false,
+  };
+
+  updatePinDetails = (e) => {
+    const pin = this.state.pin;
+    const id = e.currentTarget.id;
+    pin[id] = e.currentTarget.value;
+    this.setState({ pin });
+  };
+
+  validatePin = async () => {
+    if (
+      this.state.pin.pin1 === "" ||
+      this.state.pin.pin2 === "" ||
+      this.state.pin.pin3 === "" ||
+      this.state.pin.pin4 === ""
+    ) {
+      this.setState({ emptyFields: true });
+      setTimeout(() => this.setState({ emptyFields: false }), 1500);
+    } else {
+      const concatenatePin =
+        this.state.pin.pin1 +
+        this.state.pin.pin2 +
+        this.state.pin.pin3 +
+        this.state.pin.pin4;
+      const response = await fetch("http://localhost:3002/users/check-pin", {
+        method: "POST",
+        body: JSON.stringify({
+          email: this.props.userEmail,
+          pin: concatenatePin,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      const details = await response.json();
+      if (details.message === "Invalid User") {
+        this.setState({ notFound: true });
+        setTimeout(() => this.setState({ notFound: false }), 1500);
+      } else if (details.message === "Valid User") {
+        this.setState({ success: true });
+        setTimeout(() => this.setState({ success: false }), 1500);
+        setTimeout(() => this.props.hideModal(), 1500);
+      }
+    }
+  };
+
+  goBackToDashboard = () => {
+    this.props.hideModal();
+    window.location.href = `http://localhost:3000/dashboard/${this.props.userId}`;
   };
 
   render() {
@@ -16,9 +74,10 @@ class SettingsModal extends React.Component {
           size="md"
           aria-labelledby="contained-modal-title-vcenter"
           centered
+          backdrop="static"
+          keyboard={false}
         >
           <Modal.Body>
-            <div id="modal_close_btn"></div>
             <div id="settings_modal_wrapper">
               <p id="settings_modal_header">Profile settings</p>
               <p id="settings_modal_subheader">Hey, what's your pin again ?</p>
@@ -27,24 +86,81 @@ class SettingsModal extends React.Component {
                 <div id="settings_modal_form_subcontainer">
                   <form id="settings_modal_form">
                     <div id="pin-container">
-                      <input type="text" />
-                      <input type="text" />
-                      <input type="text" />
-                      <input type="text" />
+                      <input
+                        type="text"
+                        maxlength="1"
+                        id="pin1"
+                        value={this.state.pin.pin1}
+                        onChange={(e) => this.updatePinDetails(e)}
+                      />
+                      <input
+                        type="text"
+                        maxlength="1"
+                        id="pin2"
+                        value={this.state.pin.pin2}
+                        onChange={(e) => this.updatePinDetails(e)}
+                      />
+                      <input
+                        type="text"
+                        maxlength="1"
+                        id="pin3"
+                        value={this.state.pin.pin3}
+                        onChange={(e) => this.updatePinDetails(e)}
+                      />
+                      <input
+                        type="text"
+                        maxlength="1"
+                        id="pin4"
+                        value={this.state.pin.pin4}
+                        onChange={(e) => this.updatePinDetails(e)}
+                      />
                     </div>
                   </form>
                 </div>
               </div>
+              {this.state.notFound === true ? (
+                <div id="setting_modal_form_button_wrapper">
+                  <div id="settings_modal_form_error_button">
+                    <p id="settings_modal_form_button_text">Incorrect Pin</p>
+                  </div>
+                </div>
+              ) : null}
+
+              {this.state.emptyFields === true ? (
+                <div id="setting_modal_form_button_wrapper">
+                  <div id="settings_modal_form_error_button">
+                    <p id="settings_modal_form_button_text">
+                      Fields cannot be empty
+                    </p>
+                  </div>
+                </div>
+              ) : null}
+
+              {this.state.success === true ? (
+                <div id="setting_modal_form_button_wrapper">
+                  <div id="settings_modal_form_success_button">
+                    <p id="settings_modal_form_button_text">Pin Validated</p>
+                  </div>
+                </div>
+              ) : null}
 
               <div
                 id="setting_modal_form_button_wrapper"
-                onClick={() => this.props.hideModal()}
+                onClick={() => this.validatePin()}
               >
                 <div id="settings_modal_form_button">
                   <p id="settings_modal_form_button_text">Continue</p>
                 </div>
               </div>
-              <p id="settings_modal_forgotten_password">Forgotten password ?</p>
+              <div id="pin-container">
+                <p id="settings_modal_forgotten_password">Forgotten pin?</p>
+                <p
+                  id="settings_modal_forgotten_password"
+                  onClick={() => this.goBackToDashboard()}
+                >
+                  Go Back to Dashboard
+                </p>
+              </div>
             </div>
           </Modal.Body>
         </Modal>

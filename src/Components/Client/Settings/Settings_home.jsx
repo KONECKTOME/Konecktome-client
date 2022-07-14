@@ -109,6 +109,8 @@ class Settings_home extends React.Component {
           <SettingsModal
             modalState={this.state.showModal}
             hideModal={() => this.hideModal()}
+            userEmail={this.context.userDetails.email}
+            userId={this.context.userDetails._id}
           />
         ) : (
           <div></div>
@@ -141,7 +143,7 @@ class Settings_home extends React.Component {
                   Address Details
                 </p>
               </Col>
-              <Col>
+              {/* <Col>
                 <p
                   onClick={(e) => this.alternateNav(e)}
                   className={
@@ -152,7 +154,7 @@ class Settings_home extends React.Component {
                 >
                   Accounts
                 </p>
-              </Col>
+              </Col> */}
 
               {/* <Col>
                 <p
@@ -200,11 +202,16 @@ class Settings_home extends React.Component {
             ) : null}
             {this.state.account === true ? <Settings_account /> : null}
             {this.state.paymentDetails === true ? (
-              <Settings_payment userDetails={this.context.userDetails} />
+              <Settings_payment
+                userDetails={this.context.userDetails}
+                fetchUser={() => this.props.fetchUser()}
+              />
             ) : null}
             {this.state.importData === true ? <Settings_import_data /> : null}
             {this.state.passSecurity === true ? (
-              <Settings_password_security />
+              <Settings_password_security
+                userEmail={this.context.userDetails.email}
+              />
             ) : null}
             {this.state.closeAccounts === true ? (
               <Settings_close_account />

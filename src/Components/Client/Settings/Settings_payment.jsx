@@ -5,11 +5,13 @@ import AddressModal from "../AddressModal/AddressModal";
 class Settings_payment extends React.Component {
   state = {
     editStatus: false,
+    addressId: "",
   };
 
-  handleOpenEditIcon = () => {
+  handleOpenEditIcon = (id) => {
     this.setState({
       editStatus: !this.state.editStatus,
+      addressId: id,
     });
   };
   render() {
@@ -31,7 +33,7 @@ class Settings_payment extends React.Component {
                     <p>Main Address</p>
                     <img
                       src={penc_edit_icon}
-                      onClick={() => this.handleOpenEditIcon()}
+                      onClick={(id) => this.handleOpenEditIcon(addressItem._id)}
                     />
                   </div>
                   <hr></hr>
@@ -94,66 +96,17 @@ class Settings_payment extends React.Component {
                 </div>
               );
             })}
-
-            {/* <div className="settings_payment_boxes" id="settings_payment_right-box">
-          <div id="settings_payment_box_header">
-            <p>Payment Info</p>
-            <img src={penc_edit_icon} />
-          </div>
-          <hr></hr>
-          <div id="settings_payment_right_box_inner_div">
-            <div id="settings_payment_right_box_inner_div_payment_card">
-              <p id="settings_payment_right_box_inner_div_payment_card_header">
-                Your current card
-              </p>
-              <div id="settings_payment_right_box_inner_div_payment_card_numbers_wrapper">
-                <p className="settings_payment_right_box_inner_div_payment_card_numbers">
-                  ...
-                </p>
-                <p className="settings_payment_right_box_inner_div_payment_card_numbers">
-                  ....
-                </p>
-                <p className="settings_payment_right_box_inner_div_payment_card_numbers">
-                  ....
-                </p>
-                <p className="settings_payment_right_box_inner_div_payment_card_numbers">
-                  6754
-                </p>
-              </div>
-              <div id="settings_payment_right_box_inner_div_payment_card_numbers_wrapper">
-                <div>
-                  <p id="settings_payment_right_box_inner_div_payment_card_header">
-                    Card holder
-                  </p>
-                  <p id="settings_payment_right_box_inner_div_payment_card_header">
-                    Quadri. A
-                  </p>
-                </div>
-                <div>
-                  <p id="settings_payment_right_box_inner_div_payment_card_header">
-                    Exp Date
-                  </p>
-                  <p id="settings_payment_right_box_inner_div_payment_card_header">
-                    21/32
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div id="settings_payment_right_box_inner_div_card_instructions">
-              This is your payment method to be use on all profiles. This is a
-              placeholder that doesn't make sense
-            </div>
-          </div>
-        </div> */}
-            {this.state.editStatus === true ? (
-              <AddressModal
-                hideAddressModal={() => this.handleOpenEditIcon()}
-                show={this.state.editStatus}
-                userId={this.props.userDetails._id}
-              />
-            ) : null}
           </div>
         )}
+        {this.state.editStatus === true ? (
+          <AddressModal
+            hideAddressModal={() => this.handleOpenEditIcon()}
+            show={this.state.editStatus}
+            userId={this.props.userDetails._id}
+            fetchUser={() => this.props.fetchUser()}
+            addressId={this.state.addressId}
+          />
+        ) : null}
       </>
     );
   }

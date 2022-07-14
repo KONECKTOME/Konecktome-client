@@ -240,7 +240,7 @@
   font-family: Poppins bold;
   font-style: normal;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 19px;
   line-height: 36px;
   color: #ac7bb6;
 }
@@ -352,6 +352,17 @@
   font-weight: 900;
   line-height: 22px;
   mix-blend-mode: normal;
+}
+
+input::placeholder {
+  color: #000000;
+  top: calc(50% - 26px / 2 - 23px);
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
 }
 
 @media screen and (max-width: 2000px) {

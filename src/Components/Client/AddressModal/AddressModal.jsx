@@ -9,6 +9,7 @@ class AddressModal extends React.Component {
     //   1, 2, 3, 4, 5, 56, 7, 7, 88, 8, 7, 1, 2, 8, 9, 0, 8, 89829, 26262, 8, 0,
     //   1, 2, 3, 4, 5, 6, 67,
     // ],
+
     addresses: [],
     postCode: "",
     userAddress: "",
@@ -64,9 +65,10 @@ class AddressModal extends React.Component {
 
   fixDateString = (dateToBeFixed) => {
     const arr = dateToBeFixed.split("-");
-    let year = arr[0].split("")[2] + arr[0].split("")[3];
-    const dateStringNeeded = year + "-" + arr[1] + "-" + arr[2];
-    return dateStringNeeded;
+
+    // let year = arr[0].split("")[2] + arr[0].split("")[3];
+    // const dateStringNeeded = year + "-" + arr[1] + "-" + arr[2];
+    return arr;
   };
 
   sendAddress = async (e) => {
@@ -75,6 +77,7 @@ class AddressModal extends React.Component {
       method: "POST",
       body: JSON.stringify({
         userId: this.props.userId,
+        addressId: this.props.addressId,
         buildingName: this.state.addressDetails.buildingName,
         addressLine1: this.state.addressDetails.addressLine1,
         addressLine2: this.state.addressDetails.addressLine2,
@@ -92,18 +95,13 @@ class AddressModal extends React.Component {
     const details = await response.json();
     if (details.message === "Address added") {
       alert("success");
+      this.props.fetchUser();
+    } else if (
+      details.message ===
+      "Date Of Arrival cannot be more than Date Of Departure"
+    ) {
+      alert("error");
     }
-    // this.setState({
-    //   addressSelected: false,
-    //   userAddress: "",
-    //   postCode: "",
-    //   sentSuccess: true,
-    // });
-    // setTimeout(() => {
-    //   this.setState({
-    //     sentSuccess: false,
-    //   });
-    // }, 1200);
   };
   render() {
     return (

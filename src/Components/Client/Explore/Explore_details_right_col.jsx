@@ -11,11 +11,11 @@ class Explore_details_right_col extends React.Component {
     loading: true,
   };
 
-  componentDidMount = () => {
-    if (window.location.href.indexOf("/dashboard/explore/compare") > -1) {
-      this.setState({ exploreRightColClass: "right-with-compare" });
-    }
-  };
+  // componentDidMount = () => {
+  //   if (window.location.href.indexOf("/dashboard/explore/compare") > -1) {
+  //     this.setState({ exploreRightColClass: "right-with-compare" });
+  //   }
+  // };
 
   render(props) {
     return (
@@ -23,7 +23,7 @@ class Explore_details_right_col extends React.Component {
         {this.props.loading === true ? (
           <Loader />
         ) : (
-          <div id={this.state.exploreRightColClass}>
+          <div id="right-with-compare">
             <div id="explore-details-inner-right">
               <img src={image_placeholder} />
               <div id="explore-details-sub-inner-right-subheader-wrapper">
@@ -51,24 +51,6 @@ class Explore_details_right_col extends React.Component {
                 <p className="desktop-text">
                   £{this.props.deal[0].dealContractPlans[0].contractDuration}
                 </p>
-                {/* <p className="desktop-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the… Lorem Ipsum is simply dummy text of the printing
-              and typesetting industry. Lorem Ipsum has been the industry's
-              standard dummy text ever since the… Lorem Ipsum is simply dummy
-              text of the printing and typesetting industry. Lorem Ipsum has
-              been the industry's standard dummy text ever since the…
-            </p>
-            <p className="desktop-text">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the… Lorem Ipsum is simply dummy text of the printing
-              and typesetting industry. Lorem Ipsum has been the industry's
-              standard dummy text ever since the… Lorem Ipsum is simply dummy
-              text of the printing and typesetting industry. Lorem Ipsum has
-              been the industry's standard dummy text ever since the…
-            </p> */}
               </div>
               <div id="explore-details-inner-features-wrapper">
                 <p className="desktop-sub-header2">Features</p>
@@ -81,9 +63,16 @@ class Explore_details_right_col extends React.Component {
               <div id="explore-details-inner-left-inner-wrapper">
                 <div>
                   <p className="desktop-price"> Price</p>
-                  <p className="desktop-price-number">
-                    £{this.props.deal[0].dealPrice} Per Month
-                  </p>
+                  {this.props.deal[0].subTitle !== "" ? (
+                    <p className="desktop-price-number">
+                      £{this.props.deal[0].dealPrice} Per Month With{" "}
+                      {this.props.deal[0].subTitle}
+                    </p>
+                  ) : (
+                    <p className="desktop-price-number">
+                      £{this.props.deal[0].dealPrice} Per Month
+                    </p>
+                  )}
                 </div>
                 <div className="desktop-big-button">
                   <p className="desktop-big-button-text">Buy Now</p>
@@ -98,28 +87,12 @@ class Explore_details_right_col extends React.Component {
                     Add to wishlist
                   </p>
                 </div>
-                <div
-                  id={
-                    this.state.exploreRightColClass === "right"
-                      ? "display-compare-btn"
-                      : "hide-compare-btn"
-                  }
-                >
-                  <Link
-                    to={
-                      "/dashboard/explore/compare/" +
-                      this.props.match.params.userid +
-                      "/" +
-                      this.props.deal[0]._id
-                    }
-                    className="links"
-                  >
-                    <div className="desktop-big-button-transparent">
-                      <p className="desktop-big-button-transparent-text">
-                        Compare
-                      </p>
-                    </div>
-                  </Link>
+                <div id="display-compare-btn">
+                  <div className="desktop-big-button-transparent">
+                    <p className="desktop-big-button-transparent-text">
+                      Compare
+                    </p>
+                  </div>
                 </div>
               </div>
               <div id="explore-details-review">

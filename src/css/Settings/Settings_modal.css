@@ -6,9 +6,6 @@
   font-style: normal;
 }
 
-#settings_modal_wrapper {
-}
-
 #settings_modal_header {
   font-family: Poppins bold;
   font-style: normal;
@@ -38,6 +35,7 @@
   margin-right: 1rem;
   width: 20%;
   background: #f6f6f8;
+  text-align: center;
 }
 
 #settings_modal_form_container {
@@ -71,6 +69,19 @@
   height: 50px;
 }
 
+#settings_modal_form_error_button {
+  background: red;
+  border-radius: 30px;
+  width: 410px;
+  height: 50px;
+}
+#settings_modal_form_success_button {
+  background: green;
+  border-radius: 30px;
+  width: 410px;
+  height: 50px;
+}
+
 #settings_modal_form_button_text {
   text-align: center;
   padding: 1rem 0rem 1rem 0rem;
@@ -82,9 +93,10 @@
 }
 
 #settings_modal_forgotten_password {
+  cursor: pointer;
   font-family: Poppins;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 800;
   font-size: 14px;
   line-height: 21px;
   color: #ab7ab6;

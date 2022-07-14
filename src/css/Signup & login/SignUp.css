@@ -4,7 +4,8 @@
 }
 
 #sign-up-right-col {
-  padding: 5rem 0rem 0rem 2rem;
+  width: 100%;
+  padding: 2rem 0rem 0rem 2rem;
 }
 #login-right-col {
   padding: 9rem 0rem 0rem 2rem;
@@ -16,7 +17,16 @@
 }
 
 .input-holder {
+  margin-top: 1rem;
+}
+
+.pin-input-holder {
   margin-top: 2rem;
+}
+
+.pin-input-holder > input[type="text"] {
+  text-align: center;
+  font-size: 32px;
 }
 
 .sign-up-span-link {

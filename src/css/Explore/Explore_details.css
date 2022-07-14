@@ -40,6 +40,11 @@
   justify-content: space-between;
 }
 
+#explore-details {
+  display: flex;
+  justify-content: space-between;
+}
+
 #explore-details-sub-inner-right-subheader-wrapper {
   display: flex;
   justify-content: space-between;

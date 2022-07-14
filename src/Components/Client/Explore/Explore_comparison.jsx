@@ -25,17 +25,16 @@ class Explore_comparison extends React.Component {
   };
   render(props) {
     return (
-      <div id="explore-details-wrapper">
-        <div id="explore-details-header-wrapper">
-          <p id="explore-details-header">Compare /</p>
-        </div>
-        <div id="explore-details-inner-wrapper">
+      <div id="explore-both-wrapper">
+        <div>
           <Explore_details_right_col
             deal={this.state.deal}
             loading={this.state.loading}
             {...props}
           />
-          <Explore_details_left_col />
+          <div>
+            <Explore_details_left_col />
+          </div>
         </div>
       </div>
     );

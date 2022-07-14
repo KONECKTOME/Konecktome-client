@@ -26,52 +26,11 @@ const Navbar = () => {
               {userDetails.firstName + " " + userDetails.lastName}
             </p>
           </div>
-          <div className="nav-right-item-text">
+          {/* <div className="nav-right-item-text">
             <img src={dropdown_icon} />
-          </div>
-        </div>
-        {/* <Row>
-            <Col>
-              <div id="nav-image">
-                <img src={placeholder_image} />
-              </div>
-            </Col>
-            <Col>
-              <p>Jhn dddddoe</p>
-            </Col>
-            <Col>
-              <div>
-                <img src={dropdown_icon} />
-              </div>
-            </Col>
-          </Row> */}
-        {/* <div id="nav-image">
-            <img src={placeholder_image} />
           </div> */}
+        </div>
       </div>
-      {/* <div id="nav-second-wrapper">
-          <div id="row-wrapper">
-            <Row>
-              <Col lg={2}>
-                <img src={notifications_icon} />
-              </Col>
-
-              <Col lg={5}>
-                <div id="nav-right-dropdown">
-                  <div id="nav-image">
-                    <img src={placeholder_image} />
-                  </div>
-                  <div>
-                    <p>John</p>
-                  </div>
-                  <div>
-                    <img src={dropdown_icon} />
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          </div>
-        </div> */}
     </div>
   );
 };

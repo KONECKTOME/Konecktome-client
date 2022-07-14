@@ -15,6 +15,12 @@ class Signup extends React.Component {
       email: "",
       password: "",
     },
+    pin: {
+      pin1: "",
+      pin2: "",
+      pin3: "",
+      pin4: "",
+    },
     emptyFields: false,
     error: false,
     success: false,
@@ -24,9 +30,11 @@ class Signup extends React.Component {
 
   updateDetails = (e) => {
     const details = this.state.details;
+    const pin = this.state.pin;
     const id = e.currentTarget.id;
     details[id] = e.currentTarget.value;
-    this.setState({ details });
+    pin[id] = e.currentTarget.value;
+    this.setState({ details, pin });
   };
 
   isValidEmail = (email) => {
@@ -42,6 +50,11 @@ class Signup extends React.Component {
 
   register = async (e) => {
     e.preventDefault();
+    const concatenatePin =
+      this.state.pin.pin1 +
+      this.state.pin.pin2 +
+      this.state.pin.pin3 +
+      this.state.pin.pin4;
     if (
       this.state.details.firstName === "" ||
       this.state.details.lastName === "" ||
@@ -61,6 +74,7 @@ class Signup extends React.Component {
           lastName: this.state.details.lastName,
           email: this.state.details.email,
           password: this.state.details.password,
+          pin: concatenatePin,
         }),
         headers: {
           "Content-type": "application/json",
@@ -167,6 +181,52 @@ class Signup extends React.Component {
                     onChange={(e) => this.updateDetails(e)}
                   />
                 </div>
+                <Row>
+                  <Col>
+                    <div className="pin-input-holder">
+                      <input
+                        type="text"
+                        maxlength="1"
+                        id="pin1"
+                        value={this.state.pin.pin1}
+                        onChange={(e) => this.updateDetails(e)}
+                      />
+                    </div>
+                  </Col>
+                  <Col>
+                    <div className="pin-input-holder">
+                      <input
+                        type="text"
+                        maxlength="1"
+                        id="pin2"
+                        value={this.state.pin.pin2}
+                        onChange={(e) => this.updateDetails(e)}
+                      />
+                    </div>
+                  </Col>
+                  <Col>
+                    <div className="pin-input-holder">
+                      <input
+                        type="text"
+                        maxlength="1"
+                        id="pin3"
+                        value={this.state.pin.pin3}
+                        onChange={(e) => this.updateDetails(e)}
+                      />
+                    </div>
+                  </Col>
+                  <Col>
+                    <div className="pin-input-holder">
+                      <input
+                        type="text"
+                        maxlength="1"
+                        id="pin4"
+                        value={this.state.pin.pin4}
+                        onChange={(e) => this.updateDetails(e)}
+                      />
+                    </div>
+                  </Col>
+                </Row>
               </form>
               {this.state.success === true ? (
                 <div className="success-notification-holder">
