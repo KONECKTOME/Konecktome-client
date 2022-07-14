@@ -15,11 +15,64 @@ const Navbar = () => {
     <div id="nav-wrapper">
       <div id="nav-right-wrapper">
         <div id="nav-right">
-          <div className="nav-right-item nav-right-item-text">
-            <img src={notifications_icon} />
+          <div id="notifcations-holder">
+            <div className="nav-right-item nav-right-item-text">
+              <img src={notifications_icon} />
+            </div>
+            <div id="notification-drop-down-wrapper">
+              <div id="notification-drop-down-inner">
+                <img src={placeholder_image} />
+                <div>
+                  <p>Notifications title</p>
+                  <p>Notifications title</p>
+                </div>
+              </div>
+              <div id="notification-drop-down-inner">
+                <img src={placeholder_image} />
+                <div>
+                  <p>Notifications title</p>
+                  <p>Notifications title</p>
+                </div>
+              </div>
+              <div id="notification-drop-down-inner">
+                <img src={placeholder_image} />
+                <div>
+                  <p>Notifications title</p>
+                  <p>Notifications title</p>
+                </div>
+              </div>
+              <div id="notification-drop-down-inner">
+                <img src={placeholder_image} />
+                <div>
+                  <p>Notifications title</p>
+                  <p>Notifications title</p>
+                </div>
+              </div>
+              <div id="notification-drop-down-inner">
+                <img src={placeholder_image} />
+                <div>
+                  <p>Notifications title</p>
+                  <p>Notifications title</p>
+                </div>
+              </div>
+              <div id="notification-drop-down-inner">
+                <img src={placeholder_image} />
+                <div>
+                  <p>Notifications title</p>
+                  <p>Notifications title</p>
+                </div>
+              </div>
+            </div>
           </div>
           <div id="nav-image" className="nav-right-item">
-            <img src={userDetails.imageUrl} id="nav-img" />
+            <img
+              src={
+                userDetails.imageUrl === undefined || !userDetails.imageUrl
+                  ? placeholder_image
+                  : userDetails.imageUrl
+              }
+              id="nav-img"
+            />
           </div>
           <div className="nav-right-item">
             <p className="desktop-text nav-right-item-text">
