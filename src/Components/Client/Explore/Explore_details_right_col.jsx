@@ -24,7 +24,7 @@ class Explore_details_right_col extends React.Component {
           <Loader />
         ) : (
           <>
-            <p>Here</p>
+            <p>here</p>
             <div id="right-with-compare">
               <div id="explore-details-inner-right">
                 <img src={image_placeholder} />
@@ -94,13 +94,13 @@ class Explore_details_right_col extends React.Component {
                       Add to wishlist
                     </p>
                   </div>
-                  <div id="display-compare-btn">
+                  {/* <div id="display-compare-btn">
                     <div className="desktop-big-button-transparent">
                       <p className="desktop-big-button-transparent-text">
                         Compare
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div id="explore-details-review">
                   <p className="desktop-sub-header2"> Reviews</p>
