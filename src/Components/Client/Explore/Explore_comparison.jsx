@@ -33,7 +33,7 @@ class Explore_comparison extends React.Component {
             {...props}
           />
           <div>
-            <Explore_details_left_col />
+            <Explore_details_left_col deal={this.state.deal} {...props} />
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ class Explore_details_left_col extends React.Component {
   render() {
     return (
       <div id="left">
-        <p>Here</p>
+        <p className="desktop-sub-header2">Compare DealName With Others</p>
         {this.state.arr.map((e) => {
           return (
             <div className="card">
