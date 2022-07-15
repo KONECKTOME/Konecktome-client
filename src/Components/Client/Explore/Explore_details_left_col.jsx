@@ -11,6 +11,7 @@ class Explore_details_left_col extends React.Component {
   render() {
     return (
       <div id="left">
+        <p>Here</p>
         {this.state.arr.map((e) => {
           return (
             <div className="card">
