@@ -18,7 +18,7 @@ class Nav extends Component {
                 <div id="dashboard-nav-icon-wrapper">
                   <img src={service_prov_icon} />
                 </div>
-                <div className="desktop-nav-header">Service Providers</div>
+                <div className="desktop-nav-header">Accounts</div>
                 <div>
                   <p className="nav-item-number">60</p>
                 </div>
@@ -29,7 +29,7 @@ class Nav extends Component {
                 <div id="dashboard-nav-icon-wrapper">
                   <img src={fav_icon} />
                 </div>
-                <div className="desktop-nav-header">My Favourites</div>
+                <div className="desktop-nav-header">Wishlist</div>
                 <div>
                   <p className="nav-item-number">60</p>
                 </div>
@@ -40,13 +40,13 @@ class Nav extends Component {
                 <div id="dashboard-nav-icon-wrapper">
                   <img src={email_icon} />
                 </div>
-                <div className="desktop-nav-header">Email Updates</div>
+                <div className="desktop-nav-header">History</div>
                 <div>
                   <p className="nav-item-number">60</p>
                 </div>
               </div>
             </div>
-            <div className="dashboard-nav-item dashboard-nav-item-for-margin">
+            {/* <div className="dashboard-nav-item dashboard-nav-item-for-margin">
               <div id="dashboard_nav_item_inner">
                 <div id="dashboard-nav-icon-wrapper">
                   <img src={wishlist_icon} />
@@ -56,7 +56,7 @@ class Nav extends Component {
                   <p className="nav-item-number">{this.props.wishlistLength}</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </>

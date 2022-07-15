@@ -1,7 +1,17 @@
-/* #settimgs_payement_wrapper {
-  display: flex;
-  flex-direction: ro;
-} */
+#new-address-btn {
+  float: left;
+  margin: 2rem 1rem 0rem 0rem;
+}
+
+#new-address-btn > div {
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+#new-address-btn > div > p {
+  font-family: Poppins Bold;
+  color: #000000 !important;
+  font-weight: 900;
+}
 
 .settings_payment_boxes {
   width: 100%;

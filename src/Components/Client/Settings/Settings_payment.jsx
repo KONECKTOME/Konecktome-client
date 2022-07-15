@@ -17,11 +17,16 @@ class Settings_payment extends React.Component {
   render() {
     return (
       <>
+        <div id="new-address-btn" onClick={() => this.handleOpenEditIcon()}>
+          <div className="desktop-big-button">
+            <p className="desktop-big-button-text">Add New Address</p>
+          </div>
+        </div>
         {this.props.userDetails.addressHistory.length === 0 ? (
           <div className="empty-services-holder">
             <p className="empty-services-text">
-              Please Update your Address Details{" "}
-              <span onClick={() => this.handleOpenEditIcon()}>Here</span>
+              Your Address List is empty, Please Add Address with the button
+              above
             </p>
           </div>
         ) : (

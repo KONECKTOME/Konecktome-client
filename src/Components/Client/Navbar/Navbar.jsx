@@ -12,6 +12,28 @@ const Navbar = () => {
   const { userDetails } = useContext(UserDetailsContext);
 
   const [displayNotifications, setDisplayNotifications] = useState(false);
+  const [test, setTest] = useState([
+    {
+      title: "title",
+      text: "test",
+      new: true,
+    },
+    {
+      title: "title2",
+      text: "test2",
+      new: true,
+    },
+    {
+      title: "title3",
+      text: "test3",
+      new: false,
+    },
+    {
+      title: "title3",
+      text: "test3",
+      new: false,
+    },
+  ]);
 
   const displayNotificationsFn = () => {
     setDisplayNotifications(!displayNotifications);
@@ -26,6 +48,9 @@ const Navbar = () => {
               className="nav-right-item nav-right-item-text"
               onClick={() => displayNotificationsFn()}
             >
+              <div id="notifications-badge">
+                <p>1</p>
+              </div>
               <img src={notifications_icon} />
             </div>
             <div
@@ -35,48 +60,29 @@ const Navbar = () => {
                   : "notification-drop-down-wrapper"
               }
             >
-              <div id="notification-drop-down-inner">
-                <img src={placeholder_image} />
-                <div>
-                  <p>Notifications title</p>
-                  <p>Notifications title</p>
-                </div>
-              </div>
-              <div id="notification-drop-down-inner">
-                <img src={placeholder_image} />
-                <div>
-                  <p>Notifications title</p>
-                  <p>Notifications title</p>
-                </div>
-              </div>
-              <div id="notification-drop-down-inner">
-                <img src={placeholder_image} />
-                <div>
-                  <p>Notifications title</p>
-                  <p>Notifications title</p>
-                </div>
-              </div>
-              <div id="notification-drop-down-inner">
-                <img src={placeholder_image} />
-                <div>
-                  <p>Notifications title</p>
-                  <p>Notifications title</p>
-                </div>
-              </div>
-              <div id="notification-drop-down-inner">
-                <img src={placeholder_image} />
-                <div>
-                  <p>Notifications title</p>
-                  <p>Notifications title</p>
-                </div>
-              </div>
-              <div id="notification-drop-down-inner">
-                <img src={placeholder_image} />
-                <div>
-                  <p>Notifications title</p>
-                  <p>Notifications title</p>
-                </div>
-              </div>
+              <p id="notification-header">Notifications</p>
+              {test.map((tt) => {
+                return (
+                  <>
+                    <div
+                      id={
+                        tt.new === true
+                          ? "new-notofication-holder"
+                          : "old-notofication-holder"
+                      }
+                    >
+                      <div id="notification-drop-down-inner">
+                        <img src={placeholder_image} />
+                        <div id="notification-drop-down-inner-text">
+                          <p id="nav-notification-header">{tt.title}</p>
+                          <p id="nav-notification-text">{tt.text}</p>
+                        </div>
+                      </div>
+                      <hr id="hr-selector"></hr>
+                    </div>
+                  </>
+                );
+              })}
             </div>
           </div>
           <div id="nav-image" className="nav-right-item">

@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 
 class Explore_home extends Component {
   state = {
-    test: [1, 2, 4, 4, 5, 6],
     companies: [],
     deals: [],
+    searchDeals: [],
+    searchStatus: false,
+    searchQuery: "",
   };
 
   componentDidMount = async () => {
@@ -21,7 +23,6 @@ class Explore_home extends Component {
       },
     });
     const deals = await response.json();
-
     this.setState({ deals });
   };
 
@@ -39,6 +40,34 @@ class Explore_home extends Component {
     this.setState({ deal: deal.message });
     console.log(this.state.deal);
   };
+
+  searchDeals = (e) => {
+    e.preventDefault();
+    let searchResult = [];
+    let searchQuery = e.currentTarget.value
+      .split(" ")
+      .join("")
+      .trim()
+      .toLowerCase();
+    const deals = this.state.deals;
+
+    for (let deal in deals) {
+      if (
+        deals[deal].dealName
+          .split(" ")
+          .join("")
+          .trim()
+          .toLowerCase()
+          .includes(searchQuery) === true
+      ) {
+        searchResult.push(deals[deal]);
+        this.setState({ searchDeals: searchResult, searchStatus: true });
+      }
+      if (this.state.searchQuery === "") {
+        this.setState({ searchDeals: [], searchStatus: false });
+      }
+    }
+  };
   render() {
     return (
       <div id="explore-wrapper">
@@ -50,61 +79,121 @@ class Explore_home extends Component {
               type="text"
               placeholder="Search by name, category"
               className="explore-search-form"
+              onKeyUp={(e) => this.searchDeals(e)}
               // value={this.state.details.email}
-              // onChange={(e) => this.updateDetails(e)}
+              onChange={(e) =>
+                this.setState({ searchQuery: e.currentTarget.value })
+              }
             />
           </form>
         </div>
-        <div id="explore-inner-div">
-          <div id="explore-cards-pagination-wrapper">
-            <div className="cards">
-              {this.state.deals.map((deal) => {
-                return (
-                  <div className="card">
-                    <div id="image-holder">
-                      <img src={image_placeholder} className="card-image" />
-                    </div>
-                    <div className="card-inner-first-div">
-                      <p className="desktop-sub-header2">{deal.companyName}</p>
-                      <div>
-                        <p>Stars</p>
-                        <p>Trust Pilot ratings</p>
+        {this.state.searchStatus === false ? (
+          <div id="explore-inner-div">
+            <div id="explore-cards-pagination-wrapper">
+              <div className="cards">
+                {this.state.deals.map((deal) => {
+                  return (
+                    <div className="card">
+                      <div id="image-holder">
+                        <img src={image_placeholder} className="card-image" />
                       </div>
-                    </div>
-                    <div>
-                      <p className="desktop-sub-header2">{deal.dealName}</p>
-                      <div className="desktop-badge1">
-                        <p className="desktop-badge-text">{deal.tag}</p>
-                      </div>
-                    </div>
-                    <div id="account-card-footer">
-                      <div>
-                        <p className="desktop-price"> Price</p>
-                        <p className="desktop-price-number">
-                          £{deal.dealPrice}
+                      <div className="card-inner-first-div">
+                        <p className="desktop-sub-header2">
+                          {deal.companyName}
                         </p>
+                        <div>
+                          <p>Stars</p>
+                          <p>Trust Pilot ratings</p>
+                        </div>
                       </div>
                       <div>
-                        <Link
-                          className="links"
-                          to={
-                            "/dashboard/explore/details/" +
-                            this.props.match.params.userid +
-                            "/" +
-                            deal._id
-                          }
-                        >
-                          <p className="desktop-cta">View details</p>
-                        </Link>
+                        <p className="desktop-sub-header2">{deal.dealName}</p>
+                        <div className="desktop-badge1">
+                          <p className="desktop-badge-text">{deal.tag}</p>
+                        </div>
+                      </div>
+                      <div id="account-card-footer">
+                        <div>
+                          <p className="desktop-price"> Price</p>
+                          <p className="desktop-price-number">
+                            £{deal.dealPrice}
+                          </p>
+                        </div>
+                        <div>
+                          <Link
+                            className="links"
+                            to={
+                              "/dashboard/explore/details/" +
+                              this.props.match.params.userid +
+                              "/" +
+                              deal._id
+                            }
+                          >
+                            <p className="desktop-cta">View details</p>
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
+              {/* <div className="pagination-button">dhdh</div> */}
             </div>
-            {/* <div className="pagination-button">dhdh</div> */}
           </div>
-        </div>
+        ) : (
+          <div id="explore-inner-div">
+            <div id="explore-cards-pagination-wrapper">
+              <div className="cards">
+                {this.state.searchDeals.map((deal) => {
+                  return (
+                    <div className="card">
+                      <div id="image-holder">
+                        <img src={image_placeholder} className="card-image" />
+                      </div>
+                      <div className="card-inner-first-div">
+                        <p className="desktop-sub-header2">
+                          {deal.companyName}
+                        </p>
+                        <div>
+                          <p>Stars</p>
+                          <p>Trust Pilot ratings</p>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="desktop-sub-header2">{deal.dealName}</p>
+                        <div className="desktop-badge1">
+                          <p className="desktop-badge-text">{deal.tag}</p>
+                        </div>
+                      </div>
+                      <div id="account-card-footer">
+                        <div>
+                          <p className="desktop-price"> Price</p>
+                          <p className="desktop-price-number">
+                            £{deal.dealPrice}
+                          </p>
+                        </div>
+                        <div>
+                          <Link
+                            className="links"
+                            to={
+                              "/dashboard/explore/details/" +
+                              this.props.match.params.userid +
+                              "/" +
+                              deal._id
+                            }
+                          >
+                            <p className="desktop-cta">View details</p>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              {/* <div className="pagination-button">dhdh</div> */}
+            </div>
+          </div>
+        )}
       </div>
     );
   }

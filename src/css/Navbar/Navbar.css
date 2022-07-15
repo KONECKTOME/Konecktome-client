@@ -49,6 +49,12 @@
   width: 20%;
   z-index: 9;
 }
+
+#notifications-badge {
+  background-color: red;
+  width: 15px;
+  border-radius: 25%;
+}
 #notifcations-holder > .nav-right-item {
   position: relative;
   width: 50px;
@@ -59,27 +65,66 @@
 
 #display-notification-drop-down-wrapper {
   display: block;
-  height: 300px;
+  height: 400px;
   background: #fff;
   border-radius: 5px;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.125);
   margin: 15px auto 0;
-  padding: 15px;
   position: relative;
 }
 
 #notification-drop-down-wrapper {
   display: none;
-  height: 300px;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.125);
-  margin: 15px auto 0;
-  padding: 15px;
-  position: relative;
 }
 
 #notification-drop-down-inner {
   display: flex;
   grid: 5%;
+
+  padding: 1rem 2rem 2rem 2rem;
+}
+
+#new-notofication-holder {
+  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+}
+#old-notofication-holder {
+  background: #fff;
+}
+
+#notification-header {
+  font-family: "Poppins Medium";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 1rem 0rem 0rem 2rem;
+}
+
+#new-notification-drop-down-inner {
+  display: flex;
+  grid: 5%;
+}
+
+#notification-drop-down-inner-text {
+  margin-left: 2rem;
+}
+
+#nav-notification-header {
+  font-family: "Poppins Bold";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+#nav-notification-text {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 21px;
+}
+
+hr {
+  margin: 0 !important;
 }

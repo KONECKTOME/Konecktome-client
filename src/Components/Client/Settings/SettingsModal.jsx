@@ -23,6 +23,16 @@ class SettingsModal extends React.Component {
     this.setState({ pin });
   };
 
+  autoTab = (current, to) => {
+    alert(current);
+    if (
+      current.getAttribute &&
+      current.value.length == current.getAttribute("maxlength")
+    ) {
+      to.focus();
+    }
+  };
+
   validatePin = async () => {
     if (
       this.state.pin.pin1 === "" ||
@@ -84,7 +94,7 @@ class SettingsModal extends React.Component {
 
               <div id="settings_modal_form_container">
                 <div id="settings_modal_form_subcontainer">
-                  <form id="settings_modal_form">
+                  <form id="settings_modal_form" name="pinForm">
                     <div id="pin-container">
                       <input
                         type="text"
@@ -92,11 +102,15 @@ class SettingsModal extends React.Component {
                         id="pin1"
                         value={this.state.pin.pin1}
                         onChange={(e) => this.updatePinDetails(e)}
+                        oninput={() =>
+                          this.autoTab(this, document.pinForm.pin2)
+                        }
                       />
                       <input
                         type="text"
                         maxlength="1"
                         id="pin2"
+                        name="pin2"
                         value={this.state.pin.pin2}
                         onChange={(e) => this.updatePinDetails(e)}
                       />
