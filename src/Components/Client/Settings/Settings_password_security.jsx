@@ -18,7 +18,8 @@ class Settings_password_security extends React.Component {
     this.setState({ passwordDetails });
   };
 
-  sendPassword = async () => {
+  changePassword = async (e) => {
+    e.preventDefault();
     if (this.state.newPass !== this.state.confirmNewPass) {
       alert("Confirm Passwords do not match");
     } else {
@@ -37,6 +38,11 @@ class Settings_password_security extends React.Component {
         }
       );
       const details = await response.json();
+      if (details.message === "Password updated") {
+        alert("sUCCESS");
+      } else {
+        alert("Error");
+      }
     }
   };
   render() {
@@ -76,7 +82,10 @@ class Settings_password_security extends React.Component {
                   value={this.state.passwordDetails.confirmNewPass}
                   onChange={(e) => this.updatePasswordDetails(e)}
                 />
-                <div className="desktop-big-button">
+                <div
+                  className="desktop-big-button"
+                  onClick={(e) => this.changePassword(e)}
+                >
                   <p className="desktop-big-button-text">Change Password</p>
                 </div>
               </form>

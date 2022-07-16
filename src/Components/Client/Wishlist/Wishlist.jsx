@@ -8,39 +8,6 @@ import { UserDetailsContext } from "../Context/UserDetailsContext";
 const Wishlist = () => {
   const [loading, setLoading] = useState(false);
   const { userDetails } = useContext(UserDetailsContext);
-  // state = {
-  //   test: [1, 2, 3, 5],
-  //   wishlist: [],
-  //   loading: false,
-  // };
-
-  // componentDidMount = () => {
-  //   this.getUser();
-  // };
-
-  // getUser = async () => {
-  //   const id = this.props.match.params.userid;
-  //   const response = await fetch(
-  //     `http://localhost:3002/users/get-user-by-id/${id}`,
-  //     {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-type": "application/json",
-  //       },
-  //     }
-  //   );
-  //   const userDetails = await response.json();
-  //   if (!userDetails.wishlist) {
-  //     this.setState({
-  //       loading: true,
-  //     });
-  //   } else {
-  //     this.setState({
-  //       wishlist: userDetails.wishlist,
-  //       loading: false,
-  //     });
-  //   }
-  // };
 
   return (
     <>
@@ -51,22 +18,17 @@ const Wishlist = () => {
           <p className="desktop-header">My wishlist</p>
           {userDetails.wishlist.length !== 0 ? (
             <div className="cards">
-              {userDetails.test.map((tt) => {
+              {userDetails.wishlist.map((item) => {
                 return (
                   <div className="card">
                     <div id="image-holder">
                       <img src={image_placeholder} className="card-image" />
                     </div>
                     <div id="account-card-inner-first-div">
-                      <p className="desktop-sub-header2">
-                        Some Service Provider Name
-                      </p>
+                      <p className="desktop-sub-header2">{item.dealName}</p>
                     </div>
                     <div>
-                      <p className="desktop-text">
-                        Your wish is to purchase dealName from servive provider
-                        name soon. We are with you on this.
-                      </p>
+                      <p className="desktop-text">{item.description}</p>
                       <div className="desktop-badge1">
                         <p className="desktop-badge-text">Financial</p>
                       </div>
@@ -74,10 +36,20 @@ const Wishlist = () => {
                     <div id="account-card-footer">
                       <div>
                         <p className="desktop-price"> Price</p>
-                        <p className="desktop-price-number">£500</p>
+                        <p className="desktop-price-number">£ {item.price}</p>
                       </div>
                       <div>
-                        <p className="desktop-cta">View details</p>
+                        <Link
+                          className="links"
+                          to={
+                            "/dashboard/explore/details/" +
+                            userDetails._id +
+                            "/" +
+                            item.dealId
+                          }
+                        >
+                          <p className="desktop-cta">View details</p>
+                        </Link>
                       </div>
                     </div>
                   </div>

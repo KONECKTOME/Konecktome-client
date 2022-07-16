@@ -146,6 +146,7 @@
   padding-top: 1rem;
   border: 1px solid #ae7cb8;
   margin-bottom: 1.5rem;
+  cursor: pointer;
 }
 
 .desktop-big-button-transparent-text {

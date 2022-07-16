@@ -103,7 +103,9 @@ const App = (props) => {
             <Route
               path="/dashboard/explore/details/:userid/:dealId"
               exact
-              component={Explore_details}
+              render={(props) => (
+                <Explore_details fetchUser={() => getUser()} {...props} />
+              )}
             />
 
             <Route

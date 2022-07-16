@@ -8,6 +8,10 @@ class Explore_details_left_col extends React.Component {
   state = {
     arr: [1, 4],
   };
+
+  componentDidMount = () => {
+    console.log("compare", this.props);
+  };
   render() {
     return (
       <div id="left">

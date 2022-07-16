@@ -11,11 +11,35 @@ class Explore_details_right_col extends React.Component {
     loading: true,
   };
 
-  // componentDidMount = () => {
-  //   if (window.location.href.indexOf("/dashboard/explore/compare") > -1) {
-  //     this.setState({ exploreRightColClass: "right-with-compare" });
-  //   }
-  // };
+  addtoWishlist = async (dealId, dealName, price, subTitle) => {
+    const response = await fetch(
+      `http://localhost:3002/users/update-wishlist`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          userId: this.props.match.params.userid,
+          companyId: "test",
+          dealId: dealId,
+          companyImage: "test",
+          dealName: dealName,
+          serviceProviderName: "test",
+          serviceType: "test",
+          price: price,
+          description: subTitle,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const details = await response.json();
+    if (details.message === "Item Already In Wishlist") {
+      this.props.showNotification(false, true);
+    } else if (details.message === "New wishlist added for user") {
+      this.props.showNotification(true, false);
+      this.props.fetchUser();
+    }
+  };
 
   render(props) {
     return (
@@ -89,7 +113,17 @@ class Explore_details_right_col extends React.Component {
                       Chat with service provider
                     </p>
                   </div>
-                  <div className="desktop-big-button-transparent">
+                  <div
+                    className="desktop-big-button-transparent"
+                    onClick={() =>
+                      this.addtoWishlist(
+                        this.props.deal[0]._id,
+                        this.props.deal[0].dealName,
+                        this.props.deal[0].dealPrice,
+                        this.props.deal[0].subTitle
+                      )
+                    }
+                  >
                     <p className="desktop-big-button-transparent-text">
                       Add to wishlist
                     </p>

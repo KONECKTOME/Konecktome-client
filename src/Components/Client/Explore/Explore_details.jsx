@@ -13,6 +13,8 @@ class Explore_details extends React.Component {
     deal: [],
     loading: true,
     show: null,
+    wishlistSuccess: false,
+    wishlistExist: false,
   };
 
   componentDidMount = async () => {
@@ -27,15 +29,33 @@ class Explore_details extends React.Component {
     );
     const deal = await response.json();
     this.setState({ deal: deal.message, loading: false });
-    console.log(this.state.deal);
   };
-  // show_comparison = createRef();
-  // show_comp = (data) => {
-  //   this.show_comparison.current.showCompare();
-  // };
+
+  showNotifications = (wishlistSuccess, wishlistExists) => {
+    if (wishlistSuccess === true) {
+      this.setState({ wishlistSuccess: true });
+      setTimeout(() => this.setState({ wishlistSuccess: false }), 1500);
+    }
+    if (wishlistExists === true) {
+      this.setState({ wishlistExist: true });
+      setTimeout(() => this.setState({ wishlistExist: false }), 1500);
+    }
+  };
+
   render(props) {
     return (
       <div id="explore-details-wrapper">
+        {this.state.wishlistSuccess === true ? (
+          <div className="success-notification-holder">
+            <p>Item Added to Wishlist</p>
+          </div>
+        ) : null}
+        {this.state.wishlistExist === true ? (
+          <div className="exist-notification-holder">
+            <p>Item Already Exists In Wishlist</p>
+          </div>
+        ) : null}
+
         <div id="explore-details-header-wrapper">
           <Link to="/explore" className="links">
             <p id="explore-details-header">Explore /</p>
@@ -46,9 +66,17 @@ class Explore_details extends React.Component {
           <Explore_details_right_col
             deal={this.state.deal}
             loading={this.state.loading}
+            fetchUser={() => this.props.fetchUser()}
+            showNotification={(wishlistSuccess, wishlistExists) =>
+              this.showNotifications(wishlistSuccess, wishlistExists)
+            }
             {...props}
           />
-          <Explore_details_left_col deal={this.state.deal} {...props} />
+          <Explore_details_left_col
+            deal={this.state.deal}
+            loading={this.state.loading}
+            {...props}
+          />
         </div>
       </div>
     );
