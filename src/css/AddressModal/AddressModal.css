@@ -123,3 +123,14 @@
   text-align: center;
   margin: 2rem 0 2rem 0;
 }
+
+#current-address-checkbox {
+  margin-top: 2rem;
+  width: 53%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#current-address-checkbox > p {
+  margin-top: 1rem;
+}

@@ -153,6 +153,12 @@ class AddressModal extends React.Component {
                 </p>
               </div>
             </div>
+            <div id="current-address-checkbox">
+              <input type="checkbox" />
+              <p className="desktop-sub-header2">
+                Check the box if this is your current address
+              </p>
+            </div>
             {this.state.userAddress !== "" ? (
               <div id="selected-address-holder">
                 <p className="desktop-sub-header2">Selected Address</p>

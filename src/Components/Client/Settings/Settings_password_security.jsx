@@ -8,6 +8,9 @@ class Settings_password_security extends React.Component {
       newPass: "",
       confirmNewPass: "",
     },
+    successPassword: false,
+    errorPassword: false,
+    passwordsNotMatch: false,
   };
 
   updatePasswordDetails = (e) => {
@@ -20,8 +23,12 @@ class Settings_password_security extends React.Component {
 
   changePassword = async (e) => {
     e.preventDefault();
-    if (this.state.newPass !== this.state.confirmNewPass) {
-      alert("Confirm Passwords do not match");
+    if (
+      this.state.passwordDetails.newPass !==
+      this.state.passwordDetails.confirmNewPass
+    ) {
+      this.setState({ passwordsNotMatch: true });
+      setTimeout(() => this.setState({ passwordsNotMatch: false }), 1500);
     } else {
       const response = await fetch(
         "http://localhost:3002/users/change-password",
@@ -39,9 +46,11 @@ class Settings_password_security extends React.Component {
       );
       const details = await response.json();
       if (details.message === "Password updated") {
-        alert("sUCCESS");
-      } else {
-        alert("Error");
+        this.setState({ successPassword: true });
+        setTimeout(() => this.setState({ successPassword: false }), 1500);
+      } else if (details.message === "Password Incorrect") {
+        this.setState({ errorPassword: true });
+        setTimeout(() => this.setState({ errorPassword: false }), 1500);
       }
     }
   };
@@ -82,6 +91,22 @@ class Settings_password_security extends React.Component {
                   value={this.state.passwordDetails.confirmNewPass}
                   onChange={(e) => this.updatePasswordDetails(e)}
                 />
+                {this.state.successPassword === true ? (
+                  <div className="password-success-notification-holder">
+                    <p>Password Changed Successfully</p>
+                  </div>
+                ) : null}
+                {this.state.errorPassword === true ? (
+                  <div className="password-error-notification-holder">
+                    <p>Incorrect Password</p>
+                  </div>
+                ) : null}
+                {this.state.passwordsNotMatch === true ? (
+                  <div className="password-error-notification-holder">
+                    <p>New Passwords Do Not Match</p>
+                  </div>
+                ) : null}
+
                 <div
                   className="desktop-big-button"
                   onClick={(e) => this.changePassword(e)}
