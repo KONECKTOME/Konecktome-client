@@ -13,7 +13,7 @@ class Settings_home extends React.Component {
   static contextType = UserDetailsContext;
 
   state = {
-    showModal: false,
+    showModal: true,
     profile: true,
     account: false,
     paymentDetails: false,

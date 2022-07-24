@@ -43,6 +43,16 @@ const Navbar = () => {
     <div id="nav-wrapper">
       <div id="nav-right-wrapper">
         <div id="nav-right">
+          <div id="nav-image" className="nav-right-item">
+            <img
+              src={
+                userDetails.imageUrl === undefined || !userDetails.imageUrl
+                  ? placeholder_image
+                  : userDetails.imageUrl
+              }
+              id="nav-img"
+            />
+          </div>
           <div id="notifcations-holder">
             <div
               className="nav-right-item nav-right-item-text"
@@ -85,21 +95,12 @@ const Navbar = () => {
               })}
             </div>
           </div>
-          <div id="nav-image" className="nav-right-item">
-            <img
-              src={
-                userDetails.imageUrl === undefined || !userDetails.imageUrl
-                  ? placeholder_image
-                  : userDetails.imageUrl
-              }
-              id="nav-img"
-            />
-          </div>
           <div className="nav-right-item">
             <p className="desktop-text nav-right-item-text">
               {userDetails.firstName + " " + userDetails.lastName}
             </p>
           </div>
+
           {/* <div className="nav-right-item-text">
             <img src={dropdown_icon} />
           </div> */}

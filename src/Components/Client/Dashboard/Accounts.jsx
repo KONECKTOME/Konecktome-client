@@ -6,18 +6,13 @@ import placeholder from "../../../Assets/my-placeholder.png";
 import star from "../../../Assets/star-icon.png";
 
 class Accounts extends Component {
-  state = {
-    accounts: [],
-  };
+  state = {};
 
-  // componentDidMount = async () => {
-  //   await this.setState({ accounts: this.props.accounts });
-  // };
   render() {
     return (
       <div id="acc-wrapper">
         <p className="desktop-sub-header1">My Accounts</p>
-        {this.state.accounts.length !== 0 ? (
+        {this.props.accounts.length !== 0 ? (
           <div id="acc-nav-wrapper">
             <table>
               <tr>

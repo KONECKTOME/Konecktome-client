@@ -2,15 +2,13 @@ import React, { Component } from "react";
 import "../../../css/Dashboard/History.css";
 
 class History extends Component {
-  state = {
-    history: [],
-  };
+  state = {};
 
   render() {
     return (
       <div id="hist-wrapper">
         <p className="desktop-sub-header1">Transaction History</p>
-        {this.state.history.length !== 0 ? (
+        {this.props.history.length !== 0 ? (
           <div>
             {this.state.history.map((tt) => {
               return (

@@ -43,7 +43,7 @@
   width: 32px;
   height: 72px;
   position: relative;
-  border: 2px solid white;
+  border: 2px solid #000000;
   animation: load 1s linear infinite;
 
   /* -webkit-transform: translate(-50%, -50%);
@@ -57,4 +57,13 @@
   font-size: 24px;
   line-height: 48px;
   color: #ffffff;
+}
+
+.desktop-small-loader-header {
+  font-family: Poppins bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 48px;
+  color: #000000;
 }

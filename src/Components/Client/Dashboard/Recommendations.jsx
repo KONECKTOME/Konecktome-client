@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import "../../../css/Dashboard/Recommendations.css";
 import life_insurance from "../../../Assets/reco-life-insurance.svg";
-import home_icon from "../../../Assets/reco-home-icon.svg";
-import mortgage_icon from "../../../Assets/reco-mortgage.svg";
-import pet_icon from "../../../Assets/reco-pet-icon.svg";
-import health_icon from "../../../Assets/reco-health.svg";
-import car_icon from "../../../Assets/reco-car-insurance.svg";
-import inFavoriteIcon from "../../../Assets/un-fav-icon.svg";
-import profileSettingPlaceholder from "../../../Assets/Quadri.jpg";
+import { UserDetailsContext } from "../Context/UserDetailsContext";
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 
@@ -16,16 +10,12 @@ class Recommendations extends Component {
     test: [1, 2, 3, 4],
     displayAccordion: false,
     deals: [],
+    loading: false,
   };
 
   componentDidMount = async () => {
-    const response = await fetch(`http://localhost:3002/companies/all-deals`, {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    const deals = await response.json();
+    console.log("reco", this.props.deals);
+    const deals = this.props.deals;
     const shuffledDeals = [...deals].sort(() => 0.5 - Math.random());
     this.setState({ deals: shuffledDeals });
   };
