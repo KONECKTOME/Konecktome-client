@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { UserDetailsContext } from "../Context/UserDetailsContext";
 import { Link, useHistory } from "react-router-dom";
 
@@ -9,6 +9,12 @@ const PaymentSuccess = () => {
     this.props.resetBoughtDeal();
     history.push("/dashboard/" + userDetails._id);
   };
+
+  useEffect =
+    (() => {
+      this.props.fetchUser();
+    },
+    []);
   {
     return (
       <div className="empty-services-holder">

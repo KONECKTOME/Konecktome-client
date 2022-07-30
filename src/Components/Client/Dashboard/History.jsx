@@ -10,17 +10,19 @@ class History extends Component {
         <p className="desktop-sub-header1">Transaction History</p>
         {this.props.history.length !== 0 ? (
           <div>
-            {this.state.history.map((tt) => {
+            {this.props.history.map((tt) => {
               return (
                 <div className="hist-inner-div">
                   <div id="hist-inner-div-textholder">
                     <p className="desktop-sub-header2">
-                      Some service provider name
+                      {this.props.history[0].serviceProviderName}
                     </p>
-                    <p className="hist-text-date">21-08-1992 | 5:45</p>
+                    <p className="hist-text-date">
+                      {this.props.history[0].dateOfTransaction} |{" "}
+                      {this.props.history[0].timeOfTransaction}
+                    </p>
                     <p className="desktop-text">
-                      Lorem ipsum is simply a dummy text of printing and
-                      typesetting industry
+                      {this.props.history[0].description}
                     </p>
                   </div>
                 </div>
