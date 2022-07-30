@@ -4,10 +4,6 @@ import { Link, withRouter } from "react-router-dom";
 import Explore_details_left_col from "./Explore_details_left_col";
 
 class Explore_details extends React.Component {
-  constructor(props) {
-    super(props);
-    this.Ref = React.createRef();
-  }
   state = {
     arr: [1, 2],
     deal: [],
@@ -57,16 +53,27 @@ class Explore_details extends React.Component {
         ) : null}
 
         <div id="explore-details-header-wrapper">
-          <Link to="/explore" className="links">
-            <p id="explore-details-header">Explore /</p>
-          </Link>
-          <p id="explore-details-header">Some service provider name</p>
+          <p>
+            <Link
+              to={"/dashboard/explore/" + this.props.match.params.userid}
+              className="links"
+            >
+              <span id="explore-details-header">Explore</span>
+              <span id="explore-details-header"> {">"} </span>
+            </Link>
+            <Link className="links">
+              <span id="explore-details-active">Details</span>
+            </Link>
+          </p>
         </div>
         <div id="explore-details">
           <Explore_details_right_col
             deal={this.state.deal}
             loading={this.state.loading}
             fetchUser={() => this.props.fetchUser()}
+            populateBoughtDeal={(dealName) =>
+              this.props.populateBoughtDeal(dealName)
+            }
             showNotification={(wishlistSuccess, wishlistExists) =>
               this.showNotifications(wishlistSuccess, wishlistExists)
             }

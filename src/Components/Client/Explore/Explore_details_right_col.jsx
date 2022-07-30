@@ -9,6 +9,7 @@ class Explore_details_right_col extends React.Component {
     reviews: [1, 2, 3, 4],
     exploreRightColClass: "right",
     loading: true,
+    paymentLoader: false,
   };
 
   addtoWishlist = async (dealId, dealName, price, subTitle) => {
@@ -38,6 +39,37 @@ class Explore_details_right_col extends React.Component {
     } else if (details.message === "New wishlist added for user") {
       this.props.showNotification(true, false);
       this.props.fetchUser();
+    }
+  };
+
+  buyService = async (
+    productName,
+    serviceProvider,
+    subscribePrice,
+    oneOffprice
+  ) => {
+    const productNameConcat = productName + " " + "By" + " " + serviceProvider;
+    this.setState({ paymentLoader: true });
+    const response = await fetch(
+      `http://localhost:3002/payment/create-product-price`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          userId: this.props.match.params.userid,
+          productName: productNameConcat,
+          subscribePrice: subscribePrice,
+          oneOffprice: oneOffprice,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const details = await response.json();
+    if (details.url) {
+      this.setState({ paymentLoader: false });
+      this.props.populateBoughtDeal(productNameConcat);
+      window.location.href = details.url;
     }
   };
 
@@ -105,14 +137,31 @@ class Explore_details_right_col extends React.Component {
                       </p>
                     )}
                   </div>
-                  <div className="desktop-big-button">
-                    <p className="desktop-big-button-text">Buy Now</p>
+                  <div
+                    className="desktop-big-button"
+                    onClick={() =>
+                      this.buyService(
+                        this.props.deal[0].dealName,
+                        this.props.deal[0].companyName,
+                        this.props.deal[0].dealPrice,
+                        this.props.deal[0].dealContractPlans[0].setUpFee
+                      )
+                    }
+                  >
+                    {this.state.paymentLoader === true ? (
+                      <div id="explore-loading"></div>
+                    ) : (
+                      <p className="desktop-big-button-text">Buy Now</p>
+                    )}
                   </div>
-                  <div className="desktop-big-button-transparent">
+                  <Link to="/dashboard/pay-success/62af8dc3d86ce1c75d6e791a">
+                    HERE
+                  </Link>
+                  {/* <div className="desktop-big-button-transparent">
                     <p className="desktop-big-button-transparent-text">
                       Chat with service provider
                     </p>
-                  </div>
+                  </div> */}
                   <div
                     className="desktop-big-button-transparent"
                     onClick={() =>

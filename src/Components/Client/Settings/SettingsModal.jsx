@@ -34,6 +34,12 @@ class SettingsModal extends React.Component {
   };
 
   validatePin = async () => {
+    const concatenatePin =
+      this.state.pin.pin1 +
+      this.state.pin.pin2 +
+      this.state.pin.pin3 +
+      this.state.pin.pin4;
+    alert(concatenatePin);
     if (
       this.state.pin.pin1 === "" ||
       this.state.pin.pin2 === "" ||
@@ -43,11 +49,6 @@ class SettingsModal extends React.Component {
       this.setState({ emptyFields: true });
       setTimeout(() => this.setState({ emptyFields: false }), 1500);
     } else {
-      const concatenatePin =
-        this.state.pin.pin1 +
-        this.state.pin.pin2 +
-        this.state.pin.pin3 +
-        this.state.pin.pin4;
       const response = await fetch("http://localhost:3002/users/check-pin", {
         method: "POST",
         body: JSON.stringify({
@@ -102,9 +103,6 @@ class SettingsModal extends React.Component {
                         id="pin1"
                         value={this.state.pin.pin1}
                         onChange={(e) => this.updatePinDetails(e)}
-                        oninput={() =>
-                          this.autoTab(this, document.pinForm.pin2)
-                        }
                       />
                       <input
                         type="text"

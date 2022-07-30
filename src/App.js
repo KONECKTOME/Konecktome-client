@@ -18,38 +18,22 @@ import Favourites_home from "./Components/Client/Favourites/Favourites_home";
 import Wishlist from "./Components/Client/Wishlist/Wishlist";
 import { BrowserRouter as Router, Route, useParams } from "react-router-dom";
 import "../src/App.css";
-import { Row, Col } from "react-bootstrap";
 import Explore_details from "./Components/Client/Explore/Explore_details";
-import {
-  UserDetailsContext,
-  dealDetailsContext,
-  loadingContext,
-} from "./Components/Client/Context/UserDetailsContext";
+import { UserDetailsContext } from "./Components/Client/Context/UserDetailsContext";
+import PaymentSuccess from "./Components/Client/PaymentSuccess/PaymentSuccess";
 
 class App extends Component {
   state = {
     userDetails: {},
     dealDetails: [],
     loading: false,
+    paidDeal: "",
   };
 
   componentDidMount = async () => {
     this.getUser();
     this.getDeals();
-    console.log("test", this.state.dealDetails);
-    console.log("rest", this.state.userDetails);
   };
-
-  // useEffect(async () => {
-  //   getUser();
-  //   getDeals();
-  //   console.log("test", dealDetails);
-  //   console.log("rest", userDetails);
-  //   console.log("yr", loading);
-  //   if (userDetails._id && dealDetails.length !== 0) {
-  //     setLoading(false);
-  //   }
-  // }, []);
 
   getUser = async () => {
     const id = this.props.match.params.userid;
@@ -76,6 +60,14 @@ class App extends Component {
     const deals = await response.json();
     const dealDetails = [...deals].sort(() => 0.5 - Math.random());
     this.setState({ dealDetails });
+  };
+
+  populateBoughtDeal = (dealName) => {
+    this.setState({ paidDeal: dealName });
+  };
+
+  resetBoughtDeal = () => {
+    this.setState({ paidDeal: "" });
   };
   render() {
     const userDetails = this.state.userDetails;
@@ -133,6 +125,18 @@ class App extends Component {
                   exact
                   component={Wishlist}
                 />
+                <Route
+                  path="/dashboard/pay-success/:userid"
+                  exact
+                  render={(props) => (
+                    <PaymentSuccess
+                      fetchUser={() => this.getUser()}
+                      boughtDeal={this.state.paidDeal}
+                      resetBoughtDeal={() => this.resetBoughtDeal()}
+                      {...props}
+                    />
+                  )}
+                />
               </UserDetailsContext.Provider>
 
               <Route
@@ -147,6 +151,9 @@ class App extends Component {
                   <Explore_details
                     fetchUser={() => this.getUser()}
                     {...props}
+                    populateBoughtDeal={(dealName) =>
+                      this.populateBoughtDeal(dealName)
+                    }
                   />
                 )}
               />
