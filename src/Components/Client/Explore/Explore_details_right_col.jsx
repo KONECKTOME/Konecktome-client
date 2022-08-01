@@ -154,9 +154,9 @@ class Explore_details_right_col extends React.Component {
                       <p className="desktop-big-button-text">Buy Now</p>
                     )}
                   </div>
-                  <Link to="/dashboard/pay-success/62af8dc3d86ce1c75d6e791a">
+                  {/* <Link to="/dashboard/pay-success/62af8dc3d86ce1c75d6e791a">
                     HERE
-                  </Link>
+                  </Link> */}
                   {/* <div className="desktop-big-button-transparent">
                     <p className="desktop-big-button-transparent-text">
                       Chat with service provider
