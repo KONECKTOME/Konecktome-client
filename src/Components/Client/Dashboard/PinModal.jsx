@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Modal } from "react-bootstrap";
+import { useHistory, withRouter } from "react-router-dom";
 
 class PinModal extends React.Component {
   state = {
@@ -22,6 +23,11 @@ class PinModal extends React.Component {
     this.setState({ pin });
   };
 
+  goBackToDashboard = () => {
+    this.props.hidePinModal();
+    window.location.href = `http://localhost:3000/dashboard/${this.props.userDetails.userId}`;
+  };
+
   sendPin = async () => {
     const concatenatePin =
       this.state.pin.pin1 +
@@ -42,7 +48,7 @@ class PinModal extends React.Component {
         {
           method: "POST",
           body: JSON.stringify({
-            email: this.props.userEmail,
+            email: this.props.userDetails.email,
             newPin: concatenatePin,
           }),
           headers: {
@@ -168,4 +174,4 @@ class PinModal extends React.Component {
   }
 }
 
-export default PinModal;
+export default withRouter(PinModal);

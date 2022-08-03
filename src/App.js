@@ -88,7 +88,7 @@ class App extends Component {
                 <Route
                   path="/dashboard/:userid"
                   exact
-                  component={Dashboard_home}
+                  render={(props) => <Dashboard_home {...props} />}
                 />
                 <Route
                   path="/dashboard/settings/:userid"

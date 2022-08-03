@@ -63,7 +63,9 @@ const Dashboard_home = () => {
             <PinModal
               modalState={pinModal}
               hidePinModal={() => hidePinModal()}
-              userEmail={userDetails.email}
+              userDetails={
+                ({ email: userDetails.email }, { userId: userDetails._id })
+              }
             />
           ) : null}
         </div>

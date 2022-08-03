@@ -111,6 +111,7 @@ class Settings_home extends React.Component {
             hideModal={() => this.hideModal()}
             userEmail={this.context.userDetails.email}
             userId={this.context.userDetails._id}
+            userPin={this.context.userDetails.pin}
           />
         ) : (
           <div></div>

@@ -91,8 +91,12 @@ class SettingsModal extends React.Component {
           <Modal.Body>
             <div id="settings_modal_wrapper">
               <p id="settings_modal_header">Profile settings</p>
+              {this.props.userPin === "0000" ? (
+                <div className="exist-notification-holder">
+                  Go Back to Dashboard To Set Your Pin
+                </div>
+              ) : null}
               <p id="settings_modal_subheader">Hey, what's your pin again ?</p>
-
               <div id="settings_modal_form_container">
                 <div id="settings_modal_form_subcontainer">
                   <form id="settings_modal_form" name="pinForm">

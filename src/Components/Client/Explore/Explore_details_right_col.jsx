@@ -67,9 +67,9 @@ class Explore_details_right_col extends React.Component {
     );
     const details = await response.json();
     if (details.url) {
-      this.setState({ paymentLoader: false });
       this.props.populateBoughtDeal(productNameConcat);
       window.location.href = details.url;
+      this.setState({ paymentLoader: false });
     }
   };
 
