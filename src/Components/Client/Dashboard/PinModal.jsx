@@ -24,6 +24,7 @@ class PinModal extends React.Component {
   };
 
   goBackToDashboard = () => {
+    this.props.fetchUser();
     this.props.hidePinModal();
     window.location.href = `http://localhost:3000/dashboard/${this.props.userDetails.userId}`;
   };
@@ -48,7 +49,7 @@ class PinModal extends React.Component {
         {
           method: "POST",
           body: JSON.stringify({
-            email: this.props.userDetails.email,
+            email: this.props.email,
             newPin: concatenatePin,
           }),
           headers: {

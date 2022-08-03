@@ -39,7 +39,6 @@ class SettingsModal extends React.Component {
       this.state.pin.pin2 +
       this.state.pin.pin3 +
       this.state.pin.pin4;
-    alert(concatenatePin);
     if (
       this.state.pin.pin1 === "" ||
       this.state.pin.pin2 === "" ||
