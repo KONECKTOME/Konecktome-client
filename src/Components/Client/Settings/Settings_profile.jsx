@@ -39,9 +39,7 @@ class Settings_profile extends React.Component {
         body: photo,
       }
     );
-
     const details = await response.json();
-
     if (details.message === "Image added successfully") {
       this.setState({ imageUploadStatus: true });
       this.props.fetchUser();

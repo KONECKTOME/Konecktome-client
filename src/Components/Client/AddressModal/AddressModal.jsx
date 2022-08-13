@@ -5,11 +5,6 @@ import "../../../css/AddressModal/AddressModal.css";
 
 class AddressModal extends React.Component {
   state = {
-    // addresses: [
-    //   1, 2, 3, 4, 5, 56, 7, 7, 88, 8, 7, 1, 2, 8, 9, 0, 8, 89829, 26262, 8, 0,
-    //   1, 2, 3, 4, 5, 6, 67,
-    // ],
-
     addresses: [],
     postCode: "",
     userAddress: "",
@@ -27,6 +22,7 @@ class AddressModal extends React.Component {
     },
     dateOfArrival: "",
     dateOfDeparture: "",
+    updateUserDetails: null,
   };
 
   getAddresses = async (e) => {

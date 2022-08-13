@@ -3,8 +3,10 @@ import "../../../css/Explore/Explore_details.css";
 import image_placeholder from "../../../Assets/account-card-placeholder.png";
 import placeholder_image from "../../../Assets/nav-placeholder-image.png";
 import { Link, withRouter } from "react-router-dom";
+import { UserDetailsContext } from "../Context/UserDetailsContext";
 import Loader from "../Loader/Loader";
 class Explore_details_right_col extends React.Component {
+  static contextType = UserDetailsContext;
   state = {
     reviews: [1, 2, 3, 4],
     exploreRightColClass: "right",
@@ -48,28 +50,38 @@ class Explore_details_right_col extends React.Component {
     subscribePrice,
     oneOffprice
   ) => {
-    const productNameConcat = productName + " " + "By" + " " + serviceProvider;
-    this.setState({ paymentLoader: true });
-    const response = await fetch(
-      `http://localhost:3002/payment/create-product-price`,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          userId: this.props.match.params.userid,
-          productName: productNameConcat,
-          subscribePrice: subscribePrice,
-          oneOffprice: oneOffprice,
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
+    if (this.context.userDetails.addressHistory.length === 0) {
+      this.props.moreInfoNeededFn(false, true);
+    } else if (
+      this.context.userDetails.gender === undefined ||
+      this.context.userDetails.age === undefined
+    ) {
+      this.props.moreInfoNeededFn(true, false);
+    } else {
+      const productNameConcat =
+        productName + " " + "By" + " " + serviceProvider;
+      this.setState({ paymentLoader: true });
+      const response = await fetch(
+        `http://localhost:3002/payment/create-product-price`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            userId: this.props.match.params.userid,
+            productName: productNameConcat,
+            subscribePrice: subscribePrice,
+            oneOffprice: oneOffprice,
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const details = await response.json();
+      if (details.url) {
+        this.props.populateBoughtDeal(productNameConcat);
+        window.location.href = details.url;
+        this.setState({ paymentLoader: false });
       }
-    );
-    const details = await response.json();
-    if (details.url) {
-      this.props.populateBoughtDeal(productNameConcat);
-      window.location.href = details.url;
-      this.setState({ paymentLoader: false });
     }
   };
 

@@ -103,7 +103,7 @@ class Explore_home extends Component {
                         </p>
                         <div>
                           <p>Stars</p>
-                          <p>Trust Pilot ratings</p>
+                          <p>{deal.trustPilotRating}</p>
                         </div>
                       </div>
                       <div>

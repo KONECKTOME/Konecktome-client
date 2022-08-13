@@ -6,13 +6,15 @@ import placeholder from "../../../Assets/my-placeholder.png";
 import star from "../../../Assets/star-icon.png";
 
 class Accounts extends Component {
-  state = {};
+  state = {
+    accounts: [1, 2, 3],
+  };
 
   render() {
     return (
       <div id="acc-wrapper">
         <p className="desktop-sub-header1">My Accounts</p>
-        {this.props.accounts.length !== 0 ? (
+        {this.state.accounts.length !== 0 ? (
           <div id="acc-nav-wrapper">
             <table>
               <tr>
@@ -43,10 +45,10 @@ class Accounts extends Component {
                         </Row>
                       </td>
                       <td>
-                        <div className="desktop-text">Social</div>
+                        <p className="desktop-text">Social</p>
                       </td>
                       <td>
-                        <div className="desktop-text">14/23/09</div>
+                        <p className="desktop-text">14/23/09</p>
                       </td>
                     </tr>
                   );

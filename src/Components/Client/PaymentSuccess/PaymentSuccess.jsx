@@ -1,33 +1,30 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { UserDetailsContext } from "../Context/UserDetailsContext";
 import { Link, useHistory } from "react-router-dom";
 
-const PaymentSuccess = () => {
-  const { userDetails } = useContext(UserDetailsContext);
-  const history = useHistory();
-  const goToDashboard = () => {
+class PaymentSuccess extends React.Component {
+  static contextType = UserDetailsContext;
+
+  componentDidMount = () => {
+    alert("here");
+  };
+  goToDashboard = () => {
     this.props.resetBoughtDeal();
-    history.push("/dashboard/" + userDetails._id);
   };
 
-  useEffect =
-    (() => {
-      this.props.fetchUser();
-    },
-    []);
-  {
+  render() {
     return (
       <div className="empty-services-holder">
         <p className="empty-services-text">
-          Thank you {userDetails.firstName}
+          Thank you {this.context.userDetails.firstName}
           For Purchasiddjdjng {this.props.boughtDeal} dhdhd
-          <span onClick={() => goToDashboard()}>
+          <span onClick={() => this.goToDashboard()}>
             Please go back to Dashboard here
           </span>
         </p>
       </div>
     );
   }
-};
+}
 
 export default PaymentSuccess;

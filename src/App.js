@@ -16,11 +16,11 @@ import Settings_home from "./Components/Client/Settings/Settings_home";
 import Notifications_home from "./Components/Client/Notifications/Notifications_home";
 import Favourites_home from "./Components/Client/Favourites/Favourites_home";
 import Wishlist from "./Components/Client/Wishlist/Wishlist";
+import Explore_details from "./Components/Client/Explore/Explore_details";
+import PaymentSuccess from "./Components/Client/PaymentSuccess/PaymentSuccess";
+import { UserDetailsContext } from "./Components/Client/Context/UserDetailsContext";
 import { BrowserRouter as Router, Route, useParams } from "react-router-dom";
 import "../src/App.css";
-import Explore_details from "./Components/Client/Explore/Explore_details";
-import { UserDetailsContext } from "./Components/Client/Context/UserDetailsContext";
-import PaymentSuccess from "./Components/Client/PaymentSuccess/PaymentSuccess";
 
 class App extends Component {
   state = {
@@ -142,25 +142,25 @@ class App extends Component {
                     />
                   )}
                 />
+                <Route
+                  path="/dashboard/explore/details/:userid/:dealId"
+                  exact
+                  render={(props) => (
+                    <Explore_details
+                      fetchUser={() => this.getUser()}
+                      {...props}
+                      populateBoughtDeal={(dealName) =>
+                        this.populateBoughtDeal(dealName)
+                      }
+                    />
+                  )}
+                />
               </UserDetailsContext.Provider>
 
               <Route
                 path="/dashboard/explore/:userid"
                 exact
                 component={Explore_home}
-              />
-              <Route
-                path="/dashboard/explore/details/:userid/:dealId"
-                exact
-                render={(props) => (
-                  <Explore_details
-                    fetchUser={() => this.getUser()}
-                    {...props}
-                    populateBoughtDeal={(dealName) =>
-                      this.populateBoughtDeal(dealName)
-                    }
-                  />
-                )}
               />
 
               <Route
