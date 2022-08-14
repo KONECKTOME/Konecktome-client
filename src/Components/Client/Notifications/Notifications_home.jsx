@@ -60,16 +60,16 @@ class Notifications_home extends React.Component {
                         </Col>
                         <Col lg={10}>
                           <p className="desktop-text history-service-provider-text">
-                            Deal name purchased from service provider name
+                            {tt.title}
                           </p>
                         </Col>
                       </Row>
                     </td>
                     <td>
-                      <p className="desktop-text">21-09-2021 : 12:00</p>
+                      <p className="desktop-text">{tt.date}</p>
                     </td>
                     <td className="settings_account_type_date_text">
-                      <p className="desktop-text">£30</p>
+                      <p className="desktop-text">{tt.messageStatus}</p>
                     </td>
                   </tr>
                 );

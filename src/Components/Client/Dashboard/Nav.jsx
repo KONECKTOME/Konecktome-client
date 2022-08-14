@@ -20,7 +20,7 @@ class Nav extends Component {
                 </div>
                 <div className="desktop-nav-header">Accounts</div>
                 <div>
-                  <p className="nav-item-number">60</p>
+                  <p className="nav-item-number">{this.props.accountLength}</p>
                 </div>
               </div>
             </div>
@@ -31,7 +31,7 @@ class Nav extends Component {
                 </div>
                 <div className="desktop-nav-header">Wishlist</div>
                 <div>
-                  <p className="nav-item-number">60</p>
+                  <p className="nav-item-number">{this.props.wishlistlength}</p>
                 </div>
               </div>
             </div>
@@ -42,7 +42,9 @@ class Nav extends Component {
                 </div>
                 <div className="desktop-nav-header">History</div>
                 <div>
-                  <p className="nav-item-number">60</p>
+                  <p className="nav-item-number">
+                    {this.props.transactionHistory}
+                  </p>
                 </div>
               </div>
             </div>

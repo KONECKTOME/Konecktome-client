@@ -6,12 +6,6 @@ import { Row, Col } from "react-bootstrap";
 
 class ExploreMoreInfo extends React.Component {
   state = {
-    userDetails: {
-      phone: "",
-      profession: "",
-      gender: "",
-      dob: "",
-    },
     userDetailsStatus: false,
     addressStatus: false,
     success: false,
@@ -21,24 +15,27 @@ class ExploreMoreInfo extends React.Component {
   };
 
   componentDidMount = () => {
-    alert(this.props.userDetailsStatus);
-    alert(this.props.addressStatus);
+    console.log(this.props.userDetails.moreInfoNeeded);
+    console.log(this.props.userDetails.addressHistory.length);
     if (
-      this.props.userDetailsStatus === true &&
-      this.props.addressStatus === true
+      this.props.userDetails.moreInfoNeeded === true ||
+      this.props.userDetails.addressHistory.length === 0
     ) {
       this.setState({ renderAddressAndUserDetails: true });
     } else if (
-      this.props.addressStatus === true &&
-      this.props.userDetailsStatus === false
+      this.props.userDetails.moreInfoNeeded === false &&
+      this.props.userDetails.addressHistory.length === 0
     ) {
       this.setState({ addressStatus: true });
     } else if (
-      this.props.userDetailsStatus === true &&
-      this.props.addressStatus === false
+      this.props.userDetails.moreInfoNeeded === true &&
+      this.props.userDetails.addressHistory.length !== 0
     ) {
       this.setState({ userDetailsStatus: true });
     }
+    console.log("both", this.state.renderAddressAndUserDetails);
+    console.log("user", this.state.userDetailsStatus);
+    console.log("address", this.state.addressStatus);
   };
 
   updateUserDetails = (e) => {
@@ -78,9 +75,6 @@ class ExploreMoreInfo extends React.Component {
         },
       });
       setTimeout(() => this.setState({ success: false }), 1500);
-      if (this.props.addressStatus === true) {
-        this.setState({ addressStatus: true, userDetailsStatus: false });
-      }
     } else if (details.message === "ERROR!") {
       this.setState({
         error: true,

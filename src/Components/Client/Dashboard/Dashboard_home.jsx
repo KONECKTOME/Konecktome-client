@@ -9,7 +9,7 @@ import SmallLoader from "../Loader/SmallLoader";
 import { UserDetailsContext } from "../Context/UserDetailsContext";
 import PinModal from "./PinModal";
 
-const Dashboard_home = () => {
+const Dashboard_home = (props) => {
   const { userDetails, dealDetails } = useContext(UserDetailsContext);
   const [loading, setLoading] = useState(true);
   const [pinModal, setPinModal] = useState(false);
@@ -44,8 +44,16 @@ const Dashboard_home = () => {
               </div>
             ) : null}
           </div>
-          <Nav />
-          <Recommendations userId={userDetails._id} deals={dealDetails} />
+          <Nav
+            accountLength={userDetails.accounts.length}
+            wishlistlength={userDetails.wishlist.length}
+            transactionHistory={userDetails.transactionHistory.length}
+          />
+          <Recommendations
+            userId={userDetails._id}
+            deals={dealDetails}
+            {...props}
+          />
           <div id="dashboard-hist-acc">
             <Row>
               <Col lg={6}>

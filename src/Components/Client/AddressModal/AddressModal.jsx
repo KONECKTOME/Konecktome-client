@@ -37,11 +37,9 @@ class AddressModal extends React.Component {
       }
     );
     const details = await response.json();
-
     this.setState({
       addresses: details.addresses,
     });
-    console.log(this.state.addresses);
   };
 
   getAddressContent = (e) => {

@@ -14,10 +14,15 @@ class Recommendations extends Component {
   };
 
   componentDidMount = async () => {
-    console.log("reco", this.props.deals);
     const deals = this.props.deals;
     const shuffledDeals = [...deals].sort(() => 0.5 - Math.random());
     this.setState({ deals: shuffledDeals });
+  };
+
+  directToExploreAll = () => {
+    this.props.history.push(
+      "/dashboard/explore/" + this.props.match.params.userid
+    );
   };
 
   switchAccordion = () => {
@@ -109,6 +114,13 @@ class Recommendations extends Component {
                     );
                   })}
                 </Row>
+                <div
+                  className="desktop-small-button"
+                  id="dashboard-reco-explore-all"
+                  onClick={() => this.directToExploreAll()}
+                >
+                  <p className="desktop-big-button-text">Explore All Deals</p>
+                </div>
               </div>
             </div>
           </div>

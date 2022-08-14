@@ -5,10 +5,11 @@ import placeholder_image from "../../../Assets/nav-placeholder-image.png";
 import { Link, withRouter } from "react-router-dom";
 import { UserDetailsContext } from "../Context/UserDetailsContext";
 import Loader from "../Loader/Loader";
+import { Row, Col } from "react-bootstrap";
 class Explore_details_right_col extends React.Component {
   static contextType = UserDetailsContext;
   state = {
-    reviews: [1, 2, 3, 4],
+    reviews: [1, 2, 3, 4, 5],
     exploreRightColClass: "right",
     loading: true,
     paymentLoader: false,
@@ -50,13 +51,11 @@ class Explore_details_right_col extends React.Component {
     subscribePrice,
     oneOffprice
   ) => {
-    if (this.context.userDetails.addressHistory.length === 0) {
-      this.props.moreInfoNeededFn(false, true);
-    } else if (
-      this.context.userDetails.gender === undefined ||
-      this.context.userDetails.age === undefined
+    if (
+      this.context.userDetails.addressHistory.length === 0 ||
+      this.context.userDetails.moreInfoNeeded === true
     ) {
-      this.props.moreInfoNeededFn(true, false);
+      this.props.moreInfoNeededFn();
     } else {
       const productNameConcat =
         productName + " " + "By" + " " + serviceProvider;
@@ -99,7 +98,8 @@ class Explore_details_right_col extends React.Component {
                 <div id="explore-details-sub-inner-right-subheader-wrapper">
                   <div>
                     <p className="desktop-sub-header2">
-                      {this.props.deal[0].dealName}
+                      {this.props.deal[0].dealName} By{" "}
+                      {this.props.deal[0].companyName}
                     </p>
                     <p className="desktop-text">
                       {this.props.deal[0].subTitle}
@@ -112,7 +112,9 @@ class Explore_details_right_col extends React.Component {
                 </div>
                 <div id="explore-details-inner-right-btn-wrapper">
                   <div className="desktop-badge1">
-                    <p className="desktop-badge-text">Financial</p>
+                    <p className="desktop-badge-text">
+                      {this.props.deal[0].tag}
+                    </p>
                   </div>
                 </div>
                 <div id="explore-details-inner-right-text">

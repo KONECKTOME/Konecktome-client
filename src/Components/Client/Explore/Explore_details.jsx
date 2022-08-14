@@ -20,6 +20,7 @@ class Explore_details extends React.Component {
     moreInfoNeededLoader: false,
     updateAddressDetails: null,
     updateUserDetails: null,
+    updateAddressAndUserDetails: null,
   };
 
   componentDidMount = async () => {
@@ -47,25 +48,38 @@ class Explore_details extends React.Component {
     }
   };
 
-  moreInfoNeededFn = (updateUserDetails, updateAddressDetails) => {
+  moreInfoNeededFn = () => {
     this.setState({ moreInfoNeededLoader: true });
     setTimeout(() => {
-      if (updateUserDetails === true) {
-        this.setState({
-          moreInfoNeededLoader: false,
-          updateUserDetails: true,
-          moreInfoNeeded: true,
-          editStatus: !this.state.editStatus,
-        });
-      } else if (updateAddressDetails === true) {
-        this.setState({
-          moreInfoNeededLoader: false,
-          updateAddressDetails: true,
-          moreInfoNeeded: true,
-          editStatus: !this.state.editStatus,
-        });
-      }
+      this.setState({
+        moreInfoNeededLoader: false,
+        moreInfoNeeded: true,
+      });
     }, 2000);
+    // setTimeout(() => {
+    //   if (updateUserDetails === true) {
+    //     this.setState({
+    //       moreInfoNeededLoader: false,
+    //       updateUserDetails: updateUserDetails,
+    //       moreInfoNeeded: true,
+    //       editStatus: !this.state.editStatus,
+    //     });
+    //   } else if (updateAddressDetails === true) {
+    //     this.setState({
+    //       moreInfoNeededLoader: false,
+    //       updateAddressDetails: updateAddressDetails,
+    //       moreInfoNeeded: true,
+    //       editStatus: !this.state.editStatus,
+    //     });
+    //   } else if (updateAddressAndUserDetails === true) {
+    //     this.setState({
+    //       moreInfoNeededLoader: false,
+    //       updateAddressAndUserDetails: updateAddressAndUserDetails,
+    //       moreInfoNeeded: true,
+    //       editStatus: !this.state.editStatus,
+    //     });
+    //   }
+    // }, 2000);
   };
 
   hideAddressModal = () => {
@@ -100,6 +114,9 @@ class Explore_details extends React.Component {
             dealId={this.state.deal[0]._id}
             addressStatus={this.state.updateAddressDetails}
             userDetailsStatus={this.state.updateUserDetails}
+            updateAddressAndUserDetailsStatus={
+              this.state.updateAddressAndUserDetails
+            }
           />
         ) : (
           <>
@@ -137,6 +154,7 @@ class Explore_details extends React.Component {
               <Explore_details_left_col
                 deal={this.state.deal}
                 loading={this.state.loading}
+                deals={this.context.dealDetails}
                 {...props}
               />
             </div>

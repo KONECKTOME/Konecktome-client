@@ -15,7 +15,6 @@ class Explore_home extends Component {
 
   componentDidMount = async () => {
     const dealArr = [];
-
     const response = await fetch(`http://localhost:3002/companies/all-deals`, {
       method: "GET",
       headers: {

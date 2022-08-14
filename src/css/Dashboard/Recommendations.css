@@ -164,3 +164,7 @@
 #dashboard_reco_accordion_inner_wrapper {
   width: 50%;
 }
+
+#dashboard-reco-explore-all {
+  margin: 3rem auto 1rem auto;
+}

@@ -42,10 +42,10 @@ const History_home = () => {
                     <p className="desktop-sub-header2">Date & Time</p>
                   </th>
                   <th>
-                    <p className="desktop-sub-header2">Price</p>
+                    <p className="desktop-sub-header2">Set Up Fee</p>
                   </th>
                   <th>
-                    <p className="desktop-sub-header2">Next Due Date</p>
+                    <p className="desktop-sub-header2">Subscription Price</p>
                   </th>
                   {/* <th>
               <p className="desktop-sub-header2">Description</p>
@@ -66,19 +66,22 @@ const History_home = () => {
                           </Col>
                           <Col lg={10}>
                             <p className="desktop-text history-service-provider-text">
-                              Deal name purchased from service provider name
+                              {tt.dealName} Purchased From{" "}
+                              {tt.serviceProviderName}
                             </p>
                           </Col>
                         </Row>
                       </td>
                       <td>
-                        <p className="desktop-text">21-09-2021 : 12:00</p>
+                        <p className="desktop-text">
+                          {tt.dateOfTransaction} : {tt.timeOfTransaction}
+                        </p>
                       </td>
                       <td className="settings_account_type_date_text">
-                        <p className="desktop-text">£30</p>
+                        <p className="desktop-text">£ {tt.oneOffPrice}</p>
                       </td>
                       <td>
-                        <p className="desktop-text">21-09-2021</p>
+                        <p className="desktop-text">£ {tt.subscriptionPrice}</p>
                       </td>
                     </tr>
                   );
