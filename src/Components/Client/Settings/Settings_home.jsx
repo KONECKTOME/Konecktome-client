@@ -102,7 +102,7 @@ class Settings_home extends React.Component {
     this.setState({ userDetails });
   };
 
-  render() {
+  render(props) {
     return (
       <div>
         {this.state.showModal === true ? (
@@ -112,10 +112,9 @@ class Settings_home extends React.Component {
             userEmail={this.context.userDetails.email}
             userId={this.context.userDetails._id}
             userPin={this.context.userDetails.pin}
+            {...props}
           />
-        ) : (
-          <div></div>
-        )}
+        ) : null}
         <div id="settings_home_wrapper">
           <p id="settings_home_header">Settings</p>
           <div id="settings_home_subcontainer">

@@ -98,7 +98,7 @@ class Explore_home extends Component {
                       </div>
                       <div className="card-inner-first-div">
                         <p className="desktop-sub-header2">
-                          {deal.companyName}
+                          {deal.dealName} By {deal.companyName}
                         </p>
                         <div>
                           <p>Stars</p>
@@ -106,7 +106,9 @@ class Explore_home extends Component {
                         </div>
                       </div>
                       <div>
-                        <p className="desktop-sub-header2">{deal.dealName}</p>
+                        {/* <p className="desktop-sub-header2">
+                          {deal.dealName} By {deal.companyName}
+                        </p> */}
                         <div className="desktop-badge1">
                           <p className="desktop-badge-text">{deal.tag}</p>
                         </div>
@@ -151,7 +153,7 @@ class Explore_home extends Component {
                       </div>
                       <div className="card-inner-first-div">
                         <p className="desktop-sub-header2">
-                          {deal.companyName}
+                          {deal.dealName} By {deal.companyName}
                         </p>
                         <div>
                           <p>Stars</p>
@@ -159,7 +161,7 @@ class Explore_home extends Component {
                         </div>
                       </div>
                       <div>
-                        <p className="desktop-sub-header2">{deal.dealName}</p>
+                        {/* <p className="desktop-sub-header2">{deal.dealName}</p> */}
                         <div className="desktop-badge1">
                           <p className="desktop-badge-text">{deal.tag}</p>
                         </div>

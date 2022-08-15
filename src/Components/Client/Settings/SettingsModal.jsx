@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Modal } from "react-bootstrap";
 import "../../../css/Settings/Settings_modal.css";
+import { withRouter } from "react-router-dom";
 
 class SettingsModal extends React.Component {
   state = {
@@ -72,7 +73,7 @@ class SettingsModal extends React.Component {
 
   goBackToDashboard = () => {
     this.props.hideModal();
-    window.location.href = `http://localhost:3000/dashboard/${this.props.userId}`;
+    this.props.history.push("/dashboard/" + this.props.userId);
   };
 
   render() {
@@ -184,4 +185,4 @@ class SettingsModal extends React.Component {
   }
 }
 
-export default SettingsModal;
+export default withRouter(SettingsModal);
