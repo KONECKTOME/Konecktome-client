@@ -66,8 +66,7 @@ const History_home = () => {
                           </Col>
                           <Col lg={10}>
                             <p className="desktop-text history-service-provider-text">
-                              {tt.dealName} Purchased From{" "}
-                              {tt.serviceProviderName}
+                              {tt.dealName}
                             </p>
                           </Col>
                         </Row>
