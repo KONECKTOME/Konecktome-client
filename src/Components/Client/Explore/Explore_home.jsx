@@ -20,12 +20,6 @@ class Explore_home extends Component {
   };
 
   componentDidMount = async () => {
-    this.setState({
-      showCompare: false,
-      compareItems: [],
-      compareMoreThanOne: false,
-      compareLength: "",
-    });
     const dealArr = [];
     const response = await fetch(`http://localhost:3002/companies/all-deals`, {
       method: "GET",
@@ -135,7 +129,20 @@ class Explore_home extends Component {
   };
 
   showComparePage = () => {
-    this.setState({ showComparePage: !this.state.showComparePage });
+    if (this.state.showComparePage === true) {
+      this.setState({
+        showComparePage: false,
+        showCompare: false,
+        compareItems: [],
+        compareMoreThanOne: false,
+        compareLength: "",
+        showComparePage: false,
+      });
+    } else {
+      this.setState({
+        showComparePage: true,
+      });
+    }
   };
   render(props) {
     return (
@@ -215,7 +222,11 @@ class Explore_home extends Component {
                                   )
                                 }
                               />
-                              <label for="compare" className="desktop-price">
+                              <label
+                                for="compare"
+                                className="desktop-price"
+                                id="compare-label"
+                              >
                                 Compare
                               </label>
                             </div>

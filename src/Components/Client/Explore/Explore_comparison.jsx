@@ -5,10 +5,7 @@ import { Row, Col } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 
 class Explore_comparison extends React.Component {
-  state = {
-    deal: [],
-    loading: true,
-  };
+  state = {};
   componentDidMount = async () => {
     console.log(this.props.compareItems);
   };

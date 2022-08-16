@@ -78,15 +78,16 @@
 }
 
 #explore-compare-holder input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 1rem;
 }
 
 #explore-compare-holder input[type="checkbox"]:checked {
   background: green !important;
 }
-#explore-compare-holder input[type="checkbox"] .desktop-price {
-  padding-top: 10em;
+
+#compare-label {
 }
 
 #explore-compare-items-wrapper {
@@ -129,12 +130,14 @@
   font-family: Poppins;
   width: 50px;
   height: 50px;
-  background: #ab7ab6;
+  background: transparent;
   opacity: 0.9;
   border-radius: 25%;
   display: flex;
   justify-content: center;
   cursor: pointer;
+
+  border: 2px solid #cdd8df;
 }
 
 #explore-compare-delete-btn > p {
@@ -142,7 +145,7 @@
   font-style: normal;
   font-weight: 600;
   font-size: 30px;
-  color: #ffffff;
+  color: #000000;
 }
 
 #explore-compare-btn {
