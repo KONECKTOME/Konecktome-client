@@ -1,0 +1,27 @@
+#explore-compare-header {
+  text-align: center;
+  font-family: Poppins bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 48px;
+  color: #000000;
+}
+#explore-compare-image {
+  width: 100%;
+}
+
+#explore-compare-details-holder {
+  margin-top: 3rem;
+}
+
+#explore-compare-clear {
+  text-align: right;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 48px;
+  color: #ab7ab6;
+  text-decoration: underline;
+}

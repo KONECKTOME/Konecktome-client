@@ -12,9 +12,21 @@
   font-family: "Poppins regular";
   src: url(../../Fonts/Poppins-Regular.ttf);
 }
+@keyframes animate-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
 
 #explore-wrapper {
   padding: 2rem 2rem 2rem 2rem;
+  position: relative;
 }
 
 #explore-form-btn {
@@ -59,4 +71,83 @@
 #explore-cards-pagination-wrapper {
   display: flex;
   justify-content: space-between;
+}
+
+#explore-cards-shown {
+  margin-bottom: 23rem;
+}
+
+#explore-compare-holder input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+#explore-compare-holder input[type="checkbox"]:checked {
+  background: green !important;
+}
+#explore-compare-holder input[type="checkbox"] .desktop-price {
+  padding-top: 10em;
+}
+
+#explore-compare-items-wrapper {
+  position: fixed;
+  background-color: #fff;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 -2px 6px 0 rgb(33 48 56 / 20%);
+  padding: 3rem 3rem 0 3rem;
+  animation-duration: 0.5s;
+  animation-name: animate-pop;
+  animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+}
+
+#explore-compare-items-wrapper > p {
+  text-align: center;
+  font-family: Poppins Bold;
+  font-size: 24px;
+}
+
+#explore-compare-items-inner {
+  border-radius: 10px;
+  border: 1px solid #cdd8df;
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#explore-compare-item {
+  width: 80%;
+  border-right: 1px solid grey;
+}
+
+#explore-compare-delete-btn {
+  font-family: Poppins;
+  width: 50px;
+  height: 50px;
+  background: #ab7ab6;
+  opacity: 0.9;
+  border-radius: 25%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#explore-compare-delete-btn > p {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  color: #ffffff;
+}
+
+#explore-compare-btn {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
 }

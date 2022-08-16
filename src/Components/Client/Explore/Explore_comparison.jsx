@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "../../../css/Explore/Explore_comparison.css";
-import "../../../css/Explore/Explore_details.css";
-import Explore_details_right_col from "./Explore_details_right_col";
-import Explore_details_left_col from "./Explore_details_left_col";
+import image_placeholder from "../../../Assets/account-card-placeholder.png";
+import { Row, Col } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 
 class Explore_comparison extends React.Component {
   state = {
@@ -10,35 +10,42 @@ class Explore_comparison extends React.Component {
     loading: true,
   };
   componentDidMount = async () => {
-    const response = await fetch(
-      `http://localhost:3002/companies/get-deal-by-id/${this.props.match.params.dealId}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json",
-        },
-      }
-    );
-    const deal = await response.json();
-    this.setState({ deal: deal.message, loading: false });
-    console.log(this.state.deal);
+    console.log(this.props.compareItems);
   };
-  render(props) {
+
+  render() {
     return (
       <div id="explore-both-wrapper">
-        <div>
-          <Explore_details_right_col
-            deal={this.state.deal}
-            loading={this.state.loading}
-            {...props}
-          />
-          <div>
-            <Explore_details_left_col deal={this.state.deal} {...props} />
-          </div>
-        </div>
+        <p id="explore-compare-header">Compare Items</p>
+        <p
+          id="explore-compare-clear"
+          onClick={() => this.props.showComparePage()}
+        >
+          Go Back to Explore
+        </p>
+        <Row>
+          {this.props.compareItems.map((item) => {
+            return (
+              <Col>
+                <div>
+                  <img src={image_placeholder} id="explore-compare-image" />
+                </div>
+                <div id="explore-compare-details-holder">
+                  <p className="desktop-text">{item.dealName}</p>
+                  <p className="desktop-price-number">£{item.dealPrice}</p>
+                  {item.features.map((feature) => {
+                    return (
+                      <p className="desktop-text">{feature.featureText}</p>
+                    );
+                  })}
+                </div>
+              </Col>
+            );
+          })}
+        </Row>
       </div>
     );
   }
 }
 
-export default Explore_comparison;
+export default withRouter(Explore_comparison);
