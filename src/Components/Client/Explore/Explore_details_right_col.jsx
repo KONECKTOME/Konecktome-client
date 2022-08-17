@@ -91,7 +91,6 @@ class Explore_details_right_col extends React.Component {
           <Loader />
         ) : (
           <>
-            <p>here</p>
             <div id="right-with-compare">
               <div id="explore-details-inner-right">
                 <img src={image_placeholder} />

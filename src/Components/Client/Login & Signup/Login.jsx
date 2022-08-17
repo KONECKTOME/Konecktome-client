@@ -13,12 +13,27 @@ class Login extends React.Component {
       email: "",
       password: "",
     },
+    incorrectPass: false,
+    success: false,
+    emptyField: false,
+    invalidEmail: false,
   };
 
   updateCheckBox = () => {
     this.setState({
       check: !this.state.check,
     });
+  };
+
+  isValidEmail = (email) => {
+    var mailformat =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (email.match(mailformat)) {
+      return true;
+    } else {
+      return false;
+    }
   };
   updateDetails = (e) => {
     const details = this.state.details;
@@ -28,40 +43,50 @@ class Login extends React.Component {
   };
   login = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3002/users/login", {
-      method: "POST",
-      body: JSON.stringify({
-        email: this.state.details.email,
-        password: this.state.details.password,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    const token = await response.json();
-    console.log(token);
-    if (token) {
-      const authorize = await fetch(
-        `http://localhost:3002/users/get-user-after-login`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: "Bearer " + token.newAccessToken,
-          },
+    if (this.state.details.email === "" || this.state.details.password === "") {
+      this.setState({ emptyFields: true });
+      setTimeout(() => this.setState({ emptyFields: false }), 1500);
+    } else if (this.isValidEmail(this.state.details.email) === false) {
+      this.setState({ invalidEmail: true });
+      setTimeout(() => this.setState({ invalidEmail: false }), 1500);
+    } else {
+      const response = await fetch("http://localhost:3002/users/login", {
+        method: "POST",
+        body: JSON.stringify({
+          email: this.state.details.email,
+          password: this.state.details.password,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      const token = await response.json();
+      console.log(token);
+      if (token.newAccessToken !== "Email or pass incorrect") {
+        const authorize = await fetch(
+          `http://localhost:3002/users/get-user-after-login`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: "Bearer " + token.newAccessToken,
+            },
+          }
+        );
+        const userDetails = await authorize.json();
+        if (userDetails.message === "User Found") {
+          this.setState({
+            success: true,
+            details: {
+              email: "",
+              password: "",
+            },
+          });
+          setTimeout(() => this.setState({ success: false }), 1500);
+          window.location.href = `http://localhost:3000/dashboard/${userDetails.userId}`;
         }
-      );
-      const userDetails = await authorize.json();
-      if (userDetails.message === "User Found") {
-        alert("Success");
-        this.setState({
-          details: {
-            email: "",
-            password: "",
-          },
-        });
-        window.location.href = `http://localhost:3000/dashboard/${userDetails.userId}`;
-      } else if (userDetails.message === "User Not Found") {
-        alert("User not found");
+      } else {
+        this.setState({ incorrectPass: true });
+        setTimeout(() => this.setState({ incorrectPass: false }), 1500);
       }
     }
   };
@@ -123,6 +148,26 @@ class Login extends React.Component {
                   />
                 </div>
               </form>
+              {this.state.success === true ? (
+                <div className="success-notification-holder">
+                  <p>Yay, Sign Up Successful</p>
+                </div>
+              ) : null}
+              {this.state.incorrectPass === true ? (
+                <div className="error-notification-holder">
+                  <p>Email Or Password Incorrect </p>
+                </div>
+              ) : null}
+              {this.state.emptyFields === true ? (
+                <div className="error-notification-holder">
+                  <p>Input fields cannot be empty</p>
+                </div>
+              ) : null}
+              {this.state.invalidEmail === true ? (
+                <div className="error-notification-holder">
+                  <p>Invalid Email</p>
+                </div>
+              ) : null}
               <div
                 id="sign-up-wrapper"
                 className="checkbox-forgot-pass desktop-text"

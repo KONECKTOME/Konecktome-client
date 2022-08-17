@@ -71,3 +71,7 @@ table {
   line-height: 24px;
   color: #00beff;
 }
+
+#dashboard_account_items {
+  margin-bottom: 3rem;
+}

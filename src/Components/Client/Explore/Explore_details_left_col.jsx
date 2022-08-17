@@ -2,21 +2,30 @@ import React, { Component } from "react";
 import image_placeholder from "../../../Assets/account-card-placeholder.png";
 import wishlist_icon from "../../../Assets/wishlist-card-icon.svg";
 import "../../../css/Explore/Explore_details.css";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class Explore_details_left_col extends React.Component {
   state = {
     arr: [1, 4],
+    compareDeals: [],
   };
 
   componentDidMount = () => {
-    console.log("compare", this.props);
+    const removeCurrentDeal = this.props.deals.filter(
+      (deal) => deal._id !== this.props.match.params.dealId
+    );
+    this.setState({
+      compareDeals: removeCurrentDeal,
+    });
+    console.log("compare", removeCurrentDeal);
   };
   render() {
     return (
       <div id="left">
-        <p className="desktop-sub-header2">Compare DealName With Others</p>
-        {this.state.arr.map((e) => {
+        <p className="desktop-sub-header2">
+          People viewing this deal, also viewed
+        </p>
+        {this.state.compareDeals.slice(0, 2).map((item) => {
           return (
             <div className="card">
               <div id="image-holder">
@@ -24,7 +33,7 @@ class Explore_details_left_col extends React.Component {
               </div>
               <div id="account-card-inner-first-div">
                 <p className="desktop-sub-header2">
-                  Some Service Provider Name
+                  {item.dealName} By {item.companyName}
                 </p>
               </div>
               <div>
@@ -40,11 +49,11 @@ class Explore_details_left_col extends React.Component {
               <div id="account-card-footer">
                 <div>
                   <p className="desktop-price"> Price</p>
-                  <p className="desktop-price-number">£500</p>
+                  <p className="desktop-price-number">£{item.dealPrice}</p>
                 </div>
                 <div>
                   <Link className="links" to="/explore/details">
-                    <p className="desktop-cta">Compare</p>
+                    <p className="desktop-cta">View Details</p>
                   </Link>
                 </div>
               </div>
@@ -56,4 +65,4 @@ class Explore_details_left_col extends React.Component {
   }
 }
 
-export default Explore_details_left_col;
+export default withRouter(Explore_details_left_col);

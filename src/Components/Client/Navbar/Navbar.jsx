@@ -100,10 +100,6 @@ const Navbar = () => {
               {userDetails.firstName + " " + userDetails.lastName}
             </p>
           </div>
-
-          {/* <div className="nav-right-item-text">
-            <img src={dropdown_icon} />
-          </div> */}
         </div>
       </div>
     </div>

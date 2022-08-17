@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import "../../../css/Dashboard/History.css";
 
 class History extends Component {
-  state = {};
+  state = {
+    history: [1, 2, 3],
+  };
 
   render() {
     return (

@@ -4,6 +4,16 @@
   height: 8%;
 }
 
+#nav-wrapper > ul {
+  list-style: none;
+  margin: 0;
+}
+
+#nav-wrapper > ul > li {
+  position: relative;
+  float: right;
+}
+
 #nav-right-wrapper {
   padding: 1.5rem 2rem 1.5rem 0;
   float: right;

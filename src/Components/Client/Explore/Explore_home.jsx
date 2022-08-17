@@ -15,8 +15,10 @@ class Explore_home extends Component {
     showCompare: false,
     compareItems: [],
     compareMoreThanOne: false,
-    compareLength: "",
+    compareLength: null,
     showComparePage: false,
+    checkedItems: [],
+    checked: false,
   };
 
   componentDidMount = async () => {
@@ -77,6 +79,7 @@ class Explore_home extends Component {
   showCompare = (dealName, dealPrice, features, dealContractPlans, e) => {
     if (e.target.checked === false && this.state.compareLength === 1) {
       this.setState({
+        checkedItems: [],
         showCompare: false,
         compareItems: [],
         compareMoreThanOne: false,
@@ -99,9 +102,15 @@ class Explore_home extends Component {
         compareItems: state.compareItems.concat([compareItem]),
         compareLength: this.state.compareItems.length + 1,
       }));
+      console.log(this.state.compareLength);
+      console.log(this.state.compareItems);
       if (this.state.compareLength > 1) {
         this.setState({
           compareMoreThanOne: true,
+        });
+      } else {
+        this.setState({
+          compareMoreThanOne: false,
         });
       }
     }
@@ -209,25 +218,27 @@ class Explore_home extends Component {
                           </div>
                           <div id="account-card-footer">
                             <div id="explore-compare-holder">
-                              <input
-                                type="checkbox"
-                                name="compare"
-                                onChange={(e) =>
-                                  this.showCompare(
-                                    deal.dealName,
-                                    deal.dealPrice,
-                                    deal.features,
-                                    deal.dealContractPlans,
-                                    e
-                                  )
-                                }
-                              />
                               <label
                                 for="compare"
                                 className="desktop-price"
                                 id="compare-label"
                               >
-                                Compare
+                                <input
+                                  value={deal.dealName}
+                                  id={deal.dealName}
+                                  type="checkbox"
+                                  onChange={(e) =>
+                                    this.showCompare(
+                                      deal.dealName,
+                                      deal.dealPrice,
+                                      deal.features,
+                                      deal.dealContractPlans,
+                                      e
+                                    )
+                                  }
+                                />
+
+                                <span>Compare</span>
                               </label>
                             </div>
                             <div>

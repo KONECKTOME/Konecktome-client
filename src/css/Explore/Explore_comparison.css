@@ -20,8 +20,10 @@
   font-family: Poppins;
   font-style: normal;
   font-weight: bold;
-  font-size: 20px;
-  line-height: 48px;
-  color: #ab7ab6;
-  text-decoration: underline;
+  font-size: 18px;
+  line-height: 36px;
+  color: #ac7bb6;
+  border-bottom: 2px solid #ac7bb6;
+  width: fit-content;
+  margin-bottom: 2rem;
 }

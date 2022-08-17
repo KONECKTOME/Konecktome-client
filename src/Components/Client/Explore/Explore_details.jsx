@@ -35,6 +35,7 @@ class Explore_details extends React.Component {
     );
     const deal = await response.json();
     this.setState({ deal: deal.message, loading: false });
+    console.log(this.state.deal[0]);
   };
 
   showNotifications = (wishlistSuccess, wishlistExists) => {
@@ -152,7 +153,6 @@ class Explore_details extends React.Component {
                 {...props}
               />
               <Explore_details_left_col
-                deal={this.state.deal}
                 loading={this.state.loading}
                 deals={this.context.dealDetails}
                 {...props}
