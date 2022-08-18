@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
 import { Modal, Row, Col } from "react-bootstrap";
 import "../../../css/AddressModal/AddressModal.css";
 
@@ -23,6 +22,8 @@ class AddressModal extends React.Component {
     dateOfArrival: "",
     dateOfDeparture: "",
     updateUserDetails: null,
+    emptyFields: false,
+    durationError: false,
   };
 
   getAddresses = async (e) => {
@@ -67,34 +68,54 @@ class AddressModal extends React.Component {
 
   sendAddress = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3002/users/update-address", {
-      method: "POST",
-      body: JSON.stringify({
-        userId: this.props.userId,
-        addressId: this.props.addressId,
-        buildingName: this.state.addressDetails.buildingName,
-        addressLine1: this.state.addressDetails.addressLine1,
-        addressLine2: this.state.addressDetails.addressLine2,
-        town: this.state.addressDetails.town,
-        city: this.state.addressDetails.city,
-        currentAddress: false,
-        postCode: this.state.addressDetails.postCode,
-        dateOfArrival: this.fixDateString(this.state.dateOfArrival),
-        dateOfDeparture: this.fixDateString(this.state.dateOfDeparture),
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    const details = await response.json();
-    if (details.message === "Address added") {
-      alert("success");
-      this.props.fetchUser();
-    } else if (
-      details.message ===
-      "Date Of Arrival cannot be more than Date Of Departure"
+    if (
+      this.state.addressDetails.buildingName === "" ||
+      this.state.addressDetails.addressLine1 === "" ||
+      this.state.addressDetails.addressLine2 === "" ||
+      this.state.addressDetails.town === "" ||
+      this.state.addressDetails.city === "" ||
+      this.state.dateOfArrival === "" ||
+      this.state.dateOfDeparture === ""
     ) {
-      alert("error");
+      this.setState({ emptyFields: true });
+      setTimeout(() => this.setState({ emptyFields: false }), 1500);
+    } else {
+      const response = await fetch(
+        "http://localhost:3002/users/update-address",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            userId: this.props.userId,
+            addressId: this.props.addressId,
+            buildingName: this.state.addressDetails.buildingName,
+            addressLine1: this.state.addressDetails.addressLine1,
+            addressLine2: this.state.addressDetails.addressLine2,
+            town: this.state.addressDetails.town,
+            city: this.state.addressDetails.city,
+            currentAddress: false,
+            postCode: this.state.addressDetails.postCode,
+            dateOfArrival: this.fixDateString(this.state.dateOfArrival),
+            dateOfDeparture: this.fixDateString(this.state.dateOfDeparture),
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const details = await response.json();
+      if (details.message === "Address added") {
+        this.setState({ sentSuccess: true });
+        setTimeout(() => this.setState({ sentSuccess: false }), 1500);
+
+        this.props.fetchUser();
+      } else if (
+        details.message ===
+        "Date Of Arrival cannot be more than Date Of Departure"
+      ) {
+        this.setState({ durationError: true });
+        setTimeout(() => this.setState({ durationError: false }), 1500);
+        alert("error");
+      }
     }
   };
   render() {
@@ -108,20 +129,13 @@ class AddressModal extends React.Component {
           centered
         >
           <Modal.Body>
-            {this.state.sentSuccess === true ? (
-              <div id="notification-holder">
-                <p className="desktop-big-button-text modal-button-text">
-                  Yay, address added successfully !!!
-                </p>
-              </div>
-            ) : null}
             <div id="address-modal-body" className="review-modal-header">
               <p className="desktop-sub-header2">Add Address</p>
               <div
-                id="modal_close_btn"
+                id="explore-compare-delete-btn"
                 onClick={() => this.props.hideAddressModal()}
               >
-                <p className="modal-close-button-text">X</p>
+                <p>X</p>
               </div>
             </div>
             <div id="address-modal-body">
@@ -325,6 +339,26 @@ class AddressModal extends React.Component {
                     </Row>
                   </div>
                 </form>
+                {this.state.sentSuccess === true ? (
+                  <div className="success-notification-holder">
+                    <p>
+                      Address Saved, Add Another Address or use the close btn
+                      above to close{" "}
+                    </p>
+                  </div>
+                ) : null}
+                {this.state.emptyFields === true ? (
+                  <div className="error-notification-holder">
+                    <p className="">Empty fields</p>
+                  </div>
+                ) : null}
+                {this.state.durationError === true ? (
+                  <div className="error-notification-holder">
+                    <p className="">
+                      Date Of Arrival Cannot Be Less Than Date Of Departure
+                    </p>
+                  </div>
+                ) : null}
               </div>
             ) : null}
             <div id="submit-btn" onClick={(e) => this.sendAddress(e)}>

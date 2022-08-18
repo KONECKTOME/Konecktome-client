@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../../../css/Explore/Explore_details.css";
 
 class ExploreUserDetails extends Component {
   state = {
@@ -6,8 +7,53 @@ class ExploreUserDetails extends Component {
       phone: "",
       profession: "",
       gender: "",
-      dob: "",
     },
+    dob: "",
+  };
+
+  editProfessionAndDOB = async (e) => {
+    e.preventDefault();
+    const response = await fetch(
+      `http://localhost:3002/users/update-dob-profession`,
+      {
+        method: "PUT",
+        body: JSON.stringify({
+          userId: this.props.userDetails._id,
+          dob: this.state.dob,
+          profession: this.state.userDetails.profession,
+          phone: this.state.userDetails.phone,
+          gender: this.state.userDetails.gender,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const details = await response.json();
+    if (details.message === "User profession and co updated!") {
+      this.setState({
+        success: true,
+        userDetails: {
+          phone: "",
+          profession: "",
+          gender: "",
+          dob: "",
+        },
+      });
+      setTimeout(() => this.setState({ success: false }), 1500);
+    } else if (details.message === "ERROR!") {
+      this.setState({
+        error: true,
+      });
+      setTimeout(() => this.setState({ error: false }), 1500);
+    }
+  };
+
+  updateUserDetails = (e) => {
+    const userDetails = this.state.userDetails;
+    const id = e.currentTarget.id;
+    userDetails[id] = e.currentTarget.value;
+    this.setState({ userDetails });
   };
   render() {
     return (
@@ -47,32 +93,41 @@ class ExploreUserDetails extends Component {
                 type="date"
                 placeholder="dd-mm-yyyy"
                 id="dob"
-                value={this.state.userDetails.dob}
-                onChange={(e) => this.updateUserDetails(e)}
+                value={this.state.dob}
+                onChange={(e) =>
+                  this.setState({
+                    dob: e.currentTarget.value,
+                  })
+                }
               />
-              {this.state.success === true ? (
-                <div className="password-success-notification-holder">
-                  <p>Details Updates</p>
-                </div>
-              ) : null}
-              {this.state.error === true ? (
-                <div className="password-error-notification-holder">
-                  <p>Incorrect Password</p>
-                </div>
-              ) : null}
-              {this.state.emptyfields === true ? (
-                <div className="password-error-notification-holder">
-                  <p>New Passwords Do Not Match</p>
-                </div>
-              ) : null}
-
-              <div
-                className="desktop-big-button"
-                onClick={(e) => this.editProfessionAndDOB(e)}
-              >
-                <p className="desktop-big-button-text">Update Details</p>
-              </div>
             </form>
+            {this.state.success === true ? (
+              <div className="password-success-notification-holder">
+                <p>Details Updates</p>
+              </div>
+            ) : null}
+            {this.state.error === true ? (
+              <div className="password-error-notification-holder">
+                <p>Incorrect Password</p>
+              </div>
+            ) : null}
+            {this.state.emptyfields === true ? (
+              <div className="password-error-notification-holder">
+                <p>New Passwords Do Not Match</p>
+              </div>
+            ) : null}
+
+            <div
+              className="desktop-big-button"
+              id={
+                this.props.renderAddressAndUserDetails === true
+                  ? "exploreUserHideBtn"
+                  : "exploreUserShowBtn"
+              }
+              onClick={(e) => this.editProfessionAndDOB(e)}
+            >
+              <p className="desktop-big-button-text">Update Details</p>
+            </div>
           </div>
         </div>
       </div>

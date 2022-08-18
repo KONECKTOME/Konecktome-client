@@ -1,6 +1,6 @@
 #new-address-btn {
-  float: left;
-  margin: 2rem 1rem 0rem 0rem;
+  width: 20%;
+  margin: 2rem 1rem 3rem 0rem;
 }
 
 #new-address-btn > div {
@@ -37,12 +37,14 @@
   display: flex;
   align-items: center;
   color: #000000;
+  padding-bottom: 0.5rem;
 }
 
 #settings_payment_user_details {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-top: 1.5rem;
 }
 
 .settings_payment_user_details_inner_div {

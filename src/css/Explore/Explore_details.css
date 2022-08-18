@@ -125,8 +125,21 @@
   width: 35%;
 }
 
-#left > .desktop-sub-header2 > .card:first-child {
-  margin-bottom: 2rem;
+#left > p {
+  font-size: 20px !important;
+}
+
+#explore-details-left-card {
+  margin-bottom: 0.6rem;
+}
+
+#explore-details-features {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+#explore-details-left-cta {
+  cursor: pointer;
 }
 
 #explore-details-review {
@@ -171,6 +184,14 @@
   border-top-color: #fff;
   animation: spin 1s ease-in-out infinite;
   -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+#exploreUserHideBtn {
+  display: none;
+}
+
+#exploreUserShowBtn {
+  display: block;
 }
 @keyframes spin {
   to {

@@ -11,13 +11,33 @@ class Explore_details_left_col extends React.Component {
   };
 
   componentDidMount = () => {
+    this.shuffleDeals();
+  };
+
+  shuffleDeals = () => {
     const removeCurrentDeal = this.props.deals.filter(
       (deal) => deal._id !== this.props.match.params.dealId
     );
+    const shuffled = removeCurrentDeal.sort(() => Math.random() - 0.5);
     this.setState({
-      compareDeals: removeCurrentDeal,
+      compareDeals: shuffled,
     });
-    console.log("compare", removeCurrentDeal);
+  };
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.dealId !== prevProps.match.params.dealId) {
+      this.props.getDeal(this.props.match.params.dealId);
+      this.shuffleDeals();
+    }
+  }
+
+  goToDeal = (dealId) => {
+    this.props.history.push(
+      "/dashboard/explore/details/" +
+        this.props.match.params.userid +
+        "/" +
+        dealId
+    );
   };
   render() {
     return (
@@ -27,7 +47,7 @@ class Explore_details_left_col extends React.Component {
         </p>
         {this.state.compareDeals.slice(0, 2).map((item) => {
           return (
-            <div className="card">
+            <div className="card" id="explore-details-left-card">
               <div id="image-holder">
                 <img src={image_placeholder} className="card-image" />
               </div>
@@ -36,14 +56,12 @@ class Explore_details_left_col extends React.Component {
                   {item.dealName} By {item.companyName}
                 </p>
               </div>
+
+              <p className="desktop-sub-header2">{item.subTitle}</p>
+
               <div>
-                <p className="desktop-text">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the…
-                </p>
                 <div className="desktop-badge1">
-                  <p className="desktop-badge-text">Financial</p>
+                  <p className="desktop-badge-text">{item.tag}</p>
                 </div>
               </div>
               <div id="account-card-footer">
@@ -51,10 +69,11 @@ class Explore_details_left_col extends React.Component {
                   <p className="desktop-price"> Price</p>
                   <p className="desktop-price-number">£{item.dealPrice}</p>
                 </div>
-                <div>
-                  <Link className="links" to="/explore/details">
-                    <p className="desktop-cta">View Details</p>
-                  </Link>
+                <div
+                  onClick={() => this.goToDeal(item._id)}
+                  id="explore-details-left-cta"
+                >
+                  <p className="desktop-cta">View Details</p>
                 </div>
               </div>
             </div>

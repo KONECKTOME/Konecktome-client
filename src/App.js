@@ -152,6 +152,7 @@ class App extends Component {
                       populateBoughtDeal={(dealName) =>
                         this.populateBoughtDeal(dealName)
                       }
+                      // key={window.location.pathname}
                     />
                   )}
                 />

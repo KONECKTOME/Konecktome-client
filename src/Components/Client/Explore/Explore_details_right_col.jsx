@@ -9,7 +9,7 @@ import { Row, Col } from "react-bootstrap";
 class Explore_details_right_col extends React.Component {
   static contextType = UserDetailsContext;
   state = {
-    reviews: [1, 2, 3, 4, 5],
+    reviews: [1, 2, 3, 4],
     exploreRightColClass: "right",
     loading: true,
     paymentLoader: false,
@@ -100,9 +100,6 @@ class Explore_details_right_col extends React.Component {
                       {this.props.deal[0].dealName} By{" "}
                       {this.props.deal[0].companyName}
                     </p>
-                    <p className="desktop-text">
-                      {this.props.deal[0].subTitle}
-                    </p>
                   </div>
                   <div id="explore-details-sub-header-inner-wrapper">
                     <p>4.5</p>
@@ -116,23 +113,25 @@ class Explore_details_right_col extends React.Component {
                     </p>
                   </div>
                 </div>
-                <div id="explore-details-inner-right-text">
-                  <p className="desktop-text">{this.props.deal[0].speed}</p>
-                  <p className="desktop-text">
-                    £{this.props.deal[0].dealContractPlans[0].setUpFee} Set Up
-                    Fee
-                  </p>
-                  <p className="desktop-text">
-                    £{this.props.deal[0].dealContractPlans[0].contractDuration}
-                  </p>
-                </div>
-                <div id="explore-details-inner-features-wrapper">
-                  <p className="desktop-sub-header2">Features</p>
-                  {this.props.deal[0].features.map((feature) => {
-                    return (
-                      <p className="desktop-text">{feature.featureText}</p>
-                    );
-                  })}
+                <div id="explore-details-features">
+                  <div id="explore-details-inner-right-text">
+                    <p className="desktop-text">{this.props.deal[0].speed}</p>
+                    <p className="desktop-text">
+                      £{this.props.deal[0].dealContractPlans[0].setUpFee} Set Up
+                      Fee
+                    </p>
+                    <p className="desktop-text">
+                      £
+                      {this.props.deal[0].dealContractPlans[0].contractDuration}
+                    </p>
+                  </div>
+                  <div id="explore-details-inner-features-wrapper">
+                    {this.props.deal[0].features.map((feature) => {
+                      return (
+                        <p className="desktop-text">{feature.featureText}</p>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
               <div id="explore-details-inner-left">
@@ -190,13 +189,6 @@ class Explore_details_right_col extends React.Component {
                       Add to wishlist
                     </p>
                   </div>
-                  {/* <div id="display-compare-btn">
-                    <div className="desktop-big-button-transparent">
-                      <p className="desktop-big-button-transparent-text">
-                        Compare
-                      </p>
-                    </div>
-                  </div> */}
                 </div>
                 <div id="explore-details-review">
                   <p className="desktop-sub-header2"> Reviews</p>
