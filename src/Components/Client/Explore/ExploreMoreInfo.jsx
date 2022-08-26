@@ -7,31 +7,33 @@ import { Row, Col } from "react-bootstrap";
 class ExploreMoreInfo extends React.Component {
   state = {
     userDetailsStatus: false,
-    addressStatus: false,
+    addressStatus: true,
     success: false,
     error: false,
     emptyfields: false,
     renderAddressAndUserDetails: false,
   };
 
-  componentDidMount = () => {
-    if (
-      (this.props.userDetails.moreInfoNeeded =
-        true && this.props.userDetails.addressHistory.length === 0)
-    ) {
-      this.setState({ renderAddressAndUserDetails: true });
-    } else if (
-      (this.props.userDetails.moreInfoNeeded =
-        false && this.props.userDetails.addressHistory.length === 0)
-    ) {
-      this.setState({ addressStatus: true });
-    } else if (
-      (this.props.userDetails.moreInfoNeeded =
-        true && this.props.userDetails.addressHistory.length !== 0)
-    ) {
-      this.setState({ userDetailsStatus: true });
-    }
-  };
+  // componentDidMount = () => {
+  //   console.log("from user info needed", this.props.userDetails.moreInfoNeeded);
+
+  //   if (
+  //     (this.props.userDetails.moreInfoNeeded =
+  //       true && this.props.userDetails.addressHistory.length === 0)
+  //   ) {
+  //     this.setState({ renderAddressAndUserDetails: true });
+  //   } else if (
+  //     (this.props.userDetails.moreInfoNeeded =
+  //       false && this.props.userDetails.addressHistory.length === 0)
+  //   ) {
+  //     this.setState({ addressStatus: true });
+  //   } else if (
+  //     (this.props.userDetails.moreInfoNeeded =
+  //       true && this.props.userDetails.addressHistory.length !== 0)
+  //   ) {
+  //     this.setState({ userDetailsStatus: true });
+  //   }
+  // };
 
   postUserDetailsAndAddress = (
     e,
@@ -89,6 +91,8 @@ class ExploreMoreInfo extends React.Component {
                   renderAddressAndUserDetails={
                     this.state.renderAddressAndUserDetails
                   }
+                  userId={this.props.userDetails._id}
+                  fetchUser={() => this.props.fetchUser()}
                 />
               </Col>
               <Col>
@@ -96,6 +100,8 @@ class ExploreMoreInfo extends React.Component {
                   renderAddressAndUserDetails={
                     this.state.renderAddressAndUserDetails
                   }
+                  userId={this.props.userDetails._id}
+                  fetchUser={() => this.props.fetchUser()}
                 />
               </Col>
             </Row>
@@ -103,14 +109,28 @@ class ExploreMoreInfo extends React.Component {
               className="desktop-big-button"
               onClick={(e) => this.postUserDetailsAndAddress(e)}
             >
-              <p className="desktop-big-button-text">Update Details</p>
+              <p className="desktop-big-button-text">Updaccte Details</p>
             </div>
           </div>
         ) : (
           <></>
         )}
-        {this.state.addressStatus === true ? <ExploreAddress /> : null}
-        {this.state.userDetailsStatus === true ? <ExploreUserDetails /> : null}
+        {this.state.addressStatus === true ? (
+          <div>
+            <ExploreAddress
+              userId={this.props.userDetails._id}
+              fetchUser={() => this.props.fetchUser()}
+            />
+          </div>
+        ) : null}
+        {this.state.userDetailsStatus === true ? (
+          <div className="explore-more-info-holder">
+            <ExploreUserDetails
+              userId={this.props.userDetails._id}
+              fetchUser={() => this.props.fetchUser()}
+            />
+          </div>
+        ) : null}
       </>
     );
   }

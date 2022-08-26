@@ -58,13 +58,13 @@ class ExploreUserDetails extends Component {
   render() {
     return (
       <div>
-        {/* <div id="settings_password_security_wrapper">
+        <div id="settings_password_security_wrapper">
           <div id="settings_password_security_sub_wrapper">
             <p id="settings_password_security_header_text">
               PLEASE UPDATE DETAILS
             </p>
           </div>
-        </div> */}
+        </div>
         <div id="">
           <div className="settings_password_security_form_inner_wrapper">
             <form>
@@ -122,7 +122,7 @@ class ExploreUserDetails extends Component {
               id={
                 this.props.renderAddressAndUserDetails === true
                   ? "exploreUserHideBtn"
-                  : "exploreUserShowBtn"
+                  : ""
               }
               onClick={(e) => this.editProfessionAndDOB(e)}
             >

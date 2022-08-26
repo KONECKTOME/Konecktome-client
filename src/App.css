@@ -374,6 +374,101 @@ input::placeholder {
   line-height: 24px;
 }
 
+input[type="text"] {
+  text-align: left;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  font-size: 20px;
+  width: 90%;
+  height: 55px;
+  padding-left: 2rem;
+  background: #f6f6f8;
+  width: 500px;
+  border: 0;
+  margin-bottom: 2rem;
+  font-family: Poppins;
+}
+input[type="date"] {
+  text-align: left;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  font-size: 20px;
+  width: 90%;
+  height: 55px;
+  padding-left: 2rem;
+  background: #f6f6f8;
+  width: 500px;
+  border: 0;
+  margin-bottom: 2rem;
+  font-family: Poppins;
+}
+
+input[type="email"] {
+  text-align: left;
+  border-radius: 10px;
+  margin-top: 1rem;
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  font-size: 20px;
+  width: 95%;
+  height: 55px;
+  padding-left: 2rem;
+}
+input[type="password"] {
+  text-align: left;
+  border-radius: 10px;
+  margin-top: 1rem;
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  font-size: 20px;
+  width: 95%;
+  height: 55px;
+  padding-left: 2rem;
+}
+
+input[type="email"]:invalid {
+  border: 2px solid red;
+}
+
+input[type="text"]:active,
+input[type="text"]:focus {
+  outline: none;
+  color: #000000;
+  font-size: 16px;
+}
+
+input[type="email"]:active,
+input[type="email"]:focus {
+  outline: none;
+  color: #000000;
+  font-size: 16px;
+}
+
+input[type="password"]:active,
+input[type="password"]:focus {
+  outline: none;
+  color: #000000;
+  font-size: 16px;
+}
+
+input[type="date"]:active,
+input[type="date"]:focus {
+  outline: none;
+  color: #000000;
+}
+
+input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  margin-left: 1rem;
+}
+
 @media screen and (max-width: 2000px) {
   .cards {
     grid-template-columns: repeat(3, 1fr);

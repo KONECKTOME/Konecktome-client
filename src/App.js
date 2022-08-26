@@ -152,6 +152,7 @@ class App extends Component {
                       populateBoughtDeal={(dealName) =>
                         this.populateBoughtDeal(dealName)
                       }
+                      userDetailsAsProps={this.state.userDetails}
                       // key={window.location.pathname}
                     />
                   )}

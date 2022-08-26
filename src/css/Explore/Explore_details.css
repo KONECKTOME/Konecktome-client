@@ -190,8 +190,17 @@
   display: none;
 }
 
-#exploreUserShowBtn {
+/* #exploreUserShowBtn {
   display: block;
+} */
+
+.explore-more-info-holder {
+  display: flex;
+  justify-content: center;
+}
+
+#explore-user-details-wrapper {
+  margin-top: 7rem;
 }
 @keyframes spin {
   to {

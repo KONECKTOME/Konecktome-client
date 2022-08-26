@@ -11,7 +11,7 @@ class Accounts extends Component {
     return (
       <div id="acc-wrapper">
         <p className="desktop-sub-header1">My Accounts</p>
-        {this.props.accounts.length !== 0 ? (
+        {this.state.accounts.length !== 0 ? (
           <div id="acc-nav-wrapper">
             <table>
               <tr>
@@ -19,19 +19,17 @@ class Accounts extends Component {
                 <th></th>
                 <th></th>
               </tr>
-              {this.props.accounts.map((tt) => {
+              {this.state.accounts.map((tt) => {
                 return (
                   <tr id="dashboard_account_items">
                     <td>
-                      <img src={tt.companyImage} />
+                      <img src={placeholder} />
                     </td>
                     <td>
-                      <p className="desktop-text">
-                        {tt.dealName} By {tt.serviceProviderName}
-                      </p>
+                      <p className="desktop-text">test By service</p>
                     </td>
                     <td>
-                      <p className="desktop-text">£{tt.price}</p>
+                      <p className="desktop-text">£34</p>
                     </td>
                   </tr>
                 );

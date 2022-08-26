@@ -26,6 +26,10 @@ class Explore_details extends React.Component {
   componentDidMount = async () => {
     const dealId = this.props.match.params.dealId;
     this.getDeal(dealId);
+    console.log(
+      "from componened did mount",
+      this.context.userDetails.moreInfoNeeded
+    );
   };
 
   getDeal = async (dealId) => {

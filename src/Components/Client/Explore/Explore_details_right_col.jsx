@@ -51,9 +51,13 @@ class Explore_details_right_col extends React.Component {
     subscribePrice,
     oneOffprice
   ) => {
+    console.log(
+      "from explore details right col:",
+      this.context.userDetails.moreInfoNeeded
+    );
     if (
-      this.context.userDetails.addressHistory.length === 0 ||
-      this.context.userDetails.moreInfoNeeded === true
+      (this.context.userDetails.moreInfoNeeded =
+        true || this.context.userDetails.addressHistory.length === 0)
     ) {
       this.props.moreInfoNeededFn();
     } else {

@@ -46,7 +46,7 @@
   margin-top: 0.5rem;
 }
 
-input[type="text"] {
+/* input[type="text"] {
   text-align: left;
   border-radius: 10px;
   background-color: transparent;
@@ -116,7 +116,7 @@ input[type="password"]:focus {
   outline: none;
   color: #000000;
   font-size: 16px;
-}
+} */
 
 #btn {
   background-color: #000000;
