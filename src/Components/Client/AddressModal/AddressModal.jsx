@@ -4,7 +4,7 @@ import "../../../css/AddressModal/AddressModal.css";
 
 class AddressModal extends React.Component {
   state = {
-    addresses: [],
+    addresses: [1, 1, 1, 1, 1, 1, 1],
     postCode: "",
     userAddress: "",
     addressSelected: false,
@@ -24,23 +24,16 @@ class AddressModal extends React.Component {
     updateUserDetails: null,
     emptyFields: false,
     durationError: false,
+    showAddressHolder: false,
+  };
+
+  hideAddressHolder = () => {
+    this.setState({ showAddressHolder: false });
   };
 
   getAddresses = async (e) => {
     e.preventDefault();
-    const response = await fetch(
-      `https://api.getAddress.io/find/${this.state.postCode}?api-key=Js4oNDxPEUurH4pZ-S7sJQ35398`,
-      {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json",
-        },
-      }
-    );
-    const details = await response.json();
-    this.setState({
-      addresses: details.addresses,
-    });
+    this.setState({ showAddressHolder: true });
   };
 
   getAddressContent = (e) => {
@@ -106,7 +99,6 @@ class AddressModal extends React.Component {
       if (details.message === "Address added") {
         this.setState({ sentSuccess: true });
         setTimeout(() => this.setState({ sentSuccess: false }), 1500);
-
         this.props.fetchUser();
       } else if (
         details.message ===
@@ -129,7 +121,7 @@ class AddressModal extends React.Component {
           centered
         >
           <Modal.Body>
-            <div id="address-modal-body" className="review-modal-header">
+            <div id="address-modal-body-header" className="review-modal-header">
               <p className="desktop-sub-header2">Add Address</p>
               <div
                 id="explore-compare-delete-btn"
@@ -140,68 +132,58 @@ class AddressModal extends React.Component {
             </div>
             <div id="address-modal-body">
               <form>
-                <input
-                  type="text"
-                  placeholder="Enter post code"
-                  id="address-modal-message"
-                  value={this.state.postCode}
-                  onChange={(e) =>
-                    this.setState({
-                      postCode: e.currentTarget.value,
-                    })
-                  }
-                />
+                <label className="explore-address-label">Check Post code</label>
+                <div id="explore-address-input-holder">
+                  <input
+                    type="text"
+                    placeholder="Ex. WQ3 6RC"
+                    // value={this.state.postCode}
+                    // onChange={(e) =>
+                    //   this.setState({
+                    //     postCode: e.currentTarget.value,
+                    //   })
+                    // }
+                  />
+                  <div
+                    id="explore-address-close-btn"
+                    onClick={() => this.hideAddressHolder()}
+                  >
+                    X
+                  </div>
+                </div>
+                {this.state.showAddressHolder === true ? (
+                  <div id="address-dropdown-holder">
+                    <ul>
+                      <li className="desktop-sub-header2">
+                        Select Your Address
+                      </li>
+                      {this.state.addresses.map((item) => {
+                        return (
+                          <li className="desktop-text">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing
+                            elit. Molestiae ipsum
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                ) : null}
+                <div
+                  className="desktop-big-button"
+                  id="explore-address-btn"
+                  onClick={(e) => this.getAddresses(e)}
+                >
+                  <p className="desktop-big-button-text">Check postcode</p>
+                </div>
               </form>
-              <div
-                id="address-modal-button"
-                onClick={(e) => this.getAddresses(e)}
-              >
-                <p className="desktop-big-button-text modal-button-text">
-                  Check postcode
-                </p>
-              </div>
             </div>
+
             <div id="current-address-checkbox">
               <input type="checkbox" />
               <p className="desktop-sub-header2">
                 Check the box if this is your current address
               </p>
             </div>
-            {this.state.userAddress !== "" ? (
-              <div id="selected-address-holder">
-                <p className="desktop-sub-header2">Selected Address</p>
-                <p className="settings_payment_user_details_label">
-                  {this.state.userAddress}
-                </p>
-              </div>
-            ) : null}
-
-            <div id="addresses-container">
-              {this.state.addresses.length !== 0 ? (
-                <div>
-                  <Row>
-                    {this.state.addresses.map((rr) => {
-                      return (
-                        <Col md={6}>
-                          <div
-                            id="addresses"
-                            onClick={(e) => this.getAddressContent(e)}
-                          >
-                            <p
-                              className="desktop-big-button-text modal-button-text"
-                              id="address-text"
-                            >
-                              {rr}
-                            </p>
-                          </div>
-                        </Col>
-                      );
-                    })}
-                  </Row>
-                </div>
-              ) : null}
-            </div>
-
             {this.state.addressSelected === false ? (
               <div>
                 <div id="or-holder">
@@ -216,7 +198,7 @@ class AddressModal extends React.Component {
                         </p>
                         <input
                           type="text"
-                          placeholder="Enter Building Name"
+                          placeholder="Ex. 1 Road Court"
                           id="buildingName"
                           value={this.state.addressDetails.buildingName}
                           onChange={(e) => this.updateAddressDetails(e)}
@@ -230,7 +212,7 @@ class AddressModal extends React.Component {
                         </p>
                         <input
                           type="text"
-                          placeholder="Enter post code"
+                          placeholder="Ex. 1 Road Way"
                           id="addressLine1"
                           value={this.state.addressDetails.addressLine1}
                           onChange={(e) => this.updateAddressDetails(e)}
@@ -244,7 +226,7 @@ class AddressModal extends React.Component {
                         </p>
                         <input
                           type="text"
-                          placeholder="Enter post code"
+                          placeholder="Ex. 1 Road Way"
                           id="addressLine2"
                           value={this.state.addressDetails.addressLine2}
                           onChange={(e) => this.updateAddressDetails(e)}
@@ -260,7 +242,7 @@ class AddressModal extends React.Component {
                         </p>
                         <input
                           type="text"
-                          placeholder="Enter post code"
+                          placeholder="Ex. SW5 RTD"
                           id="town"
                           value={this.state.addressDetails.town}
                           onChange={(e) => this.updateAddressDetails(e)}

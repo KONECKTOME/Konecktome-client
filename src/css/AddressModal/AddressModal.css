@@ -2,7 +2,7 @@
   padding: 2rem 5rem 5rem 5rem !important;
 }
 
-#address-modal-body {
+#address-modal-body-header {
   display: flex;
   justify-content: space-between;
 }
@@ -134,4 +134,8 @@
 
 #current-address-checkbox > p {
   margin-top: 1rem;
+}
+
+#address-modal-body #explore-address-input-holder input[type="text"] {
+  width: auto;
 }

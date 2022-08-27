@@ -167,7 +167,7 @@ class Explore_home extends Component {
           </div>
         ) : (
           <>
-            <div id="form-div">
+            {/* <div id="form-div">
               <form>
                 <input
                   id="searchQuery"
@@ -181,7 +181,7 @@ class Explore_home extends Component {
                   }
                 />
               </form>
-            </div>
+            </div> */}
             {this.state.searchStatus === false ? (
               <div id="explore-inner-div">
                 <div id="explore-cards-pagination-wrapper">

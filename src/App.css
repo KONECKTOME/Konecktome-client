@@ -171,6 +171,15 @@
   cursor: pointer;
 }
 
+.desktop-medium-button-text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
 .desktop-small-button {
   width: 25%;
   height: 45px;

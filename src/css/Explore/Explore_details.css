@@ -202,6 +202,11 @@
 #explore-user-details-wrapper {
   margin-top: 7rem;
 }
+
+#explore-more-info-user-details-holder {
+  display: flex;
+  justify-content: center;
+}
 @keyframes spin {
   to {
     -webkit-transform: rotate(360deg);

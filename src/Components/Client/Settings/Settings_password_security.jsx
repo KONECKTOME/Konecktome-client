@@ -11,6 +11,7 @@ class Settings_password_security extends React.Component {
     successPassword: false,
     errorPassword: false,
     passwordsNotMatch: false,
+    emptyFields: false,
   };
 
   updatePasswordDetails = (e) => {
@@ -24,6 +25,13 @@ class Settings_password_security extends React.Component {
   changePassword = async (e) => {
     e.preventDefault();
     if (
+      this.state.passwordDetails.newPass === "" ||
+      this.state.passwordDetails.oldPass === "" ||
+      this.state.passwordDetails.confirmNewPass === ""
+    ) {
+      this.setState({ emptyFields: true });
+      setTimeout(() => this.setState({ emptyFields: false }), 1500);
+    } else if (
       this.state.passwordDetails.newPass !==
       this.state.passwordDetails.confirmNewPass
     ) {
@@ -99,6 +107,11 @@ class Settings_password_security extends React.Component {
                 {this.state.errorPassword === true ? (
                   <div className="password-error-notification-holder">
                     <p>Incorrect Password</p>
+                  </div>
+                ) : null}
+                {this.state.emptyFields === true ? (
+                  <div className="password-error-notification-holder">
+                    <p>Input Fields Cannot Be Empty</p>
                   </div>
                 ) : null}
                 {this.state.passwordsNotMatch === true ? (

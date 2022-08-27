@@ -66,30 +66,6 @@ class Explore_details extends React.Component {
         moreInfoNeeded: true,
       });
     }, 2000);
-    // setTimeout(() => {
-    //   if (updateUserDetails === true) {
-    //     this.setState({
-    //       moreInfoNeededLoader: false,
-    //       updateUserDetails: updateUserDetails,
-    //       moreInfoNeeded: true,
-    //       editStatus: !this.state.editStatus,
-    //     });
-    //   } else if (updateAddressDetails === true) {
-    //     this.setState({
-    //       moreInfoNeededLoader: false,
-    //       updateAddressDetails: updateAddressDetails,
-    //       moreInfoNeeded: true,
-    //       editStatus: !this.state.editStatus,
-    //     });
-    //   } else if (updateAddressAndUserDetails === true) {
-    //     this.setState({
-    //       moreInfoNeededLoader: false,
-    //       updateAddressAndUserDetails: updateAddressAndUserDetails,
-    //       moreInfoNeeded: true,
-    //       editStatus: !this.state.editStatus,
-    //     });
-    //   }
-    // }, 2000);
   };
 
   hideAddressModal = () => {
@@ -133,6 +109,7 @@ class Explore_details extends React.Component {
                   this.state.updateAddressAndUserDetails
                 }
                 fetchUser={() => this.props.fetchUser()}
+                deal={this.state.deal}
               />
             ) : (
               <>

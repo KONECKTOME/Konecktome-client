@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ExploreUserDetails from "./ExploreUserDetails";
 import ExploreAddress from "./ExploreAddress";
-import { Row, Col } from "react-bootstrap";
 
 class ExploreMoreInfo extends React.Component {
   state = {
@@ -15,8 +14,7 @@ class ExploreMoreInfo extends React.Component {
   };
 
   // componentDidMount = () => {
-  //   console.log("from user info needed", this.props.userDetails.moreInfoNeeded);
-
+  //   console.log("from user info needed", this.props.userDetails);
   //   if (
   //     (this.props.userDetails.moreInfoNeeded =
   //       true && this.props.userDetails.addressHistory.length === 0)
@@ -34,25 +32,6 @@ class ExploreMoreInfo extends React.Component {
   //     this.setState({ userDetailsStatus: true });
   //   }
   // };
-
-  postUserDetailsAndAddress = (
-    e,
-    phone,
-    profession,
-    gender,
-    dob,
-    buildingName,
-    addressLine1,
-    addressLine2,
-    town,
-    city,
-    postCode
-  ) => {
-    e.preventDefault();
-    this.setState({ renderAddressAndUserDetails: false });
-    this.setState({ addressStatus: true });
-    // this.props.fetchUser();
-  };
 
   render() {
     return (
@@ -85,32 +64,14 @@ class ExploreMoreInfo extends React.Component {
         </div>
         {this.state.renderAddressAndUserDetails === true ? (
           <div>
-            <Row>
-              <Col>
-                <ExploreUserDetails
-                  renderAddressAndUserDetails={
-                    this.state.renderAddressAndUserDetails
-                  }
-                  userId={this.props.userDetails._id}
-                  fetchUser={() => this.props.fetchUser()}
-                />
-              </Col>
-              <Col>
-                <ExploreAddress
-                  renderAddressAndUserDetails={
-                    this.state.renderAddressAndUserDetails
-                  }
-                  userId={this.props.userDetails._id}
-                  fetchUser={() => this.props.fetchUser()}
-                />
-              </Col>
-            </Row>
-            <div
-              className="desktop-big-button"
-              onClick={(e) => this.postUserDetailsAndAddress(e)}
-            >
-              <p className="desktop-big-button-text">Updaccte Details</p>
-            </div>
+            <ExploreUserDetails
+              renderAddressAndUserDetails={
+                this.state.renderAddressAndUserDetails
+              }
+              userId={this.props.userDetails._id}
+              fetchUser={() => this.props.fetchUser()}
+              deal={this.props.deal}
+            />
           </div>
         ) : (
           <></>
@@ -120,6 +81,7 @@ class ExploreMoreInfo extends React.Component {
             <ExploreAddress
               userId={this.props.userDetails._id}
               fetchUser={() => this.props.fetchUser()}
+              deal={this.props.deal}
             />
           </div>
         ) : null}
@@ -128,6 +90,7 @@ class ExploreMoreInfo extends React.Component {
             <ExploreUserDetails
               userId={this.props.userDetails._id}
               fetchUser={() => this.props.fetchUser()}
+              deal={this.props.deal}
             />
           </div>
         ) : null}

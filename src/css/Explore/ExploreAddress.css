@@ -1,7 +1,7 @@
-#postcode-checker-holder {
+/* #postcode-checker-holder {
   display: flex;
-  justify-content: center;
-}
+  justify-content: space-around;
+} */
 
 #explore-address-input-holder {
   display: flex;
@@ -79,6 +79,12 @@
   width: 590px !important;
 }
 
+.explore-address-input-both {
+  width: 100% !important;
+}
+.check-post-code {
+  width: 100% !important;
+}
 .explore-address-label {
   font-family: Poppins Regular;
   font-size: 16px;
@@ -90,6 +96,52 @@
 }
 
 #explore-send-address {
-  width: 500px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+#explore-send-both-address {
+  display: none;
+}
+
+#expore-address-error {
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+#expore-address-error > p > span {
+  font-weight: 900;
+  font-style: italic;
+  border-bottom: 1px solid #ffffff;
+  cursor: pointer;
+}
+
+#explore-installation-wrapper {
+  margin-top: 2rem;
+}
+
+#explore-installation-wrapper > .row {
+  margin: 5rem 0 3rem 0;
+}
+
+#explore-installation-button {
+  width: 100% !important;
+  background: transparent !important;
+  border: 2px solid #ab7ab6;
+}
+
+#explore-installation-button-text {
+  color: #000000;
+}
+
+#selected-date-time {
+  text-align: center;
+  font-family: Poppins Bold;
+  font-size: 20px;
+  line-height: 36px;
+  color: #000000;
+}
+
+#explore-installation-payment-btn {
   margin: 0 auto;
 }
