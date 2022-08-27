@@ -48,6 +48,7 @@ class App extends Component {
     );
     const userDetails = await response.json();
     this.setState({ userDetails });
+    console.log("from app", this.state.userDetails);
   };
 
   getDeals = async () => {
@@ -153,7 +154,6 @@ class App extends Component {
                         this.populateBoughtDeal(dealName)
                       }
                       userDetailsAsProps={this.state.userDetails}
-                      // key={window.location.pathname}
                     />
                   )}
                 />

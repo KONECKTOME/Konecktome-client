@@ -6,32 +6,31 @@ import ExploreAddress from "./ExploreAddress";
 class ExploreMoreInfo extends React.Component {
   state = {
     userDetailsStatus: false,
-    addressStatus: true,
+    addressStatus: false,
     success: false,
     error: false,
     emptyfields: false,
     renderAddressAndUserDetails: false,
   };
 
-  // componentDidMount = () => {
-  //   console.log("from user info needed", this.props.userDetails);
-  //   if (
-  //     (this.props.userDetails.moreInfoNeeded =
-  //       true && this.props.userDetails.addressHistory.length === 0)
-  //   ) {
-  //     this.setState({ renderAddressAndUserDetails: true });
-  //   } else if (
-  //     (this.props.userDetails.moreInfoNeeded =
-  //       false && this.props.userDetails.addressHistory.length === 0)
-  //   ) {
-  //     this.setState({ addressStatus: true });
-  //   } else if (
-  //     (this.props.userDetails.moreInfoNeeded =
-  //       true && this.props.userDetails.addressHistory.length !== 0)
-  //   ) {
-  //     this.setState({ userDetailsStatus: true });
-  //   }
-  // };
+  componentDidMount = () => {
+    if (
+      (this.props.userDetails.moreInfoNeeded =
+        true && this.props.userDetails.addressHistory.length === 0)
+    ) {
+      this.setState({ renderAddressAndUserDetails: true });
+    } else if (
+      (this.props.userDetails.moreInfoNeeded =
+        false && this.props.userDetails.addressHistory.length === 0)
+    ) {
+      this.setState({ addressStatus: true });
+    } else if (
+      (this.props.userDetails.moreInfoNeeded =
+        true && this.props.userDetails.addressHistory.length !== 0)
+    ) {
+      this.setState({ userDetailsStatus: true });
+    }
+  };
 
   render() {
     return (

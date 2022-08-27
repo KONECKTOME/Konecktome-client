@@ -26,10 +26,7 @@ class Explore_details extends React.Component {
   componentDidMount = async () => {
     const dealId = this.props.match.params.dealId;
     this.getDeal(dealId);
-    console.log(
-      "from componened did mount",
-      this.context.userDetails.moreInfoNeeded
-    );
+    console.log("From Explore detailst", this.props.userDetailsAsProps);
   };
 
   getDeal = async (dealId) => {
@@ -101,7 +98,7 @@ class Explore_details extends React.Component {
             ) : null}
             {this.state.moreInfoNeeded === true ? (
               <ExploreMoreInfo
-                userDetails={this.context.userDetails}
+                userDetails={this.props.userDetailsAsProps}
                 dealId={this.state.deal[0]._id}
                 addressStatus={this.state.updateAddressDetails}
                 userDetailsStatus={this.state.updateUserDetails}
@@ -131,6 +128,7 @@ class Explore_details extends React.Component {
                 </div>
                 <div id="explore-details">
                   <Explore_details_right_col
+                    userDetails={this.props.userDetailsAsProps}
                     deal={this.state.deal}
                     loading={this.state.loading}
                     fetchUser={() => this.props.fetchUser()}
@@ -140,15 +138,7 @@ class Explore_details extends React.Component {
                     showNotification={(wishlistSuccess, wishlistExists) =>
                       this.showNotifications(wishlistSuccess, wishlistExists)
                     }
-                    moreInfoNeededFn={(
-                      updateUserDetails,
-                      updateAddressDetails
-                    ) =>
-                      this.moreInfoNeededFn(
-                        updateUserDetails,
-                        updateAddressDetails
-                      )
-                    }
+                    moreInfoNeededFn={() => this.moreInfoNeededFn()}
                     moreInfoNeededLoader={() => this.moreInfoNeededLoader()}
                     {...props}
                   />

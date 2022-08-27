@@ -80,6 +80,7 @@ class Settings_profile extends React.Component {
 
   editUser = async (e) => {
     e.preventDefault();
+    alert("name");
     const response = await fetch(`http://localhost:3002/users/edit-user`, {
       method: "PUT",
       body: JSON.stringify({
@@ -103,6 +104,7 @@ class Settings_profile extends React.Component {
   };
 
   editProfessionAndDOB = async (e) => {
+    alert("profession");
     e.preventDefault();
     const response = await fetch(
       `http://localhost:3002/users/update-dob-profession`,
@@ -209,9 +211,8 @@ class Settings_profile extends React.Component {
                       <div className="settings-profile-input-container">
                         <input
                           type="date"
-                          placeholder="dd-mm-yyyy"
                           id="dob"
-                          value={this.state.userDetails.dob}
+                          value={this.state.dob}
                           onChange={(e) =>
                             this.setState({
                               dob: e.currentTarget.value,
