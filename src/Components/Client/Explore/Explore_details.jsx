@@ -41,7 +41,6 @@ class Explore_details extends React.Component {
     );
     const deal = await response.json();
     this.setState({ deal: deal.message, loading: false });
-    console.log(this.state.deal[0]);
   };
 
   showNotifications = (wishlistSuccess, wishlistExists) => {
@@ -56,7 +55,9 @@ class Explore_details extends React.Component {
   };
 
   moreInfoNeededFn = () => {
-    this.setState({ moreInfoNeededLoader: true });
+    this.setState({
+      moreInfoNeededLoader: true,
+    });
     setTimeout(() => {
       this.setState({
         moreInfoNeededLoader: false,

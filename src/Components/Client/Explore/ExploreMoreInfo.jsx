@@ -15,18 +15,20 @@ class ExploreMoreInfo extends React.Component {
 
   componentDidMount = () => {
     if (
-      (this.props.userDetails.moreInfoNeeded =
-        true && this.props.userDetails.addressHistory.length === 0)
+      this.props.userDetails.moreInfoNeeded === true &&
+      this.props.userDetails.addressHistory.length == 0
     ) {
       this.setState({ renderAddressAndUserDetails: true });
-    } else if (
-      (this.props.userDetails.moreInfoNeeded =
-        false && this.props.userDetails.addressHistory.length === 0)
+    }
+    if (
+      this.props.userDetails.moreInfoNeeded === false &&
+      this.props.userDetails.addressHistory.length === 0
     ) {
       this.setState({ addressStatus: true });
-    } else if (
-      (this.props.userDetails.moreInfoNeeded =
-        true && this.props.userDetails.addressHistory.length !== 0)
+    }
+    if (
+      this.props.userDetails.moreInfoNeeded === true &&
+      this.props.userDetails.addressHistory.length !== 0
     ) {
       this.setState({ userDetailsStatus: true });
     }

@@ -13,6 +13,7 @@ class Explore_details_right_col extends React.Component {
     exploreRightColClass: "right",
     loading: true,
     paymentLoader: false,
+    moreInfoNeededValue: this.props.userDetails.moreInfoNeeded,
   };
 
   addtoWishlist = async (dealId, dealName, price, subTitle) => {
@@ -51,10 +52,9 @@ class Explore_details_right_col extends React.Component {
     subscribePrice,
     oneOffprice
   ) => {
-    console.log("from explore right col:", this.props);
     if (
-      (this.props.userDetails.moreInfoNeeded =
-        true || this.props.userDetails.addressHistory.length === 0)
+      this.props.userDetails.moreInfoNeeded === true ||
+      this.props.userDetails.addressHistory.length == 0
     ) {
       this.props.moreInfoNeededFn();
     } else {

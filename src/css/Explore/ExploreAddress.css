@@ -109,7 +109,7 @@
   margin-bottom: 1rem;
 }
 
-#expore-address-error > p > span {
+#expore-address-error span {
   font-weight: 900;
   font-style: italic;
   border-bottom: 1px solid #ffffff;

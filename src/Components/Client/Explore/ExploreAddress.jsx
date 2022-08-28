@@ -9,7 +9,7 @@ class ExploreAddress extends Component {
     postCode: "",
     userAddress: "",
     addressSelected: false,
-    sentSuccess: true,
+    sentSuccess: false,
     sentError: false,
     emptyFields: false,
     addressDetails: {
@@ -87,7 +87,7 @@ class ExploreAddress extends Component {
       const details = await response.json();
       if (details.message === "Address added") {
         this.setState({ sentSuccess: true });
-        setTimeout(() => this.setState({ sentSuccess: false }), 1500);
+        // setTimeout(() => this.setState({ sentSuccess: false }), 1500);
         this.props.fetchUser();
       } else if (
         details.message ===
@@ -115,6 +115,8 @@ class ExploreAddress extends Component {
         postCode: "",
       },
       sentSuccess: false,
+      dateOfArrival: "",
+      dateOfDeparture: "",
     });
   };
 

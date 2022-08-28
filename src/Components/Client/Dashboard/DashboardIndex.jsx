@@ -1,28 +1,25 @@
 import React, { Component } from "react";
-import ComingSoon from "./Components/Comingsoon";
-import About from "./Components/About";
-import Footer from "./Components/Footer";
-import FooterForm from "./Components/FooterForm";
-import Index from "./Components/Client/Sidebar/Index";
-import Dashboard_home from "./Components/Client/Dashboard/Dashboard_home";
-import Explore_home from "./Components/Client/Explore/Explore_home";
-import Account_home from "./Components/Client/Account/Account_home";
-import Details_home from "./Components/Client/Details/Details_home";
-import History_home from "./Components/Client/History/History_home";
-import Navbar from "./Components/Client/Navbar/Navbar";
-import Explore_comparison from "./Components/Client/Explore/Explore_comparison";
-import Recommendations_home from "./Components/Client/Recommendations/Recommendations_home";
-import Settings_home from "./Components/Client/Settings/Settings_home";
-import Notifications_home from "./Components/Client/Notifications/Notifications_home";
-import Favourites_home from "./Components/Client/Favourites/Favourites_home";
-import Wishlist from "./Components/Client/Wishlist/Wishlist";
-import Explore_details from "./Components/Client/Explore/Explore_details";
-import PaymentSuccess from "./Components/Client/PaymentSuccess/PaymentSuccess";
-import { UserDetailsContext } from "./Components/Client/Context/UserDetailsContext";
-import { BrowserRouter as Router, Route, useParams } from "react-router-dom";
-import "../src/App.css";
+import Index from "../Sidebar/Index";
+import Dashboard_home from "../Dashboard/Dashboard_home";
+import Explore_home from "../Explore/Explore_home";
+import Account_home from "../Account/Account_home";
 
-class App extends Component {
+import Details_home from "../Details/Details_home";
+import History_home from "../History/History_home";
+import Navbar from "../Navbar/Navbar";
+import Explore_comparison from "../Explore/Explore_comparison";
+import Recommendations_home from "../Recommendations/Recommendations_home";
+import Settings_home from "../Settings/Settings_home";
+import Notifications_home from "../Notifications/Notifications_home";
+import Favourites_home from "../Favourites/Favourites_home";
+import Wishlist from "../Wishlist/Wishlist";
+import Explore_details from "../Explore/Explore_details";
+import PaymentSuccess from "../PaymentSuccess/PaymentSuccess";
+import ForgotPassword from "../Login & Signup/ForgotPassword";
+import { UserDetailsContext } from "../Context/UserDetailsContext";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+class DashBoardIndex extends Component {
   state = {
     userDetails: {},
     dealDetails: [],
@@ -31,6 +28,7 @@ class App extends Component {
   };
 
   componentDidMount = async () => {
+    console.log(this.state.userDetails);
     this.getUser();
     this.getDeals();
   };
@@ -48,6 +46,7 @@ class App extends Component {
     );
     const userDetails = await response.json();
     this.setState({ userDetails });
+    console.log("from app", this.state.userDetails);
   };
 
   getDeals = async () => {
@@ -69,22 +68,27 @@ class App extends Component {
   resetBoughtDeal = () => {
     this.setState({ paidDeal: "" });
   };
-  render() {
+  render(props) {
     const userDetails = this.state.userDetails;
     const dealDetails = this.state.dealDetails;
     const loading = this.state.loading;
     return (
-      <div className="App">
-        <Router>
-          <div id="fe-wrapper">
-            <div id="left-col">
-              <Index />
-            </div>
-            <div id="right-col">
-              <UserDetailsContext.Provider
-                value={{ userDetails, dealDetails, loading }}
-              >
-                <Navbar />
+      <Router>
+        <div id="fe-wrapper">
+          <div id="left-col">
+            <Index />
+          </div>
+          <div id="right-col">
+            <UserDetailsContext.Provider
+              value={{ userDetails, dealDetails, loading }}
+            >
+              <Navbar />
+              <Switch>
+                <Route
+                  path="/forgot-password"
+                  exact
+                  component={ForgotPassword}
+                />
                 <Route
                   path="/dashboard/:userid"
                   exact
@@ -107,31 +111,28 @@ class App extends Component {
                 />
                 <Route
                   path="/dashboard/account/:userid"
-                  exact
                   component={Account_home}
                 />
                 <Route
                   path="/dashboard/history/:userid"
-                  exact
                   component={History_home}
+                  userDetails={this.state.userDetails}
+                  {...props}
                 />
                 <Route
                   path="/dashboard/notifications/:userid"
-                  exact
                   component={Notifications_home}
                 />
                 <Route
                   path="/dashboard/favourites/:userid"
-                  exact
                   component={Favourites_home}
                 />
                 <Route
                   path="/dashboard/wishlist/:userid"
-                  exact
                   component={Wishlist}
                 />
                 <Route
-                  path="/dashboard/pay-success/:userid"
+                  path="/dashboard/paysuccess/:userid"
                   render={(props) => (
                     <PaymentSuccess
                       fetchUser={() => this.getUser()}
@@ -143,7 +144,6 @@ class App extends Component {
                 />
                 <Route
                   path="/dashboard/explore/details/:userid/:dealId"
-                  exact
                   render={(props) => (
                     <Explore_details
                       fetchUser={() => this.getUser()}
@@ -152,48 +152,30 @@ class App extends Component {
                         this.populateBoughtDeal(dealName)
                       }
                       userDetailsAsProps={this.state.userDetails}
-                      // key={window.location.pathname}
                     />
                   )}
                 />
-              </UserDetailsContext.Provider>
+                <Route
+                  path="/dashboard/explore/:userid"
+                  component={Explore_home}
+                />
 
-              <Route
-                path="/dashboard/explore/:userid"
-                exact
-                component={Explore_home}
-              />
-
-              <Route
-                path="/dashboard/recommendations/:userid"
-                exact
-                component={Recommendations_home}
-              />
-              <Route
-                path="/dashboard/explore/compare/:userid/:dealId"
-                exact
-                component={Explore_comparison}
-              />
-            </div>
+                <Route
+                  path="/dashboard/recommendations/:userid"
+                  component={Recommendations_home}
+                />
+                <Route
+                  path="/dashboard/explore/compare/:userid/:dealId"
+                  component={Explore_comparison}
+                />
+                <Route />
+              </Switch>
+            </UserDetailsContext.Provider>
           </div>
-        </Router>
-
-        {/* <Row>
-          <Col lg={2}>
-            <Index />
-          </Col>
-          <Col lg={9} id="right-col">
-            <div>dhdh</div>
-          </Col>
-        </Row> */}
-        {/* <Navbar />
-        <ComingSoon />
-        <About />
-        <FooterForm />
-        <Footer /> */}
-      </div>
+        </div>
+      </Router>
     );
   }
 }
 
-export default App;
+export default DashBoardIndex;
