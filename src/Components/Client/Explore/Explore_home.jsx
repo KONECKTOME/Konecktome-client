@@ -153,6 +153,10 @@ class Explore_home extends Component {
       });
     }
   };
+
+  test = () => {
+    this.props.history.push("/dashboard/pay-success/62fd07bef7ac7d79b80afcdd");
+  };
   render(props) {
     return (
       <div id="explore-wrapper">
@@ -196,6 +200,7 @@ class Explore_home extends Component {
                     {this.state.deals.map((deal) => {
                       return (
                         <div className="card">
+                          <div onClick={() => this.test()}>test</div>
                           <div id="image-holder">
                             <img
                               src={image_placeholder}

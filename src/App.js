@@ -132,6 +132,7 @@ class App extends Component {
                 />
                 <Route
                   path="/dashboard/pay-success/:userid"
+                  exact
                   render={(props) => (
                     <PaymentSuccess
                       fetchUser={() => this.getUser()}

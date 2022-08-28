@@ -17,6 +17,7 @@ class ExploreUserDetails extends Component {
     showAddress: false,
     paymentLoader: false,
     displayInstallationInfo: false,
+    lessThan18: false,
   };
 
   editProfessionAndDOB = async (e) => {
@@ -70,6 +71,11 @@ class ExploreUserDetails extends Component {
           error: true,
         });
         setTimeout(() => this.setState({ error: false }), 1500);
+      } else if (details.message === "Age Cannot Be Less Than 18") {
+        this.setState({
+          lessThan18: true,
+        });
+        setTimeout(() => this.setState({ lessThan18: false }), 1500);
       }
     }
   };
@@ -151,6 +157,11 @@ class ExploreUserDetails extends Component {
                     {this.state.emptyfields === true ? (
                       <div className="password-error-notification-holder">
                         <p>Input Fields Cannot be EMpty</p>
+                      </div>
+                    ) : null}
+                    {this.state.lessThan18 === true ? (
+                      <div className="password-error-notification-holder">
+                        <p>Age Cannot Be Less Than 18</p>
                       </div>
                     ) : null}
                     <div

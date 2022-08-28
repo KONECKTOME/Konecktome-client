@@ -1,0 +1,50 @@
+#payment-success-holder {
+  display: flex;
+  justify-content: center;
+  margin-top: 13rem;
+}
+
+#payment-success-holder > div {
+  background: #ffffff;
+  box-shadow: 1px 0px 14px #f2f2f2;
+  border-radius: 5px;
+  padding: 3rem;
+  width: 80%;
+}
+
+#payment-success-image-holder {
+  display: flex;
+  justify-content: center;
+}
+
+#payment-success-header {
+  font-family: Poppins Bold;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 48px;
+  text-align: center;
+  color: #008000;
+}
+
+#payment-success-tran-details {
+  display: flex;
+  justify-content: space-around;
+  margin: 3rem 0 3rem 0;
+}
+
+.payment-success-button {
+  margin: 0 auto;
+}
+
+#payment-success-image-holder > div {
+  width: 50%;
+  height: 45px;
+  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+  opacity: 0.9;
+  border-radius: 90em;
+  text-align: center;
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
