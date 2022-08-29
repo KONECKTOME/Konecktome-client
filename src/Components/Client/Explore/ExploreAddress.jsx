@@ -53,6 +53,12 @@ class ExploreAddress extends Component {
 
   sendAddress = async (e) => {
     e.preventDefault();
+    console.log("arrival", this.state.dateOfArrival);
+    console.log(this.state.addressDetails.buildingName);
+    console.log(this.state.addressDetails.addressLine1);
+    console.log(this.state.addressDetails.town);
+    console.log(this.state.addressDetails.city);
+    console.log(this.state.dateOfDeparture);
     if (
       this.state.addressDetails.buildingName === "" ||
       this.state.addressDetails.addressLine1 === "" ||
@@ -94,8 +100,6 @@ class ExploreAddress extends Component {
           timeOutLoader: true,
           currentAddress: false,
           deliveryAddress: false,
-          dateOfArrival: "",
-          dateOfDeparture: "",
         });
         setTimeout(() => {
           const findDeliveryAddress =
@@ -392,6 +396,7 @@ class ExploreAddress extends Component {
                       type="date"
                       placeholder="dd-mm-yyyy"
                       id="dateOfArrival"
+                      value={this.state.dateOfArrival}
                       className={
                         this.props.renderAddressAndUserDetails === true
                           ? "explore-address-input-both"
@@ -411,7 +416,8 @@ class ExploreAddress extends Component {
                     <input
                       type="date"
                       placeholder="dd-mm-yyyy"
-                      id="dateOfArrival"
+                      id="dateOfDeparture"
+                      value={this.state.dateOfDeparture}
                       className={
                         this.props.renderAddressAndUserDetails === true
                           ? "explore-address-input-both"

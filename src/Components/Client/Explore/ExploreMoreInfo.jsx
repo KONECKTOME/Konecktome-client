@@ -85,6 +85,7 @@ class ExploreMoreInfo extends React.Component {
             <ExploreAddress
               fetchUser={() => this.props.fetchUser()}
               deal={this.props.deal}
+              userId={this.props.userDetails._id}
               userDetails={this.props.userDetails}
               populateBoughtDeal={(installationDateAndTime) =>
                 this.props.populateBoughtDeal(installationDateAndTime)
