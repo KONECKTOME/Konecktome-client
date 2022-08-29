@@ -108,6 +108,9 @@ class Explore_details extends React.Component {
                 }
                 fetchUser={() => this.props.fetchUser()}
                 deal={this.state.deal}
+                populateBoughtDeal={(installationDateAndTime) =>
+                  this.props.populateBoughtDeal(installationDateAndTime)
+                }
               />
             ) : (
               <>

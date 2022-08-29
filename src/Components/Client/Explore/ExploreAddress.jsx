@@ -27,6 +27,8 @@ class ExploreAddress extends Component {
     dateOfDeparture: "",
     showAddressHolder: false,
     displayInstallationInfo: false,
+    sentSuccessWithDelivery: false,
+    timeOutLoader: false,
   };
 
   hideAddressHolder = () => {
@@ -67,7 +69,7 @@ class ExploreAddress extends Component {
         {
           method: "POST",
           body: JSON.stringify({
-            userId: this.props.userId,
+            userId: this.props.userDetails._id,
             addressId: null,
             buildingName: this.state.addressDetails.buildingName,
             addressLine1: this.state.addressDetails.addressLine1,
@@ -75,6 +77,7 @@ class ExploreAddress extends Component {
             town: this.state.addressDetails.town,
             city: this.state.addressDetails.city,
             currentAddress: this.state.currentAddress,
+            deliveryAddress: this.state.deliveryAddress,
             postCode: this.state.addressDetails.postCode,
             dateOfArrival: this.fixDateString(this.state.dateOfArrival),
             dateOfDeparture: this.fixDateString(this.state.dateOfDeparture),
@@ -86,9 +89,29 @@ class ExploreAddress extends Component {
       );
       const details = await response.json();
       if (details.message === "Address added") {
-        this.setState({ sentSuccess: true });
-        // setTimeout(() => this.setState({ sentSuccess: false }), 1500);
         this.props.fetchUser();
+        this.setState({
+          timeOutLoader: true,
+          currentAddress: false,
+          deliveryAddress: false,
+          dateOfArrival: "",
+          dateOfDeparture: "",
+        });
+        setTimeout(() => {
+          const findDeliveryAddress =
+            this.props.userDetails.addressHistory.filter(
+              (item) => item.deliveryAddress === true
+            );
+          if (findDeliveryAddress.length !== 0) {
+            this.setState({ timeOutLoader: false, sentSuccess: true });
+            // setTimeout(() => this.setState({ sentSuccess: false }), 1500);
+          } else {
+            this.setState({
+              timeOutLoader: false,
+              sentSuccessWithDelivery: true,
+            });
+          }
+        }, 1500);
       } else if (
         details.message ===
         "Date Of Arrival cannot be more than Date Of Departure"
@@ -114,9 +137,10 @@ class ExploreAddress extends Component {
         city: "",
         postCode: "",
       },
-      sentSuccess: false,
       dateOfArrival: "",
       dateOfDeparture: "",
+      sentSuccess: false,
+      sentSuccessWithDelivery: false,
     });
   };
 
@@ -133,6 +157,9 @@ class ExploreAddress extends Component {
             userId={this.props.userId}
             fetchUser={() => this.props.fetchUser()}
             deal={this.props.deal}
+            populateBoughtDeal={(installationDateAndTime) =>
+              this.props.populateBoughtDeal(installationDateAndTime)
+            }
           />
         ) : (
           <div>
@@ -452,6 +479,19 @@ class ExploreAddress extends Component {
                     </p>
                   </div>
                 ) : null}
+                {this.state.sentSuccessWithDelivery === true ? (
+                  <div
+                    className="success-notification-holder"
+                    id="expore-address-error"
+                  >
+                    <p>
+                      Address Has Been Saved but Delivery Address Required,{" "}
+                      <span onClick={() => this.addNewAddress()}>
+                        Add Delivery Address Here{" "}
+                      </span>{" "}
+                    </p>
+                  </div>
+                ) : null}
                 {this.state.sentError === true ? (
                   <div
                     className="error-notification-holder"
@@ -461,12 +501,24 @@ class ExploreAddress extends Component {
                   </div>
                 ) : null}
 
+                {this.state.paymentLoader === true ? (
+                  <div id="explore-loading"></div>
+                ) : (
+                  <p className="desktop-medium-button-text">
+                    Proceed To Payment
+                  </p>
+                )}
+
                 <div
                   className="desktop-big-button"
                   id="explore-send-address"
                   onClick={(e) => this.sendAddress(e)}
                 >
-                  <p className="desktop-big-button-text">Save Address</p>
+                  {this.state.timeOutLoader === true ? (
+                    <div id="explore-loading"></div>
+                  ) : (
+                    <p className="desktop-big-button-text">Save Address</p>
+                  )}
                 </div>
               </form>
             </div>

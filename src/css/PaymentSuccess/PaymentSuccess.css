@@ -1,7 +1,7 @@
 #payment-success-holder {
   display: flex;
   justify-content: center;
-  margin-top: 13rem;
+  margin-top: 9rem;
 }
 
 #payment-success-holder > div {
@@ -9,6 +9,7 @@
   box-shadow: 1px 0px 14px #f2f2f2;
   border-radius: 5px;
   padding: 3rem;
+  height: fit-content;
   width: 80%;
 }
 
@@ -47,4 +48,21 @@
   padding-top: 1rem;
   margin-bottom: 1.5rem;
   cursor: pointer;
+}
+#loader-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.loader {
+  transform: perspective(140px) rotateX(-45deg);
+  width: 32px;
+  height: 72px;
+  position: relative;
+  border: 2px solid #000000;
+  animation: load 1s linear infinite;
+
+  /* -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }

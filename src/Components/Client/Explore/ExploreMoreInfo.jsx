@@ -72,6 +72,9 @@ class ExploreMoreInfo extends React.Component {
               userId={this.props.userDetails._id}
               fetchUser={() => this.props.fetchUser()}
               deal={this.props.deal}
+              populateBoughtDeal={(installationDateAndTime) =>
+                this.props.populateBoughtDeal(installationDateAndTime)
+              }
             />
           </div>
         ) : (
@@ -80,9 +83,12 @@ class ExploreMoreInfo extends React.Component {
         {this.state.addressStatus === true ? (
           <div>
             <ExploreAddress
-              userId={this.props.userDetails._id}
               fetchUser={() => this.props.fetchUser()}
               deal={this.props.deal}
+              userDetails={this.props.userDetails}
+              populateBoughtDeal={(installationDateAndTime) =>
+                this.props.populateBoughtDeal(installationDateAndTime)
+              }
             />
           </div>
         ) : null}
@@ -92,6 +98,9 @@ class ExploreMoreInfo extends React.Component {
               userId={this.props.userDetails._id}
               fetchUser={() => this.props.fetchUser()}
               deal={this.props.deal}
+              populateBoughtDeal={(installationDateAndTime) =>
+                this.props.populateBoughtDeal(installationDateAndTime)
+              }
             />
           </div>
         ) : null}

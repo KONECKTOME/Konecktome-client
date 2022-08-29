@@ -27,7 +27,8 @@ class App extends Component {
     userDetails: {},
     dealDetails: [],
     loading: false,
-    paidDeal: "",
+    installationDateAndTime:
+      "10 Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   };
 
   componentDidMount = async () => {
@@ -62,12 +63,12 @@ class App extends Component {
     this.setState({ dealDetails });
   };
 
-  populateBoughtDeal = (dealName) => {
-    this.setState({ paidDeal: dealName });
+  populateBoughtDeal = (installationDateAndTime) => {
+    this.setState({ installationDateAndTime });
   };
 
   resetBoughtDeal = () => {
-    this.setState({ paidDeal: "" });
+    this.setState({ installationDateAndTime: "" });
   };
   render() {
     const userDetails = this.state.userDetails;
@@ -131,13 +132,17 @@ class App extends Component {
                   component={Wishlist}
                 />
                 <Route
-                  path="/dashboard/pay-success/:userid"
+                  path="/dashboard/pay-success/:userid/:dealId"
                   exact
                   render={(props) => (
                     <PaymentSuccess
                       fetchUser={() => this.getUser()}
+                      installationDateAndTime={
+                        this.state.installationDateAndTime
+                      }
                       boughtDeal={this.state.paidDeal}
                       resetBoughtDeal={() => this.resetBoughtDeal()}
+                      userDetails={this.state.userDetails}
                       {...props}
                     />
                   )}

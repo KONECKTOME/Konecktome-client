@@ -155,7 +155,9 @@ class Explore_home extends Component {
   };
 
   test = () => {
-    this.props.history.push("/dashboard/pay-success/62fd07bef7ac7d79b80afcdd");
+    this.props.history.push(
+      "/dashboard/pay-success/62fd07bef7ac7d79b80afcdd/62ee692e4d3fdd05f6bc969c"
+    );
   };
   render(props) {
     return (

@@ -21,32 +21,37 @@ class ExploreInstallationInfo extends Component {
   };
 
   proceedToPayment = async () => {
-    this.setState({ paymentLoader: true });
-    const productNameConcat =
-      this.props.deal[0].dealName +
-      " " +
-      "By" +
-      " " +
-      this.props.deal[0].companyName;
-    const response = await fetch(
-      `http://localhost:3002/payment/create-product-price`,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          userId: this.props.userId,
-          productName: productNameConcat,
-          subscribePrice: this.props.deal[0].dealPrice,
-          oneOffprice: this.props.deal[0].dealContractPlans[0].setUpFee,
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
+    if (this.state.selectedInstallationDateAndTime === "") {
+      alert("Please pick a date and time");
+    } else {
+      this.setState({ paymentLoader: true });
+      this.props.populateBoughtDeal(this.state.selectedInstallationDateAndTime);
+      const productNameConcat =
+        this.props.deal[0].dealName +
+        " " +
+        "By" +
+        " " +
+        this.props.deal[0].companyName;
+      const response = await fetch(
+        `http://localhost:3002/payment/create-product-price`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            userId: this.props.userId,
+            productName: productNameConcat,
+            subscribePrice: this.props.deal[0].dealPrice,
+            oneOffprice: this.props.deal[0].dealContractPlans[0].setUpFee,
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const details = await response.json();
+      if (details.url) {
+        window.location.href = details.url;
+        this.setState({ paymentLoader: false });
       }
-    );
-    const details = await response.json();
-    if (details.url) {
-      window.location.href = details.url;
-      this.setState({ paymentLoader: false });
     }
   };
 
