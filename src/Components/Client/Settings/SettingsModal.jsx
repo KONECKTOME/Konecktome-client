@@ -25,7 +25,6 @@ class SettingsModal extends React.Component {
   };
 
   autoTab = (current, to) => {
-    alert(current);
     if (
       current.getAttribute &&
       current.value.length == current.getAttribute("maxlength")
@@ -107,6 +106,13 @@ class SettingsModal extends React.Component {
                         id="pin1"
                         value={this.state.pin.pin1}
                         onChange={(e) => this.updatePinDetails(e)}
+                        maxLength={1}
+                        onInput={() =>
+                          this.autoTab(
+                            document.pinForm.pin1,
+                            document.pinForm.pin2
+                          )
+                        }
                       />
                       <input
                         type="text"
@@ -115,18 +121,32 @@ class SettingsModal extends React.Component {
                         name="pin2"
                         value={this.state.pin.pin2}
                         onChange={(e) => this.updatePinDetails(e)}
+                        onInput={() =>
+                          this.autoTab(
+                            document.pinForm.pin2,
+                            document.pinForm.pin3
+                          )
+                        }
                       />
                       <input
                         type="text"
                         maxlength="1"
                         id="pin3"
+                        name="pin3"
                         value={this.state.pin.pin3}
                         onChange={(e) => this.updatePinDetails(e)}
+                        onInput={() =>
+                          this.autoTab(
+                            document.pinForm.pin3,
+                            document.pinForm.pin4
+                          )
+                        }
                       />
                       <input
                         type="text"
                         maxlength="1"
                         id="pin4"
+                        name="pin4"
                         value={this.state.pin.pin4}
                         onChange={(e) => this.updatePinDetails(e)}
                       />

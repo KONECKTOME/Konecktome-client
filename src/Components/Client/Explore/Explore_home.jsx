@@ -19,6 +19,7 @@ class Explore_home extends Component {
     showComparePage: false,
     checkedItems: [],
     checked: false,
+    batchValue: 6,
   };
 
   componentDidMount = async () => {
@@ -154,6 +155,11 @@ class Explore_home extends Component {
     }
   };
 
+  batchLoader = () => {
+    let numberOfDealItems = this.state.deals.length;
+    this.setState({ batchValue: this.state.batchValue + 3 });
+  };
+
   test = () => {
     this.props.history.push(
       "/dashboard/pay-success/62fd07bef7ac7d79b80afcdd/62ee692e4d3fdd05f6bc969c"
@@ -199,79 +205,86 @@ class Explore_home extends Component {
                         : null
                     }
                   >
-                    {this.state.deals.map((deal) => {
-                      return (
-                        <div className="card">
-                          <div onClick={() => this.test()}>test</div>
-                          <div id="image-holder">
-                            <img
-                              src={image_placeholder}
-                              className="card-image"
-                            />
-                          </div>
-                          <div className="card-inner-first-div">
-                            <p className="desktop-sub-header2">
-                              {deal.dealName} By {deal.companyName}
-                            </p>
-                            <div>
-                              <p>Stars</p>
-                              <p>{deal.trustPilotRating}</p>
+                    {this.state.deals
+                      .slice(0, this.state.batchValue)
+                      .map((deal) => {
+                        return (
+                          <div className="card">
+                            <div onClick={() => this.test()}>test</div>
+                            <div id="image-holder">
+                              <img
+                                // src={deal.companyLogo}
+                                src={image_placeholder}
+                                className="card-image"
+                              />
                             </div>
-                          </div>
-                          <div>
-                            <div className="desktop-badge1">
-                              <p className="desktop-badge-text">{deal.tag}</p>
-                            </div>
-                          </div>
-                          <div id="account-card-footer">
-                            <div id="explore-compare-holder">
-                              <label
-                                for="compare"
-                                className="desktop-price"
-                                id="compare-label"
-                              >
-                                <input
-                                  value={deal.dealName}
-                                  id={deal.dealName}
-                                  type="checkbox"
-                                  onChange={(e) =>
-                                    this.showCompare(
-                                      deal.dealName,
-                                      deal.dealPrice,
-                                      deal.features,
-                                      deal.dealContractPlans,
-                                      e
-                                    )
-                                  }
-                                />
-
-                                <span>Compare</span>
-                              </label>
-                            </div>
-                            <div>
-                              <p className="desktop-price"> Price</p>
-                              <p className="desktop-price-number">
-                                £{deal.dealPrice}
+                            <div className="card-inner-first-div">
+                              <p className="desktop-sub-header2">
+                                {deal.dealName} By {deal.companyName}
                               </p>
                             </div>
                             <div>
-                              <Link
-                                className="links"
-                                to={
-                                  "/dashboard/explore/details/" +
-                                  this.props.match.params.userid +
-                                  "/" +
-                                  deal._id
-                                }
-                              >
-                                <p className="desktop-cta">View details</p>
-                              </Link>
+                              <div className="desktop-badge1">
+                                <p className="desktop-badge-text">{deal.tag}</p>
+                              </div>
+                            </div>
+                            <div id="account-card-footer">
+                              <div id="explore-compare-holder">
+                                <label
+                                  for="compare"
+                                  className="desktop-price"
+                                  id="compare-label"
+                                >
+                                  <input
+                                    value={deal.dealName}
+                                    id={deal.dealName}
+                                    type="checkbox"
+                                    onChange={(e) =>
+                                      this.showCompare(
+                                        deal.dealName,
+                                        deal.dealPrice,
+                                        deal.features,
+                                        deal.dealContractPlans,
+                                        e
+                                      )
+                                    }
+                                  />
+
+                                  <span id="input-compare-text">Compare</span>
+                                </label>
+                              </div>
+                              <div>
+                                <p className="desktop-price"> Price</p>
+                                <p className="desktop-price-number">
+                                  £{deal.dealPrice}
+                                </p>
+                              </div>
+                              <div>
+                                <Link
+                                  className="links"
+                                  to={
+                                    "/dashboard/explore/details/" +
+                                    this.props.match.params.userid +
+                                    "/" +
+                                    deal._id
+                                  }
+                                >
+                                  <p className="desktop-cta">View details</p>
+                                </Link>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
                   </div>
+                </div>
+                <div className="desktop-big-button" id="explore-send-address">
+                  <p
+                    className="desktop-big-button-text"
+                    onClick={() => this.batchLoader()}
+                  >
+                    Load More
+                  </p>
                 </div>
               </div>
             ) : (

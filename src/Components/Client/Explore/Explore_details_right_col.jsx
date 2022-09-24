@@ -53,7 +53,7 @@ class Explore_details_right_col extends React.Component {
     oneOffprice
   ) => {
     if (
-      this.props.userDetails.moreInfoNeeded === true ||
+      this.props.userDetails.moreInfoNeeded === false ||
       this.props.userDetails.addressHistory.length == 0
     ) {
       this.props.moreInfoNeededFn();

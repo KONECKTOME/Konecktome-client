@@ -11,7 +11,12 @@ import { useEffect } from "react";
 
 const History_home = (props) => {
   const [loading, setLoading] = useState(false);
+  const [batchValue, setBatchValue] = useState(10);
   const { userDetails } = useContext(UserDetailsContext);
+
+  const batchLoader = () => {
+    setBatchValue(batchValue + 6);
+  };
 
   return (
     <>
@@ -52,41 +57,51 @@ const History_home = (props) => {
               <p className="desktop-sub-header2">Description</p>
             </th> */}
                 </tr>
-                {userDetails.transactionHistory.map((tt) => {
-                  return (
-                    <tr id="history_account_items">
-                      <td>
-                        <Row>
-                          <Col lg={2}>
-                            <div className="small-profile-image-container">
-                              <img
-                                src={profileSettingPlaceholder}
-                                className="small-profile-image"
-                              />
-                            </div>
-                          </Col>
-                          <Col lg={10}>
-                            <p className="desktop-text history-service-provider-text">
-                              {tt.dealName}
-                            </p>
-                          </Col>
-                        </Row>
-                      </td>
-                      <td>
-                        <p className="desktop-text">
-                          {tt.dateOfTransaction} : {tt.timeOfTransaction}
-                        </p>
-                      </td>
-                      <td className="settings_account_type_date_text">
-                        <p className="desktop-text">£ {tt.oneOffPrice}</p>
-                      </td>
-                      <td>
-                        <p className="desktop-text">£ {tt.subscriptionPrice}</p>
-                      </td>
-                    </tr>
-                  );
-                })}
+                {userDetails.transactionHistory
+                  .reverse()
+                  .slice(0, batchValue)
+                  .map((tt) => {
+                    return (
+                      <tr id="history_account_items">
+                        <td>
+                          <Row>
+                            <Col lg={2}>
+                              <div className="small-profile-image-container">
+                                <img
+                                  src={profileSettingPlaceholder}
+                                  className="small-profile-image"
+                                />
+                              </div>
+                            </Col>
+                            <Col lg={10}>
+                              <p className="desktop-text history-service-provider-text">
+                                {tt.dealName}
+                              </p>
+                            </Col>
+                          </Row>
+                        </td>
+                        <td>
+                          <p className="desktop-text">
+                            {tt.dateOfTransaction} : {tt.timeOfTransaction}
+                          </p>
+                        </td>
+                        <td className="settings_account_type_date_text">
+                          <p className="desktop-text">£ {tt.oneOffPrice}</p>
+                        </td>
+                        <td>
+                          <p className="desktop-text">
+                            £ {tt.subscriptionPrice}
+                          </p>
+                        </td>
+                      </tr>
+                    );
+                  })}
               </table>
+              <div className="desktop-big-button" id="explore-send-address">
+                <p className="desktop-big-button-text" onClick={batchLoader}>
+                  Load More
+                </p>
+              </div>
             </div>
           ) : (
             <div className="empty-services-holder">

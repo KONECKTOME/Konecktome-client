@@ -151,6 +151,10 @@ class Settings_profile extends React.Component {
     //   alert("error in user details");
     // }
   };
+
+  test = (e) => {
+    alert("here");
+  };
   render() {
     return (
       <>
@@ -213,11 +217,7 @@ class Settings_profile extends React.Component {
                           type="date"
                           id="dob"
                           value={this.state.dob}
-                          onChange={(e) =>
-                            this.setState({
-                              dob: e.currentTarget.value,
-                            })
-                          }
+                          onChange={(e) => this.test(e)}
                         />
                       </div>
                     </div>

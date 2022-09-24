@@ -70,6 +70,7 @@ class ExploreMoreInfo extends React.Component {
                 this.state.renderAddressAndUserDetails
               }
               userId={this.props.userDetails._id}
+              userDetails={this.props.userDetails}
               fetchUser={() => this.props.fetchUser()}
               deal={this.props.deal}
               populateBoughtDeal={(installationDateAndTime) =>
@@ -97,6 +98,7 @@ class ExploreMoreInfo extends React.Component {
           <div className="explore-more-info-holder">
             <ExploreUserDetails
               userId={this.props.userDetails._id}
+              userDetails={this.props.userDetails}
               fetchUser={() => this.props.fetchUser()}
               deal={this.props.deal}
               populateBoughtDeal={(installationDateAndTime) =>

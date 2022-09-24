@@ -22,12 +22,11 @@ class ExploreUserDetails extends Component {
 
   editProfessionAndDOB = async (e) => {
     e.preventDefault();
-    console.log("from user details", this.props.deal);
+
     if (
       this.state.userDetails.profession === "" ||
       this.state.userDetails.phone === "" ||
-      this.state.userDetails.gender === "" ||
-      this.state.dob === ""
+      this.state.userDetails.gender === ""
     ) {
       this.setState({ emptyfields: true });
       setTimeout(() => this.setState({ emptyfields: false }), 1500);
@@ -60,9 +59,11 @@ class ExploreUserDetails extends Component {
               gender: "",
               dob: "",
             },
-            showAddress: true,
           });
-          setTimeout(() => this.setState({ success: false }), 1500);
+          setTimeout(
+            () => this.setState({ success: false, showAddress: true }),
+            1500
+          );
         } else {
           this.setState({ displayInstallationInfo: true });
         }
@@ -92,13 +93,17 @@ class ExploreUserDetails extends Component {
         {this.state.displayInstallationInfo === true ? (
           <ExploreInstallationInfo
             userId={this.props.userId}
+            userDetails={this.props.userDetails}
             fetchUser={() => this.props.fetchUser()}
             deal={this.props.deal}
           />
         ) : (
           <div>
             {this.state.showAddress === true ? (
-              <ExploreAddress />
+              <ExploreAddress
+                userDetails={this.props.userDetails}
+                fetchUser={() => this.props.fetchUser()}
+              />
             ) : (
               <div>
                 <div id="settings_password_security_wrapper">
@@ -146,7 +151,7 @@ class ExploreUserDetails extends Component {
                     </form>
                     {this.state.success === true ? (
                       <div className="password-success-notification-holder">
-                        <p>Details Updates</p>
+                        <p>Details Updated</p>
                       </div>
                     ) : null}
                     {this.state.error === true ? (

@@ -78,9 +78,15 @@
 }
 
 #explore-compare-holder input[type="checkbox"] {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   margin-bottom: 1rem;
+  float: left;
+}
+
+#input-compare-text {
+  overflow: auto;
+  margin-left: 1rem;
 }
 
 #explore-compare-holder input[type="checkbox"]:checked {
@@ -88,6 +94,7 @@
 }
 
 #compare-label {
+  display: inline-block;
 }
 
 #explore-compare-items-wrapper {

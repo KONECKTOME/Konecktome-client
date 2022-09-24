@@ -5,7 +5,19 @@ import ExploreInstallationInfo from "./ExploreInstallationInfo";
 
 class ExploreAddress extends Component {
   state = {
-    addresses: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    addresses: [
+      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
+      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
+      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
+      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
+      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
+      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
+      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
+      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
+      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
+      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
+      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
+    ],
     postCode: "",
     userAddress: "",
     addressSelected: false,
@@ -29,10 +41,15 @@ class ExploreAddress extends Component {
     displayInstallationInfo: false,
     sentSuccessWithDelivery: false,
     timeOutLoader: false,
+    checkingPostCodeloader: false,
   };
 
   hideAddressHolder = () => {
-    this.setState({ showAddressHolder: false });
+    this.setState({
+      showAddressHolder: false,
+      postCode: "",
+      checkingPostCodeloader: false,
+    });
   };
 
   updateAddressDetails = (e) => {
@@ -51,14 +68,32 @@ class ExploreAddress extends Component {
     return arr;
   };
 
+  isValidPostcode = (p) => {
+    var postcodeRegEx = /[A-Z]{1,2}[A-Z0-9]{1,2} ?[0-9][A-Z]{2}/i;
+    var regexp =
+      /^[A-Z]{1,2}[0-9RCHNQ][0-9A-Z]?\s?[0-9][ABD-HJLNP-UW-Z]{2}$|^[A-Z]{2}-?[0-9]{4}$/;
+    return regexp.test(p);
+  };
+
+  fetchAddressViaPostCode = (postCode) => {
+    this.setState({ showAddressHolder: true, checkingPostCodeloader: true });
+    var capitilizePostCode = postCode.toUpperCase();
+    if (this.isValidPostcode(capitilizePostCode) == true) {
+      this.setState({ checkingPostCodeloader: false });
+      alert("call function");
+    }
+  };
+
+  getAddressFromPostCode = async () => {
+    this.setState({ showAddressHolder: true });
+  };
+
+  selectPostCode = (postCode) => {
+    this.setState({ postCode, showAddressHolder: false });
+  };
+
   sendAddress = async (e) => {
     e.preventDefault();
-    console.log("arrival", this.state.dateOfArrival);
-    console.log(this.state.addressDetails.buildingName);
-    console.log(this.state.addressDetails.addressLine1);
-    console.log(this.state.addressDetails.town);
-    console.log(this.state.addressDetails.city);
-    console.log(this.state.dateOfDeparture);
     if (
       this.state.addressDetails.buildingName === "" ||
       this.state.addressDetails.addressLine1 === "" ||
@@ -126,10 +161,6 @@ class ExploreAddress extends Component {
     }
   };
 
-  getAddressFromPostCode = async () => {
-    this.setState({ showAddressHolder: true });
-  };
-
   addNewAddress = () => {
     this.setState({
       addressDetails: {
@@ -153,6 +184,7 @@ class ExploreAddress extends Component {
       displayInstallationInfo: true,
     });
   };
+
   render() {
     return (
       <div>
@@ -186,12 +218,15 @@ class ExploreAddress extends Component {
                         type="text"
                         placeholder="Enter post code"
                         className="check-post-code"
-                        // value={this.state.postCode}
-                        // onChange={(e) =>
-                        //   this.setState({
-                        //     postCode: e.currentTarget.value,
-                        //   })
-                        // }
+                        onKeyUp={(e) =>
+                          this.fetchAddressViaPostCode(e.currentTarget.value)
+                        }
+                        value={this.state.postCode}
+                        onChange={(e) =>
+                          this.setState({
+                            postCode: e.currentTarget.value,
+                          })
+                        }
                       />
                       <div
                         id="explore-address-close-btn"
@@ -202,19 +237,25 @@ class ExploreAddress extends Component {
                     </div>
                     {this.state.showAddressHolder === true ? (
                       <div id="address-dropdown-holder">
-                        <ul>
-                          <li className="desktop-sub-header2">
-                            Select Your Address
-                          </li>
-                          {this.state.addresses.map((item) => {
-                            return (
-                              <li className="desktop-text">
-                                Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Molestiae ipsum
-                              </li>
-                            );
-                          })}
-                        </ul>
+                        {this.state.checkingPostCodeloader === true ? (
+                          <p>Loading</p>
+                        ) : (
+                          <ul>
+                            <li className="desktop-sub-header2">
+                              Select Your Address
+                            </li>
+                            {this.state.addresses.map((item) => {
+                              return (
+                                <li
+                                  className="desktop-text"
+                                  onClick={() => this.selectPostCode(item)}
+                                >
+                                  {item}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        )}
                       </div>
                     ) : null}
                   </Col>

@@ -41,68 +41,99 @@ const Navbar = () => {
 
   return (
     <div id="nav-wrapper">
-      <div id="nav-right-wrapper">
-        <div id="nav-right">
-          <div id="nav-image" className="nav-right-item">
-            <img
-              src={
-                userDetails.imageUrl === undefined || !userDetails.imageUrl
-                  ? placeholder_image
-                  : userDetails.imageUrl
-              }
-              id="nav-img"
-            />
-          </div>
-          <div id="notifcations-holder">
-            <div
-              className="nav-right-item nav-right-item-text"
-              onClick={() => displayNotificationsFn()}
-            >
-              <div id="notifications-badge">
-                <p>1</p>
-              </div>
-              <img src={notifications_icon} />
+      <ul>
+        {/* <div id="notification-wrapper">
+          <li>
+            <img src={notifications_icon} />
+            <span id="notifications-badge">1</span>
+          </li>
+        </div> */}
+        <div>
+          <li>
+            <div>
+              <p className="desktop-text nav-right-item-text">
+                {userDetails.firstName + " " + userDetails.lastName}
+              </p>
             </div>
-            <div
-              id={
-                displayNotifications === true
-                  ? "display-notification-drop-down-wrapper"
-                  : "notification-drop-down-wrapper"
-              }
-            >
-              <p id="notification-header">Notifications</p>
-              {test.map((tt) => {
-                return (
-                  <>
-                    <div
-                      id={
-                        tt.new === true
-                          ? "new-notofication-holder"
-                          : "old-notofication-holder"
-                      }
-                    >
-                      <div id="notification-drop-down-inner">
-                        <img src={placeholder_image} />
-                        <div id="notification-drop-down-inner-text">
-                          <p id="nav-notification-header">{tt.title}</p>
-                          <p id="nav-notification-text">{tt.text}</p>
-                        </div>
-                      </div>
-                      <hr id="hr-selector"></hr>
-                    </div>
-                  </>
-                );
-              })}
-            </div>
-          </div>
-          <div className="nav-right-item">
-            <p className="desktop-text nav-right-item-text">
-              {userDetails.firstName + " " + userDetails.lastName}
-            </p>
-          </div>
+          </li>
         </div>
-      </div>
+        <div>
+          <li>
+            <div id="nav-image">
+              <img
+                src={
+                  userDetails.imageUrl === undefined || !userDetails.imageUrl
+                    ? placeholder_image
+                    : userDetails.imageUrl
+                }
+                id="nav-img"
+              />
+            </div>
+          </li>
+        </div>
+      </ul>
     </div>
+    // <div id="nav-wrapper">
+    //   <div id="nav-right-wrapper">
+    //     <div id="nav-right">
+    //       <div id="nav-image" className="nav-right-item">
+    //         <img
+    //           src={
+    //             userDetails.imageUrl === undefined || !userDetails.imageUrl
+    //               ? placeholder_image
+    //               : userDetails.imageUrl
+    //           }
+    //           id="nav-img"
+    //         />
+    //       </div>
+    //       <div id="notifcations-holder">
+    //         <div
+    //           className="nav-right-item nav-right-item-text"
+    //           onClick={() => displayNotificationsFn()}
+    //         >
+    //           <span id="notifications-badge">1</span>
+    //           <img src={notifications_icon} />
+    //         </div>
+    //         <div
+    //           id={
+    //             displayNotifications === true
+    //               ? "display-notification-drop-down-wrapper"
+    //               : "notification-drop-down-wrapper"
+    //           }
+    //         >
+    //           <p id="notification-header">Notifications</p>
+    //           {test.map((tt) => {
+    //             return (
+    //               <>
+    //                 <div
+    //                   id={
+    //                     tt.new === true
+    //                       ? "new-notofication-holder"
+    //                       : "old-notofication-holder"
+    //                   }
+    //                 >
+    //                   <div id="notification-drop-down-inner">
+    //                     <img src={placeholder_image} />
+    //                     <div id="notification-drop-down-inner-text">
+    //                       <p id="nav-notification-header">{tt.title}</p>
+    //                       <p id="nav-notification-text">{tt.text}</p>
+    //                     </div>
+    //                   </div>
+    //                   <hr id="hr-selector"></hr>
+    //                 </div>
+    //               </>
+    //             );
+    //           })}
+    //         </div>
+    //       </div>
+    //       <div className="nav-right-item">
+    //         <p className="desktop-text nav-right-item-text">
+    //           {userDetails.firstName + " " + userDetails.lastName}
+    //         </p>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 
