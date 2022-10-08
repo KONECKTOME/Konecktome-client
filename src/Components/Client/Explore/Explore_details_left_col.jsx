@@ -6,15 +6,16 @@ import { Link, withRouter } from "react-router-dom";
 
 class Explore_details_left_col extends React.Component {
   state = {
-    arr: [1, 4],
     compareDeals: [],
   };
 
   componentDidMount = () => {
     this.shuffleDeals();
+    console.log("from left", this.state.compareDeals);
   };
 
-  shuffleDeals = () => {
+  shuffleDeals = async () => {
+    await console.log("from shuffle", this.props.deals);
     const removeCurrentDeal = this.props.deals.filter(
       (deal) => deal._id !== this.props.match.params.dealId
     );
@@ -22,6 +23,7 @@ class Explore_details_left_col extends React.Component {
     this.setState({
       compareDeals: shuffled,
     });
+    console.log("props", shuffled);
   };
 
   componentDidUpdate(prevProps) {

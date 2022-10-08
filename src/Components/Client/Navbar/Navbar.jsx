@@ -8,7 +8,7 @@ import { UserDetailsContext } from "../Context/UserDetailsContext";
 import "../../../css/Navbar/Navbar.css";
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const { userDetails } = useContext(UserDetailsContext);
 
   const [displayNotifications, setDisplayNotifications] = useState(false);
@@ -48,6 +48,13 @@ const Navbar = () => {
             <span id="notifications-badge">1</span>
           </li>
         </div> */}
+        <div onClick={() => props.signOut()}>
+          <li>
+            <div className="sign-out-button">
+              <p className="sign-out-button-text">Sign Out</p>
+            </div>
+          </li>
+        </div>
         <div>
           <li>
             <div>

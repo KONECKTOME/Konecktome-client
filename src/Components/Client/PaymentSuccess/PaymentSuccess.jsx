@@ -11,6 +11,7 @@ class PaymentSuccess extends React.Component {
     loading: true,
   };
   componentDidMount = async () => {
+    console.log(this.props.installationDateAndTime);
     const response = await fetch(
       `http://localhost:3002/users/update-transaction-history`,
       {
@@ -26,6 +27,7 @@ class PaymentSuccess extends React.Component {
       }
     );
     const details = await response.json();
+    console.log("tras", details);
     if (details.message) {
       this.setState({
         transactionDetails: details.message,
@@ -43,6 +45,7 @@ class PaymentSuccess extends React.Component {
           " " +
           this.state.transactionDetails.deliveryAddress[0].postCode,
       });
+      this.props.resetBoughtDeal();
     }
   };
 

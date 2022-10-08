@@ -5,9 +5,7 @@ import profileSettingPlaceholder from "../../../Assets/Quadri.jpg";
 import { Link } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import "../../../css/History/index.css";
-
 import { UserDetailsContext } from "../Context/UserDetailsContext";
-import { useEffect } from "react";
 
 const History_home = (props) => {
   const [loading, setLoading] = useState(false);

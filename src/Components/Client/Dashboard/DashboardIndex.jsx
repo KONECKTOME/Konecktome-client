@@ -79,98 +79,94 @@ class DashBoardIndex extends Component {
             <Index />
           </div>
           <div id="right-col">
-            <UserDetailsContext.Provider
-              value={{ userDetails, dealDetails, loading }}
-            >
-              <Navbar />
-              <Switch>
-                <Route
-                  path="/forgot-password"
-                  exact
-                  component={ForgotPassword}
-                />
-                <Route
-                  path="/dashboard/:userid"
-                  exact
-                  render={(props) => (
-                    <Dashboard_home
-                      fetchUser={() => this.getUser()}
-                      {...props}
-                    />
-                  )}
-                />
-                <Route
-                  path="/dashboard/settings/:userid"
-                  exact
-                  render={(props) => (
-                    <Settings_home
-                      fetchUser={() => this.getUser()}
-                      {...props}
-                    />
-                  )}
-                />
-                <Route
-                  path="/dashboard/account/:userid"
-                  component={Account_home}
-                />
-                <Route
-                  path="/dashboard/history/:userid"
-                  component={History_home}
-                  userDetails={this.state.userDetails}
-                  {...props}
-                />
-                <Route
-                  path="/dashboard/notifications/:userid"
-                  component={Notifications_home}
-                />
-                <Route
-                  path="/dashboard/favourites/:userid"
-                  component={Favourites_home}
-                />
-                <Route
-                  path="/dashboard/wishlist/:userid"
-                  component={Wishlist}
-                />
-                <Route
-                  path="/dashboard/paysuccess/:userid"
-                  render={(props) => (
-                    <PaymentSuccess
-                      fetchUser={() => this.getUser()}
-                      boughtDeal={this.state.paidDeal}
-                      resetBoughtDeal={() => this.resetBoughtDeal()}
-                      {...props}
-                    />
-                  )}
-                />
-                <Route
-                  path="/dashboard/explore/details/:userid/:dealId"
-                  render={(props) => (
-                    <Explore_details
-                      fetchUser={() => this.getUser()}
-                      {...props}
-                      populateBoughtDeal={(dealName) =>
-                        this.populateBoughtDeal(dealName)
-                      }
-                      userDetailsAsProps={this.state.userDetails}
-                    />
-                  )}
-                />
-                <Route
-                  path="/dashboard/explore/:userid"
-                  component={Explore_home}
-                />
+            <Navbar />
+            {/* <Dashboard_home fetchUser={() => this.getUser()} {...props} /> */}
+            <Switch>
+              <Route
+                path="/dashboard/:userid"
+                exact
+                render={(props) => (
+                  <Dashboard_home fetchUser={() => this.getUser()} {...props} />
+                )}
+              />
+              <Route
+                path="/dashboard/settings/:userid"
+                exact
+                render={(props) => (
+                  <Settings_home fetchUser={() => this.getUser()} {...props} />
+                )}
+              />
+              <Route
+                path="/dashboard/account/:userid"
+                exact
+                component={Account_home}
+              />
+              <Route
+                path="/dashboard/history/:userid"
+                exact
+                component={History_home}
+              />
+              <Route
+                path="/dashboard/notifications/:userid"
+                exact
+                component={Notifications_home}
+              />
+              <Route
+                path="/dashboard/favourites/:userid"
+                exact
+                component={Favourites_home}
+              />
+              <Route
+                path="/dashboard/wishlist/:userid"
+                exact
+                component={Wishlist}
+              />
+              <Route
+                path="/dashboard/pay-success/:userid/:dealId"
+                exact
+                render={(props) => (
+                  <PaymentSuccess
+                    fetchUser={() => this.getUser()}
+                    installationDateAndTime={this.state.installationDateAndTime}
+                    boughtDeal={this.state.paidDeal}
+                    resetBoughtDeal={() => this.resetBoughtDeal()}
+                    userDetails={this.state.userDetails}
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/dashboard/explore/details/:userid/:dealId"
+                exact
+                render={(props) => (
+                  <Explore_details
+                    fetchUser={() => this.getUser()}
+                    {...props}
+                    populateBoughtDeal={(dealName) =>
+                      this.populateBoughtDeal(dealName)
+                    }
+                    userDetailsAsProps={this.state.userDetails}
+                    // key={window.location.pathname}
+                  />
+                )}
+              />
+              <Route
+                path="/dashboard/explore/:userid"
+                exact
+                component={Explore_home}
+              />
 
-                <Route
-                  path="/dashboard/recommendations/:userid"
-                  component={Recommendations_home}
-                />
-                <Route
-                  path="/dashboard/explore/compare/:userid/:dealId"
-                  component={Explore_comparison}
-                />
-                <Route />
-              </Switch>
-            </UserDetailsContext.Provider>
+              <Route
+                path="/dashboard/recommendations/:userid"
+                exact
+                component={Recommendations_home}
+              />
+              <Route
+                path="/dashboard/explore/compare/:userid/:dealId"
+                exact
+                component={Explore_comparison}
+              />
+            </Switch>
           </div>
         </div>
       </Router>

@@ -61,7 +61,6 @@ class Login extends React.Component {
         },
       });
       const token = await response.json();
-      console.log(token);
       if (token.newAccessToken !== "Email or pass incorrect") {
         const authorize = await fetch(
           `http://localhost:3002/users/get-user-after-login`,

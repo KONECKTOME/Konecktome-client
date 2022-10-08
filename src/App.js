@@ -18,8 +18,18 @@ import Favourites_home from "./Components/Client/Favourites/Favourites_home";
 import Wishlist from "./Components/Client/Wishlist/Wishlist";
 import Explore_details from "./Components/Client/Explore/Explore_details";
 import PaymentSuccess from "./Components/Client/PaymentSuccess/PaymentSuccess";
+import Home from "./Components/Client/LandingPage/Home";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Signup from "./Components/Client/Login & Signup/Signup";
+import Login from "./Components/Client/Login & Signup/Login";
+import ForgotPassword from "./Components/Client/Login & Signup/ForgotPassword";
 import { UserDetailsContext } from "./Components/Client/Context/UserDetailsContext";
-import { BrowserRouter as Router, Route, useParams } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  withRouter,
+} from "react-router-dom";
 import "../src/App.css";
 
 class App extends Component {
@@ -27,8 +37,7 @@ class App extends Component {
     userDetails: {},
     dealDetails: [],
     loading: false,
-    installationDateAndTime:
-      "10 Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    installationDateAndTime: "",
   };
 
   componentDidMount = async () => {
@@ -36,8 +45,22 @@ class App extends Component {
     this.getDeals();
   };
 
+  checkForLettersAndNumbers = (str) => {
+    return /^[a-zA-Z]+$/.test(str);
+  };
+
   getUser = async () => {
-    const id = this.props.match.params.userid;
+    let id = "";
+    const idInArray = this.props.location.pathname.split("/");
+    if (idInArray.length === 4) {
+      id = this.props.location.pathname.split("/")[3];
+    } else if (idInArray.length === 3) {
+      id = this.props.location.pathname.split("/")[2];
+    } else if (idInArray.length === 6) {
+      id = this.props.location.pathname.split("/")[4];
+    } else if (idInArray.length === 5) {
+      id = this.props.location.pathname.split("/")[3];
+    }
     const response = await fetch(
       `http://localhost:3002/users/get-user-by-id/${id}`,
       {
@@ -48,7 +71,7 @@ class App extends Component {
       }
     );
     const userDetails = await response.json();
-    this.setState({ userDetails });
+    this.setState({ userDetails: userDetails });
   };
 
   getDeals = async () => {
@@ -61,6 +84,7 @@ class App extends Component {
     const deals = await response.json();
     const dealDetails = [...deals].sort(() => 0.5 - Math.random());
     this.setState({ dealDetails });
+    console.log("deals from app", this.state.dealDetails);
   };
 
   populateBoughtDeal = (installationDateAndTime) => {
@@ -70,7 +94,17 @@ class App extends Component {
   resetBoughtDeal = () => {
     this.setState({ installationDateAndTime: "" });
   };
-  render() {
+
+  signOut = () => {
+    this.setState({
+      userDetails: {},
+      dealDetails: [],
+      loading: false,
+      installationDateAndTime: "",
+    });
+    window.location.href = "http://localhost:3000/login";
+  };
+  render(props) {
     const userDetails = this.state.userDetails;
     const dealDetails = this.state.dealDetails;
     const loading = this.state.loading;
@@ -79,107 +113,110 @@ class App extends Component {
         <Router>
           <div id="fe-wrapper">
             <div id="left-col">
-              <Index />
+              <Index {...props} />
             </div>
             <div id="right-col">
               <UserDetailsContext.Provider
                 value={{ userDetails, dealDetails, loading }}
               >
-                <Navbar />
-                <Route
-                  path="/dashboard/:userid"
-                  exact
-                  render={(props) => (
-                    <Dashboard_home
-                      fetchUser={() => this.getUser()}
-                      {...props}
-                    />
-                  )}
-                />
-                <Route
-                  path="/dashboard/settings/:userid"
-                  exact
-                  render={(props) => (
-                    <Settings_home
-                      fetchUser={() => this.getUser()}
-                      {...props}
-                    />
-                  )}
-                />
-                <Route
-                  path="/dashboard/account/:userid"
-                  exact
-                  component={Account_home}
-                />
-                <Route
-                  path="/dashboard/history/:userid"
-                  exact
-                  component={History_home}
-                />
-                <Route
-                  path="/dashboard/notifications/:userid"
-                  exact
-                  component={Notifications_home}
-                />
-                <Route
-                  path="/dashboard/favourites/:userid"
-                  exact
-                  component={Favourites_home}
-                />
-                <Route
-                  path="/dashboard/wishlist/:userid"
-                  exact
-                  component={Wishlist}
-                />
-                <Route
-                  path="/dashboard/pay-success/:userid/:dealId"
-                  exact
-                  render={(props) => (
-                    <PaymentSuccess
-                      fetchUser={() => this.getUser()}
-                      installationDateAndTime={
-                        this.state.installationDateAndTime
-                      }
-                      boughtDeal={this.state.paidDeal}
-                      resetBoughtDeal={() => this.resetBoughtDeal()}
-                      userDetails={this.state.userDetails}
-                      {...props}
-                    />
-                  )}
-                />
-                <Route
-                  path="/dashboard/explore/details/:userid/:dealId"
-                  exact
-                  render={(props) => (
-                    <Explore_details
-                      fetchUser={() => this.getUser()}
-                      {...props}
-                      populateBoughtDeal={(dealName) =>
-                        this.populateBoughtDeal(dealName)
-                      }
-                      userDetailsAsProps={this.state.userDetails}
-                      // key={window.location.pathname}
-                    />
-                  )}
-                />
+                <Navbar signOut={() => this.signOut()} {...props} />
+                {/* <Dashboard_home fetchUser={() => this.getUser()} {...props} /> */}
+                <Switch>
+                  <Route
+                    path="/dashboard/:userid"
+                    exact
+                    render={(props) => (
+                      <Dashboard_home
+                        fetchUser={() => this.getUser()}
+                        {...props}
+                      />
+                    )}
+                  />
+                  <Route
+                    path="/dashboard/settings/:userid"
+                    exact
+                    render={(props) => (
+                      <Settings_home
+                        fetchUser={() => this.getUser()}
+                        {...props}
+                      />
+                    )}
+                  />
+                  <Route
+                    path="/dashboard/account/:userid"
+                    exact
+                    component={Account_home}
+                  />
+                  <Route
+                    path="/dashboard/history/:userid"
+                    exact
+                    component={History_home}
+                  />
+                  <Route
+                    path="/dashboard/notifications/:userid"
+                    exact
+                    component={Notifications_home}
+                  />
+                  <Route
+                    path="/dashboard/favourites/:userid"
+                    exact
+                    component={Favourites_home}
+                  />
+                  <Route
+                    path="/dashboard/wishlist/:userid"
+                    exact
+                    component={Wishlist}
+                  />
+                  <Route
+                    path="/dashboard/pay-success/:userid/:dealId"
+                    exact
+                    render={(props) => (
+                      <PaymentSuccess
+                        fetchUser={() => this.getUser()}
+                        installationDateAndTime={
+                          this.state.installationDateAndTime
+                        }
+                        boughtDeal={this.state.paidDeal}
+                        resetBoughtDeal={() => this.resetBoughtDeal()}
+                        userDetails={this.state.userDetails}
+                        {...props}
+                      />
+                    )}
+                  />
+                  <Route
+                    path="/dashboard/explore/details/:userid/:dealId"
+                    exact
+                    render={(props) => (
+                      <Explore_details
+                        fetchUser={() => this.getUser()}
+                        populateBoughtDeal={(dealName) =>
+                          this.populateBoughtDeal(dealName)
+                        }
+                        userDetailsAsProps={this.state.userDetails}
+                        dealDetails={this.state.dealDetails}
+                        {...props}
+                        // key={window.location.pathname}
+                      />
+                    )}
+                  />
+                  <Route
+                    path="/dashboard/explore/:userid"
+                    exact
+                    component={Explore_home}
+                  />
+
+                  <Route
+                    path="/dashboard/recommendations/:userid"
+                    exact
+                    component={Recommendations_home}
+                  />
+                  <Route
+                    path="/dashboard/explore/compare/:userid/:dealId"
+                    exact
+                    component={Explore_comparison}
+                  />
+                </Switch>
               </UserDetailsContext.Provider>
-
-              <Route
-                path="/dashboard/explore/:userid"
-                exact
-                component={Explore_home}
-              />
-
-              <Route
-                path="/dashboard/recommendations/:userid"
-                exact
-                component={Recommendations_home}
-              />
-              <Route
-                path="/dashboard/explore/compare/:userid/:dealId"
-                exact
-                component={Explore_comparison}
-              />
             </div>
           </div>
         </Router>
@@ -202,4 +239,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

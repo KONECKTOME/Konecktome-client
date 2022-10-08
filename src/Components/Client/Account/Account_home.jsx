@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "../../../css/Account/index.css";
-import image_placeholder from "../../../Assets/account-card-placeholder.png";
+import { UserDetailsContext } from "../Context/UserDetailsContext";
 import Modal from "../ReviewModal/Modal";
 import Loader from "../Loader/Loader";
 import { Link } from "react-router-dom";
 
 class Account_home extends React.Component {
+  static contextType = UserDetailsContext;
   state = {
     test: [1, 2, 3, 4, 5, 6],
     showModal: false,
@@ -18,7 +19,17 @@ class Account_home extends React.Component {
   };
 
   getUser = async () => {
-    const id = this.props.match.params.userid;
+    console.log("context", this.context);
+    let id = "";
+    const idInArray = this.props.location.pathname.split("/");
+    if (idInArray.length === 4) {
+      id = this.props.location.pathname.split("/")[3];
+    } else if (idInArray.length === 3) {
+      id = this.props.location.pathname.split("/")[2];
+    } else if (idInArray.length === 6) {
+      id = this.props.location.pathname.split("/")[4];
+    }
+    console.log("from account", id);
     const response = await fetch(
       `http://localhost:3002/users/get-user-by-id/${id}`,
       {

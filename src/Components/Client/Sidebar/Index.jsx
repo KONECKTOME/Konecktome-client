@@ -28,12 +28,21 @@ class Index extends Component {
 
   componentDidMount = () => {
     this.getUserId();
-    console.log(this.props.location.pathname);
   };
 
   getUserId = () => {
-    const split = this.props.location.pathname.split("/");
-    this.setState({ userId: split[split.length - 1] });
+    let userId = "";
+    const idInArray = this.props.location.pathname.split("/");
+    if (idInArray.length === 4) {
+      userId = this.props.location.pathname.split("/")[3];
+    } else if (idInArray.length === 3) {
+      userId = this.props.location.pathname.split("/")[2];
+    } else if (idInArray.length === 6) {
+      userId = this.props.location.pathname.split("/")[4];
+    } else if (idInArray.length === 5) {
+      userId = this.props.location.pathname.split("/")[3];
+    }
+    this.setState({ userId: userId });
   };
 
   activeClass = (e) => {

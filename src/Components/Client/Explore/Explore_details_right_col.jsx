@@ -4,6 +4,7 @@ import image_placeholder from "../../../Assets/account-card-placeholder.png";
 import placeholder_image from "../../../Assets/nav-placeholder-image.png";
 import { Link, withRouter } from "react-router-dom";
 import { UserDetailsContext } from "../Context/UserDetailsContext";
+import ExploreInstallationInfo from "./ExploreInstallationInfo";
 import Loader from "../Loader/Loader";
 import { Row, Col } from "react-bootstrap";
 class Explore_details_right_col extends React.Component {
@@ -52,36 +53,14 @@ class Explore_details_right_col extends React.Component {
     subscribePrice,
     oneOffprice
   ) => {
+    console.log(this.props.userDetails.moreInfoNeeded);
     if (
-      this.props.userDetails.moreInfoNeeded === false ||
+      this.props.userDetails.moreInfoNeeded === true ||
       this.props.userDetails.addressHistory.length == 0
     ) {
       this.props.moreInfoNeededFn();
     } else {
-      const productNameConcat =
-        productName + " " + "By" + " " + serviceProvider;
-      this.setState({ paymentLoader: true });
-      const response = await fetch(
-        `http://localhost:3002/payment/create-product-price`,
-        {
-          method: "POST",
-          body: JSON.stringify({
-            userId: this.props.match.params.userid,
-            productName: productNameConcat,
-            subscribePrice: subscribePrice,
-            oneOffprice: oneOffprice,
-          }),
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      );
-      const details = await response.json();
-      if (details.url) {
-        this.props.populateBoughtDeal(productNameConcat);
-        window.location.href = details.url;
-        this.setState({ paymentLoader: false });
-      }
+      this.props.showInstallationDateAndTime();
     }
   };
 

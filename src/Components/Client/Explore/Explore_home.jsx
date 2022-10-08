@@ -103,8 +103,7 @@ class Explore_home extends Component {
         compareItems: state.compareItems.concat([compareItem]),
         compareLength: this.state.compareItems.length + 1,
       }));
-      console.log(this.state.compareLength);
-      console.log(this.state.compareItems);
+
       if (this.state.compareLength > 1) {
         this.setState({
           compareMoreThanOne: true,
@@ -160,11 +159,6 @@ class Explore_home extends Component {
     this.setState({ batchValue: this.state.batchValue + 3 });
   };
 
-  test = () => {
-    this.props.history.push(
-      "/dashboard/pay-success/62fd07bef7ac7d79b80afcdd/62ee692e4d3fdd05f6bc969c"
-    );
-  };
   render(props) {
     return (
       <div id="explore-wrapper">
@@ -210,7 +204,6 @@ class Explore_home extends Component {
                       .map((deal) => {
                         return (
                           <div className="card">
-                            <div onClick={() => this.test()}>test</div>
                             <div id="image-holder">
                               <img
                                 // src={deal.companyLogo}

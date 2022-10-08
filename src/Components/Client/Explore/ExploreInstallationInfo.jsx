@@ -38,7 +38,7 @@ class ExploreInstallationInfo extends Component {
           method: "POST",
           body: JSON.stringify({
             userId: this.props.userId,
-            dealid: this.props.deal._id,
+            dealId: this.props.deal[0]._id,
             productName: productNameConcat,
             subscribePrice: this.props.deal[0].dealPrice,
             oneOffprice: this.props.deal[0].dealContractPlans[0].setUpFee,
