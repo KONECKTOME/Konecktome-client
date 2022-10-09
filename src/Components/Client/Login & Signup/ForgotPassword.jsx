@@ -8,6 +8,8 @@ class ForgotPassword extends React.Component {
     details: {
       email: "",
     },
+    sendingResetToken: false,
+    resetTokenSent: false,
   };
 
   updateDetails = (e) => {
@@ -49,6 +51,11 @@ class ForgotPassword extends React.Component {
             </div>
           </Col>
           <Col md={6}>
+            {this.state.resetTokenSent === true ? (
+              <div>RESET TOKEN SENT</div>
+            ) : (
+              <div>Sendign tokem</div>
+            )}
             <div id="sign-up-right-col">
               <p className="desktop-header sign-up-header">Recover Password</p>
               <form>

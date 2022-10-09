@@ -1,0 +1,14 @@
+#feedback-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 10rem;
+}
+
+#feedback-wrapper > div > p {
+  text-align: center;
+  margin: 0;
+}
+
+.survey-input {
+  width: 100% !important;
+}

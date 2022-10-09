@@ -23,6 +23,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Signup from "./Components/Client/Login & Signup/Signup";
 import Login from "./Components/Client/Login & Signup/Login";
 import ForgotPassword from "./Components/Client/Login & Signup/ForgotPassword";
+import Feedback from "./Components/Client/Survey and Feedback/Feedback";
 import { UserDetailsContext } from "./Components/Client/Context/UserDetailsContext";
 import {
   BrowserRouter as Router,
@@ -43,6 +44,7 @@ class App extends Component {
   componentDidMount = async () => {
     this.getUser();
     this.getDeals();
+    console.log("app");
   };
 
   checkForLettersAndNumbers = (str) => {
@@ -153,9 +155,18 @@ class App extends Component {
                     component={History_home}
                   />
                   <Route
+                    path="/dashboard/feedback/:userid"
+                    exact
+                    component={Feedback}
+                    {...props}
+                  />
+
+                  <Route
                     path="/dashboard/notifications/:userid"
                     exact
                     component={Notifications_home}
+                    userDetails={this.state.userDetails}
+                    {...props}
                   />
                   <Route
                     path="/dashboard/favourites/:userid"

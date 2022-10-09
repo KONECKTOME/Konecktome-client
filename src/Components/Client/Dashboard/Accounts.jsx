@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../../../css/Dashboard/Accounts.css";
-import placeholder from "../../../Assets/my-placeholder.png";
 
 class Accounts extends Component {
   state = {

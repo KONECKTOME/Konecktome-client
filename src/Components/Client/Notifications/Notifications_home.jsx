@@ -8,11 +8,55 @@ class Notifications_home extends React.Component {
   static contextType = UserDetailsContext;
   state = {
     test: [1, 2, 4, 5, 6, 7, 78, 8],
+    userDetails: [],
+    loading: false,
   };
-  render() {
+
+  componentDidMount = async () => {
+    this.getUser();
+    console.log("ndm");
+  };
+
+  getUser = async () => {
+    console.log("context", this.context);
+    let id = "";
+    const idInArray = this.props.location.pathname.split("/");
+    if (idInArray.length === 4) {
+      id = this.props.location.pathname.split("/")[3];
+    } else if (idInArray.length === 3) {
+      id = this.props.location.pathname.split("/")[2];
+    } else if (idInArray.length === 6) {
+      id = this.props.location.pathname.split("/")[4];
+    }
+    console.log("from account", id);
+    const response = await fetch(
+      `http://localhost:3002/users/get-user-by-id/${id}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const userDetails = await response.json();
+    if (!userDetails.accounts) {
+      this.setState({
+        loading: true,
+      });
+    } else {
+      this.setState({
+        userDetails,
+        loading: false,
+      });
+    }
+  };
+  render(props) {
+    {
+      console.log(this.props);
+    }
     return (
       <div id="notifications_wrapper">
-        {this.context.userDetails.notifications.length === 0 ? (
+        {this.context.userDetails.transactionHistory.length == 0 ? (
           <div className="empty-services-holder">
             <p className="empty-services-text">
               You Have No Notifications Just Yet. Check Services Out

@@ -13,15 +13,13 @@ import Dashboard_home from "./Components/Client/Dashboard/Dashboard_home";
 
 ReactDOM.render(
   <React.StrictMode>
-    {console.log("index")}
+    {console.log("index here test")}
     <Router>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/signup" exact component={Signup} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/forgot-password" exact component={ForgotPassword} />
-        <App />
-      </Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/signup" exact component={Signup} />
+      <Route path="/login" exact component={Login} />
+      <Route path="/forgot-password" exact component={ForgotPassword} />
+      <Route path="/dashboard/:userid" component={App} />
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

@@ -263,7 +263,10 @@ class Index extends Component {
                 </Col>
               </Row>
             </li> */}
-            {/* <NavLink to="/survey" className="links">
+            <NavLink
+              to={"/dashboard/feedback/" + this.state.userId}
+              className="links"
+            >
               <li id="nav-items-list">
                 <Row>
                   <Col lg={2}>
@@ -280,7 +283,7 @@ class Index extends Component {
                   </Col>
                 </Row>
               </li>
-            </NavLink> */}
+            </NavLink>
             {/* <li>
               <Row>
                 <Col lg={2}>

@@ -87,6 +87,7 @@ class ExploreUserDetails extends Component {
     userDetails[id] = e.currentTarget.value;
     this.setState({ userDetails });
   };
+
   render() {
     return (
       <>

@@ -101,3 +101,24 @@
   line-height: 21px;
   color: #ab7ab6;
 }
+
+#reset-pin-spinner {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 3px solid black;
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+#reset-pin-spinner-holder {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* #reset-pin-spinner-holder > p {
+  font-size: 32px;
+} */

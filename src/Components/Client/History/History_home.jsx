@@ -1,20 +1,49 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
-import placeholder from "../../../Assets/my-placeholder.png";
 import profileSettingPlaceholder from "../../../Assets/Quadri.jpg";
 import { Link } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import "../../../css/History/index.css";
-import { UserDetailsContext } from "../Context/UserDetailsContext";
 
 const History_home = (props) => {
+  console.log("here for now");
+  console.log(props);
   const [loading, setLoading] = useState(false);
   const [batchValue, setBatchValue] = useState(10);
-  const { userDetails } = useContext(UserDetailsContext);
+  const [userDetails, setUserDetails] = useState({});
 
   const batchLoader = () => {
     setBatchValue(batchValue + 6);
   };
+
+  useEffect(async () => {
+    let id = "";
+    const idInArray = this.props.location.pathname.split("/");
+    if (idInArray.length === 4) {
+      id = this.props.location.pathname.split("/")[3];
+    } else if (idInArray.length === 3) {
+      id = this.props.location.pathname.split("/")[2];
+    } else if (idInArray.length === 6) {
+      id = this.props.location.pathname.split("/")[4];
+    }
+    const response = await fetch(
+      `http://localhost:3002/users/get-user-by-id/${id}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const userDetails = await response.json();
+    console.log("he", userDetails);
+    if (!userDetails.transactionHistory) {
+      setLoading(true);
+    } else {
+      setUserDetails(userDetails);
+      setLoading(false);
+    }
+  }, []);
 
   return (
     <>
