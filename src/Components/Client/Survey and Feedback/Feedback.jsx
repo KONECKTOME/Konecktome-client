@@ -17,26 +17,33 @@ class Feedback extends Component {
   };
 
   sendFeedBack = async () => {
-    const response = await fetch("http://localhost:3002/users/feedback", {
-      method: "POST",
-      body: JSON.stringify({
-        userId: this.props.match.params.userid,
-        feedBackTitle: this.state.feedBack.feedBackTitle,
-        feedBackMessage: this.state.feedBack.feedBackMessage,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    const details = await response.json();
-    if (details.message === "Email sent") {
-      this.setState({
-        feedBack: {
-          feedBackTitle: "",
-          feedBackMessage: "",
+    if (
+      this.state.feedBack.feedBackTitle === "" ||
+      this.state.feedBack.feedBackMessage === ""
+    ) {
+      alert("emoty fields");
+    } else {
+      const response = await fetch("http://localhost:3002/users/feedback", {
+        method: "POST",
+        body: JSON.stringify({
+          userId: this.props.match.params.userid,
+          feedBackTitle: this.state.feedBack.feedBackTitle,
+          feedBackMessage: this.state.feedBack.feedBackMessage,
+        }),
+        headers: {
+          "Content-type": "application/json",
         },
       });
-      alert("Message sent");
+      const details = await response.json();
+      if (details.message === "Email sent") {
+        this.setState({
+          feedBack: {
+            feedBackTitle: "",
+            feedBackMessage: "",
+          },
+        });
+        alert("Message sent");
+      }
     }
   };
   render() {

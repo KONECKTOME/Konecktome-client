@@ -47,12 +47,7 @@ class Explore_details_right_col extends React.Component {
     }
   };
 
-  buyService = async (
-    productName,
-    serviceProvider,
-    subscribePrice,
-    oneOffprice
-  ) => {
+  buyService = async () => {
     console.log(this.props.userDetails.moreInfoNeeded);
     if (
       this.props.userDetails.moreInfoNeeded === true ||

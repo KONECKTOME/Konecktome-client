@@ -5,19 +5,7 @@ import ExploreInstallationInfo from "./ExploreInstallationInfo";
 
 class ExploreAddress extends Component {
   state = {
-    addresses: [
-      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
-      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
-      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
-      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
-      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
-      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
-      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
-      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
-      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
-      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
-      "Lorem ipsum dolor sit amet consectetur,adipisicing elit. Molestiae ipsum",
-    ],
+    addresses: [],
     postCode: "",
     userAddress: "",
     addressSelected: false,
@@ -42,6 +30,16 @@ class ExploreAddress extends Component {
     sentSuccessWithDelivery: false,
     timeOutLoader: false,
     checkingPostCodeloader: false,
+    postCodeTownFromApi: "",
+    postCodeCountyFromApi: "",
+    postCodeCheckerDateOfArrival: "",
+    postCodeCheckerDateOfDeparture: "",
+    postCodeFromPostChecker: "",
+    currentAddressFromPostCodeChecker: false,
+    deliveryAddressFromPostCodeChecker: false,
+    sentSuccessFromPostCodeChecker: false,
+    errorFromPostCodeChecker: false,
+    emptyFieldsFromPostCodeChecker: true,
   };
 
   hideAddressHolder = () => {
@@ -49,6 +47,9 @@ class ExploreAddress extends Component {
       showAddressHolder: false,
       postCode: "",
       checkingPostCodeloader: false,
+      postCodeTownFromApi: "",
+      postCodeCountyFromApi: "",
+      addresses: [],
     });
   };
 
@@ -75,88 +76,194 @@ class ExploreAddress extends Component {
     return regexp.test(p);
   };
 
-  fetchAddressViaPostCode = (postCode) => {
+  fetchAddressViaPostCode = async (postCode) => {
+    let addresses = [];
+    var parameters = {
+      key: "8f3ef-722be-b312c-08426",
+      postcode: postCode,
+      response: "data_formatted",
+    };
     this.setState({ showAddressHolder: true, checkingPostCodeloader: true });
     var capitilizePostCode = postCode.toUpperCase();
     if (this.isValidPostcode(capitilizePostCode) == true) {
-      this.setState({ checkingPostCodeloader: false });
-      alert("call function");
+      var url = "http://pcls1.craftyclicks.co.uk/json/rapidaddress";
+      let request = new XMLHttpRequest();
+      request.open("POST", url, false);
+      request.setRequestHeader("Content-Type", "application/json");
+      request.onreadystatechange = function () {
+        if (this.readyState === 4) {
+          if (this.status >= 200 && this.status < 400) {
+            // Success!
+            let data = JSON.parse(this.responseText);
+            addresses.push(data);
+          } else {
+            throw "HTTP Request Error";
+          }
+        }
+      };
+
+      request.send(JSON.stringify(parameters));
+      if (!addresses[0].error_code) {
+        this.setState({
+          checkingPostCodeloader: false,
+          postCodeTownFromApi: addresses[0].town,
+          postCodeCountyFromApi: addresses[0].traditional_county,
+          addresses: addresses[0].delivery_points,
+          postCodeFromPostChecker: postCode,
+        });
+      } else {
+        this.setState({
+          checkingPostCodeloader: false,
+        });
+      }
     }
   };
 
-  getAddressFromPostCode = async () => {
-    this.setState({ showAddressHolder: true });
-  };
+  // getAddressFromPostCode = async () => {
+  //   this.setState({ showAddressHolder: true });
+  // };
 
-  selectPostCode = (postCode) => {
-    this.setState({ postCode, showAddressHolder: false });
-  };
-
-  sendAddress = async (e) => {
-    e.preventDefault();
-    if (
-      this.state.addressDetails.buildingName === "" ||
-      this.state.addressDetails.addressLine1 === "" ||
-      this.state.addressDetails.town === "" ||
-      this.state.addressDetails.city === "" ||
-      this.state.dateOfArrival === "" ||
-      this.state.dateOfDeparture === ""
-    ) {
-      this.setState({ emptyFields: true });
-      setTimeout(() => this.setState({ emptyFields: false }), 1500);
+  selectPostCode = (line1, line2, town, county) => {
+    if (!line2) {
+      let selectedAddress = line1 + "," + " " + town + "," + " " + county;
+      this.setState({ postCode: selectedAddress, showAddressHolder: false });
     } else {
-      const response = await fetch(
-        "http://localhost:3002/users/update-address",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            userId: this.props.userDetails._id,
-            addressId: null,
-            buildingName: this.state.addressDetails.buildingName,
-            addressLine1: this.state.addressDetails.addressLine1,
-            addressLine2: this.state.addressDetails.addressLine2,
-            town: this.state.addressDetails.town,
-            city: this.state.addressDetails.city,
-            currentAddress: this.state.currentAddress,
-            deliveryAddress: this.state.deliveryAddress,
-            postCode: this.state.addressDetails.postCode,
-            dateOfArrival: this.fixDateString(this.state.dateOfArrival),
-            dateOfDeparture: this.fixDateString(this.state.dateOfDeparture),
-          }),
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      );
-      const details = await response.json();
-      if (details.message === "Address added") {
-        this.props.fetchUser();
-        this.setState({
-          timeOutLoader: true,
-          currentAddress: false,
-          deliveryAddress: false,
-        });
-        setTimeout(() => {
-          const findDeliveryAddress =
-            this.props.userDetails.addressHistory.filter(
-              (item) => item.deliveryAddress === true
-            );
-          if (findDeliveryAddress.length !== 0) {
-            this.setState({ timeOutLoader: false, sentSuccess: true });
-            // setTimeout(() => this.setState({ sentSuccess: false }), 1500);
-          } else {
-            this.setState({
-              timeOutLoader: false,
-              sentSuccessWithDelivery: true,
-            });
-          }
-        }, 1500);
-      } else if (
-        details.message ===
-        "Date Of Arrival cannot be more than Date Of Departure"
+      let selectedAddress =
+        line1 + "," + " " + line2 + "," + " " + town + "," + " " + county;
+      this.setState({ postCode: selectedAddress, showAddressHolder: false });
+    }
+  };
+
+  sendAddress = async (e, fromPostCodeChecker) => {
+    e.preventDefault();
+    if (fromPostCodeChecker) {
+      if (
+        this.state.postCodeCheckerDateOfArrival === "" ||
+        this.state.postCodeCheckerDateOfDeparture === "" ||
+        this.state.postCode === ""
       ) {
-        this.setState({ sentError: true });
-        setTimeout(() => this.setState({ sentError: false }), 1500);
+        this.setState({ emptyFieldsFromPostCodeChecker: true });
+        setTimeout(
+          () => this.setState({ emptyFieldsFromPostCodeChecker: false }),
+          1500
+        );
+      } else {
+        let addressFromPostCodeChecker = this.state.postCode.split(",");
+        let addressline2FromPostCodeChecker = "";
+        addressFromPostCodeChecker[2] !== undefined
+          ? (addressline2FromPostCodeChecker = addressFromPostCodeChecker[2])
+          : (addressline2FromPostCodeChecker = "");
+        const response = await fetch(
+          "http://localhost:3002/users/update-address",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              userId: this.props.userDetails._id,
+              addressId: null,
+              buildingName: "",
+              addressLine1:
+                addressFromPostCodeChecker[0] + addressFromPostCodeChecker[1],
+              addressLine2: addressline2FromPostCodeChecker.trim(),
+              town: addressFromPostCodeChecker[3].trim(),
+              city: addressFromPostCodeChecker[4].trim(),
+              currentAddress: this.state.currentAddressFromPostCodeChecker,
+              deliveryAddress: this.state.deliveryAddressFromPostCodeChecker,
+              postCode: this.state.postCodeFromPostChecker,
+              dateOfArrival: this.fixDateString(
+                this.state.postCodeCheckerDateOfArrival
+              ),
+              dateOfDeparture: this.fixDateString(
+                this.state.postCodeCheckerDateOfDeparture
+              ),
+            }),
+            headers: {
+              "Content-type": "application/json",
+            },
+          }
+        );
+        const details = await response.json();
+        if (details.message === "Address added") {
+          this.setState({ sentSuccessFromPostCodeChecker: true });
+          setTimeout(
+            () => this.setState({ sentSuccessFromPostCodeChecker: false }),
+            1500
+          );
+        } else if (
+          details.message ===
+          "Date Of Arrival cannot be more than Date Of Departure"
+        ) {
+          this.setState({ errorFromPostCodeChecker: true });
+          setTimeout(
+            () => this.setState({ errorFromPostCodeChecker: false }),
+            1500
+          );
+        }
+      }
+    } else {
+      if (
+        this.state.addressDetails.buildingName === "" ||
+        this.state.addressDetails.addressLine1 === "" ||
+        this.state.addressDetails.town === "" ||
+        this.state.addressDetails.city === "" ||
+        this.state.dateOfArrival === "" ||
+        this.state.dateOfDeparture === ""
+      ) {
+        this.setState({ emptyFields: true });
+        setTimeout(() => this.setState({ emptyFields: false }), 1500);
+      } else {
+        const response = await fetch(
+          "http://localhost:3002/users/update-address",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              userId: this.props.userDetails._id,
+              addressId: null,
+              buildingName: this.state.addressDetails.buildingName,
+              addressLine1: this.state.addressDetails.addressLine1,
+              addressLine2: this.state.addressDetails.addressLine2,
+              town: this.state.addressDetails.town,
+              city: this.state.addressDetails.city,
+              currentAddress: this.state.currentAddress,
+              deliveryAddress: this.state.deliveryAddress,
+              postCode: this.state.addressDetails.postCode,
+              dateOfArrival: this.fixDateString(this.state.dateOfArrival),
+              dateOfDeparture: this.fixDateString(this.state.dateOfDeparture),
+            }),
+            headers: {
+              "Content-type": "application/json",
+            },
+          }
+        );
+        const details = await response.json();
+        if (details.message === "Address added") {
+          this.props.fetchUser();
+          this.setState({
+            timeOutLoader: true,
+            currentAddress: false,
+            deliveryAddress: false,
+          });
+          setTimeout(() => {
+            const findDeliveryAddress =
+              this.props.userDetails.addressHistory.filter(
+                (item) => item.deliveryAddress === true
+              );
+            if (findDeliveryAddress.length !== 0) {
+              this.setState({ timeOutLoader: false, sentSuccess: true });
+              // setTimeout(() => this.setState({ sentSuccess: false }), 1500);
+            } else {
+              this.setState({
+                timeOutLoader: false,
+                sentSuccessWithDelivery: true,
+              });
+            }
+          }, 1500);
+        } else if (
+          details.message ===
+          "Date Of Arrival cannot be more than Date Of Departure"
+        ) {
+          this.setState({ sentError: true });
+          setTimeout(() => this.setState({ sentError: false }), 1500);
+        }
       }
     }
   };
@@ -238,23 +345,51 @@ class ExploreAddress extends Component {
                     {this.state.showAddressHolder === true ? (
                       <div id="address-dropdown-holder">
                         {this.state.checkingPostCodeloader === true ? (
-                          <p>Loading</p>
+                          <div id="explore-address-post-code-loader">
+                            <div id="reset-pin-spinner-holder">
+                              <div id="reset-pin-spinner"></div>
+                            </div>
+                            <div id="reset-pin-spinner-holder">
+                              <p id="settings_modal_header">Fetching...</p>
+                            </div>
+                          </div>
                         ) : (
-                          <ul>
-                            <li className="desktop-sub-header2">
-                              Select Your Address
-                            </li>
-                            {this.state.addresses.map((item) => {
-                              return (
-                                <li
-                                  className="desktop-text"
-                                  onClick={() => this.selectPostCode(item)}
-                                >
-                                  {item}
+                          <>
+                            {this.state.addresses.length !== 0 ? (
+                              <ul>
+                                <li className="desktop-sub-header2">
+                                  Select Your Address
                                 </li>
-                              );
-                            })}
-                          </ul>
+                                {this.state.addresses.map((item) => {
+                                  return (
+                                    <li
+                                      className="desktop-text"
+                                      onClick={() =>
+                                        this.selectPostCode(
+                                          item.line_1,
+                                          item.line_2,
+                                          this.state.postCodeTownFromApi,
+                                          this.state.postCodeCountyFromApi
+                                        )
+                                      }
+                                    >
+                                      {item.line_1}, {item.line_2},
+                                      {this.state.postCodeTownFromApi},{" "}
+                                      {this.state.postCodeCountyFromApi}
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            ) : (
+                              <div id="explore-address-post-code-loader">
+                                <div id="reset-pin-spinner-holder">
+                                  <p id="settings_modal_header">
+                                    Oops, post code not found
+                                  </p>
+                                </div>
+                              </div>
+                            )}
+                          </>
                         )}
                       </div>
                     ) : null}
@@ -266,11 +401,11 @@ class ExploreAddress extends Component {
                     <input
                       type="date"
                       placeholder="dd-mm-yyyy"
-                      id="dateOfArrival"
+                      id="postCodeCheckerDateOfArrival"
                       className="explore-address-input-both"
                       onChange={(e) =>
                         this.setState({
-                          dateOfDeparture: e.currentTarget.value,
+                          postCodeCheckerDateOfArrival: e.currentTarget.value,
                         })
                       }
                     />
@@ -282,11 +417,11 @@ class ExploreAddress extends Component {
                     <input
                       type="date"
                       placeholder="dd-mm-yyyy"
-                      id="dateOfDeparture"
+                      id="postCodeCheckerDateOfDeparture"
                       className="explore-address-input-both"
                       onChange={(e) =>
                         this.setState({
-                          dateOfDeparture: e.currentTarget.value,
+                          postCodeCheckerDateOfDeparture: e.currentTarget.value,
                         })
                       }
                     />
@@ -302,7 +437,7 @@ class ExploreAddress extends Component {
                       className="explore-address-input-both"
                       onChange={(e) =>
                         this.setState({
-                          deliveryAddress: e.target.checked,
+                          deliveryAddressFromPostCodeChecker: e.target.checked,
                         })
                       }
                     />
@@ -316,16 +451,40 @@ class ExploreAddress extends Component {
                       className="explore-address-input-both"
                       onChange={(e) =>
                         this.setState({
-                          deliveryAddress: e.target.checked,
+                          currentAddressFromPostCodeChecker: e.target.checked,
                         })
                       }
                     />
                   </Col>
                 </Row>
+                {this.state.emptyFieldsFromPostCodeChecker === true ? (
+                  <div
+                    className="error-notification-holder"
+                    id="expore-address-error"
+                  >
+                    <p>Input Fields Cannot Be Empty</p>
+                  </div>
+                ) : null}
+                {this.state.errorFromPostCodeChecker === true ? (
+                  <div
+                    className="error-notification-holder"
+                    id="expore-address-error"
+                  >
+                    <p>Date Of Arrival Cannot Be More Than Date Of Departure</p>
+                  </div>
+                ) : null}
+                {this.state.sentSuccessFromPostCodeChecker === true ? (
+                  <div
+                    className="success-notification-holder"
+                    id="expore-address-error"
+                  >
+                    <p>Address Saved</p>
+                  </div>
+                ) : null}
                 <div
                   className="desktop-big-button"
                   id="explore-send-address"
-                  onClick={() => this.getAddressFromPostCode()}
+                  onClick={(e) => this.sendAddress(e, true)}
                 >
                   <p className="desktop-big-button-text">Save Address</p>
                 </div>
@@ -559,7 +718,7 @@ class ExploreAddress extends Component {
                 <div
                   className="desktop-big-button"
                   id="explore-send-address"
-                  onClick={(e) => this.sendAddress(e)}
+                  onClick={(e) => this.sendAddress(e, false)}
                 >
                   {this.state.timeOutLoader === true ? (
                     <div id="explore-loading"></div>

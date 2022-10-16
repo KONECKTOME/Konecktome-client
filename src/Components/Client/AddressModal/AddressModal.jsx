@@ -4,7 +4,7 @@ import "../../../css/AddressModal/AddressModal.css";
 
 class AddressModal extends React.Component {
   state = {
-    addresses: [1, 1, 1, 1, 1, 1, 1],
+    addresses: [],
     postCode: "",
     userAddress: "",
     addressSelected: false,
@@ -25,6 +25,21 @@ class AddressModal extends React.Component {
     emptyFields: false,
     durationError: false,
     showAddressHolder: false,
+    postCodeCheckerDateOfDeparture: "",
+    postCodeCheckerDateOfArrival: "",
+    addressFromPostCodeChecker: "",
+    checkingPostCodeloader: false,
+    postCodeTownFromApi: "",
+    postCodeCountyFromApi: "",
+    postCodeCheckerDateOfArrival: "",
+    postCodeCheckerDateOfDeparture: "",
+    postCodeFromPostChecker: "",
+    currentAddressFromPostCodeChecker: false,
+    deliveryAddressFromPostCodeChecker: false,
+    sentSuccessFromPostCodeChecker: false,
+    errorFromPostCodeChecker: false,
+    emptyFieldsFromPostCodeChecker: false,
+    postCodefromPostCodeChecker: "",
   };
 
   hideAddressHolder = () => {
@@ -36,14 +51,6 @@ class AddressModal extends React.Component {
     this.setState({ showAddressHolder: true });
   };
 
-  getAddressContent = (e) => {
-    this.setState({
-      userAddress: document.getElementById("address-text").textContent,
-      addressSelected: true,
-      addresses: [],
-    });
-  };
-
   updateAddressDetails = (e) => {
     const addressDetails = this.state.addressDetails;
     const id = e.currentTarget.id;
@@ -53,62 +60,210 @@ class AddressModal extends React.Component {
 
   fixDateString = (dateToBeFixed) => {
     const arr = dateToBeFixed.split("-");
-
-    // let year = arr[0].split("")[2] + arr[0].split("")[3];
-    // const dateStringNeeded = year + "-" + arr[1] + "-" + arr[2];
     return arr;
   };
 
-  sendAddress = async (e) => {
+  sendAddress = async (e, fromPostCodeChecker) => {
     e.preventDefault();
-    if (
-      this.state.addressDetails.buildingName === "" ||
-      this.state.addressDetails.addressLine1 === "" ||
-      this.state.addressDetails.addressLine2 === "" ||
-      this.state.addressDetails.town === "" ||
-      this.state.addressDetails.city === "" ||
-      this.state.dateOfArrival === "" ||
-      this.state.dateOfDeparture === ""
-    ) {
-      this.setState({ emptyFields: true });
-      setTimeout(() => this.setState({ emptyFields: false }), 1500);
-    } else {
-      const response = await fetch(
-        "http://localhost:3002/users/update-address",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            userId: this.props.userId,
-            addressId: this.props.addressId,
-            buildingName: this.state.addressDetails.buildingName,
-            addressLine1: this.state.addressDetails.addressLine1,
-            addressLine2: this.state.addressDetails.addressLine2,
-            town: this.state.addressDetails.town,
-            city: this.state.addressDetails.city,
-            currentAddress: false,
-            postCode: this.state.addressDetails.postCode,
-            dateOfArrival: this.fixDateString(this.state.dateOfArrival),
-            dateOfDeparture: this.fixDateString(this.state.dateOfDeparture),
-          }),
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      );
-      const details = await response.json();
-      if (details.message === "Address added") {
-        this.setState({ sentSuccess: true });
-        setTimeout(() => this.setState({ sentSuccess: false }), 1500);
-        this.props.fetchUser();
-      } else if (
-        details.message ===
-        "Date Of Arrival cannot be more than Date Of Departure"
+    if (fromPostCodeChecker) {
+      if (
+        this.state.addressFromPostCodeChecker === "" ||
+        this.state.postCodeCheckerDateOfArrival === "" ||
+        this.state.postCodeCheckerDateOfDeparture === ""
       ) {
-        this.setState({ durationError: true });
-        setTimeout(() => this.setState({ durationError: false }), 1500);
-        alert("error");
+        alert("input fields");
+      } else {
+        let addressFromPostCodeCheckerInArray =
+          this.state.addressFromPostCodeChecker.split(",");
+        let addressline2FromPostCodeChecker = "";
+        addressFromPostCodeCheckerInArray[2] !== undefined
+          ? (addressline2FromPostCodeChecker =
+              addressFromPostCodeCheckerInArray[2])
+          : (addressline2FromPostCodeChecker = "");
+        const response = await fetch(
+          "http://localhost:3002/users/update-address",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              userId: this.props.userId,
+              addressId: null,
+              buildingName: "",
+              addressLine1:
+                addressFromPostCodeCheckerInArray[0] +
+                addressFromPostCodeCheckerInArray[1],
+              addressLine2: addressline2FromPostCodeChecker.trim(),
+              town: addressFromPostCodeCheckerInArray[3].trim(),
+              city: addressFromPostCodeCheckerInArray[4].trim(),
+              currentAddress: this.state.currentAddressFromPostCodeChecker,
+              deliveryAddress: this.state.deliveryAddressFromPostCodeChecker,
+              postCode: this.state.postCodeFromPostChecker,
+              dateOfArrival: this.fixDateString(
+                this.state.postCodeCheckerDateOfArrival
+              ),
+              dateOfDeparture: this.fixDateString(
+                this.state.postCodeCheckerDateOfDeparture
+              ),
+            }),
+            headers: {
+              "Content-type": "application/json",
+            },
+          }
+        );
+        const details = await response.json();
+        if (details.message === "Address added") {
+          alert("address added");
+          this.setState({ sentSuccessFromPostCodeChecker: true });
+          setTimeout(
+            () => this.setState({ sentSuccessFromPostCodeChecker: false }),
+            1500
+          );
+        } else if (
+          details.message ===
+          "Date Of Arrival cannot be more than Date Of Departure"
+        ) {
+          alert("adrriveal vant");
+          this.setState({ errorFromPostCodeChecker: true });
+          setTimeout(
+            () => this.setState({ errorFromPostCodeChecker: false }),
+            1500
+          );
+        }
+      }
+    } else {
+      if (
+        this.state.addressDetails.buildingName === "" ||
+        this.state.addressDetails.addressLine1 === "" ||
+        this.state.addressDetails.addressLine2 === "" ||
+        this.state.addressDetails.town === "" ||
+        this.state.addressDetails.city === "" ||
+        this.state.dateOfArrival === "" ||
+        this.state.dateOfDeparture === ""
+      ) {
+        this.setState({ emptyFields: true });
+        setTimeout(() => this.setState({ emptyFields: false }), 1500);
+      } else {
+        let addressId = null;
+        {
+          this.props.addressId !== undefined
+            ? (addressId = this.props.addressId)
+            : (addressId = null);
+        }
+        const response = await fetch(
+          "http://localhost:3002/users/update-address",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              userId: this.props.userId,
+              addressId: addressId,
+              buildingName: this.state.addressDetails.buildingName,
+              addressLine1: this.state.addressDetails.addressLine1,
+              addressLine2: this.state.addressDetails.addressLine2,
+              town: this.state.addressDetails.town,
+              city: this.state.addressDetails.city,
+              currentAddress: false,
+              postCode: this.state.addressDetails.postCode,
+              dateOfArrival: this.fixDateString(this.state.dateOfArrival),
+              dateOfDeparture: this.fixDateString(this.state.dateOfDeparture),
+            }),
+            headers: {
+              "Content-type": "application/json",
+            },
+          }
+        );
+        const details = await response.json();
+        if (details.message === "Address added") {
+          this.setState({ sentSuccess: true });
+          setTimeout(() => this.setState({ sentSuccess: false }), 1500);
+          this.props.fetchUser();
+        } else if (
+          details.message ===
+          "Date Of Arrival cannot be more than Date Of Departure"
+        ) {
+          this.setState({ durationError: true });
+          setTimeout(() => this.setState({ durationError: false }), 1500);
+          alert("error");
+        }
       }
     }
+  };
+
+  isValidPostcode = (p) => {
+    // var postcodeRegEx = /[A-Z]{1,2}[A-Z0-9]{1,2} ?[0-9][A-Z]{2}/i;
+    var regexp =
+      /^[A-Z]{1,2}[0-9RCHNQ][0-9A-Z]?\s?[0-9][ABD-HJLNP-UW-Z]{2}$|^[A-Z]{2}-?[0-9]{4}$/;
+    return regexp.test(p);
+  };
+
+  fetchAddressViaPostCode = async (postCode) => {
+    let addresses = [];
+    var parameters = {
+      key: "8f3ef-722be-b312c-08426",
+      postcode: postCode,
+      response: "data_formatted",
+    };
+    this.setState({ showAddressHolder: true, checkingPostCodeloader: true });
+    var capitilizePostCode = postCode.toUpperCase();
+    if (this.isValidPostcode(capitilizePostCode) == true) {
+      var url = "http://pcls1.craftyclicks.co.uk/json/rapidaddress";
+      let request = new XMLHttpRequest();
+      request.open("POST", url, false);
+      request.setRequestHeader("Content-Type", "application/json");
+      request.onreadystatechange = function () {
+        if (this.readyState === 4) {
+          if (this.status >= 200 && this.status < 400) {
+            // Success!
+            let data = JSON.parse(this.responseText);
+            addresses.push(data);
+          } else {
+            throw "HTTP Request Error";
+          }
+        }
+      };
+
+      request.send(JSON.stringify(parameters));
+      if (!addresses[0].error_code) {
+        this.setState({
+          checkingPostCodeloader: false,
+          postCodeTownFromApi: addresses[0].town,
+          postCodeCountyFromApi: addresses[0].traditional_county,
+          addresses: addresses[0].delivery_points,
+          postCodeFromPostChecker: postCode,
+        });
+      } else {
+        this.setState({
+          checkingPostCodeloader: false,
+        });
+      }
+    }
+  };
+
+  selectPostCode = (line1, line2, town, county) => {
+    let selectedAddress = "";
+    if (!line2) {
+      selectedAddress = line1 + "," + " " + town + "," + " " + county;
+      this.setState({
+        addressFromPostCodeChecker: selectedAddress,
+        showAddressHolder: false,
+      });
+    } else {
+      selectedAddress =
+        line1 + "," + " " + line2 + "," + " " + town + "," + " " + county;
+      this.setState({
+        addressFromPostCodeChecker: selectedAddress,
+        showAddressHolder: false,
+      });
+    }
+  };
+
+  hideAddressHolder = () => {
+    this.setState({
+      showAddressHolder: false,
+      addressFromPostCodeChecker: "",
+      checkingPostCodeloader: false,
+      postCodeTownFromApi: "",
+      postCodeCountyFromApi: "",
+      addresses: [],
+    });
   };
   render() {
     return (
@@ -137,12 +292,15 @@ class AddressModal extends React.Component {
                   <input
                     type="text"
                     placeholder="Ex. WQ3 6RC"
-                    // value={this.state.postCode}
-                    // onChange={(e) =>
-                    //   this.setState({
-                    //     postCode: e.currentTarget.value,
-                    //   })
-                    // }
+                    onKeyUp={(e) =>
+                      this.fetchAddressViaPostCode(e.currentTarget.value)
+                    }
+                    value={this.state.addressFromPostCodeChecker}
+                    onChange={(e) =>
+                      this.setState({
+                        addressFromPostCodeChecker: e.currentTarget.value,
+                      })
+                    }
                   />
                   <div
                     id="explore-address-close-btn"
@@ -152,36 +310,127 @@ class AddressModal extends React.Component {
                   </div>
                 </div>
                 {this.state.showAddressHolder === true ? (
-                  <div id="address-dropdown-holder">
-                    <ul>
-                      <li className="desktop-sub-header2">
-                        Select Your Address
-                      </li>
-                      {this.state.addresses.map((item) => {
-                        return (
-                          <li className="desktop-text">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Molestiae ipsum
-                          </li>
-                        );
-                      })}
-                    </ul>
+                  <div id="address-modal-dropdown-holder">
+                    {this.state.checkingPostCodeloader === true ? (
+                      <div id="explore-address-post-code-loader">
+                        <div id="reset-pin-spinner-holder">
+                          <div id="reset-pin-spinner"></div>
+                        </div>
+                        <div id="reset-pin-spinner-holder">
+                          <p id="settings_modal_header">Fetching...</p>
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        {this.state.addresses.length !== 0 ? (
+                          <ul>
+                            <li className="desktop-sub-header2">
+                              Select Your Address
+                            </li>
+                            {this.state.addresses.map((item) => {
+                              return (
+                                <li
+                                  className="desktop-text"
+                                  onClick={() =>
+                                    this.selectPostCode(
+                                      item.line_1,
+                                      item.line_2,
+                                      this.state.postCodeTownFromApi,
+                                      this.state.postCodeCountyFromApi
+                                    )
+                                  }
+                                >
+                                  {item.line_1}, {item.line_2},
+                                  {this.state.postCodeTownFromApi},{" "}
+                                  {this.state.postCodeCountyFromApi}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        ) : (
+                          <div id="explore-address-post-code-loader">
+                            <div id="reset-pin-spinner-holder">
+                              <p id="settings_modal_header">
+                                Oops, post code not found
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </>
+                    )}
                   </div>
                 ) : null}
+                <Row>
+                  <Col>
+                    <label className="explore-address-label">
+                      Date Of Arrival
+                    </label>
+                    <input
+                      type="date"
+                      placeholder="dd-mm-yyyy"
+                      id="postCodeCheckerDateOfArrival"
+                      className="explore-address-input-both"
+                      onChange={(e) =>
+                        this.setState({
+                          postCodeCheckerDateOfArrival: e.currentTarget.value,
+                        })
+                      }
+                    />
+                  </Col>
+                  <Col>
+                    <label className="explore-address-label">
+                      Date Of Departure
+                    </label>
+                    <input
+                      type="date"
+                      placeholder="dd-mm-yyyy"
+                      id="postCodeCheckerDateOfDeparture"
+                      className="explore-address-input-both"
+                      onChange={(e) =>
+                        this.setState({
+                          postCodeCheckerDateOfDeparture: e.currentTarget.value,
+                        })
+                      }
+                    />
+                  </Col>
+                </Row>
+
                 <div
                   className="desktop-big-button"
                   id="explore-address-btn"
-                  onClick={(e) => this.getAddresses(e)}
+                  onClick={(e) => this.sendAddress(e, true)}
                 >
-                  <p className="desktop-big-button-text">Check postcode</p>
+                  <p className="desktop-big-button-text">Save Address</p>
                 </div>
               </form>
             </div>
 
             <div id="current-address-checkbox">
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                value={this.state.currentAddressFromPostCodeChecker}
+                onChange={(e) =>
+                  this.setState({
+                    currentAddressFromPostCodeChecker: e.target.checked,
+                  })
+                }
+              />
               <p className="desktop-sub-header2">
                 Check the box if this is your current address
+              </p>
+            </div>
+            <div id="current-address-checkbox">
+              <input
+                type="checkbox"
+                value={this.state.deliveryAddressFromPostCodeChecker}
+                onChange={(e) =>
+                  this.setState({
+                    deliveryAddressFromPostCodeChecker: e.target.checked,
+                  })
+                }
+              />
+              <p className="desktop-sub-header2">
+                Check the box if this is your delivery address
               </p>
             </div>
             {this.state.addressSelected === false ? (
@@ -343,7 +592,7 @@ class AddressModal extends React.Component {
                 ) : null}
               </div>
             ) : null}
-            <div id="submit-btn" onClick={(e) => this.sendAddress(e)}>
+            <div id="submit-btn" onClick={(e) => this.sendAddress(e, false)}>
               <div id="address-modal-button">
                 <p className="desktop-big-button-text modal-button-text">
                   Submit address
