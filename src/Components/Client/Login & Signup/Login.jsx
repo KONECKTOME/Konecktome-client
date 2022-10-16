@@ -17,6 +17,7 @@ class Login extends React.Component {
     success: false,
     emptyField: false,
     invalidEmail: false,
+    loggingIn: false,
   };
 
   updateCheckBox = () => {
@@ -50,6 +51,7 @@ class Login extends React.Component {
       this.setState({ invalidEmail: true });
       setTimeout(() => this.setState({ invalidEmail: false }), 1500);
     } else {
+      this.setState({ loggingIn: true });
       const response = await fetch("http://localhost:3002/users/login", {
         method: "POST",
         body: JSON.stringify({
@@ -74,6 +76,7 @@ class Login extends React.Component {
         const userDetails = await authorize.json();
         if (userDetails.message === "User Found") {
           this.setState({
+            loggingIn: false,
             success: true,
             details: {
               email: "",
@@ -186,7 +189,11 @@ class Login extends React.Component {
               </div>
               <div id="sign-up-btn" onClick={(e) => this.login(e)}>
                 <div className="desktop-medium-button">
-                  <p className="desktop-big-button-text">Login</p>
+                  {this.state.loggingIn === true ? (
+                    <div id="explore-loading"></div>
+                  ) : (
+                    <p className="desktop-big-button-text">Login</p>
+                  )}
                 </div>
               </div>
               <div id="sign-up-btn">

@@ -16,7 +16,8 @@ class Feedback extends Component {
     this.setState({ feedBack });
   };
 
-  sendFeedBack = async () => {
+  sendFeedBack = async (e) => {
+    e.preventDefault();
     if (
       this.state.feedBack.feedBackTitle === "" ||
       this.state.feedBack.feedBackMessage === ""
@@ -78,7 +79,7 @@ class Feedback extends Component {
             </form>
             <div
               className="desktop-big-button"
-              onClick={() => this.sendFeedBack()}
+              onClick={(e) => this.sendFeedBack(e)}
             >
               <p className="desktop-big-button-text">Send Feedback</p>
             </div>
