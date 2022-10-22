@@ -39,7 +39,7 @@ class Comingsoon extends Component {
   };
 
   sendTransactionalEmail = async () => {
-    const response = await fetch("http://localhost:3002/mail/transactional", {
+    const response = await fetch("http://localhost:3003/mail/transactional", {
       method: "POST",
       body: JSON.stringify({
         name: this.state.details.name,
@@ -55,7 +55,7 @@ class Comingsoon extends Component {
 
   register = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3002/mail/new-user", {
+    const response = await fetch("http://localhost:3003/mail/new-user", {
       method: "POST",
       body: JSON.stringify({
         name: this.state.details.name,
@@ -106,7 +106,7 @@ class Comingsoon extends Component {
         }, 1200);
       }
       if (this.state.subscribe === true) {
-        const response = await fetch("http://localhost:3002/mail/marketing", {
+        const response = await fetch("http://localhost:3003/mail/marketing", {
           method: "POST",
           body: JSON.stringify({
             name: this.state.details.name,

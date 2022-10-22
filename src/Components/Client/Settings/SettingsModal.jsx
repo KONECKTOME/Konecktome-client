@@ -89,7 +89,7 @@ class SettingsModal extends React.Component {
       this.setState({ emptyFields: true });
       setTimeout(() => this.setState({ emptyFields: false }), 1500);
     } else {
-      const response = await fetch("http://localhost:3002/users/check-pin", {
+      const response = await fetch("http://localhost:3003/users/check-pin", {
         method: "POST",
         body: JSON.stringify({
           email: this.props.userEmail,
@@ -119,7 +119,7 @@ class SettingsModal extends React.Component {
   forgotPin = async () => {
     this.setState({ forgotPin: true, sendingResentToken: true });
     const response = await fetch(
-      "http://localhost:3002/users/forgot-password",
+      "http://localhost:3003/users/forgot-password",
       {
         method: "POST",
         body: JSON.stringify({
@@ -169,7 +169,7 @@ class SettingsModal extends React.Component {
     } else {
       if (concatenateNewPin === concatenateConfirmNewPin) {
         const response = await fetch(
-          "http://localhost:3002/users/validate-forgot-password-token",
+          "http://localhost:3003/users/validate-forgot-password-token",
           {
             method: "POST",
             body: JSON.stringify({

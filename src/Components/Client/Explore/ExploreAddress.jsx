@@ -154,7 +154,7 @@ class ExploreAddress extends Component {
           ? (addressline2FromPostCodeChecker = addressFromPostCodeChecker[2])
           : (addressline2FromPostCodeChecker = "");
         const response = await fetch(
-          "http://localhost:3002/users/update-address",
+          "http://localhost:3003/users/update-address",
           {
             method: "POST",
             body: JSON.stringify({
@@ -212,7 +212,7 @@ class ExploreAddress extends Component {
         setTimeout(() => this.setState({ emptyFields: false }), 1500);
       } else {
         const response = await fetch(
-          "http://localhost:3002/users/update-address",
+          "http://localhost:3003/users/update-address",
           {
             method: "POST",
             body: JSON.stringify({

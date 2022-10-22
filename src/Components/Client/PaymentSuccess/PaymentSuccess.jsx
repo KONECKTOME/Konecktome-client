@@ -13,7 +13,7 @@ class PaymentSuccess extends React.Component {
   componentDidMount = async () => {
     console.log(this.props.installationDateAndTime);
     const response = await fetch(
-      `http://localhost:3002/users/update-transaction-history`,
+      `http://localhost:3003/users/update-transaction-history`,
       {
         method: "POST",
         body: JSON.stringify({

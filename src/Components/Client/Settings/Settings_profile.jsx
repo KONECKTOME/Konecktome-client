@@ -11,14 +11,14 @@ class Settings_profile extends React.Component {
     loading: false,
     imageUploadStatus: false,
     userDetails: {
-      firstName: this.props.userDetails.firstName,
-      lastName: this.props.userDetails.lastName,
-      email: this.props.userDetails.email,
-      phone: this.props.userDetails.phone,
-      profession: this.props.userDetails.profession,
-      gender: this.props.userDetails.gender,
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      profession: "",
+      gender: "",
+      dob: "",
     },
-    dob: this.props.userDetails.dob,
     showEditProfile: false,
   };
 
@@ -33,7 +33,7 @@ class Settings_profile extends React.Component {
     const photo = new FormData();
     photo.append("image", this.state.profileImage);
     const response = await fetch(
-      `http://localhost:3002/users/image-upload/${this.props.userDetails._id}`,
+      `http://localhost:3003/users/image-upload/${this.props.userDetails._id}`,
       {
         method: "POST",
         body: photo,
@@ -80,7 +80,7 @@ class Settings_profile extends React.Component {
 
   editUser = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:3002/users/edit-user`, {
+    const response = await fetch(`http://localhost:3003/users/edit-user`, {
       method: "PUT",
       body: JSON.stringify({
         userId: this.props.userDetails._id,
@@ -105,7 +105,7 @@ class Settings_profile extends React.Component {
   editProfessionAndDOB = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      `http://localhost:3002/users/update-dob-profession`,
+      `http://localhost:3003/users/update-dob-profession`,
       {
         method: "PUT",
         body: JSON.stringify({
@@ -212,20 +212,12 @@ class Settings_profile extends React.Component {
                       <p id="settings_profile_details_header">Date Of Birth</p>
                       <div className="settings-profile-input-container">
                         <input
+                          id="dob"
                           type="date"
                           value={this.state.dob}
                           onChange={(e) =>
                             this.setState({ dob: e.currentTarget.value })
                           }
-                        />
-                        <input
-                          type="date"
-                          id="dob"
-                          value={this.state.dob}
-                          // onChange={(e) =>
-                          //   this.setState({ dob: e.currentTarget.value })
-                          // }
-                          onChange={() => alert("here")}
                         />
                       </div>
                     </div>

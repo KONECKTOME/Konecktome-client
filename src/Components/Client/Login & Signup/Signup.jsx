@@ -67,7 +67,7 @@ class Signup extends React.Component {
       this.setState({ invalidEmail: true });
       setTimeout(() => this.setState({ invalidEmail: false }), 1500);
     } else {
-      const response = await fetch("http://localhost:3002/users/sign-up", {
+      const response = await fetch("http://localhost:3003/users/sign-up", {
         method: "POST",
         body: JSON.stringify({
           firstName: this.state.details.firstName,
@@ -102,11 +102,11 @@ class Signup extends React.Component {
   };
 
   loginWithGoogle = async () => {
-    window.location.href = "http://localhost:3002/users/auth/google";
+    window.location.href = "http://localhost:3003/users/auth/google";
   };
 
   loginWithFacebook = async () => {
-    window.location.href = "http://localhost:3002/users/login/facebook";
+    window.location.href = "http://localhost:3003/users/login/facebook";
   };
   render() {
     return (

@@ -64,7 +64,7 @@ class App extends Component {
       id = this.props.location.pathname.split("/")[3];
     }
     const response = await fetch(
-      `http://localhost:3002/users/get-user-by-id/${id}`,
+      `http://localhost:3003/users/get-user-by-id/${id}`,
       {
         method: "GET",
         headers: {
@@ -74,10 +74,11 @@ class App extends Component {
     );
     const userDetails = await response.json();
     this.setState({ userDetails: userDetails });
+    console.log(this.state.userDetails);
   };
 
   getDeals = async () => {
-    const response = await fetch(`http://localhost:3002/companies/all-deals`, {
+    const response = await fetch(`http://localhost:3003/companies/all-deals`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -122,7 +123,6 @@ class App extends Component {
                 value={{ userDetails, dealDetails, loading }}
               >
                 <Navbar signOut={() => this.signOut()} {...props} />
-                {/* <Dashboard_home fetchUser={() => this.getUser()} {...props} /> */}
                 <Switch>
                   <Route
                     path="/dashboard/:userid"
@@ -152,7 +152,12 @@ class App extends Component {
                   <Route
                     path="/dashboard/history/:userid"
                     exact
-                    component={History_home}
+                    render={(props) => (
+                      <History_home
+                        userDetails={this.state.userDetails}
+                        {...props}
+                      />
+                    )}
                   />
                   <Route
                     path="/dashboard/feedback/:userid"

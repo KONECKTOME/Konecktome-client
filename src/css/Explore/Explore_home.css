@@ -71,6 +71,7 @@
 #explore-cards-pagination-wrapper {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 3rem;
 }
 
 #explore-cards-shown {

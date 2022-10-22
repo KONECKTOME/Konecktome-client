@@ -162,7 +162,7 @@ class Index extends Component {
                 </Row>
               </li>
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to={"/dashboard/notifications/" + this.state.userId}
               className="links"
               activeClassName="active"
@@ -182,7 +182,7 @@ class Index extends Component {
                   </Col>
                 </Row>
               </li>
-            </NavLink>
+            </NavLink> */}
             {/* <Link to="/recommendations" className="links">
               <li>
                 <Row>

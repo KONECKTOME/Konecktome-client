@@ -33,7 +33,7 @@ class ExploreInstallationInfo extends Component {
         " " +
         this.props.deal[0].companyName;
       const response = await fetch(
-        `http://localhost:3002/payment/create-product-price`,
+        `http://localhost:3003/payment/create-product-price`,
         {
           method: "POST",
           body: JSON.stringify({

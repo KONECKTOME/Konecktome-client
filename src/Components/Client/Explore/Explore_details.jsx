@@ -33,7 +33,7 @@ class Explore_details extends React.Component {
 
   getDeal = async (dealId) => {
     const response = await fetch(
-      `http://localhost:3002/companies/get-deal-by-id/${dealId}`,
+      `http://localhost:3003/companies/get-deal-by-id/${dealId}`,
       {
         method: "GET",
         headers: {
@@ -42,18 +42,31 @@ class Explore_details extends React.Component {
       }
     );
     const deal = await response.json();
-    this.setState({ deal: deal.message, loading: false });
+    const removeCurrentDeal = this.state.dealDetails.filter(
+      (item) => item._id !== deal._id
+    );
+    const shuffled = removeCurrentDeal.sort(() => Math.random() - 0.5);
+    console.log("shiffled", shuffled);
+    this.setState({
+      deal: deal.message,
+      loading: false,
+      dealDetails: shuffled,
+    });
   };
 
   getDeals = async () => {
-    const response = await fetch(`http://localhost:3002/companies/all-deals`, {
+    const response = await fetch(`http://localhost:3003/companies/all-deals`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
       },
     });
     const deals = await response.json();
-    this.setState({ dealDetails: deals });
+    const removeCurrentDeal = deals.filter(
+      (deal) => deal._id !== this.props.match.params.dealId
+    );
+    const shuffled = removeCurrentDeal.sort(() => Math.random() - 0.5);
+    this.setState({ dealDetails: shuffled });
   };
 
   showNotifications = (wishlistSuccess, wishlistExists) => {
@@ -185,6 +198,7 @@ class Explore_details extends React.Component {
                         loading={this.state.loading}
                         deals={this.state.dealDetails}
                         getDeal={(dealId) => this.getDeal(dealId)}
+                        shuffleDeals={() => this.shuffleDeals()}
                         {...props}
                       />
                     </div>

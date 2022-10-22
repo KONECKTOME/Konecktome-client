@@ -24,7 +24,7 @@ class Feedback extends Component {
     ) {
       alert("emoty fields");
     } else {
-      const response = await fetch("http://localhost:3002/users/feedback", {
+      const response = await fetch("http://localhost:3003/users/feedback", {
         method: "POST",
         body: JSON.stringify({
           userId: this.props.match.params.userid,

@@ -52,7 +52,7 @@ class Login extends React.Component {
       setTimeout(() => this.setState({ invalidEmail: false }), 1500);
     } else {
       this.setState({ loggingIn: true });
-      const response = await fetch("http://localhost:3002/users/login", {
+      const response = await fetch("http://localhost:3003/users/login", {
         method: "POST",
         body: JSON.stringify({
           email: this.state.details.email,
@@ -65,7 +65,7 @@ class Login extends React.Component {
       const token = await response.json();
       if (token.newAccessToken !== "Email or pass incorrect") {
         const authorize = await fetch(
-          `http://localhost:3002/users/get-user-after-login`,
+          `http://localhost:3003/users/get-user-after-login`,
           {
             method: "GET",
             headers: {
@@ -94,11 +94,11 @@ class Login extends React.Component {
   };
 
   loginWithGoogle = async () => {
-    window.location.href = "http://localhost:3002/users/auth/google";
+    window.location.href = "http://localhost:3003/users/auth/google";
   };
 
   loginWithFacebook = async () => {
-    window.location.href = "http://localhost:3002/users/login/facebook";
+    window.location.href = "http://localhost:3003/users/login/facebook";
   };
   render() {
     return (

@@ -60,7 +60,7 @@ class ForgotPassword extends React.Component {
     } else {
       this.setState({ resetPassword: true, sendingResetToken: true });
       const response = await fetch(
-        "http://localhost:3002/users/forgot-password",
+        "http://localhost:3003/users/forgot-password",
         {
           method: "POST",
           body: JSON.stringify({
@@ -95,7 +95,7 @@ class ForgotPassword extends React.Component {
       this.state.authenticationPin.authpin5 +
       this.state.authenticationPin.authpin6;
     const response = await fetch(
-      "http://localhost:3002/users/validate-forgot-password-token",
+      "http://localhost:3003/users/validate-forgot-password-token",
       {
         method: "POST",
         body: JSON.stringify({

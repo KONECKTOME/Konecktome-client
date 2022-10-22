@@ -31,7 +31,7 @@ class Account_home extends React.Component {
     }
     console.log("from account", id);
     const response = await fetch(
-      `http://localhost:3002/users/get-user-by-id/${id}`,
+      `http://localhost:3003/users/get-user-by-id/${id}`,
       {
         method: "GET",
         headers: {

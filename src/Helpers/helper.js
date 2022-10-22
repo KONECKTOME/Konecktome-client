@@ -1,6 +1,6 @@
 editUser = async (e) => {
   e.preventDefault();
-  const response = await fetch(`http://localhost:3002/users/edit-user`, {
+  const response = await fetch(`http://localhost:3003/users/edit-user`, {
     method: "PUT",
     body: JSON.stringify({
       userId: this.props.userDetails._id,
@@ -25,7 +25,7 @@ editUser = async (e) => {
 editProfessionAndDOB = async (e) => {
   e.preventDefault();
   const response = await fetch(
-    `http://localhost:3002/users/update-dob-profession`,
+    `http://localhost:3003/users/update-dob-profession`,
     {
       method: "PUT",
       body: JSON.stringify({
@@ -50,7 +50,7 @@ editProfessionAndDOB = async (e) => {
 
 sendAddress = async (e) => {
   e.preventDefault();
-  const response = await fetch("http://localhost:3002/users/update-address", {
+  const response = await fetch("http://localhost:3003/users/update-address", {
     method: "POST",
     body: JSON.stringify({
       userId: this.props.userId,

@@ -45,7 +45,7 @@ class PinModal extends React.Component {
       setTimeout(() => this.setState({ emptyFields: false }), 1500);
     } else {
       const response = await fetch(
-        "http://localhost:3002/users/pin-for-OAuth",
+        "http://localhost:3003/users/pin-for-OAuth",
         {
           method: "POST",
           body: JSON.stringify({

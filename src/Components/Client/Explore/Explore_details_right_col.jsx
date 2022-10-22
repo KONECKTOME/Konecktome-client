@@ -19,7 +19,7 @@ class Explore_details_right_col extends React.Component {
 
   addtoWishlist = async (dealId, dealName, price, subTitle) => {
     const response = await fetch(
-      `http://localhost:3002/users/update-wishlist`,
+      `http://localhost:3003/users/update-wishlist`,
       {
         method: "POST",
         body: JSON.stringify({
@@ -68,7 +68,9 @@ class Explore_details_right_col extends React.Component {
           <>
             <div id="right-with-compare">
               <div id="explore-details-inner-right">
-                <img src={image_placeholder} />
+                <div id="explore-details-right-image-holder">
+                  <img src={this.props.deal[0].companyLogo} />
+                </div>
                 <div id="explore-details-sub-inner-right-subheader-wrapper">
                   <div>
                     <p className="desktop-sub-header2">

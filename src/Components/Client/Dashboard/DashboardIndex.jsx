@@ -36,7 +36,7 @@ class DashBoardIndex extends Component {
   getUser = async () => {
     const id = this.props.match.params.userid;
     const response = await fetch(
-      `http://localhost:3002/users/get-user-by-id/${id}`,
+      `http://localhost:3003/users/get-user-by-id/${id}`,
       {
         method: "GET",
         headers: {
@@ -50,7 +50,7 @@ class DashBoardIndex extends Component {
   };
 
   getDeals = async () => {
-    const response = await fetch(`http://localhost:3002/companies/all-deals`, {
+    const response = await fetch(`http://localhost:3003/companies/all-deals`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
