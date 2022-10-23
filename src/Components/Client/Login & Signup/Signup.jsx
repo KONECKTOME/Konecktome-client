@@ -104,7 +104,7 @@ class Signup extends React.Component {
           1500
         );
 
-        window.location.href = `http://localhost:3000/dashboard/${details.id}`;
+        window.location.href = `https://konecktome-mvp.herokuapp.com/dashboard/${details.id}`;
       }
     }
   };
