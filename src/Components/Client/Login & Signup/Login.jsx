@@ -52,20 +52,23 @@ class Login extends React.Component {
       setTimeout(() => this.setState({ invalidEmail: false }), 1500);
     } else {
       this.setState({ loggingIn: true });
-      const response = await fetch("http://localhost:3003/users/login", {
-        method: "POST",
-        body: JSON.stringify({
-          email: this.state.details.email,
-          password: this.state.details.password,
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://konecktomebackend.herokuapp.com/users/login",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            email: this.state.details.email,
+            password: this.state.details.password,
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
       const token = await response.json();
       if (token.newAccessToken !== "Email or pass incorrect") {
         const authorize = await fetch(
-          `http://localhost:3003/users/get-user-after-login`,
+          `https://konecktomebackend.herokuapp.com/users/get-user-after-login`,
           {
             method: "GET",
             headers: {
@@ -94,11 +97,13 @@ class Login extends React.Component {
   };
 
   loginWithGoogle = async () => {
-    window.location.href = "http://localhost:3003/users/auth/google";
+    window.location.href =
+      "https://konecktomebackend.herokuapp.com/users/auth/google";
   };
 
   loginWithFacebook = async () => {
-    window.location.href = "http://localhost:3003/users/login/facebook";
+    window.location.href =
+      "https://konecktomebackend.herokuapp.com/users/login/facebook";
   };
   render() {
     return (

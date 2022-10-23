@@ -92,16 +92,19 @@ class SettingsModal extends React.Component {
       this.setState({ emptyFields: true });
       setTimeout(() => this.setState({ emptyFields: false }), 1500);
     } else {
-      const response = await fetch("http://localhost:3003/users/check-pin", {
-        method: "POST",
-        body: JSON.stringify({
-          email: this.props.userEmail,
-          pin: concatenatePin,
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://konecktomebackend.herokuapp.com/users/check-pin",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            email: this.props.userEmail,
+            pin: concatenatePin,
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
       const details = await response.json();
       if (details.message === "Invalid User") {
         this.setState({ notFound: true });
@@ -122,7 +125,7 @@ class SettingsModal extends React.Component {
   forgotPin = async () => {
     this.setState({ forgotPin: true, sendingResentToken: true });
     const response = await fetch(
-      "http://localhost:3003/users/forgot-password",
+      "https://konecktomebackend.herokuapp.com/users/forgot-password",
       {
         method: "POST",
         body: JSON.stringify({
@@ -173,7 +176,7 @@ class SettingsModal extends React.Component {
     } else {
       if (concatenateNewPin === concatenateConfirmNewPin) {
         const response = await fetch(
-          "http://localhost:3003/users/validate-forgot-password-token",
+          "https://konecktomebackend.herokuapp.com/users/validate-forgot-password-token",
           {
             method: "POST",
             body: JSON.stringify({

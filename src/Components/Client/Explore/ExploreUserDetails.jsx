@@ -32,7 +32,7 @@ class ExploreUserDetails extends Component {
       setTimeout(() => this.setState({ emptyfields: false }), 1500);
     } else {
       const response = await fetch(
-        `http://localhost:3003/users/update-dob-profession`,
+        `https://konecktomebackend.herokuapp.com/users/update-dob-profession`,
         {
           method: "PUT",
           body: JSON.stringify({

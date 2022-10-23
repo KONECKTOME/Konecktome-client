@@ -77,7 +77,7 @@ class PinModal extends React.Component {
       setTimeout(() => this.setState({ pinsDontMatch: false }), 1500);
     } else {
       const response = await fetch(
-        "http://localhost:3003/users/pin-for-OAuth",
+        "https://konecktomebackend.herokuapp.com/users/pin-for-OAuth",
         {
           method: "POST",
           body: JSON.stringify({

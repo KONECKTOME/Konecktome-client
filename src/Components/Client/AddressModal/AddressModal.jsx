@@ -85,7 +85,7 @@ class AddressModal extends React.Component {
               addressFromPostCodeCheckerInArray[2])
           : (addressline2FromPostCodeChecker = "");
         const response = await fetch(
-          "http://localhost:3003/users/update-address",
+          "https://konecktomebackend.herokuapp.com/users/update-address",
           {
             method: "POST",
             body: JSON.stringify({
@@ -151,7 +151,7 @@ class AddressModal extends React.Component {
             : (addressId = null);
         }
         const response = await fetch(
-          "http://localhost:3003/users/update-address",
+          "https://konecktomebackend.herokuapp.com/users/update-address",
           {
             method: "POST",
             body: JSON.stringify({

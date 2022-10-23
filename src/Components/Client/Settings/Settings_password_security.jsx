@@ -39,7 +39,7 @@ class Settings_password_security extends React.Component {
       setTimeout(() => this.setState({ passwordsNotMatch: false }), 1500);
     } else {
       const response = await fetch(
-        "http://localhost:3003/users/change-password",
+        "https://konecktomebackend.herokuapp.com/users/change-password",
         {
           method: "POST",
           body: JSON.stringify({

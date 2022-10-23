@@ -26,12 +26,15 @@ class Explore_home extends Component {
 
   componentDidMount = async () => {
     const dealArr = [];
-    const response = await fetch(`http://localhost:3003/companies/all-deals`, {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://konecktomebackend.herokuapp.com/companies/all-deals`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     const deals = await response.json();
     if (deals) {
       this.setState({ loading: false, deals });
@@ -40,7 +43,7 @@ class Explore_home extends Component {
 
   getDealById = async () => {
     const response = await fetch(
-      `http://localhost:3003/companies/get-deal-by-id/${this.props.match.params.dealId}`,
+      `https://konecktomebackend.herokuapp.com/companies/get-deal-by-id/${this.props.match.params.dealId}`,
       {
         method: "GET",
         headers: {

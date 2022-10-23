@@ -31,7 +31,7 @@ class Account_home extends React.Component {
     }
     console.log("from account", id);
     const response = await fetch(
-      `http://localhost:3003/users/get-user-by-id/${id}`,
+      `https://konecktomebackend.herokuapp.com/users/get-user-by-id/${id}`,
       {
         method: "GET",
         headers: {
@@ -99,7 +99,6 @@ class Account_home extends React.Component {
                           <p className="desktop-price"> Price</p>
                           <p className="desktop-price-number">£{acc.price}</p>
                         </div>
-
                         <div onClick={() => this.showReviewModal()}>
                           <p className="desktop-cta">Write a review</p>
                         </div>

@@ -90,7 +90,7 @@ class Settings_home extends React.Component {
   componentDidMount = async () => {
     const id = this.props.match.params.userid;
     const response = await fetch(
-      `http://localhost:3003/users/get-user-by-id/${id}`,
+      `https://konecktomebackend.herokuapp.com/users/get-user-by-id/${id}`,
       {
         method: "GET",
         headers: {

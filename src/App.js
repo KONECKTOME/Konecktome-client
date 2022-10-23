@@ -64,7 +64,7 @@ class App extends Component {
       id = this.props.location.pathname.split("/")[3];
     }
     const response = await fetch(
-      `http://localhost:3003/users/get-user-by-id/${id}`,
+      `https://konecktomebackend.herokuapp.com/users/get-user-by-id/${id}`,
       {
         method: "GET",
         headers: {
@@ -78,12 +78,15 @@ class App extends Component {
   };
 
   getDeals = async () => {
-    const response = await fetch(`http://localhost:3003/companies/all-deals`, {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://konecktomebackend.herokuapp.com/companies/all-deals`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     const deals = await response.json();
     const dealDetails = [...deals].sort(() => 0.5 - Math.random());
     this.setState({ dealDetails });

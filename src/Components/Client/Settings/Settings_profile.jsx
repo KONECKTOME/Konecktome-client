@@ -33,7 +33,7 @@ class Settings_profile extends React.Component {
     const photo = new FormData();
     photo.append("image", this.state.profileImage);
     const response = await fetch(
-      `http://localhost:3003/users/image-upload/${this.props.userDetails._id}`,
+      `https://konecktomebackend.herokuapp.com/users/image-upload/${this.props.userDetails._id}`,
       {
         method: "POST",
         body: photo,
@@ -80,18 +80,21 @@ class Settings_profile extends React.Component {
 
   editUser = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:3003/users/edit-user`, {
-      method: "PUT",
-      body: JSON.stringify({
-        userId: this.props.userDetails._id,
-        firstName: this.state.userDetails.firstName,
-        lastName: this.state.userDetails.lastName,
-        email: this.state.userDetails.email,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://konecktomebackend.herokuapp.com/users/edit-user`,
+      {
+        method: "PUT",
+        body: JSON.stringify({
+          userId: this.props.userDetails._id,
+          firstName: this.state.userDetails.firstName,
+          lastName: this.state.userDetails.lastName,
+          email: this.state.userDetails.email,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     const details = await response.json();
     if (details === "Invalid email") {
       alert("invalid email");
@@ -105,7 +108,7 @@ class Settings_profile extends React.Component {
   editProfessionAndDOB = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      `http://localhost:3003/users/update-dob-profession`,
+      `https://konecktomebackend.herokuapp.com/users/update-dob-profession`,
       {
         method: "PUT",
         body: JSON.stringify({

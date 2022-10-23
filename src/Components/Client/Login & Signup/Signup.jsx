@@ -69,19 +69,22 @@ class Signup extends React.Component {
       setTimeout(() => this.setState({ invalidEmail: false }), 1500);
     } else {
       this.setState({ sendLoading: true });
-      const response = await fetch("http://localhost:3003/users/sign-up", {
-        method: "POST",
-        body: JSON.stringify({
-          firstName: this.state.details.firstName,
-          lastName: this.state.details.lastName,
-          email: this.state.details.email,
-          password: this.state.details.password,
-          pin: concatenatePin,
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://konecktomebackend.herokuapp.com/users/sign-up",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            firstName: this.state.details.firstName,
+            lastName: this.state.details.lastName,
+            email: this.state.details.email,
+            password: this.state.details.password,
+            pin: concatenatePin,
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
       const details = await response.json();
       if (details.message === "Email already exists") {
         this.setState({ emailExists: true });
@@ -107,11 +110,13 @@ class Signup extends React.Component {
   };
 
   loginWithGoogle = async () => {
-    window.location.href = "http://localhost:3003/users/auth/google";
+    window.location.href =
+      "https://konecktomebackend.herokuapp.com/users/auth/google";
   };
 
   loginWithFacebook = async () => {
-    window.location.href = "http://localhost:3003/users/login/facebook";
+    window.location.href =
+      "https://konecktomebackend.herokuapp.com/users/login/facebook";
   };
   render() {
     return (

@@ -19,7 +19,7 @@ class Explore_details_right_col extends React.Component {
 
   addtoWishlist = async (dealId) => {
     const response = await fetch(
-      `http://localhost:3003/users/update-wishlist`,
+      `https://konecktomebackend.herokuapp.com/users/update-wishlist`,
       {
         method: "POST",
         body: JSON.stringify({

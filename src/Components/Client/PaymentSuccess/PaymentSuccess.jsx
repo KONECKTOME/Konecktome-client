@@ -12,7 +12,7 @@ class PaymentSuccess extends React.Component {
   };
   componentDidMount = async () => {
     const response = await fetch(
-      `http://localhost:3003/users/update-transaction-history`,
+      `https://konecktomebackend.herokuapp.com/users/update-transaction-history`,
       {
         method: "POST",
         body: JSON.stringify({

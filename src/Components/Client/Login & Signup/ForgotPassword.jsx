@@ -67,7 +67,7 @@ class ForgotPassword extends React.Component {
     } else {
       this.setState({ resetPassword: true, sendingResetToken: true });
       const response = await fetch(
-        "http://localhost:3003/users/forgot-password",
+        "https://konecktomebackend.herokuapp.com/users/forgot-password",
         {
           method: "POST",
           body: JSON.stringify({
@@ -119,7 +119,7 @@ class ForgotPassword extends React.Component {
       setTimeout(() => this.setState({ passwordsDontMatch: false }), 1500);
     } else {
       const response = await fetch(
-        "http://localhost:3003/users/validate-forgot-password-token",
+        "https://konecktomebackend.herokuapp.com/users/validate-forgot-password-token",
         {
           method: "POST",
           body: JSON.stringify({

@@ -33,7 +33,7 @@ class Explore_details extends React.Component {
 
   getDeal = async (dealId) => {
     const response = await fetch(
-      `http://localhost:3003/companies/get-deal-by-id/${dealId}`,
+      `https://konecktomebackend.herokuapp.com/companies/get-deal-by-id/${dealId}`,
       {
         method: "GET",
         headers: {
@@ -55,12 +55,15 @@ class Explore_details extends React.Component {
   };
 
   getDeals = async () => {
-    const response = await fetch(`http://localhost:3003/companies/all-deals`, {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://konecktomebackend.herokuapp.com/companies/all-deals`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     const deals = await response.json();
     const removeCurrentDeal = deals.filter(
       (deal) => deal._id !== this.props.match.params.dealId

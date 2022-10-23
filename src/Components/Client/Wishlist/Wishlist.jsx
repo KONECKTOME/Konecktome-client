@@ -24,7 +24,7 @@ class Wishlist extends React.Component {
       id = this.props.location.pathname.split("/")[4];
     }
     const response = await fetch(
-      `http://localhost:3003/users/get-user-by-id/${id}`,
+      `https://konecktomebackend.herokuapp.com/users/get-user-by-id/${id}`,
       {
         method: "GET",
         headers: {
