@@ -26,7 +26,6 @@ editUser = async (e) => {
 };
 
 editProfessionAndDOB = async (e) => {
-  e.preventDefault();
   const response = await fetch(
     `https://konecktomebackend.herokuapp.com/users/update-dob-profession`,
     {
