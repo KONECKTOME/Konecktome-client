@@ -52,9 +52,10 @@ class History_home extends React.Component {
           <Loader />
         ) : (
           <div id="history-wrapper">
+            <p className="desktop-header">Transaction History</p>
             {this.state.transactionHistory.length !== 0 ? (
               <div>
-                <div id="history_form-div">
+                {/* <div id="history_form-div">
                   <form>
                     <input
                       id="searchQuery"
@@ -63,10 +64,10 @@ class History_home extends React.Component {
                       className="history-search-form"
                     />
                   </form>
-                </div>
-                <div id="history_no_of_items_text">
+                </div> */}
+                {/* <div id="history_no_of_items_text">
                   <p>Showing 7 of 78</p>
-                </div>
+                </div> */}
                 <table>
                   <tr>
                     <th>
@@ -96,7 +97,7 @@ class History_home extends React.Component {
                               <Col lg={2}>
                                 <div className="small-profile-image-container">
                                   <img
-                                    src={profileSettingPlaceholder}
+                                    src={tt.serviceProviderLogo}
                                     className="small-profile-image"
                                   />
                                 </div>

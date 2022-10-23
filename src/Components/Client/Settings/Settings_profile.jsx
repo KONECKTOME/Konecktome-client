@@ -150,9 +150,6 @@ class Settings_profile extends React.Component {
     // }
   };
 
-  test = (e) => {
-    alert("here");
-  };
   render() {
     return (
       <>

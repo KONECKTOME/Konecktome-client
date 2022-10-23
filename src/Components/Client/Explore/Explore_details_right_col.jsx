@@ -17,21 +17,14 @@ class Explore_details_right_col extends React.Component {
     moreInfoNeededValue: this.props.userDetails.moreInfoNeeded,
   };
 
-  addtoWishlist = async (dealId, dealName, price, subTitle) => {
+  addtoWishlist = async (dealId) => {
     const response = await fetch(
       `http://localhost:3003/users/update-wishlist`,
       {
         method: "POST",
         body: JSON.stringify({
           userId: this.props.match.params.userid,
-          companyId: "test",
           dealId: dealId,
-          companyImage: "test",
-          dealName: dealName,
-          serviceProviderName: "test",
-          serviceType: "test",
-          price: price,
-          description: subTitle,
         }),
         headers: {
           "Content-type": "application/json",
@@ -153,14 +146,7 @@ class Explore_details_right_col extends React.Component {
                   </div> */}
                   <div
                     className="desktop-big-button-transparent"
-                    onClick={() =>
-                      this.addtoWishlist(
-                        this.props.deal[0]._id,
-                        this.props.deal[0].dealName,
-                        this.props.deal[0].dealPrice,
-                        this.props.deal[0].subTitle
-                      )
-                    }
+                    onClick={() => this.addtoWishlist(this.props.deal[0]._id)}
                   >
                     <p className="desktop-big-button-transparent-text">
                       Add to wishlist

@@ -26,6 +26,7 @@ class Signup extends React.Component {
     success: false,
     emailExists: false,
     invalidEmail: false,
+    sendLoading: false,
   };
 
   updateDetails = (e) => {
@@ -67,6 +68,7 @@ class Signup extends React.Component {
       this.setState({ invalidEmail: true });
       setTimeout(() => this.setState({ invalidEmail: false }), 1500);
     } else {
+      this.setState({ sendLoading: true });
       const response = await fetch("http://localhost:3003/users/sign-up", {
         method: "POST",
         body: JSON.stringify({
@@ -94,7 +96,10 @@ class Signup extends React.Component {
             password: "",
           },
         });
-        setTimeout(() => this.setState({ success: false }), 1500);
+        setTimeout(
+          () => this.setState({ sendLoading: false, success: false }),
+          1500
+        );
 
         window.location.href = `http://localhost:3000/dashboard/${details.id}`;
       }
@@ -155,12 +160,22 @@ class Signup extends React.Component {
                     <div className="input-holder">
                       <input
                         id="lastName"
-                        type="text"
                         placeholder="Last Name"
+                        type="text"
                         value={this.state.details.lastName}
                         onChange={(e) => this.updateDetails(e)}
                       />
                     </div>
+                    {/* <div className="input-holder">
+                      <label className="explore-address-label">Password</label>
+                      <input
+                        id="password"
+                        type="password"
+                        placeholder="Password"
+                        value={this.state.details.password}
+                        onChange={(e) => this.updateDetails(e)}
+                      />
+                    </div> */}
                   </Col>
                 </Row>
                 <div className="input-holder">
@@ -181,52 +196,6 @@ class Signup extends React.Component {
                     onChange={(e) => this.updateDetails(e)}
                   />
                 </div>
-                <Row>
-                  <Col>
-                    <div className="pin-input-holder">
-                      <input
-                        type="text"
-                        maxlength="1"
-                        id="pin1"
-                        value={this.state.pin.pin1}
-                        onChange={(e) => this.updateDetails(e)}
-                      />
-                    </div>
-                  </Col>
-                  <Col>
-                    <div className="pin-input-holder">
-                      <input
-                        type="text"
-                        maxlength="1"
-                        id="pin2"
-                        value={this.state.pin.pin2}
-                        onChange={(e) => this.updateDetails(e)}
-                      />
-                    </div>
-                  </Col>
-                  <Col>
-                    <div className="pin-input-holder">
-                      <input
-                        type="text"
-                        maxlength="1"
-                        id="pin3"
-                        value={this.state.pin.pin3}
-                        onChange={(e) => this.updateDetails(e)}
-                      />
-                    </div>
-                  </Col>
-                  <Col>
-                    <div className="pin-input-holder">
-                      <input
-                        type="text"
-                        maxlength="1"
-                        id="pin4"
-                        value={this.state.pin.pin4}
-                        onChange={(e) => this.updateDetails(e)}
-                      />
-                    </div>
-                  </Col>
-                </Row>
               </form>
               {this.state.success === true ? (
                 <div className="success-notification-holder">
@@ -272,7 +241,11 @@ class Signup extends React.Component {
               </div>
               <div id="sign-up-btn" onClick={(e) => this.register(e)}>
                 <div className="desktop-medium-button">
-                  <p className="desktop-big-button-text">Sign up</p>
+                  {this.state.sendLoading === true ? (
+                    <div id="explore-loading"></div>
+                  ) : (
+                    <p className="desktop-big-button-text">Sign Up</p>
+                  )}
                 </div>
               </div>
               <div id="sign-up-btn">

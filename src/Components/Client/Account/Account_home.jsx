@@ -86,6 +86,8 @@ class Account_home extends React.Component {
                       <div>
                         <p className="desktop-text">
                           You subscribed to {acc.dealName} on {acc.joinDate}
+                        </p>
+                        <p className="desktop-text">
                           Details are {acc.description}
                         </p>
                         <div className="desktop-badge1">
@@ -97,14 +99,7 @@ class Account_home extends React.Component {
                           <p className="desktop-price"> Price</p>
                           <p className="desktop-price-number">£{acc.price}</p>
                         </div>
-                        {/* <Link
-                    className="links"
-                    to="/dashboard/explore/details/:userId"
-                  >
-                    <div>
-                      <p className="desktop-cta">View details</p>
-                    </div>
-                  </Link> */}
+
                         <div onClick={() => this.showReviewModal()}>
                           <p className="desktop-cta">Write a review</p>
                         </div>

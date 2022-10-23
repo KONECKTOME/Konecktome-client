@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import signUpImage from "../../../Assets/signup-left-image.png";
+import "../../../css/Signup & login/SignUp.css";
 import Footer from "../LandingPage/Footer";
 import { Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class ForgotPassword extends React.Component {
   state = {
@@ -22,6 +24,10 @@ class ForgotPassword extends React.Component {
     },
     sendingResetToken: false,
     resetPassword: false,
+    emptyFields: false,
+    passwordsDontMatch: false,
+    sentSuccess: false,
+    userNotFound: false,
   };
 
   updateDetails = (e) => {
@@ -56,7 +62,8 @@ class ForgotPassword extends React.Component {
   sendResetToken = async (e) => {
     e.preventDefault();
     if (this.state.details.email === "") {
-      alert("emptuy fileds");
+      this.setState({ emptyFields: true });
+      setTimeout(() => this.setState({ emptyFields: false }), 1500);
     } else {
       this.setState({ resetPassword: true, sendingResetToken: true });
       const response = await fetch(
@@ -73,16 +80,18 @@ class ForgotPassword extends React.Component {
       );
       const details = await response.json();
       if (details.message === "Email sent") {
-        alert("email sent");
-        this.setState({
-          sendingResetToken: false,
-        });
+        setTimeout(() => this.setState({ sendingResetToken: false }), 1500);
       } else if (details.message === "User not found") {
-        alert("usernot found");
+        this.setState({ userNotFound: true });
+        setTimeout(() => this.setState({ userNotFound: false }), 1500);
       } else {
-        alert("an error aoocur");
+        alert("An error occured");
       }
     }
+  };
+
+  pinInArray = (str) => {
+    return str.split("").length;
   };
 
   resetPassword = async (e) => {
@@ -94,46 +103,68 @@ class ForgotPassword extends React.Component {
       this.state.authenticationPin.authpin4 +
       this.state.authenticationPin.authpin5 +
       this.state.authenticationPin.authpin6;
-    const response = await fetch(
-      "http://localhost:3003/users/validate-forgot-password-token",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          email: this.state.details.email,
-          changePasswordToken: concatenateAuthenticationPin,
-          newPassword: this.state.resetPasswordDetails.resetPassword,
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
+
+    if (
+      this.pinInArray(concatenateAuthenticationPin) !== 6 ||
+      this.state.resetPasswordDetails.resetPassword === "" ||
+      this.state.resetPasswordDetails.confirmResetPassword === ""
+    ) {
+      this.setState({ emptyFields: true });
+      setTimeout(() => this.setState({ emptyFields: false }), 1500);
+    } else if (
+      this.state.resetPasswordDetails.resetPassword !==
+      this.state.resetPasswordDetails.confirmResetPassword
+    ) {
+      this.setState({ passwordsDontMatch: true });
+      setTimeout(() => this.setState({ passwordsDontMatch: false }), 1500);
+    } else {
+      const response = await fetch(
+        "http://localhost:3003/users/validate-forgot-password-token",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            email: this.state.details.email,
+            changePasswordToken: concatenateAuthenticationPin,
+            newPassword: this.state.resetPasswordDetails.resetPassword,
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const details = await response.json();
+      if (details.message === "Password Reset successful") {
+        this.setState({ sentSuccess: true });
+        setTimeout(
+          () =>
+            this.setState({
+              sentSuccess: false,
+              details: {
+                email: "",
+              },
+              authenticationPin: {
+                authpin1: "",
+                authpin2: "",
+                authpin3: "",
+                authpin4: "",
+                authpin5: "",
+                authpin6: "",
+              },
+              resetPasswordDetails: {
+                resetPassword: "",
+                confirmResetPassword: "",
+              },
+              resetPassword: false,
+            }),
+          1500
+        );
+        this.props.history.push("/login");
       }
-    );
-    const details = await response.json();
-    if (details.message === "Password Reset successful") {
-      this.setState({
-        details: {
-          email: "",
-        },
-        authenticationPin: {
-          authpin1: "",
-          authpin2: "",
-          authpin3: "",
-          authpin4: "",
-          authpin5: "",
-          authpin6: "",
-        },
-        resetPasswordDetails: {
-          resetPassword: "",
-          confirmResetPassword: "",
-        },
-        resetPassword: false,
-      });
-      this.props.history.push("/dashboard/" + details.userId);
     }
   };
   render() {
     return (
-      <div id="sign-up-main">
+      <div>
         <Row>
           <Col md={6}>
             <div>
@@ -155,11 +186,11 @@ class ForgotPassword extends React.Component {
                     </div>
                   </>
                 ) : (
-                  <div id="sign-up-right-col">
+                  <div id="recover-password-main">
                     <p className="desktop-header sign-up-header">
                       Reset Your Password
                     </p>
-                    <p className="desktop-sub-header2 sign-up-header">
+                    <p className="desktop-sub-header2 ">
                       A 6 digit pin has been sent to your email, please enter it
                       below
                     </p>
@@ -267,6 +298,21 @@ class ForgotPassword extends React.Component {
                           onChange={(e) => this.updateResetDetails(e)}
                         />
                       </div>
+                      {this.state.emptyFields === true ? (
+                        <div className="error-notification-holder">
+                          <p>Input fields cannot be empty</p>
+                        </div>
+                      ) : null}
+                      {this.state.passwordsDontMatch === true ? (
+                        <div className="error-notification-holder">
+                          <p>Passwords Do Not Match</p>
+                        </div>
+                      ) : null}
+                      {this.state.sentSuccess === true ? (
+                        <div className="success-notification-holder">
+                          <p>Password Reset Successful</p>
+                        </div>
+                      ) : null}
                       <div
                         id="sign-up-btn"
                         onClick={(e) => this.resetPassword(e)}
@@ -282,7 +328,7 @@ class ForgotPassword extends React.Component {
                 )}
               </div>
             ) : (
-              <div id="sign-up-right-col">
+              <div id="recover-password-main">
                 <p className="desktop-header sign-up-header">
                   Recover Password
                 </p>
@@ -296,6 +342,26 @@ class ForgotPassword extends React.Component {
                       onChange={(e) => this.updateDetails(e)}
                     />
                   </div>
+                  <div id="recover-pass-login">
+                    <span>
+                      <Link
+                        to="/login"
+                        className="links sign-up-span-link desktop-text"
+                      >
+                        Go Back To Login
+                      </Link>
+                    </span>
+                  </div>
+                  {this.state.emptyFields === true ? (
+                    <div className="error-notification-holder">
+                      <p>Input Fields Cannot Be Empty </p>
+                    </div>
+                  ) : null}
+                  {this.state.userNotFound === true ? (
+                    <div className="error-notification-holder">
+                      <p>User Not Found</p>
+                    </div>
+                  ) : null}
                   <div id="sign-up-btn" onClick={(e) => this.sendResetToken(e)}>
                     <div className="desktop-medium-button">
                       <p className="desktop-big-button-text">

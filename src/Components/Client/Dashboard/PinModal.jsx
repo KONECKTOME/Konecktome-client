@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Modal } from "react-bootstrap";
-import { useHistory, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class PinModal extends React.Component {
   state = {
@@ -11,9 +11,16 @@ class PinModal extends React.Component {
       pin3: "",
       pin4: "",
     },
+    confirmNewPin: {
+      confirmpin1: "",
+      confirmpin2: "",
+      confirmpin3: "",
+      confirmpin4: "",
+    },
     emptyFields: false,
-    notFound: false,
+    pinsDontMatch: false,
     success: false,
+    error: false,
   };
 
   updatePinDetails = (e) => {
@@ -23,10 +30,29 @@ class PinModal extends React.Component {
     this.setState({ pin });
   };
 
+  updateConfirmPinDetails = (e) => {
+    const confirmNewPin = this.state.confirmNewPin;
+    const id = e.currentTarget.id;
+    confirmNewPin[id] = e.currentTarget.value;
+    this.setState({ confirmNewPin });
+  };
+
+  autoTab = (current, to) => {
+    if (
+      current.getAttribute &&
+      current.value.length == current.getAttribute("maxlength")
+    ) {
+      to.focus();
+    }
+  };
+
   goBackToDashboard = () => {
-    this.props.fetchUser();
     this.props.hidePinModal();
-    window.location.href = `http://localhost:3000/dashboard/${this.props.userDetails.userId}`;
+    this.props.history.push("/dashboard/" + this.props.userId);
+  };
+
+  pinInArray = (str) => {
+    return str.split("").length;
   };
 
   sendPin = async () => {
@@ -35,14 +61,20 @@ class PinModal extends React.Component {
       this.state.pin.pin2 +
       this.state.pin.pin3 +
       this.state.pin.pin4;
+    const concatenateConfirmPin =
+      this.state.confirmNewPin.confirmpin1 +
+      this.state.confirmNewPin.confirmpin2 +
+      this.state.confirmNewPin.confirmpin3 +
+      this.state.confirmNewPin.confirmpin4;
     if (
-      this.state.pin.pin1 === "" ||
-      this.state.pin.pin2 === "" ||
-      this.state.pin.pin3 === "" ||
-      this.state.pin.pin4 === ""
+      this.pinInArray(concatenatePin) !== 4 ||
+      this.pinInArray(concatenateConfirmPin) !== 4
     ) {
       this.setState({ emptyFields: true });
       setTimeout(() => this.setState({ emptyFields: false }), 1500);
+    } else if (concatenatePin !== concatenateConfirmPin) {
+      this.setState({ pinsDontMatch: true });
+      setTimeout(() => this.setState({ pinsDontMatch: false }), 1500);
     } else {
       const response = await fetch(
         "http://localhost:3003/users/pin-for-OAuth",
@@ -59,13 +91,13 @@ class PinModal extends React.Component {
       );
       const details = await response.json();
       if (details.message === "Invalid User") {
-        this.setState({ notFound: true });
-        setTimeout(() => this.setState({ notFound: false }), 1500);
+        this.setState({ error: true });
+        setTimeout(() => this.setState({ error: false }), 1500);
       } else if (details.message === "Pin Updated") {
         this.setState({ success: true });
-        setTimeout(() => this.setState({ success: false }), 1500);
-        setTimeout(() => this.props.hideModal(), 1500);
-        this.props.hidePinModal();
+        setTimeout(() => this.setState({ success: false }), 2000);
+        setTimeout(() => this.props.fetchUser(), 2000);
+        setTimeout(() => this.props.hidePinModal(), 2000);
       }
     }
   };
@@ -86,7 +118,6 @@ class PinModal extends React.Component {
               <div id="settings_modal_wrapper">
                 <p id="settings_modal_header">Set Your Pin</p>
                 <p id="settings_modal_subheader">Enter Pin You'd Like To Use</p>
-
                 <div id="settings_modal_form_container">
                   <div id="settings_modal_form_subcontainer">
                     <form id="settings_modal_form" name="pinForm">
@@ -96,6 +127,12 @@ class PinModal extends React.Component {
                           maxlength="1"
                           id="pin1"
                           value={this.state.pin.pin1}
+                          onInput={() =>
+                            this.autoTab(
+                              document.pinForm.pin1,
+                              document.pinForm.pin2
+                            )
+                          }
                           onChange={(e) => this.updatePinDetails(e)}
                         />
                         <input
@@ -104,6 +141,12 @@ class PinModal extends React.Component {
                           id="pin2"
                           name="pin2"
                           value={this.state.pin.pin2}
+                          onInput={() =>
+                            this.autoTab(
+                              document.pinForm.pin2,
+                              document.pinForm.pin3
+                            )
+                          }
                           onChange={(e) => this.updatePinDetails(e)}
                         />
                         <input
@@ -111,6 +154,12 @@ class PinModal extends React.Component {
                           maxlength="1"
                           id="pin3"
                           value={this.state.pin.pin3}
+                          onInput={() =>
+                            this.autoTab(
+                              document.pinForm.pin3,
+                              document.pinForm.pin4
+                            )
+                          }
                           onChange={(e) => this.updatePinDetails(e)}
                         />
                         <input
@@ -124,10 +173,68 @@ class PinModal extends React.Component {
                     </form>
                   </div>
                 </div>
-                {this.state.notFound === true ? (
+                <p id="settings_modal_subheader">Confirm Pin</p>
+                <div id="settings_modal_form_container">
+                  <div id="settings_modal_form_subcontainer">
+                    <form id="settings_modal_form" name="confirmPinForm">
+                      <div id="pin-container">
+                        <input
+                          type="text"
+                          maxlength="1"
+                          id="confirmpin1"
+                          value={this.state.confirmNewPin.confirmpin1}
+                          onInput={() =>
+                            this.autoTab(
+                              document.confirmPinForm.confirmpin1,
+                              document.confirmPinForm.confirmpin2
+                            )
+                          }
+                          onChange={(e) => this.updateConfirmPinDetails(e)}
+                        />
+                        <input
+                          type="text"
+                          maxlength="1"
+                          id="confirmpin2"
+                          name="pin2"
+                          value={this.state.confirmNewPin.confirmpin2}
+                          onInput={() =>
+                            this.autoTab(
+                              document.confirmPinForm.confirmpin2,
+                              document.confirmPinForm.confirmpin3
+                            )
+                          }
+                          onChange={(e) => this.updateConfirmPinDetails(e)}
+                        />
+                        <input
+                          type="text"
+                          maxlength="1"
+                          id="confirmpin3"
+                          value={this.state.confirmNewPin.confirmpin3}
+                          onInput={() =>
+                            this.autoTab(
+                              document.confirmPinForm.confirmpin3,
+                              document.confirmPinForm.confirmpin4
+                            )
+                          }
+                          onChange={(e) => this.updateConfirmPinDetails(e)}
+                        />
+                        <input
+                          type="text"
+                          maxlength="1"
+                          id="confirmpin4"
+                          value={this.state.confirmNewPin.confirmpin4}
+                          onChange={(e) => this.updateConfirmPinDetails(e)}
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                {this.state.error === true ? (
                   <div id="setting_modal_form_button_wrapper">
                     <div id="settings_modal_form_error_button">
-                      <p id="settings_modal_form_button_text">Incorrect Pin</p>
+                      <p id="settings_modal_form_button_text">
+                        An Error Occured
+                      </p>
                     </div>
                   </div>
                 ) : null}
@@ -136,7 +243,16 @@ class PinModal extends React.Component {
                   <div id="setting_modal_form_button_wrapper">
                     <div id="settings_modal_form_error_button">
                       <p id="settings_modal_form_button_text">
-                        Fields cannot be empty
+                        Input Fields cannot be empty
+                      </p>
+                    </div>
+                  </div>
+                ) : null}
+                {this.state.pinsDontMatch === true ? (
+                  <div id="setting_modal_form_button_wrapper">
+                    <div id="settings_modal_form_error_button">
+                      <p id="settings_modal_form_button_text">
+                        Pins Don't Match
                       </p>
                     </div>
                   </div>

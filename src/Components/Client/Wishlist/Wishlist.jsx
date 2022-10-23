@@ -58,7 +58,7 @@ class Wishlist extends React.Component {
                   return (
                     <div className="card">
                       <div id="image-holder">
-                        <img src={image_placeholder} className="card-image" />
+                        <img src={item.companyImage} className="card-image" />
                       </div>
                       <div id="account-card-inner-first-div">
                         <p className="desktop-sub-header2">{item.dealName}</p>
@@ -66,7 +66,7 @@ class Wishlist extends React.Component {
                       <div>
                         <p className="desktop-text">{item.description}</p>
                         <div className="desktop-badge1">
-                          <p className="desktop-badge-text">Financial</p>
+                          <p className="desktop-badge-text">{item.tag}</p>
                         </div>
                       </div>
                       <div id="account-card-footer">

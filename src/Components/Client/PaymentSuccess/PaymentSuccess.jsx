@@ -11,7 +11,6 @@ class PaymentSuccess extends React.Component {
     loading: true,
   };
   componentDidMount = async () => {
-    console.log(this.props.installationDateAndTime);
     const response = await fetch(
       `http://localhost:3003/users/update-transaction-history`,
       {
@@ -19,7 +18,9 @@ class PaymentSuccess extends React.Component {
         body: JSON.stringify({
           userId: this.props.match.params.userid,
           dealId: this.props.match.params.dealId,
-          installationDateAndTime: this.props.installationDateAndTime,
+          installationDateAndTime: localStorage.getItem(
+            "installationDateAndTime"
+          ),
         }),
         headers: {
           "Content-type": "application/json",
@@ -27,8 +28,8 @@ class PaymentSuccess extends React.Component {
       }
     );
     const details = await response.json();
-    console.log("tras", details);
     if (details.message) {
+      this.props.fetchUser();
       this.setState({
         transactionDetails: details.message,
         loading: false,
@@ -45,7 +46,8 @@ class PaymentSuccess extends React.Component {
           " " +
           this.state.transactionDetails.deliveryAddress[0].postCode,
       });
-      this.props.resetBoughtDeal();
+
+      localStorage.removeItem("installationDateAndTime");
     }
   };
 
@@ -83,7 +85,7 @@ class PaymentSuccess extends React.Component {
                 <div>
                   <p className="desktop-text">22-09-22</p>
                   <p className="desktop-text">
-                    {this.props.installationDateAndTime}
+                    {this.state.transactionDetails.installationDateAndTime}
                   </p>
                   <p className="desktop-text">
                     £{this.state.transactionDetails.subscriptionPrice}

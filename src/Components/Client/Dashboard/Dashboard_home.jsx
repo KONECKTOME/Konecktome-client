@@ -35,7 +35,7 @@ const Dashboard_home = (props) => {
         <div>
           <div className="desktop-header">
             <p>Wassup, {userDetails.firstName}</p>
-            {userDetails.pin === "0000" ? (
+            {userDetails.pinHasBeenSet == false ? (
               <div className="exist-notification-holder">
                 You've Not Set Your Pin,{"  "}
                 <span onClick={() => showPinModal()} id="dashboard-pin-launch">
@@ -69,10 +69,8 @@ const Dashboard_home = (props) => {
               modalState={pinModal}
               hidePinModal={() => hidePinModal()}
               email={userDetails.email}
-              userDetails={
-                ({ email: userDetails.email }, { userId: userDetails._id })
-              }
-              fetchUser={() => this.props.fetchUser()}
+              userId={userDetails._id}
+              fetchUser={() => props.fetchUser()}
             />
           ) : null}
         </div>

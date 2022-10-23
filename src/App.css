@@ -386,7 +386,7 @@ input::placeholder {
 input[type="text"] {
   text-align: left;
   border-radius: 10px;
-  background-color: transparent;
+  background-color: #f6f6f8;
   color: #000000;
   border: 2px solid #000000;
   font-size: 20px;
@@ -402,7 +402,7 @@ input[type="text"] {
 textarea[type="text"] {
   text-align: left;
   border-radius: 10px;
-  background-color: transparent;
+  background-color: #f6f6f8;
   color: #000000;
   border: 2px solid #000000;
   font-size: 20px;
@@ -416,7 +416,7 @@ textarea[type="text"] {
 input[type="date"] {
   text-align: left;
   border-radius: 10px;
-  background-color: transparent;
+  background-color: #f6f6f8;
   color: #000000;
   border: 2px solid #000000;
   font-size: 20px;
@@ -434,7 +434,7 @@ input[type="email"] {
   text-align: left;
   border-radius: 10px;
   margin-top: 1rem;
-  background-color: transparent;
+  background-color: #f6f6f8;
   color: #000000;
   border: 2px solid #000000;
   font-size: 20px;
@@ -446,7 +446,7 @@ input[type="password"] {
   text-align: left;
   border-radius: 10px;
   margin-top: 1rem;
-  background-color: transparent;
+  background-color: #f6f6f8;
   color: #000000;
   border: 2px solid #000000;
   font-size: 20px;

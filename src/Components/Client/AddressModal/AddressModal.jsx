@@ -71,7 +71,11 @@ class AddressModal extends React.Component {
         this.state.postCodeCheckerDateOfArrival === "" ||
         this.state.postCodeCheckerDateOfDeparture === ""
       ) {
-        alert("input fields");
+        this.setState({ emptyFieldsFromPostCodeChecker: true });
+        setTimeout(
+          () => this.setState({ emptyFieldsFromPostCodeChecker: false }),
+          1500
+        );
       } else {
         let addressFromPostCodeCheckerInArray =
           this.state.addressFromPostCodeChecker.split(",");
@@ -111,7 +115,6 @@ class AddressModal extends React.Component {
         );
         const details = await response.json();
         if (details.message === "Address added") {
-          alert("address added");
           this.setState({ sentSuccessFromPostCodeChecker: true });
           setTimeout(
             () => this.setState({ sentSuccessFromPostCodeChecker: false }),
@@ -121,7 +124,6 @@ class AddressModal extends React.Component {
           details.message ===
           "Date Of Arrival cannot be more than Date Of Departure"
         ) {
-          alert("adrriveal vant");
           this.setState({ errorFromPostCodeChecker: true });
           setTimeout(
             () => this.setState({ errorFromPostCodeChecker: false }),
@@ -181,7 +183,6 @@ class AddressModal extends React.Component {
         ) {
           this.setState({ durationError: true });
           setTimeout(() => this.setState({ durationError: false }), 1500);
-          alert("error");
         }
       }
     }
@@ -394,7 +395,60 @@ class AddressModal extends React.Component {
                     />
                   </Col>
                 </Row>
-
+                <div id="address-modal-current-delivery-checkbox-holder">
+                  <div id="explore-compare-holder">
+                    <label
+                      for="compare"
+                      className="explore-address-label"
+                      id="compare-label"
+                    >
+                      <input
+                        type="checkbox"
+                        value={this.state.deliveryAddressFromPostCodeChecker}
+                        onChange={(e) =>
+                          this.setState({
+                            deliveryAddressFromPostCodeChecker:
+                              e.target.checked,
+                          })
+                        }
+                      />
+                      <span id="input-compare-text">Delivery Address</span>
+                    </label>
+                  </div>
+                  <div id="explore-compare-holder">
+                    <label
+                      for="compare"
+                      className="explore-address-label"
+                      id="compare-label"
+                    >
+                      <input
+                        type="checkbox"
+                        value={this.state.currentAddressFromPostCodeChecker}
+                        onChange={(e) =>
+                          this.setState({
+                            currentAddressFromPostCodeChecker: e.target.checked,
+                          })
+                        }
+                      />
+                      <span id="input-compare-text">Current Address</span>
+                    </label>
+                  </div>
+                </div>
+                {this.state.emptyFieldsFromPostCodeChecker === true ? (
+                  <div className="error-notification-holder">
+                    <p>Input fields cannot be empty</p>
+                  </div>
+                ) : null}
+                {this.state.errorFromPostCodeChecker === true ? (
+                  <div className="error-notification-holder">
+                    <p>An Error Occured</p>
+                  </div>
+                ) : null}
+                {this.state.sentSuccessFromPostCodeChecker === true ? (
+                  <div className="success-notification-holder">
+                    <p>Address Saved</p>
+                  </div>
+                ) : null}
                 <div
                   className="desktop-big-button"
                   id="explore-address-btn"
@@ -405,37 +459,12 @@ class AddressModal extends React.Component {
               </form>
             </div>
 
-            <div id="current-address-checkbox">
-              <input
-                type="checkbox"
-                value={this.state.currentAddressFromPostCodeChecker}
-                onChange={(e) =>
-                  this.setState({
-                    currentAddressFromPostCodeChecker: e.target.checked,
-                  })
-                }
-              />
-              <p className="desktop-sub-header2">
-                Check the box if this is your current address
-              </p>
-            </div>
-            <div id="current-address-checkbox">
-              <input
-                type="checkbox"
-                value={this.state.deliveryAddressFromPostCodeChecker}
-                onChange={(e) =>
-                  this.setState({
-                    deliveryAddressFromPostCodeChecker: e.target.checked,
-                  })
-                }
-              />
-              <p className="desktop-sub-header2">
-                Check the box if this is your delivery address
-              </p>
-            </div>
             {this.state.addressSelected === false ? (
               <div>
                 <div id="or-holder">
+                  <p className="desktop-sub-header2">OR</p>
+                </div>
+                <div>
                   <p className="desktop-sub-header2">Enter Address Manually</p>
                 </div>
                 <form>
@@ -529,14 +558,11 @@ class AddressModal extends React.Component {
                   </Row>
 
                   <div id="address-inputholder">
-                    <p className="settings_payment_user_details_label">
-                      How long did you stay at this address?
-                    </p>
                     <Row>
                       <Col>
                         <div>
                           <p className="settings_payment_user_details_label">
-                            From
+                            Date Of Arrival
                           </p>
                           <input
                             type="date"
@@ -553,7 +579,7 @@ class AddressModal extends React.Component {
                       <Col>
                         <div>
                           <p className="settings_payment_user_details_label">
-                            Till
+                            Date Of Departure
                           </p>
                           <input
                             type="date"

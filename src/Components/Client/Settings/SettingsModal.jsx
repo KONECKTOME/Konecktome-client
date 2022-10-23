@@ -37,6 +37,9 @@ class SettingsModal extends React.Component {
     success: false,
     forgotPin: false,
     sendingResentToken: false,
+    errorSendingEmail: false,
+    invalidToken: false,
+    pinDontMatch: false,
   };
 
   updatePinDetails = (e) => {
@@ -134,7 +137,7 @@ class SettingsModal extends React.Component {
     if (details.message === "Email sent") {
       this.setState({ sendingResentToken: false });
     } else {
-      alert("An errir occured");
+      this.setState({ errorSendingEmail: true });
     }
   };
 
@@ -165,7 +168,8 @@ class SettingsModal extends React.Component {
       this.pinInArray(concatenateNewPin) !== 4 ||
       this.pinInArray(concatenateConfirmNewPin) !== 4
     ) {
-      alert("Input firled empty");
+      this.setState({ emptyFields: true });
+      setTimeout(() => this.setState({ emptyFields: false }), 1500);
     } else {
       if (concatenateNewPin === concatenateConfirmNewPin) {
         const response = await fetch(
@@ -184,7 +188,8 @@ class SettingsModal extends React.Component {
         );
         const details = await response.json();
         if (details.message === "Pin Reset successful") {
-          alert("pin reset successful");
+          this.setState({ success: true });
+          setTimeout(() => this.setState({ success: false }), 1500);
           this.setState({
             forgotPin: false,
             authenticationPin: {
@@ -208,11 +213,15 @@ class SettingsModal extends React.Component {
               confirmpin4: "",
             },
           });
+          this.props.hideModal();
+          this.props.history.push("/dashboard/" + this.props.userId);
         } else if ((details.message = "Invalid token")) {
-          alert("Invalid token");
+          this.setState({ invalidToken: true });
+          setTimeout(() => this.setState({ invalidToken: false }), 1500);
         }
       } else {
-        alert("Pins don't match");
+        this.setState({ pinDontMatch: true });
+        setTimeout(() => this.setState({ pinDontMatch: false }), 1500);
       }
     }
   };
@@ -245,7 +254,6 @@ class SettingsModal extends React.Component {
                   </>
                 ) : (
                   <div>
-                    <p onClick={() => this.resetPin()}>Shpw pin</p>
                     <p id="settings_modal_header">Reset Pin</p>
                     <p id="settings_modal_subheader">
                       A digit pin has been sent to your email, please enter it
@@ -450,6 +458,42 @@ class SettingsModal extends React.Component {
                         />
                       </div>
                     </form>
+                    {this.state.emptyFields === true ? (
+                      <div id="setting_modal_form_button_wrapper">
+                        <div id="settings_modal_form_error_button">
+                          <p id="settings_modal_form_button_text">
+                            Fields cannot be empty
+                          </p>
+                        </div>
+                      </div>
+                    ) : null}
+                    {this.state.invalidToken === true ? (
+                      <div id="setting_modal_form_button_wrapper">
+                        <div id="settings_modal_form_error_button">
+                          <p id="settings_modal_form_button_text">
+                            Invalid Reset Token
+                          </p>
+                        </div>
+                      </div>
+                    ) : null}
+                    {this.state.pinDontMatch === true ? (
+                      <div id="setting_modal_form_button_wrapper">
+                        <div id="settings_modal_form_error_button">
+                          <p id="settings_modal_form_button_text">
+                            Pins Don't Match
+                          </p>
+                        </div>
+                      </div>
+                    ) : null}
+                    {this.state.success === true ? (
+                      <div id="setting_modal_form_button_wrapper">
+                        <div id="settings_modal_form_success_button">
+                          <p id="settings_modal_form_button_text">
+                            Reset Successful
+                          </p>
+                        </div>
+                      </div>
+                    ) : null}
                     <div
                       id="setting_modal_form_button_wrapper"
                       onClick={() => this.resetPin()}

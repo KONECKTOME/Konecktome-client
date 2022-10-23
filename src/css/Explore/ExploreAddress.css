@@ -117,11 +117,11 @@
 }
 
 #explore-installation-wrapper {
-  margin-top: 2rem;
+  padding: 3rem 3rem 0 3rem;
 }
 
 #explore-installation-wrapper > .row {
-  margin: 5rem 0 3rem 0;
+  margin: 2rem 0 3rem 0;
 }
 
 #explore-installation-button {
@@ -140,10 +140,17 @@
   font-size: 20px;
   line-height: 36px;
   color: #000000;
+  display: block;
+  margin: 1.5rem 0 2rem 0;
+}
+
+#hideSelectedDateAndTime {
+  display: none;
 }
 
 #explore-installation-payment-btn {
   margin: 0 auto;
+  margin-top: 1.5rem;
 }
 
 #explore-address-post-code-loader {

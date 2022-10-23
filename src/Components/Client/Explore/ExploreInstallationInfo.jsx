@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col } from "react-bootstrap";
+import "../../../css/Explore/Explore_details.css";
 
 class ExploreInstallationInfo extends Component {
   state = {
@@ -18,14 +19,23 @@ class ExploreInstallationInfo extends Component {
     ],
     selectedInstallationDateAndTime: "",
     paymentLoader: false,
+    installationDatesAndTimeNotSelected: false,
   };
 
   proceedToPayment = async () => {
     if (this.state.selectedInstallationDateAndTime === "") {
-      alert("Please pick a date and time");
+      this.setState({ installationDatesAndTimeNotSelected: true });
+      setTimeout(
+        () => this.setState({ installationDatesAndTimeNotSelected: false }),
+        1500
+      );
     } else {
       this.setState({ paymentLoader: true });
-      this.props.populateBoughtDeal(this.state.selectedInstallationDateAndTime);
+      localStorage.setItem(
+        "installationDateAndTime",
+        this.state.selectedInstallationDateAndTime
+      );
+
       const productNameConcat =
         this.props.deal[0].dealName +
         " " +
@@ -59,8 +69,16 @@ class ExploreInstallationInfo extends Component {
   render() {
     return (
       <div id="explore-installation-wrapper">
-        <p className="desktop-sub-header2">Please Select Installation</p>
-        <p id="selected-date-time">
+        <p className="desktop-header">
+          Please Select Installation Date And Time
+        </p>
+        <p
+          id={
+            this.state.selectedInstallationDateAndTime === ""
+              ? "hideSelectedDateAndTime"
+              : "selected-date-time"
+          }
+        >
           {this.state.selectedInstallationDateAndTime}
         </p>
         <Row>
@@ -68,6 +86,7 @@ class ExploreInstallationInfo extends Component {
             return (
               <Col
                 lg={6}
+                id="installation-data-time-col"
                 onClick={() =>
                   this.setState({ selectedInstallationDateAndTime: item })
                 }
@@ -87,6 +106,11 @@ class ExploreInstallationInfo extends Component {
             );
           })}
         </Row>
+        {this.state.installationDatesAndTimeNotSelected === true ? (
+          <div className="error-notification-holder">
+            <p>Please Select Installation Date And Time</p>
+          </div>
+        ) : null}
         <div
           className="desktop-small-button"
           id="explore-installation-payment-btn"

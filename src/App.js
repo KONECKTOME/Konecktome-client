@@ -38,7 +38,7 @@ class App extends Component {
     userDetails: {},
     dealDetails: [],
     loading: false,
-    installationDateAndTime: "",
+    installationDateAndTime: null,
   };
 
   componentDidMount = async () => {
@@ -90,8 +90,9 @@ class App extends Component {
     console.log("deals from app", this.state.dealDetails);
   };
 
-  populateBoughtDeal = (installationDateAndTime) => {
-    this.setState({ installationDateAndTime });
+  populateBoughtDeal = (dateAndTime) => {
+    this.setState({ installationDateAndTime: dateAndTime });
+    console.log("pam", this.state.installationDateAndTime);
   };
 
   resetBoughtDeal = () => {

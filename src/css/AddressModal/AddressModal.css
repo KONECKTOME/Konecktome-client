@@ -11,15 +11,19 @@
   padding: 3rem 0 3rem 0;
 }
 
+#address-modal-current-delivery-checkbox-holder {
+  display: flex;
+  justify-content: space-between;
+}
+
 #address-inputholder input[type="text"] {
   width: 100% !important;
   border-radius: 5px !important;
 }
 #address-inputholder input[type="date"] {
-  background-color: transparent;
   width: 100% !important;
   border-radius: 5px;
-  border: 2px solid #000000 !important;
+  background-color: #f6f6f8 !important;
   height: 55px;
   padding: 0 1rem 0 1rem;
   font-family: Poppins;
@@ -101,7 +105,9 @@
   margin-top: 0.6rem;
 }
 #or-holder {
+  text-align: center;
   margin: 2rem 0 2rem 0;
+  font-size: 32px !important;
 }
 
 #address-inputholder {

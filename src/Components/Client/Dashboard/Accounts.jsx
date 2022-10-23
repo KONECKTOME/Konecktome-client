@@ -45,18 +45,20 @@ class Accounts extends Component {
       // </div>
       <div id="hist-wrapper">
         <p className="desktop-sub-header1">My Accounts</p>
-        {this.state.accounts.length !== 0 ? (
+        {this.props.accounts.length !== 0 ? (
           <div>
-            {this.state.accounts
+            {this.props.accounts
               .reverse()
               .slice(0, 3)
               .map((item) => {
                 return (
                   <div className="hist-inner-div">
                     <div id="hist-inner-div-textholder">
-                      <p className="desktop-sub-header2">Toob</p>
-                      <p className="hist-text-date">description</p>
-                      <p className="desktop-text">tag</p>
+                      <p className="desktop-sub-header2">
+                        {item.serviceProviderName}
+                      </p>
+                      <p className="hist-text-date">{item.description}</p>
+                      <p className="desktop-text">{item.tag}</p>
                     </div>
                   </div>
                 );
