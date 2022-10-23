@@ -70,7 +70,7 @@ const Navbar = (props) => {
               <img
                 src={
                   userDetails.imageUrl === undefined || !userDetails.imageUrl
-                    ? placeholder_image
+                    ? "https://res.cloudinary.com/konecktome/image/upload/v1666536178/profile-placeholder_hre9jc.jpg"
                     : userDetails.imageUrl
                 }
                 id="nav-img"

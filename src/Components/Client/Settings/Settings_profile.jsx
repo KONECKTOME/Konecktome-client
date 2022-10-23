@@ -164,7 +164,11 @@ class Settings_profile extends React.Component {
             <div id="settings-profile-image-container">
               <div id="settings-profile-image-sub-container">
                 <img
-                  src={this.props.userDetails.imageUrl}
+                  src={
+                    this.props.userDetails.imageUrl === undefined
+                      ? "https://res.cloudinary.com/konecktome/image/upload/v1666536178/profile-placeholder_hre9jc.jpg"
+                      : this.props.userDetails.imageUrl
+                  }
                   id="settings_profile_image"
                 />
                 <div id="image-upload-holder">
