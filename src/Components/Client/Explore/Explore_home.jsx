@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import Explore_comparison from "./Explore_comparison";
 import Loader from "../Loader/Loader";
+import SmallLoader from "../Loader/SmallLoader";
 
 class Explore_home extends Component {
   state = {
@@ -170,7 +171,7 @@ class Explore_home extends Component {
     return (
       <>
         {this.state.loading === true ? (
-          <Loader />
+          <SmallLoader />
         ) : (
           <div id="explore-wrapper">
             <p className="desktop-header">Explore</p>

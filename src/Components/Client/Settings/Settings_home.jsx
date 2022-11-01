@@ -9,6 +9,7 @@ import Settings_password_security from "./Settings_password_security";
 import Settings_payment from "./Settings_payment";
 import { Row, Col } from "react-bootstrap";
 import { UserDetailsContext } from "../Context/UserDetailsContext";
+import PinModal from "../Dashboard/PinModal";
 class Settings_home extends React.Component {
   static contextType = UserDetailsContext;
 
@@ -22,6 +23,7 @@ class Settings_home extends React.Component {
     closeAccounts: false,
     activeClass: false,
     userDetails: {},
+    showSetPinModal: true,
   };
   hideModal = () => {
     this.setState({
@@ -102,19 +104,41 @@ class Settings_home extends React.Component {
     this.setState({ userDetails });
   };
 
+  showPinModal = () => {
+    this.setState({ showSetPinModal: true });
+  };
+  hidePinModal = () => {
+    this.setState({ showSetPinModal: false });
+  };
+
   render(props) {
     return (
       <div>
-        {this.state.showModal === true ? (
-          <SettingsModal
-            modalState={this.state.showModal}
-            hideModal={() => this.hideModal()}
-            userEmail={this.context.userDetails.email}
-            userId={this.context.userDetails._id}
-            userPin={this.context.userDetails.pin}
-            {...props}
-          />
-        ) : null}
+        <div>
+          {this.context.userDetails.pinHasBeenSet === false ? (
+            <PinModal
+              modalState={this.state.showSetPinModal}
+              hidePinModal={() => this.hidePinModal()}
+              email={this.context.userDetails.email}
+              userId={this.context.userDetails._id}
+              fetchUser={() => this.props.fetchUser()}
+            />
+          ) : (
+            <>
+              {this.state.showModal === true ? (
+                <SettingsModal
+                  modalState={this.state.showModal}
+                  hideModal={() => this.hideModal()}
+                  userEmail={this.context.userDetails.email}
+                  userId={this.context.userDetails._id}
+                  userPin={this.context.userDetails.pin}
+                  userDetails={this.context.userDetails}
+                  {...props}
+                />
+              ) : null}
+            </>
+          )}
+        </div>
         <div id="settings_home_wrapper">
           <p id="settings_home_header">Settings</p>
           <div id="settings_home_subcontainer">

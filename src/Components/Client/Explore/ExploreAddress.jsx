@@ -39,7 +39,7 @@ class ExploreAddress extends Component {
     deliveryAddressFromPostCodeChecker: false,
     sentSuccessFromPostCodeChecker: false,
     errorFromPostCodeChecker: false,
-    emptyFieldsFromPostCodeChecker: true,
+    emptyFieldsFromPostCodeChecker: false,
   };
 
   hideAddressHolder = () => {
@@ -429,32 +429,45 @@ class ExploreAddress extends Component {
                 </Row>
                 <Row>
                   <Col lg={6}>
-                    <label className="explore-address-label">
-                      Is this is your Delivery Address?
-                    </label>
-                    <input
-                      type="checkbox"
-                      className="explore-address-input-both"
-                      onChange={(e) =>
-                        this.setState({
-                          deliveryAddressFromPostCodeChecker: e.target.checked,
-                        })
-                      }
-                    />
+                    <div id="explore-compare-holder">
+                      <label for="compare" id="compare-label">
+                        <input
+                          type="checkbox"
+                          onChange={(e) =>
+                            this.setState({
+                              deliveryAddressFromPostCodeChecker:
+                                e.target.checked,
+                            })
+                          }
+                        />
+
+                        <span
+                          id="input-compare-text"
+                          className="explore-address-label"
+                        >
+                          Is this is your Delivery Address?
+                        </span>
+                      </label>
+                    </div>
                   </Col>
                   <Col lg={6}>
-                    <label className="explore-address-label">
-                      Is this your current address?
+                    <label for="compare" id="compare-label">
+                      <input
+                        type="checkbox"
+                        onChange={(e) =>
+                          this.setState({
+                            currentAddressFromPostCodeChecker: e.target.checked,
+                          })
+                        }
+                      />
+
+                      <span
+                        id="input-compare-text"
+                        className="explore-address-label"
+                      >
+                        Is this your current address?
+                      </span>
                     </label>
-                    <input
-                      type="checkbox"
-                      className="explore-address-input-both"
-                      onChange={(e) =>
-                        this.setState({
-                          currentAddressFromPostCodeChecker: e.target.checked,
-                        })
-                      }
-                    />
                   </Col>
                 </Row>
                 {this.state.emptyFieldsFromPostCodeChecker === true ? (
@@ -631,32 +644,42 @@ class ExploreAddress extends Component {
                     />
                   </Col>
                   <Col lg={6}>
-                    <label className="explore-address-label">
-                      Click the Box If this is your current address
+                    <label for="compare" id="compare-label">
+                      <input
+                        type="checkbox"
+                        onChange={(e) =>
+                          this.setState({
+                            currentAddress: e.target.checked,
+                          })
+                        }
+                      />
+
+                      <span
+                        id="input-compare-text"
+                        className="explore-address-label"
+                      >
+                        Is this is your Current Address?
+                      </span>
                     </label>
-                    <input
-                      type="checkbox"
-                      className="explore-address-input-both"
-                      onChange={(e) =>
-                        this.setState({
-                          currentAddress: e.target.checked,
-                        })
-                      }
-                    />
                   </Col>
                   <Col lg={6}>
-                    <label className="explore-address-label">
-                      Click the Box If this is your Delivery Address
+                    <label for="compare" id="compare-label">
+                      <input
+                        type="checkbox"
+                        onChange={(e) =>
+                          this.setState({
+                            deliveryAddress: e.target.checked,
+                          })
+                        }
+                      />
+
+                      <span
+                        id="input-compare-text"
+                        className="explore-address-label"
+                      >
+                        Is this is your Delivery Address?
+                      </span>
                     </label>
-                    <input
-                      type="checkbox"
-                      className="explore-address-input-both"
-                      onChange={(e) =>
-                        this.setState({
-                          deliveryAddress: e.target.checked,
-                        })
-                      }
-                    />
                   </Col>
                 </Row>
 

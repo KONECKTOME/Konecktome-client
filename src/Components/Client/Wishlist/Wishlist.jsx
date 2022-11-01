@@ -1,19 +1,18 @@
 import React, { useState, useContext } from "react";
 import image_placeholder from "../../../Assets/account-card-placeholder.png";
 import wishlist_icon from "../../../Assets/wishlist-card-icon.svg";
-import Loader from "../Loader/Loader";
+import SmallLoader from "../Loader/SmallLoader";
 import { Link } from "react-router-dom";
 import { UserDetailsContext } from "../Context/UserDetailsContext";
 
 class Wishlist extends React.Component {
   state = {
-    loading: false,
+    loading: true,
     wishlist: [],
     userId: "",
   };
 
   componentDidMount = async () => {
-    this.setState({ loading: true });
     let id = "";
     const idInArray = this.props.location.pathname.split("/");
     if (idInArray.length === 4) {
@@ -41,14 +40,12 @@ class Wishlist extends React.Component {
       });
     }
   };
-  // console.log(this.context);
-  // const [loading, setLoading] = useState(false);
-  // const { userDetails } = useContext(UserDetailsContext);
+
   render() {
     return (
       <>
         {this.state.loading === true ? (
-          <Loader />
+          <SmallLoader />
         ) : (
           <div id="favourites_wrapper">
             <p className="desktop-header">My wishlist</p>

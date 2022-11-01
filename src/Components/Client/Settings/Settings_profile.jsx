@@ -78,41 +78,17 @@ class Settings_profile extends React.Component {
     return dateStringNeeded;
   };
 
-  editUser = async (e) => {
+  updateProfileDetails = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      `https://konecktomebackend.herokuapp.com/users/edit-user`,
+      "https://konecktomebackend.herokuapp.com/users/sign-up/no",
       {
-        method: "PUT",
+        method: "POST",
         body: JSON.stringify({
           userId: this.props.userDetails._id,
           firstName: this.state.userDetails.firstName,
           lastName: this.state.userDetails.lastName,
           email: this.state.userDetails.email,
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
-      }
-    );
-    const details = await response.json();
-    if (details === "Invalid email") {
-      alert("invalid email");
-    } else if (details === "User updated") {
-      return "User updated";
-    } else if (details === "Error") {
-      return "Error";
-    }
-  };
-
-  editProfessionAndDOB = async (e) => {
-    e.preventDefault();
-    const response = await fetch(
-      `https://konecktomebackend.herokuapp.com/users/update-dob-profession`,
-      {
-        method: "PUT",
-        body: JSON.stringify({
-          userId: this.props.userDetails._id,
           dob: this.state.dob,
           profession: this.state.userDetails.profession,
           phone: this.state.userDetails.phone,
@@ -124,33 +100,18 @@ class Settings_profile extends React.Component {
       }
     );
     const details = await response.json();
-    if (details === "User profession and co updated!") {
-      alert("Success updated");
-    } else if (details === "ERROR!") {
-      return "error";
-    }
-  };
 
-  updateProfileDetails = async (e) => {
-    e.preventDefault();
-    this.editUser(e);
-    this.editProfessionAndDOB(e);
-    this.props.fetchUser();
-    this.setState({
-      showEditProfile: false,
-    });
-    // if (this.editUser(e) === "User updated") {
-    //   if (this.editProfessionAndDOB(e) === "User profession and co updated!") {
-    //     alert("success");
-    //     this.setState({
-    //       showEditProfile: false,
-    //     });
-    //   } else if (this.editProfessionAndDOB(e) === "error") {
-    //     alert("Error in profession age");
-    //   }
-    // } else if (this.editUser(e) === "Error") {
-    //   alert("error in user details");
-    // }
+    if (details.message === "Invalid email") {
+      alert("invalid email");
+    } else if (details.message === "User updated") {
+      alert("updated");
+      setTimeout(() => this.props.fetchUser(), 2000);
+      this.setState({
+        showEditProfile: false,
+      });
+    } else if (details.message === "Error") {
+      alert("error");
+    }
   };
 
   render() {
@@ -226,6 +187,7 @@ class Settings_profile extends React.Component {
                       </div>
                     </div>
                   </Col>
+
                   <Col lg={4}>
                     <div className="settings-profile-input-label-container">
                       <p id="settings_profile_details_header">Last Name</p>

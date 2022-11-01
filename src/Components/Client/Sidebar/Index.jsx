@@ -57,9 +57,15 @@ class Index extends Component {
   render() {
     return (
       <div id="sidebar-wrapper">
-        <div id="logo-wrapper">
-          <img src={konecktome_icon} />
-        </div>
+        <NavLink
+          to={"/dashboard/" + this.state.userId}
+          className="links"
+          activeClassName="active"
+        >
+          <div id="logo-wrapper">
+            <img src={konecktome_icon} />
+          </div>
+        </NavLink>
         <div id="sidebar-list">
           <ul>
             <NavLink

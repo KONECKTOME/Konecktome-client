@@ -511,70 +511,67 @@ class SettingsModal extends React.Component {
             ) : (
               <div id="settings_modal_wrapper">
                 <p id="settings_modal_header">Profile settings</p>
-                {this.props.userPin === "0000" ? (
-                  <div className="exist-notification-holder">
-                    Go Back to Dashboard To Set Your Pin
-                  </div>
-                ) : null}
-                <p id="settings_modal_subheader">
-                  Hey, what's your pin again ?
-                </p>
-                <div id="settings_modal_form_container">
-                  <div id="settings_modal_form_subcontainer">
-                    <form id="settings_modal_form" name="pinForm">
-                      <div id="pin-container">
-                        <input
-                          type="text"
-                          maxlength="1"
-                          id="pin1"
-                          value={this.state.pin.pin1}
-                          onChange={(e) => this.updatePinDetails(e)}
-                          maxLength={1}
-                          onInput={() =>
-                            this.autoTab(
-                              document.pinForm.pin1,
-                              document.pinForm.pin2
-                            )
-                          }
-                        />
-                        <input
-                          type="text"
-                          maxlength="1"
-                          id="pin2"
-                          name="pin2"
-                          value={this.state.pin.pin2}
-                          onChange={(e) => this.updatePinDetails(e)}
-                          onInput={() =>
-                            this.autoTab(
-                              document.pinForm.pin2,
-                              document.pinForm.pin3
-                            )
-                          }
-                        />
-                        <input
-                          type="text"
-                          maxlength="1"
-                          id="pin3"
-                          name="pin3"
-                          value={this.state.pin.pin3}
-                          onChange={(e) => this.updatePinDetails(e)}
-                          onInput={() =>
-                            this.autoTab(
-                              document.pinForm.pin3,
-                              document.pinForm.pin4
-                            )
-                          }
-                        />
-                        <input
-                          type="text"
-                          maxlength="1"
-                          id="pin4"
-                          name="pin4"
-                          value={this.state.pin.pin4}
-                          onChange={(e) => this.updatePinDetails(e)}
-                        />
-                      </div>
-                    </form>
+                <div>
+                  <p id="settings_modal_subheader">
+                    Hey, what's your pin again ?
+                  </p>
+                  <div id="settings_modal_form_container">
+                    <div id="settings_modal_form_subcontainer">
+                      <form id="settings_modal_form" name="pinForm">
+                        <div id="pin-container">
+                          <input
+                            type="text"
+                            maxlength="1"
+                            id="pin1"
+                            value={this.state.pin.pin1}
+                            onChange={(e) => this.updatePinDetails(e)}
+                            maxLength={1}
+                            onInput={() =>
+                              this.autoTab(
+                                document.pinForm.pin1,
+                                document.pinForm.pin2
+                              )
+                            }
+                          />
+                          <input
+                            type="text"
+                            maxlength="1"
+                            id="pin2"
+                            name="pin2"
+                            value={this.state.pin.pin2}
+                            onChange={(e) => this.updatePinDetails(e)}
+                            onInput={() =>
+                              this.autoTab(
+                                document.pinForm.pin2,
+                                document.pinForm.pin3
+                              )
+                            }
+                          />
+                          <input
+                            type="text"
+                            maxlength="1"
+                            id="pin3"
+                            name="pin3"
+                            value={this.state.pin.pin3}
+                            onChange={(e) => this.updatePinDetails(e)}
+                            onInput={() =>
+                              this.autoTab(
+                                document.pinForm.pin3,
+                                document.pinForm.pin4
+                              )
+                            }
+                          />
+                          <input
+                            type="text"
+                            maxlength="1"
+                            id="pin4"
+                            name="pin4"
+                            value={this.state.pin.pin4}
+                            onChange={(e) => this.updatePinDetails(e)}
+                          />
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
                 {this.state.notFound === true ? (
@@ -618,6 +615,7 @@ class SettingsModal extends React.Component {
                   >
                     Forgotten pin?
                   </p>
+
                   <p
                     id="settings_modal_forgotten_password"
                     onClick={() => this.goBackToDashboard()}

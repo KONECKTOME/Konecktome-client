@@ -70,7 +70,7 @@ class Signup extends React.Component {
     } else {
       this.setState({ sendLoading: true });
       const response = await fetch(
-        "https://konecktomebackend.herokuapp.com/users/sign-up",
+        "https://konecktomebackend.herokuapp.com/users/sign-up/yes",
         {
           method: "POST",
           body: JSON.stringify({
@@ -78,7 +78,6 @@ class Signup extends React.Component {
             lastName: this.state.details.lastName,
             email: this.state.details.email,
             password: this.state.details.password,
-            pin: concatenatePin,
           }),
           headers: {
             "Content-type": "application/json",

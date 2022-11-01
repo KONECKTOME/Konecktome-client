@@ -6,9 +6,6 @@ class SmallLoader extends React.Component {
       <>
         <div id="loader-container">
           <div class="loader"></div>
-          <p className="desktop-small-loader-header">
-            One Sec, Fetching Your Details
-          </p>
         </div>
       </>
     );

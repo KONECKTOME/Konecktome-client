@@ -2,13 +2,13 @@ import React, { useContext, useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import profileSettingPlaceholder from "../../../Assets/Quadri.jpg";
 import { Link } from "react-router-dom";
-import Loader from "../Loader/Loader";
+import SmallLoader from "../Loader/SmallLoader";
 import "../../../css/History/index.css";
 
 class History_home extends React.Component {
   state = {
     transactionHistory: [],
-    loading: false,
+    loading: true,
     batchValue: 10,
   };
 
@@ -49,7 +49,7 @@ class History_home extends React.Component {
     return (
       <>
         {this.state.loading === true ? (
-          <Loader />
+          <SmallLoader />
         ) : (
           <div id="history-wrapper">
             <p className="desktop-header">Transaction History</p>

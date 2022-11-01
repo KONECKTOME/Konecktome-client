@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../../../css/Account/index.css";
 import { UserDetailsContext } from "../Context/UserDetailsContext";
 import Modal from "../ReviewModal/Modal";
-import Loader from "../Loader/Loader";
+import SmallLoader from "../Loader/SmallLoader";
 import { Link } from "react-router-dom";
 
 class Account_home extends React.Component {
@@ -10,7 +10,7 @@ class Account_home extends React.Component {
   state = {
     test: [1, 2, 3, 4, 5, 6],
     showModal: false,
-    loading: false,
+    loading: true,
     accounts: [],
   };
 
@@ -60,7 +60,7 @@ class Account_home extends React.Component {
     return (
       <div id="account-wrapper">
         {this.state.loading === true ? (
-          <Loader />
+          <SmallLoader />
         ) : (
           <div>
             <div>

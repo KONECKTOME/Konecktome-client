@@ -35,7 +35,7 @@
 #loader-container {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 45%;
 }
 
 .loader {
@@ -45,9 +45,6 @@
   position: relative;
   border: 2px solid #000000;
   animation: load 1s linear infinite;
-
-  /* -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%); */
 }
 
 .desktop-header-loader {
