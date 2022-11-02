@@ -90,7 +90,7 @@ class Login extends React.Component {
           window.location.href = `https://konecktome-mvp.herokuapp.com/dashboard/${userDetails.userId}`;
         }
       } else {
-        this.setState({ incorrectPass: true });
+        this.setState({ incorrectPass: true, loggingIn: false });
         setTimeout(() => this.setState({ incorrectPass: false }), 1500);
       }
     }
