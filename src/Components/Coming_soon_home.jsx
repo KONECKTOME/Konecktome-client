@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ComingSoon from "./Comingsoon";
 import Navbar from "./Navbar";
 import About from "./About";
+import USP from "../Components/USP";
 import Footer from "./Footer";
 import ProblemSolution from "./ProblemSolution";
 import FooterForm from "./FooterForm";
