@@ -109,7 +109,7 @@ class App extends Component {
       loading: false,
       installationDateAndTime: "",
     });
-    window.location.href = "http://localhost:3000/login";
+    window.location.href = "https://konecktome-mvp.herokuapp.com/login";
   };
   render(props) {
     const userDetails = this.state.userDetails;
