@@ -3,6 +3,8 @@ import Hero from "./Hero";
 import About from "../../About";
 import Footer from "./Footer";
 import HeroNavbar from "./HeroNavbar";
+import AboutUs from "./AboutUs";
+import USP from "./USP";
 
 class Home extends React.Component {
   render() {
@@ -10,7 +12,8 @@ class Home extends React.Component {
       <div>
         <HeroNavbar />
         <Hero />
-        <About />
+        <AboutUs />
+        <USP />
         <Footer />
       </div>
     );

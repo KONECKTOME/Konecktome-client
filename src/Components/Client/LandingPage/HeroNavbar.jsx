@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../../css/LandingPage/HeroNavbar.css";
-import logo from "../../../Assets/koneck-logo.svg";
+import logo from "../../../Assets/USP Assets/konecktome.png";
 
 class HeroNavbar extends React.Component {
   render() {

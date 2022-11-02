@@ -1,11 +1,29 @@
-@font-face {
-  font-family: "Poppins bold";
-  src: url(../Fonts/Poppins-Bold.ttf);
+#about-us-holder {
+  display: flex;
+  justify-content: center;
 }
 
-@font-face {
-  font-family: "Poppins regular";
-  src: url(../Fonts/Poppins-Regular.ttf);
+#about-us-holder div {
+  width: 1000px;
+  margin: 10rem 0 6rem 0;
+}
+
+#about-us-header {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+#about-us-sub-text {
+  font-family: "Poppins";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #4a4a4a;
 }
 
 #all-wrapper {
