@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../../css/LandingPage/usp.css";
+import "../../../css/LandingPage/usp.CSS";
 import { Row, Col } from "react-bootstrap";
 import Exclusive from "../../../Assets/USP Assets/Exclusive.png";
 import Cancellation from "../../../Assets/USP Assets/Cancellation.png";
