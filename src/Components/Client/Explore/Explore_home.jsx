@@ -112,7 +112,7 @@ class Explore_home extends Component {
         compareLength: this.state.compareItems.length + 1,
       }));
 
-      if (this.state.compareLength > 1) {
+      if (this.state.compareItems.length > 0) {
         this.setState({
           compareMoreThanOne: true,
         });
@@ -121,6 +121,7 @@ class Explore_home extends Component {
           compareMoreThanOne: false,
         });
       }
+      console.log(this.state.compareMoreThanOne);
     }
   };
 

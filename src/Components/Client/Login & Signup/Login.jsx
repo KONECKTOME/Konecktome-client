@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Footer from "../LandingPage/Footer";
 import googleIcon from "../../../Assets/google-icon.png";
 import facebookIcon from "../../../Assets/facebook.png";
+
 class Login extends React.Component {
   state = {
     check: false,
@@ -42,6 +43,7 @@ class Login extends React.Component {
     details[id] = e.currentTarget.value;
     this.setState({ details });
   };
+
   login = async (e) => {
     e.preventDefault();
     if (this.state.details.email === "" || this.state.details.password === "") {
@@ -88,11 +90,18 @@ class Login extends React.Component {
           });
           setTimeout(() => this.setState({ success: false }), 1500);
           window.location.href = `https://konecktome-mvp.herokuapp.com/dashboard/${userDetails.userId}`;
+          // window.location.href = `http://localhost:3000/dashboard/${userDetails.userId}`;
         }
       } else {
         this.setState({ incorrectPass: true, loggingIn: false });
         setTimeout(() => this.setState({ incorrectPass: false }), 1500);
       }
+    }
+  };
+
+  handleKeypress = (e) => {
+    if (e.key === "Enter") {
+      this.btn.click();
     }
   };
 
@@ -105,6 +114,7 @@ class Login extends React.Component {
     window.location.href =
       "https://konecktomebackend.herokuapp.com/users/login/facebook";
   };
+
   render() {
     return (
       <div>
@@ -152,6 +162,7 @@ class Login extends React.Component {
                     placeholder="Password"
                     value={this.state.details.password}
                     onChange={(e) => this.updateDetails(e)}
+                    onKeyPress={(e) => this.handleKeypress(e)}
                   />
                 </div>
               </form>
@@ -192,7 +203,11 @@ class Login extends React.Component {
                   </Link>
                 </div>
               </div>
-              <div id="sign-up-btn" onClick={(e) => this.login(e)}>
+              <div
+                id="sign-up-btn"
+                onClick={(e) => this.login(e)}
+                ref={(node) => (this.btn = node)}
+              >
                 <div className="desktop-medium-button">
                   {this.state.loggingIn === true ? (
                     <div id="explore-loading"></div>

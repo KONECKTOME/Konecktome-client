@@ -14,7 +14,7 @@ class Settings_home extends React.Component {
   static contextType = UserDetailsContext;
 
   state = {
-    showModal: true,
+    showModal: false,
     profile: true,
     account: false,
     paymentDetails: false,
@@ -114,7 +114,7 @@ class Settings_home extends React.Component {
   render(props) {
     return (
       <div>
-        <div>
+        {/* <div>
           {this.context.userDetails.pinHasBeenSet === false ? (
             <PinModal
               modalState={this.state.showSetPinModal}
@@ -138,7 +138,7 @@ class Settings_home extends React.Component {
               ) : null}
             </>
           )}
-        </div>
+        </div> */}
         <div id="settings_home_wrapper">
           <p id="settings_home_header">Settings</p>
           <div id="settings_home_subcontainer">

@@ -34,15 +34,15 @@ const Dashboard_home = (props) => {
       ) : (
         <div>
           <div className="desktop-header">
-            <p>Wassup, {userDetails.firstName}</p>
-            {userDetails.pinHasBeenSet == false ? (
+            <p>Hey, {userDetails.firstName}</p>
+            {/* {userDetails.pinHasBeenSet == false ? (
               <div className="exist-notification-holder">
                 You've Not Set Your Pin,{"  "}
                 <span onClick={() => showPinModal()} id="dashboard-pin-launch">
                   Click Here To Set It.
                 </span>
               </div>
-            ) : null}
+            ) : null} */}
           </div>
           <Nav
             accountLength={userDetails.accounts.length}

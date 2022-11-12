@@ -8,8 +8,8 @@ class ExploreUserDetails extends Component {
     userDetails: {
       phone: "",
       profession: "",
-      gender: "",
     },
+    gender: "",
     dob: "",
     emptyfields: false,
     success: false,
@@ -131,13 +131,21 @@ class ExploreUserDetails extends Component {
                         value={this.state.userDetails.profession}
                         onChange={(e) => this.updateUserDetails(e)}
                       />
-                      <input
-                        type="text"
-                        placeholder="Gender"
+                      <select
                         id="gender"
-                        value={this.state.userDetails.gender}
-                        onChange={(e) => this.updateUserDetails(e)}
-                      />
+                        name="gender"
+                        value={this.state.gender}
+                        onChange={(e) =>
+                          this.setState({ gender: e.target.value })
+                        }
+                      >
+                        <option disabled value="default">
+                          Gender
+                        </option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                      </select>
                       <input
                         type="date"
                         placeholder="dd-mm-yyyy"

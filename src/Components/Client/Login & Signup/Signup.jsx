@@ -27,6 +27,7 @@ class Signup extends React.Component {
     emailExists: false,
     invalidEmail: false,
     sendLoading: false,
+    passwordLessThan7: false,
   };
 
   updateDetails = (e) => {
@@ -51,59 +52,65 @@ class Signup extends React.Component {
 
   register = async (e) => {
     e.preventDefault();
-    const concatenatePin =
-      this.state.pin.pin1 +
-      this.state.pin.pin2 +
-      this.state.pin.pin3 +
-      this.state.pin.pin4;
-    if (
-      this.state.details.firstName === "" ||
-      this.state.details.lastName === "" ||
-      this.state.details.email === "" ||
-      this.state.details.password === ""
-    ) {
-      this.setState({ emptyFields: true });
-      setTimeout(() => this.setState({ emptyFields: false }), 1500);
-    } else if (this.isValidEmail(this.state.details.email) === false) {
-      this.setState({ invalidEmail: true });
-      setTimeout(() => this.setState({ invalidEmail: false }), 1500);
-    } else {
-      this.setState({ sendLoading: true });
-      const response = await fetch(
-        "https://konecktomebackend.herokuapp.com/users/sign-up/yes",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            firstName: this.state.details.firstName,
-            lastName: this.state.details.lastName,
-            email: this.state.details.email,
-            password: this.state.details.password,
-          }),
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      );
-      const details = await response.json();
-      if (details.message === "Email already exists") {
-        this.setState({ emailExists: true });
-        setTimeout(() => this.setState({ emailExists: false }), 1500);
-      } else if (details.id) {
-        this.setState({
-          success: true,
-          details: {
-            firstName: "",
-            lastName: "",
-            email: "",
-            password: "",
-          },
-        });
-        setTimeout(
-          () => this.setState({ sendLoading: false, success: false }),
-          1500
+    if (e.key === "Enter" || e.type === "click") {
+      const concatenatePin =
+        this.state.pin.pin1 +
+        this.state.pin.pin2 +
+        this.state.pin.pin3 +
+        this.state.pin.pin4;
+      if (
+        this.state.details.firstName === "" ||
+        this.state.details.lastName === "" ||
+        this.state.details.email === "" ||
+        this.state.details.password === ""
+      ) {
+        this.setState({ emptyFields: true });
+        setTimeout(() => this.setState({ emptyFields: false }), 1500);
+      } else if (this.isValidEmail(this.state.details.email) === false) {
+        this.setState({ invalidEmail: true });
+        setTimeout(() => this.setState({ invalidEmail: false }), 1500);
+      } else {
+        this.setState({ sendLoading: true });
+        const response = await fetch(
+          "http://localhost:3003/users/sign-up/yes",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              firstName: this.state.details.firstName,
+              lastName: this.state.details.lastName,
+              email: this.state.details.email,
+              password: this.state.details.password,
+            }),
+            headers: {
+              "Content-type": "application/json",
+            },
+          }
         );
+        const details = await response.json();
+        if (details.message === "Email already exists") {
+          this.setState({ emailExists: true, sendLoading: false });
+          setTimeout(() => this.setState({ emailExists: false }), 1500);
+        } else if (details.message === "Less Than 7") {
+          this.setState({ passwordLessThan7: true, sendLoading: false });
+          setTimeout(() => this.setState({ passwordLessThan7: false }), 1500);
+        } else if (details.id) {
+          this.setState({
+            success: true,
+            details: {
+              firstName: "",
+              lastName: "",
+              email: "",
+              password: "",
+            },
+          });
+          setTimeout(
+            () => this.setState({ sendLoading: false, success: false }),
+            1500
+          );
 
-        window.location.href = `https://konecktome-mvp.herokuapp.com/dashboard/${details.id}`;
+          window.location.href = `https://konecktome-mvp.herokuapp.com/dashboard/${details.id}`;
+          // window.location.href = `http://localhost:3000/dashboard/${details.id}`;
+        }
       }
     }
   };
@@ -116,6 +123,12 @@ class Signup extends React.Component {
   loginWithFacebook = async () => {
     window.location.href =
       "https://konecktomebackend.herokuapp.com/users/login/facebook";
+  };
+
+  handleKeypress = (e) => {
+    if (e.key === "Enter") {
+      this.btn.click();
+    }
   };
   render() {
     return (
@@ -198,6 +211,7 @@ class Signup extends React.Component {
                     placeholder="Password"
                     value={this.state.details.password}
                     onChange={(e) => this.updateDetails(e)}
+                    onKeyPress={(e) => this.handleKeypress(e)}
                   />
                 </div>
               </form>
@@ -209,6 +223,13 @@ class Signup extends React.Component {
               {this.state.error === true ? (
                 <div className="error-notification-holder">
                   <p>I know, these things happen. Error </p>
+                </div>
+              ) : null}
+              {this.state.passwordLessThan7 === true ? (
+                <div className="error-notification-holder">
+                  <p>
+                    Password Must Be More Than 7 Characters And Alphanumeric
+                  </p>
                 </div>
               ) : null}
 
@@ -243,7 +264,11 @@ class Signup extends React.Component {
                   </span>
                 </span>
               </div>
-              <div id="sign-up-btn" onClick={(e) => this.register(e)}>
+              <div
+                id="sign-up-btn"
+                onClick={(e) => this.register(e)}
+                ref={(node) => (this.btn = node)}
+              >
                 <div className="desktop-medium-button">
                   {this.state.sendLoading === true ? (
                     <div id="explore-loading"></div>

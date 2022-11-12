@@ -70,8 +70,7 @@ class Settings_password_security extends React.Component {
             <div id="settings_password_security_sub_wrapper">
               <p id="settings_password_security_header_text">CHANGE PASSWORD</p>
               <p id="settings_password_security_subheader">
-                Lorem ipsum is simply a dummy text of printing and typesetting
-                industry
+                Please Enter Your Old And New Password Below
               </p>
             </div>
           </div>

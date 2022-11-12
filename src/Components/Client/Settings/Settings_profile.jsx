@@ -127,7 +127,7 @@ class Settings_profile extends React.Component {
                 <img
                   src={
                     this.props.userDetails.imageUrl === undefined
-                      ? "https://res.cloudinary.com/konecktome/image/upload/v1666536178/profile-placeholder_hre9jc.jpg"
+                      ? "https://res.cloudinary.com/konecktome/image/upload/v1668257561/91720e98708f40af4e446eb50bd7d36a_mferlt.png"
                       : this.props.userDetails.imageUrl
                   }
                   id="settings_profile_image"

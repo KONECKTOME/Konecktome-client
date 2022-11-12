@@ -12,16 +12,16 @@
   height: 100vh;
   background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
   mix-blend-mode: normal;
-  opacity: 0.9;
-  padding-top: 5rem;
+  padding-top: 1rem;
 }
 
 #hero-welcome-text {
-  font-family: Poppins;
+  font-family: "Poppins Bold";
   font-style: normal;
-  font-weight: 275;
-  font-size: 32px;
+  font-weight: 700;
+  font-size: 52px;
   line-height: 70px;
+  text-transform: capitalize;
   color: #000000;
 }
 
@@ -36,12 +36,54 @@
 }
 
 #hero-life-assistant-text {
-  font-family: Poppins;
+  font-family: "Poppins";
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 24px;
-  line-height: 28px;
-  letter-spacing: 2px;
+  line-height: 21px;
+  color: #000000;
+  margin: 3rem 0 4rem 0;
+}
+
+#hero-form-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#hero-form-div > input {
+  margin-right: 1.5rem;
+}
+
+form input[type="text"] {
+  width: 100%;
+}
+
+form input[type="password"] {
+  width: 100%;
+  margin-top: 0;
+  border: 0;
+}
+
+#hero-sign-up-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  opacity: 0.9;
+  border-radius: 90em;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  width: 98%;
+  height: 45px;
+}
+
+#hero-sign-up-btn > p {
+  font-family: Poppins Bold;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
   color: #000000;
 }
 
@@ -52,6 +94,42 @@
   height: 60px;
   padding: 1.2rem;
   text-align: center;
+}
+
+.hr-lines {
+  position: relative;
+  max-width: 610px;
+  margin: 30px auto;
+  text-align: center;
+  font-family: Poppins Bold;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.hr-lines:before {
+  content: " ";
+  height: 2px;
+  width: 200px;
+  background: #000000;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.hr-lines:after {
+  content: " ";
+  height: 2px;
+  width: 200px;
+  background: #000000;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  opacity: 1;
 }
 
 #hero-sign-up-btn-text {
@@ -90,11 +168,11 @@
 }
 
 #left-col2 {
-  margin-top: 20rem;
+  margin-top: 15rem;
 }
 
 #right-col2 {
-  margin-top: 1rem;
+  padding-top: 1rem;
 }
 
 #mobile-animation {

@@ -147,7 +147,8 @@
 
 .icons-holder {
   padding: 1rem;
-  width: 30%;
+  width: 48%;
+  height: auto;
   display: flex;
   justify-content: space-evenly;
   border: 2px solid #000000;
@@ -155,7 +156,7 @@
 }
 
 .auth-icons {
-  width: 20%;
+  width: 10%;
 }
 
 .icons-holder > p {

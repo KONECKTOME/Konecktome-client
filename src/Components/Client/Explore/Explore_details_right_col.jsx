@@ -41,7 +41,6 @@ class Explore_details_right_col extends React.Component {
   };
 
   buyService = async () => {
-    console.log(this.props.userDetails.moreInfoNeeded);
     if (
       this.props.userDetails.moreInfoNeeded === true ||
       this.props.userDetails.addressHistory.length == 0

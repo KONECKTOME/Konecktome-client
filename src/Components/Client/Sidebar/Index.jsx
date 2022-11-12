@@ -4,16 +4,9 @@ import details_icon from "../../../Assets/my_details_icon.svg";
 import account_icon from "../../../Assets/my_accounts.svg";
 import explore_icon from "../../../Assets/explore_icon.svg";
 import history_icon from "../../../Assets/history_icon.svg";
-import notifications_icon from "../../../Assets/notification.svg";
-import konecktome_logo from "../../../Assets/Group 27.svg";
-import reco_icon from "../../../Assets/recommendation_icon.svg";
-import fav_icon from "../../../Assets/my_favorites_icon.svg";
-import email_updates_icon from "../../../Assets/email_updates_icon.svg";
 import wishlist_icon from "../../../Assets/wishlist_icon.svg";
-import tutorials_icon from "../../../Assets/tutorials_icon.svg";
 import survey_icon from "../../../Assets/survey_icon.svg";
-import get_free_icon from "../../../Assets/get_free_icon.svg";
-import help_center_icon from "../../../Assets/help_center.svg";
+import dashboard_icon from "../../../Assets/Sidebar assets/dashboard-icon.png";
 import settings_icon from "../../../Assets/settings_icon.svg";
 import konecktome_icon from "../../../Assets/konecktome-logo.svg";
 import { Row, Col } from "react-bootstrap";
@@ -78,7 +71,7 @@ class Index extends Component {
                   <Row>
                     <Col lg={2}>
                       <div>
-                        <img src={account_icon} />
+                        <img src={dashboard_icon} />
                       </div>
                     </Col>
                     <Col lg={10}>

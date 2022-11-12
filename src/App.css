@@ -248,12 +248,11 @@
 .desktop-price {
   font-family: Poppins;
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 14px;
   line-height: 21px;
   color: #000000;
   mix-blend-mode: normal;
-  opacity: 0.6;
 }
 
 .desktop-price-number {
@@ -383,7 +382,8 @@ input::placeholder {
   line-height: 24px;
 }
 
-input[type="text"] {
+input[type="text"],
+select {
   text-align: left;
   border-radius: 10px;
   background-color: #f6f6f8;
@@ -463,21 +463,28 @@ input[type="text"]:active,
 input[type="text"]:focus {
   outline: none;
   color: #000000;
-  font-size: 16px;
+  font-size: 14px;
+}
+
+select:active,
+select:focus {
+  outline: none;
+  color: #000000;
+  font-size: 14px;
 }
 
 input[type="email"]:active,
 input[type="email"]:focus {
   outline: none;
   color: #000000;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 input[type="password"]:active,
 input[type="password"]:focus {
   outline: none;
   color: #000000;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 input[type="date"]:active,
