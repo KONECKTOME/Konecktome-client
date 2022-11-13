@@ -60,7 +60,7 @@ class Hero extends Component {
       } else {
         this.setState({ sendLoading: true });
         const response = await fetch(
-          "http://localhost:3003/users/sign-up/yes",
+          "https://konecktomebackend.herokuapp.com/users/sign-up/yes",
           {
             method: "POST",
             body: JSON.stringify({

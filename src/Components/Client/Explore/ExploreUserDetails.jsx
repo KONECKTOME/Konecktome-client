@@ -18,6 +18,7 @@ class ExploreUserDetails extends Component {
     paymentLoader: false,
     displayInstallationInfo: false,
     lessThan18: false,
+    sendLoading: false,
   };
 
   editProfessionAndDOB = async (e) => {
@@ -31,12 +32,16 @@ class ExploreUserDetails extends Component {
       this.setState({ emptyfields: true });
       setTimeout(() => this.setState({ emptyfields: false }), 1500);
     } else {
+      this.setState({ sendLoading: true });
       const response = await fetch(
-        `https://konecktomebackend.herokuapp.com/users/update-dob-profession`,
+        "https://konecktomebackend.herokuapp.com/users/sign-up/no",
         {
-          method: "PUT",
+          method: "POST",
           body: JSON.stringify({
             userId: this.props.userId,
+            firstName: this.props.userDetails.firstName,
+            lastName: this.props.userDetails.lastName,
+            email: this.props.userDetails.email,
             dob: this.state.dob,
             profession: this.state.userDetails.profession,
             phone: this.state.userDetails.phone,
@@ -48,11 +53,15 @@ class ExploreUserDetails extends Component {
         }
       );
       const details = await response.json();
-      if (details.message === "User profession and co updated!") {
+      if (details.message === "Invalid email") {
+        this.setState({ error: true, sendLoading: false });
+        setTimeout(() => this.setState({ error: false }), 1500);
+      } else if (details.message === "User updated") {
         this.props.fetchUser();
         if (this.props.renderAddressAndUserDetails === true) {
           this.setState({
             success: true,
+            sendLoading: false,
             userDetails: {
               phone: "",
               profession: "",
@@ -67,15 +76,11 @@ class ExploreUserDetails extends Component {
         } else {
           this.setState({ displayInstallationInfo: true });
         }
-      } else if (details.message === "ERROR!") {
-        this.setState({
-          error: true,
-        });
+      } else if (details.message === "Error") {
+        this.setState({ error: true, sendLoading: false });
         setTimeout(() => this.setState({ error: false }), 1500);
       } else if (details.message === "Age Cannot Be Less Than 18") {
-        this.setState({
-          lessThan18: true,
-        });
+        this.setState({ lessThan18: true, sendLoading: false });
         setTimeout(() => this.setState({ lessThan18: false }), 1500);
       }
     }
@@ -165,12 +170,12 @@ class ExploreUserDetails extends Component {
                     ) : null}
                     {this.state.error === true ? (
                       <div className="password-error-notification-holder">
-                        <p>Incorrect Password</p>
+                        <p>Invalid email</p>
                       </div>
                     ) : null}
                     {this.state.emptyfields === true ? (
                       <div className="password-error-notification-holder">
-                        <p>Input Fields Cannot be EMpty</p>
+                        <p>Input Fields Cannot be Empty</p>
                       </div>
                     ) : null}
                     {this.state.lessThan18 === true ? (
@@ -182,7 +187,13 @@ class ExploreUserDetails extends Component {
                       className="desktop-big-button"
                       onClick={(e) => this.editProfessionAndDOB(e)}
                     >
-                      <p className="desktop-big-button-text">Update Details</p>
+                      {this.state.sendLoading === true ? (
+                        <div id="explore-loading"></div>
+                      ) : (
+                        <p className="desktop-big-button-text">
+                          Update Details
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
