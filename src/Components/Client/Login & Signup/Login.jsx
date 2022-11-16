@@ -89,8 +89,8 @@ class Login extends React.Component {
             },
           });
           setTimeout(() => this.setState({ success: false }), 1500);
-          window.location.href = `https://konecktome-mvp.herokuapp.com/dashboard/${userDetails.userId}`;
-          // window.location.href = `http://localhost:3000/dashboard/${userDetails.userId}`;
+          // window.location.href = `https://konecktome-mvp.herokuapp.com/dashboard/${userDetails.userId}`;
+          window.location.href = `http://localhost:3000/dashboard/${userDetails.userId}`;
         }
       } else {
         this.setState({ incorrectPass: true, loggingIn: false });
