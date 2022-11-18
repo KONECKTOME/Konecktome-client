@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Footer from "../LandingPage/Footer";
-import signUpImage from "../../../Assets/signup-left-image.png";
+import signUpImage from "../../../Assets/signup-left-image-svg.svg";
 import "../../../css/Signup & login/SignUp.css";
 import { Row, Col } from "react-bootstrap";
 import googleIcon from "../../../Assets/google-icon.png";
@@ -133,57 +133,58 @@ class Signup extends React.Component {
   render() {
     return (
       <div id="sign-up-main">
-        <Row>
-          <Col md={6}>
-            <div>
-              <img src={signUpImage} />
-            </div>
-          </Col>
-          <Col md={6}>
-            <div id="sign-up-right-col">
-              <p className="desktop-header sign-up-header">Register</p>
-              <p className="desktop-header sign-up-header">Continue With</p>
-              <div id="login-icon-wrapper">
-                <div
-                  className="icons-holder"
-                  onClick={() => this.loginWithGoogle()}
-                >
-                  <img src={googleIcon} className="auth-icons" />
-                  <p className="desktop-text">Google</p>
-                </div>
-                <div
-                  className="icons-holder"
-                  onClick={() => this.loginWithFacebook()}
-                >
-                  <img src={facebookIcon} className="auth-icons" />
-                  <p className="desktop-text">Facebook</p>
-                </div>
+        <div id="signup-container">
+          <Row id="signup-row" className="mx-0">
+            <Col md={6} className="p-0">
+            <div id="signup-left-column" className="w-100 h-100">
+                <img src={signUpImage} />
               </div>
-              <div className="desktop-header sign-up-header">OR</div>
-              <form>
-                <Row>
-                  <Col>
-                    <div className="input-holder">
-                      <input
-                        id="firstName"
-                        type="text"
-                        placeholder="First Name"
-                        value={this.state.details.firstName}
-                        onChange={(e) => this.updateDetails(e)}
-                      />
-                    </div>
-                  </Col>
-                  <Col>
-                    <div className="input-holder">
-                      <input
-                        id="lastName"
-                        placeholder="Last Name"
-                        type="text"
-                        value={this.state.details.lastName}
-                        onChange={(e) => this.updateDetails(e)}
-                      />
-                    </div>
-                    {/* <div className="input-holder">
+            </Col>
+            <Col md={6} className="p-0">
+              <div id="sign-up-right-col">
+                <p className="desktop-header sign-up-header">Register</p>
+                <p className="desktop-header sign-up-header">Continue With</p>
+                <div id="login-icon-wrapper">
+                  <div
+                    className="icons-holder"
+                    onClick={() => this.loginWithGoogle()}
+                  >
+                    <img src={googleIcon} className="auth-icons" />
+                    <p className="desktop-text fs-3 my-0 ms-3">Google</p>
+                  </div>
+                  <div
+                    className="icons-holder"
+                    onClick={() => this.loginWithFacebook()}
+                  >
+                    <img src={facebookIcon} className="auth-icons" />
+                    <p className="desktop-text fs-3 my-0 ms-3">Facebook</p>
+                  </div>
+                </div>
+                <div className="desktop-header sign-up-header">OR</div>
+                <form>
+                  <Row>
+                    <Col>
+                      <div className="input-holder">
+                        <input
+                          id="firstName"
+                          type="text"
+                          placeholder="First Name"
+                          value={this.state.details.firstName}
+                          onChange={(e) => this.updateDetails(e)}
+                        />
+                      </div>
+                    </Col>
+                    <Col>
+                      <div className="input-holder">
+                        <input
+                          id="lastName"
+                          placeholder="Last Name"
+                          type="text"
+                          value={this.state.details.lastName}
+                          onChange={(e) => this.updateDetails(e)}
+                        />
+                      </div>
+                      {/* <div className="input-holder">
                       <label className="explore-address-label">Password</label>
                       <input
                         id="password"
@@ -193,104 +194,105 @@ class Signup extends React.Component {
                         onChange={(e) => this.updateDetails(e)}
                       />
                     </div> */}
-                  </Col>
-                </Row>
-                <div className="input-holder">
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="Email Address"
-                    value={this.state.details.email}
-                    onChange={(e) => this.updateDetails(e)}
-                  />
-                </div>
-                <div className="input-holder">
-                  <input
-                    id="password"
-                    type="password"
-                    placeholder="Password"
-                    value={this.state.details.password}
-                    onChange={(e) => this.updateDetails(e)}
-                    onKeyPress={(e) => this.handleKeypress(e)}
-                  />
-                </div>
-              </form>
-              {this.state.success === true ? (
-                <div className="success-notification-holder">
-                  <p>Yay, Sign Up Successful</p>
-                </div>
-              ) : null}
-              {this.state.error === true ? (
-                <div className="error-notification-holder">
-                  <p>I know, these things happen. Error </p>
-                </div>
-              ) : null}
-              {this.state.passwordLessThan7 === true ? (
-                <div className="error-notification-holder">
-                  <p>
-                    Password Must Be More Than 7 Characters And Alphanumeric
-                  </p>
-                </div>
-              ) : null}
+                    </Col>
+                  </Row>
+                  <div className="input-holder">
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder="Email Address"
+                      value={this.state.details.email}
+                      onChange={(e) => this.updateDetails(e)}
+                    />
+                  </div>
+                  <div className="input-holder">
+                    <input
+                      id="password"
+                      type="password"
+                      placeholder="Password"
+                      value={this.state.details.password}
+                      onChange={(e) => this.updateDetails(e)}
+                      onKeyPress={(e) => this.handleKeypress(e)}
+                    />
+                  </div>
+                </form>
+                {this.state.success === true ? (
+                  <div className="success-notification-holder">
+                    <p>Yay, Sign Up Successful</p>
+                  </div>
+                ) : null}
+                {this.state.error === true ? (
+                  <div className="error-notification-holder">
+                    <p>I know, these things happen. Error </p>
+                  </div>
+                ) : null}
+                {this.state.passwordLessThan7 === true ? (
+                  <div className="error-notification-holder">
+                    <p>
+                      Password Must Be More Than 7 Characters And Alphanumeric
+                    </p>
+                  </div>
+                ) : null}
 
-              {this.state.emailExists === true ? (
-                <div className="exist-notification-holder">
-                  <p>Yup, we've met before. Email already exists</p>
-                </div>
-              ) : null}
-              {this.state.emptyFields === true ? (
-                <div className="error-notification-holder">
-                  <p>Input fields cannot be empty</p>
-                </div>
-              ) : null}
-              {this.state.invalidEmail === true ? (
-                <div className="error-notification-holder">
-                  <p>Invalid Email</p>
-                </div>
-              ) : null}
-              <div className="desktop-text sign-up-footer">
-                <span>
-                  By signing up, you agree to our
+                {this.state.emailExists === true ? (
+                  <div className="exist-notification-holder">
+                    <p>Yup, we've met before. Email already exists</p>
+                  </div>
+                ) : null}
+                {this.state.emptyFields === true ? (
+                  <div className="error-notification-holder">
+                    <p>Input fields cannot be empty</p>
+                  </div>
+                ) : null}
+                {this.state.invalidEmail === true ? (
+                  <div className="error-notification-holder">
+                    <p>Invalid Email</p>
+                  </div>
+                ) : null}
+                <div className="desktop-text sign-up-footer">
                   <span>
-                    <Link className="links sign-up-span-link">
-                      Terms & Conditions
-                    </Link>
+                    By signing up, you agree to our
+                    <span>
+                      <Link className="links sign-up-span-link">
+                        Terms & Conditions
+                      </Link>
+                    </span>
+                    and
+                    <span>
+                      <Link className="links sign-up-span-link">
+                        privacy policy
+                      </Link>
+                    </span>
                   </span>
-                  and
-                  <span>
-                    <Link className="links sign-up-span-link">
-                      privacy policy
-                    </Link>
+                </div>
+                <div
+                  id="sign-up-btn"
+                  onClick={(e) => this.register(e)}
+                  ref={(node) => (this.btn = node)}
+                >
+                  <div className="desktop-medium-button">
+                    {this.state.sendLoading === true ? (
+                      <div id="explore-loading"></div>
+                    ) : (
+                      <p className="desktop-big-button-text">Sign Up</p>
+                    )}
+                  </div>
+                </div>
+                <div id="sign-up-btn">
+                  <span className="desktop-text">
+                    Already have an account?{" "}
+                    <span>
+                      <Link to="/login" className="links sign-up-span-link">
+                        Login here
+                      </Link>
+                    </span>
                   </span>
-                </span>
-              </div>
-              <div
-                id="sign-up-btn"
-                onClick={(e) => this.register(e)}
-                ref={(node) => (this.btn = node)}
-              >
-                <div className="desktop-medium-button">
-                  {this.state.sendLoading === true ? (
-                    <div id="explore-loading"></div>
-                  ) : (
-                    <p className="desktop-big-button-text">Sign Up</p>
-                  )}
                 </div>
               </div>
-              <div id="sign-up-btn">
-                <span className="desktop-text">
-                  Already have an account?{" "}
-                  <span>
-                    <Link to="/login" className="links sign-up-span-link">
-                      Login here
-                    </Link>
-                  </span>
-                </span>
-              </div>
-            </div>
-          </Col>
-        </Row>
-        <Footer />
+            </Col>
+          </Row>
+          <Footer />
+        </div>
       </div>
     );
   }

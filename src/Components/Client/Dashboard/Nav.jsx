@@ -24,7 +24,7 @@ class Nav extends Component {
                 </div>
               </div>
             </div>
-            <div className="dashboard-nav-item dashboard-nav-item-for-margin">
+            <div className="dashboard-nav-item">
               <div id="dashboard_nav_item_inner">
                 <div id="dashboard-nav-icon-wrapper">
                   <img src={fav_icon} />
@@ -35,7 +35,7 @@ class Nav extends Component {
                 </div>
               </div>
             </div>
-            <div className="dashboard-nav-item dashboard-nav-item-for-margin">
+            <div className="dashboard-nav-item">
               <div id="dashboard_nav_item_inner">
                 <div id="dashboard-nav-icon-wrapper">
                   <img src={email_icon} />
@@ -48,7 +48,7 @@ class Nav extends Component {
                 </div>
               </div>
             </div>
-            {/* <div className="dashboard-nav-item dashboard-nav-item-for-margin">
+            {/* <div className="dashboard-nav-item">
               <div id="dashboard_nav_item_inner">
                 <div id="dashboard-nav-icon-wrapper">
                   <img src={wishlist_icon} />

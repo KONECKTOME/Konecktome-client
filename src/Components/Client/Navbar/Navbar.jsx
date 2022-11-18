@@ -7,6 +7,8 @@ import dropdown_icon from "../../../Assets/dropdown-icon.svg";
 import { UserDetailsContext } from "../Context/UserDetailsContext";
 import "../../../css/Navbar/Navbar.css";
 import { useState } from "react";
+import AvatarIcon from "../../SvgIcons/AvatarIcon";
+import HamburgerIcon from "../../SvgIcons/HamburgerIcon";
 
 const Navbar = (props) => {
   const { userDetails } = useContext(UserDetailsContext);
@@ -48,36 +50,35 @@ const Navbar = (props) => {
             <span id="notifications-badge">1</span>
           </li>
         </div> */}
-        <div onClick={() => props.signOut()}>
-          <li>
-            <div className="sign-out-button">
-              <p className="sign-out-button-text">Sign Out</p>
-            </div>
-          </li>
-        </div>
-        <div>
-          <li>
-            <div>
-              <p className="desktop-text nav-right-item-text">
-                {userDetails.firstName + " " + userDetails.lastName}
-              </p>
-            </div>
-          </li>
-        </div>
-        <div>
-          <li>
-            <div id="nav-image">
-              <img
-                src={
-                  userDetails.imageUrl === undefined || !userDetails.imageUrl
-                    ? "https://res.cloudinary.com/konecktome/image/upload/v1668257561/91720e98708f40af4e446eb50bd7d36a_mferlt.png"
-                    : userDetails.imageUrl
-                }
-                id="nav-img"
-              />
-            </div>
-          </li>
-        </div>
+
+        <li id="Hamburger-Icon">
+          <button onClick={()=>{props.isSideBarShown(true)}}>
+            <HamburgerIcon size="30" />
+          </button>
+        </li>
+        <li id="nav-image">
+          <div>
+            {userDetails.imageUrl === undefined || !userDetails.imageUrl ? (
+              <div className="nav-Avatar">
+                <AvatarIcon size="22" />
+              </div>
+            ) : (
+              <img src={userDetails.imageUrl} id="nav-img" />
+            )}
+          </div>
+        </li>
+        <li id="user-name-text">
+          <div>
+            <p className="desktop-text nav-right-item-text">
+              {userDetails.firstName + " " + userDetails.lastName}
+            </p>
+          </div>
+        </li>
+        <li id="signout-Btn">
+          <button onClick={() => props.signOut()} className="sign-out-button">
+            <p className="sign-out-button-text">Sign Out</p>
+          </button>
+        </li>
       </ul>
     </div>
     // <div id="nav-wrapper">

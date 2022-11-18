@@ -25,21 +25,29 @@
   text-decoration: none;
 }
 
-#left-col {
-  width: 15%;
+#left-col.default,
+#left-col.not-active,
+#left-col.active {
+  width: 230px;
+  flex-shrink: 0;
   height: 100vh;
-  background: #ffffff;
   box-shadow: 1px 0px 14px #f2f2f2;
   position: fixed;
   z-index: 1;
   left: 0px;
-  overflow-x: hidden;
+}
+#left-col.default #sidebar-warpper,
+#left-col.not-active #sidebar-warpper,
+#left-col.active #sidebar-warpper {
+  width: 230px;
+  padding-inline: 2rem 1rem;
 }
 
 #right-col {
-  width: 85%;
-  height: 100vh;
-  margin-left: 15%;
+  /* width: 85%; */
+  flex: 1;
+  min-height: 100vh;
+  margin-left: 230px;
 }
 
 .sidebar-nav-item {
@@ -160,6 +168,8 @@
 
 .desktop-medium-button {
   width: 50%;
+  min-width: max-content;
+  padding: 1rem 2rem;
   height: 45px;
   background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
   opacity: 0.9;
@@ -503,4 +513,97 @@ input[type="checkbox"] {
   .cards {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+@media screen and (max-width: 768px) {
+  #right-col{
+    margin-left: 0px;
+  }
+  #left-col.default {
+    display: none;
+  }
+  #left-col.not-active {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    background-color: #00000076;
+    animation: hideBackground 500ms 500ms forwards;
+  }
+  #left-col.active {
+    overflow-y: hidden;
+    width: 100%;
+    position: fixed;
+    background-color: #00000076;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    animation: showBackground 500ms forwards;
+  }
+  #left-col.not-active #sidebar-warpper {
+    padding-top: 1px;
+    height: 100%;
+    min-width: 230px;
+    width: 70%;
+    max-width: 350px;
+    background: #ffffff;
+    height: 100%;
+    animation: slideOut 500ms forwards;
+  }
+  #left-col.active #sidebar-warpper {
+    padding-top: 1px;
+    height: 100%;
+    min-width: 230px;
+    width: 70%;
+    max-width: 350px;
+    background: #ffffff;
+    height: 100%;
+    animation: slideIn 500ms forwards;
+  }
+}
+
+
+@keyframes hideBackground {
+  0% {
+    background-color: #00000076;
+    opacity: 1;
+  }
+  80% {
+    width: 100%;
+    background-color: #00000000;
+    opacity: 0;
+  }
+  100% {
+    display: none !important;
+    width: 0%;
+    opacity: 0;
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes showBackground {
+  0% {
+    background-color: #00000000;
+  }
+  90% {
+    background-color: #00000076;
+  }
+  100% {
+    display: none;
+  }
+}
+@keyframes slideOut {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+
+ 
 }

@@ -55,11 +55,11 @@ const Dashboard_home = (props) => {
             {...props}
           />
           <div id="dashboard-hist-acc">
-            <Row>
-              <Col lg={6}>
+            <Row id="history-row" className="mx-0">
+              <Col lg={6} id="accounts-sec" >
                 <Accounts accounts={userDetails.accounts} />
               </Col>
-              <Col lg={6}>
+              <Col lg={6} id="history-sec" >
                 <History history={userDetails.transactionHistory} />
               </Col>
             </Row>

@@ -22,10 +22,10 @@ class History extends Component {
                       <p className="desktop-sub-header2">
                         {item.serviceProviderName}
                       </p>
-                      <p className="hist-text-date">
+                      <p className="hist-text-date pt-2">
                         {item.dateOfTransaction} | {item.timeOfTransaction}
                       </p>
-                      <p className="desktop-text">{item.description}</p>
+                      <p className="desktop-text pt-2">{item.description}</p>
                     </div>
                   </div>
                 );

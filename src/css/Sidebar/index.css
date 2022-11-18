@@ -17,25 +17,30 @@
   src: url(../../Fonts/Rubik-Regular.ttf);
 }
 
+
+
 #sidebar-list {
   margin-top: 54px;
   display: flex;
-  justify-content: center;
 }
 
 #logo-wrapper {
   display: flex;
-  justify-content: center;
   margin-top: 1rem;
 }
 
 #sidebar-list ul {
+  padding-left: 0;
   list-style: none;
-  width: 210px;
-  height: 52px;
+  width: 100%;
+  /* width: 210px; */
+  /* height: 52px; */
 }
 #sidebar-list ul li {
-  margin-top: 1rem;
+  padding-block: 1.8rem .5rem;
+  /* margin-top: 1rem; */
+  border-bottom: 2px solid transparent;
+  
 }
 
 .links.active #nav-items-list {
@@ -43,16 +48,22 @@
   opacity: 0.9;
   width: auto;
   /* padding: 1rem; */
-  margin-top: 2rem;
-  color: #ab7ab6 !important;
+  /* margin-top: 2rem; */
   /* border-radius: 25px; */
   border-bottom: 2px solid #ab7ab6;
 }
 /* .links.active #nav-items-list .sidebar-item-paragraph {
   color: black !important;
 } */
+.links.active #nav-items-list .sidebar-item-paragraph {
+  color: #ab7ab6;
+}
+.links.active #nav-items-list path {
+  fill: #ab7ab6;
+}
 
 .sidebar-item-paragraph {
+  color: #A3A2A2;
   font-family: Poppins medium;
   font-style: normal;
   font-weight: 500;
@@ -60,9 +71,7 @@
   line-height: 21px;
   display: flex;
   align-items: center;
-  color: #000000;
   mix-blend-mode: normal;
-  opacity: 0.4;
   margin-left: 12px;
   margin-bottom: 3px;
 }

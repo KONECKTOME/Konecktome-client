@@ -71,6 +71,8 @@ class DashBoardIndex extends Component {
   resetBoughtDeal = () => {
     this.setState({ paidDeal: "" });
   };
+
+
   render(props) {
     const userDetails = this.state.userDetails;
     const dealDetails = this.state.dealDetails;

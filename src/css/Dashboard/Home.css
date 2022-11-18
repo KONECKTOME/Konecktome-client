@@ -15,9 +15,22 @@
 
 #dashboard-hist-acc {
   width: 95%;
-  margin-left: 3rem;
+  margin-inline: auto;
   margin-top: 30px;
 }
+#history-row > *{
+  margin-top: 1.5rem;
+}
+
+#accounts-sec{
+  padding: 0;
+  padding-right: 10px;
+}
+#history-sec{
+  padding: 0;
+  padding-left: 10px;
+}
+
 
 #dashboard-pin-launch {
   font-style: italic;
@@ -25,4 +38,10 @@
   text-decoration: underline;
   margin-left: 0.5rem;
   cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+#history-row > *{
+padding: 0;
+}
 }

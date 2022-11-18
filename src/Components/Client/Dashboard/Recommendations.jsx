@@ -42,40 +42,37 @@ class Recommendations extends Component {
                 </div>
               </div>
               <div>
-                <Row>
+                <div className="d-flex flex-wrap gap-4 justify-content-sm-center justify-content-md-start mt-3">
                   {this.state.deals.slice(0, 4).map((deal) => {
                     return (
-                      <Col lg={6} className="reco-col">
-                        <div id="dashboard-reco">
-                          <Row>
-                            <Col lg={2}>
-                              <div id="icon-wrapper">
-                                <img src={life_insurance} />
+                      <div id="dashboard-reco">
+                        <div className="d-flex align-items-start">
+                          <div id="icon-wrapper">
+                            <img src={life_insurance} />
+                          </div>
+                          <div>
+                            <div id="dashboard-reco-deals">
+                              <div>
+                                <p className="desktop-sub-header2">
+                                  {deal.dealName} by {deal.companyName}
+                                </p>
+                                <p className="desktop-text">{deal.speed}</p>
                               </div>
-                            </Col>
-                            <Col lg={10}>
-                              <div id="dashboard-reco-deals">
-                                <div>
-                                  <p className="desktop-sub-header2">
-                                    {deal.dealName} by {deal.companyName}
-                                  </p>
-                                  <p className="desktop-text">{deal.speed}</p>
-                                </div>
-                              </div>
-                              <div id="more-details-holder">
-                                <Link
-                                  className="links"
-                                  to={
-                                    "/dashboard/explore/details/" +
-                                    this.props.userId +
-                                    "/" +
-                                    deal._id
-                                  }
-                                >
-                                  <p className="desktop-cta">View Details</p>
-                                </Link>
-                              </div>
-                              {/* {this.state.test.map((tt) => {
+                            </div>
+                            <div id="more-details-holder">
+                              <Link
+                                className="links"
+                                to={
+                                  "/dashboard/explore/details/" +
+                                  this.props.userId +
+                                  "/" +
+                                  deal._id
+                                }
+                              >
+                                <p className="desktop-cta">View Details</p>
+                              </Link>
+                            </div>
+                            {/* {this.state.test.map((tt) => {
                             return (
                               <div
                                 className={
@@ -107,13 +104,12 @@ class Recommendations extends Component {
                               </div>
                             );
                           })} */}
-                            </Col>
-                          </Row>
+                          </div>
                         </div>
-                      </Col>
+                      </div>
                     );
                   })}
-                </Row>
+                </div>
                 <div
                   className="desktop-small-button"
                   id="dashboard-reco-explore-all"

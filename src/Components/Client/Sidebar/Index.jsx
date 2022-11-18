@@ -1,16 +1,23 @@
 import React, { Component } from "react";
 import "../../../css/Sidebar/index.css";
-import details_icon from "../../../Assets/my_details_icon.svg";
-import account_icon from "../../../Assets/my_accounts.svg";
-import explore_icon from "../../../Assets/explore_icon.svg";
-import history_icon from "../../../Assets/history_icon.svg";
-import wishlist_icon from "../../../Assets/wishlist_icon.svg";
-import survey_icon from "../../../Assets/survey_icon.svg";
-import dashboard_icon from "../../../Assets/Sidebar assets/dashboard-icon.png";
-import settings_icon from "../../../Assets/settings_icon.svg";
+// import details_icon from "../../../Assets/my_details_icon.svg";
+// import account_icon from "../../../Assets/my_accounts.svg";
+// import explore_icon from "../../../Assets/explore_icon.svg";
+// import history_icon from "../../../Assets/history_icon.svg";
+// import wishlist_icon from "../../../Assets/wishlist_icon.svg";
+// import survey_icon from "../../../Assets/survey_icon.svg";
+// import dashboard_icon from "../../../Assets/Sidebar assets/dashboard-icon.png";
+// import settings_icon from "../../../Assets/settings_icon.svg";
 import konecktome_icon from "../../../Assets/konecktome-logo.svg";
 import { Row, Col } from "react-bootstrap";
 import { NavLink, withRouter } from "react-router-dom";
+import DashboardIcon from "../../SvgIcons/DashboardIcon";
+import AvatarIcon from "../../SvgIcons/AvatarIcon";
+import ExploreIcon from "../../SvgIcons/ExploreIcon";
+import HistoryIcon from "../../SvgIcons/HistoryIcon";
+import WishlistIcon from "../../SvgIcons/WishlistIcon";
+import SurveyIcon from "../../SvgIcons/SurveyIcon";
+import SettingsIcon from "../../SvgIcons/SettingsIcon";
 
 class Index extends Component {
   state = {
@@ -68,18 +75,19 @@ class Index extends Component {
             >
               <li id="nav-items-list">
                 <div>
-                  <Row>
-                    <Col lg={2}>
+                  <div className={`d-flex align-item-center`}>
+                    <div>
                       <div>
-                        <img src={dashboard_icon} />
+                        {/* <img src={dashboard_icon} /> */}
+                        <DashboardIcon size="22" />
                       </div>
-                    </Col>
-                    <Col lg={10}>
+                    </div>
+                    <div>
                       <div>
                         <p className="sidebar-item-paragraph">Dashboard</p>
                       </div>
-                    </Col>
-                  </Row>
+                    </div>
+                  </div>
                 </div>
               </li>
             </NavLink>
@@ -90,35 +98,35 @@ class Index extends Component {
             >
               <li id="nav-items-list">
                 <div>
-                  <Row>
-                    <Col lg={2}>
+                  <div className={`d-flex align-item-center`}>
+                    <div>
                       <div>
-                        <img src={account_icon} />
+                        <AvatarIcon size="22" />
                       </div>
-                    </Col>
-                    <Col lg={10}>
+                    </div>
+                    <div>
                       <div>
                         <p className="sidebar-item-paragraph">My Account</p>
                       </div>
-                    </Col>
-                  </Row>
+                    </div>
+                  </div>
                 </div>
               </li>
             </NavLink>
             {/* <li>
               <Link to="/details" className="links">
-                <Row>
-                  <Col lg={2}>
+                <div className={`d-flex align-item-center`}>
+                  <div>
                     <div>
                       <img src={details_icon} />
                     </div>
-                  </Col>
-                  <Col lg={10}>
+                  </div>
+                  <div>
                     <div>
                       <p className="sidebar-item-paragraph">My Details</p>
                     </div>
-                  </Col>
-                </Row>
+                  </div>
+                </div>
               </Link>
             </li> */}
             <NavLink
@@ -127,18 +135,18 @@ class Index extends Component {
               activeClassName="active"
             >
               <li id="nav-items-list">
-                <Row>
-                  <Col lg={2}>
+                <div className={`d-flex align-item-center`}>
+                  <div>
                     <div>
-                      <img src={explore_icon} />
+                      <ExploreIcon size="22" />
                     </div>
-                  </Col>
-                  <Col lg={10}>
+                  </div>
+                  <div>
                     <div>
                       <p className="sidebar-item-paragraph">Explore</p>
                     </div>
-                  </Col>
-                </Row>
+                  </div>
+                </div>
               </li>
             </NavLink>
             <NavLink
@@ -147,18 +155,18 @@ class Index extends Component {
               activeClassName="active"
             >
               <li id="nav-items-list">
-                <Row>
-                  <Col lg={2}>
+                <div className={`d-flex align-item-center`}>
+                  <div>
                     <div>
-                      <img src={history_icon} />
+                      <HistoryIcon size="22" />
                     </div>
-                  </Col>
-                  <Col lg={10}>
+                  </div>
+                  <div>
                     <div>
                       <p className="sidebar-item-paragraph">History</p>
                     </div>
-                  </Col>
-                </Row>
+                  </div>
+                </div>
               </li>
             </NavLink>
             {/* <NavLink
@@ -167,66 +175,66 @@ class Index extends Component {
               activeClassName="active"
             >
               <li id="nav-items-list">
-                <Row>
-                  <Col lg={2}>
+                <div className={`d-flex align-item-center`}>
+                  <div>
                     <div>
                       <img src={notifications_icon} />
                     </div>
-                  </Col>
+                  </div>
 
-                  <Col lg={10}>
+                  <div>
                     <div>
                       <p className="sidebar-item-paragraph">Notifications</p>
                     </div>
-                  </Col>
-                </Row>
+                  </div>
+                </div>
               </li>
             </NavLink> */}
             {/* <Link to="/recommendations" className="links">
               <li>
-                <Row>
-                  <Col lg={2}>
+                <div className={`d-flex align-item-center`}>
+                  <div>
                     <div>
                       <img src={account_icon} />
                     </div>
-                  </Col>
-                  <Col lg={10}>
+                  </div>
+                  <div>
                     <div>
                       <p className="sidebar-item-paragraph">Recommendation</p>
                     </div>
-                  </Col>
-                </Row>
+                  </div>
+                </div>
               </li>
             </Link> */}
             {/* <Link to="favourites" className="links">
               <li>
-                <Row>
-                  <Col lg={2}>
+                <div className={`d-flex align-item-center`}>
+                  <div>
                     <div>
                       <img src={fav_icon} />
                     </div>
-                  </Col>
-                  <Col lg={10}>
+                  </div>
+                  <div>
                     <div>
                       <p className="sidebar-item-paragraph">My Favorites</p>
                     </div>
-                  </Col>
-                </Row>
+                  </div>
+                </div>
               </li>
             </Link> */}
             {/* <li>
-              <Row>
-                <Col lg={2}>
+              <div className={`d-flex align-item-center`}>
+                <div>
                   <div>
                     <img src={email_updates_icon} />
                   </div>
-                </Col>
-                <Col lg={10}>
+                </div>
+                <div>
                   <div>
                     <p className="sidebar-item-paragraph">Email Updates</p>
                   </div>
-                </Col>
-              </Row>
+                </div>
+              </div>
             </li> */}
             <NavLink
               to={"/dashboard/wishlist/" + this.state.userId}
@@ -234,82 +242,82 @@ class Index extends Component {
               activeClassName="active"
             >
               <li id="nav-items-list">
-                <Row>
-                  <Col lg={2}>
+                <div className={`d-flex align-item-center`}>
+                  <div>
                     <div>
-                      <img src={wishlist_icon} />
+                      <WishlistIcon size="22" />
                     </div>
-                  </Col>
-                  <Col lg={10}>
+                  </div>
+                  <div>
                     <div>
                       <p className="sidebar-item-paragraph">Wishlist</p>
                     </div>
-                  </Col>
-                </Row>
+                  </div>
+                </div>
               </li>
             </NavLink>
             {/* <li>
-              <Row>
-                <Col lg={2}>
+              <div className={`d-flex align-item-center`}>
+                <div>
                   <div>
                     <img src={tutorials_icon} />
                   </div>
-                </Col>
-                <Col lg={10}>
+                </div>
+                <div>
                   <div>
                     <p className="sidebar-item-paragraph">Tutorials</p>
                   </div>
-                </Col>
-              </Row>
+                </div>
+              </div>
             </li> */}
             <NavLink
               to={"/dashboard/feedback/" + this.state.userId}
               className="links"
             >
               <li id="nav-items-list">
-                <Row>
-                  <Col lg={2}>
+                <div className={`d-flex align-item-center`}>
+                  <div>
                     <div>
-                      <img src={survey_icon} />
+                      <SurveyIcon size="22" />
                     </div>
-                  </Col>
-                  <Col lg={10}>
+                  </div>
+                  <div>
                     <div>
                       <p className="sidebar-item-paragraph">
                         Survey & Feedback
                       </p>
                     </div>
-                  </Col>
-                </Row>
+                  </div>
+                </div>
               </li>
             </NavLink>
             {/* <li>
-              <Row>
-                <Col lg={2}>
+              <div className={`d-flex align-item-center`}>
+                <div>
                   <div>
                     <img src={get_free_icon} />
                   </div>
-                </Col>
-                <Col lg={10}>
+                </div>
+                <div>
                   <div>
                     <p className="sidebar-item-paragraph">Get Free £50</p>
                   </div>
-                </Col>
-              </Row>
+                </div>
+              </div>
             </li> */}
             {/* <li>
-              <Row>
-                <Col lg={2}>
+              <div className={`d-flex align-item-center`}>
+                <div>
                   <div>
                     <img src={help_center_icon} />
                   </div>
-                </Col>
-                <Col lg={10}>
+                </div>
+                <div>
                   <div>
                     <p className="sidebar-item-paragraph">Help Centre</p>
                   </div>
-                </Col>
-              </Row>
+                </div>
+              </div>
             </li> */}
             <NavLink
               to={"/dashboard/settings/" + this.state.userId}
@@ -317,24 +325,24 @@ class Index extends Component {
               activeClassName="active"
             >
               <li id="nav-items-list">
-                <Row>
-                  <Col lg={2}>
+                <div className={`d-flex align-item-center`}>
+                  <div>
                     <div>
-                      <img src={settings_icon} />
+                      <SettingsIcon size="22" />
                     </div>
-                  </Col>
-                  <Col lg={10}>
+                  </div>
+                  <div>
                     <div>
                       <p className="sidebar-item-paragraph">Settings</p>
                     </div>
-                  </Col>
-                </Row>
+                  </div>
+                </div>
               </li>
             </NavLink>
             <li>
               <div id="sidebar-footer">
                 <p>Privacy Policy</p>
-                <p>Legal Douments</p>
+                <p className={`mt-4`}>Legal Douments</p>
               </div>
             </li>
           </ul>

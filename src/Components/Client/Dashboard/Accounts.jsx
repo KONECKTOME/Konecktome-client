@@ -57,8 +57,8 @@ class Accounts extends Component {
                       <p className="desktop-sub-header2">
                         {item.serviceProviderName}
                       </p>
-                      <p className="hist-text-date">{item.description}</p>
-                      <p className="desktop-text">{item.tag}</p>
+                      <p className="hist-text-date pt-2">{item.description}</p>
+                      <p className="desktop-text pt-2">{item.tag}</p>
                     </div>
                   </div>
                 );

@@ -47,18 +47,11 @@
   justify-content: space-between;
 }
 
-.reco-col {
-  border-radius: 5px;
-  padding: 1rem 1rem;
-}
-
-.reco-col-inner {
-  padding: 1rem 1rem;
-}
-
 #dashboard-reco {
   background: #fafbfd;
-  padding: 1rem 1rem;
+  padding: 1.5rem;
+  flex-basis:550px;
+  border-radius: 5px;
 }
 
 /* #dashboard-reco-deals {
@@ -140,12 +133,8 @@
 }
 
 #icon-wrapper {
-  padding-top: 1rem;
-  /* width: 60px;
-  background: linear-gradient(90.09deg, #fda3d6, #ab7ab6);
-  mix-blend-mode: normal;
-  opacity: 0.9;
-  border-radius: 10px; */
+  padding-top: .5rem;
+  margin-right: 25px;
 }
 
 #dashboard-reco-accordion-image-sub-container {
@@ -177,3 +166,16 @@
 #dashboard-reco-explore-all {
   margin: 3rem auto 1rem auto;
 }
+
+@media screen and (max-width: 768px) {
+  #reco-inner {
+    padding: 2rem 1rem;
+  }
+  #dashboard-reco {
+    padding: 1.5rem;
+  }
+  #icon-wrapper {
+    margin-right: 15px;
+  }
+}
+

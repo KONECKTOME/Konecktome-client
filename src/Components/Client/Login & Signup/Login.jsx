@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import signUpImage from "../../../Assets/signup-left-image.png";
+import signUpImage from "../../../Assets/signup-left-image-svg.svg";
 import "../../../css/Signup & login/SignUp.css";
 import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -118,117 +118,129 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <Row>
-          <Col md={6}>
-            <div>
-              <img src={signUpImage} />
-            </div>
-          </Col>
-          <Col md={6}>
-            <div id="login-right-col">
-              <p className="desktop-header sign-up-header">Welcome Back!</p>
-              <p className="desktop-sub-header2 sign-up-header">Login with</p>
-              <div id="login-icon-wrapper">
-                <div
-                  className="icons-holder"
-                  onClick={() => this.loginWithGoogle()}
-                >
-                  <img src={googleIcon} className="auth-icons" />
-                  <p className="desktop-text">Google</p>
-                </div>
-                <div
-                  className="icons-holder"
-                  onClick={() => this.loginWithFacebook()}
-                >
-                  <img src={facebookIcon} className="auth-icons" />
-                  <p className="desktop-text">Facebook</p>
-                </div>
+        <div id="login-container">
+          <Row id="login-row" className={`mx-0`}>
+            <Col md={6} className="p-0">
+              <div id="login-left-column" className="w-100 h-100">
+                <img src={signUpImage} />
               </div>
-              <div className="desktop-header sign-up-header">OR</div>
-              <form>
-                <div className="input-holder">
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="Email Address"
-                    value={this.state.details.email}
-                    onChange={(e) => this.updateDetails(e)}
-                  />
-                </div>
-                <div className="input-holder">
-                  <input
-                    id="password"
-                    type="password"
-                    placeholder="Password"
-                    value={this.state.details.password}
-                    onChange={(e) => this.updateDetails(e)}
-                    onKeyPress={(e) => this.handleKeypress(e)}
-                  />
-                </div>
-              </form>
-              {this.state.success === true ? (
-                <div className="success-notification-holder">
-                  <p>Yay, Sign Up Successful</p>
-                </div>
-              ) : null}
-              {this.state.incorrectPass === true ? (
-                <div className="error-notification-holder">
-                  <p>Email Or Password Incorrect </p>
-                </div>
-              ) : null}
-              {this.state.emptyFields === true ? (
-                <div className="error-notification-holder">
-                  <p>Input fields cannot be empty</p>
-                </div>
-              ) : null}
-              {this.state.invalidEmail === true ? (
-                <div className="error-notification-holder">
-                  <p>Invalid Email</p>
-                </div>
-              ) : null}
-              <div
-                id="sign-up-wrapper"
-                className="checkbox-forgot-pass desktop-text"
-              >
-                <div id={this.state.check ? "check-wrapper2" : "check-wrapper"}>
+            </Col>
+            <Col md={6} className="p-0">
+              <div id="login-right-col">
+                <p className="desktop-header sign-up-header">Welcome Back!</p>
+                <p className="desktop-sub-header2 sign-up-header">Login with</p>
+
+                <div id="login-icon-wrapper">
                   <div
-                    id={this.state.check ? "checked2" : "checkbox"}
-                    onClick={() => this.updateCheckBox()}
-                  ></div>
-                  <p>Remember me </p>
+                    className="icons-holder"
+                    onClick={() => this.loginWithGoogle()}
+                  >
+                    <div>
+                      <img src={googleIcon} className="auth-icons" />
+                    </div>
+                    <p className="desktop-text fs-3 my-0 ms-3">Google</p>
+                  </div>
+                  <div
+                    className="icons-holder"
+                    onClick={() => this.loginWithFacebook()}
+                  >
+                    <div>
+                      <img src={facebookIcon} className="auth-icons" />
+                    </div>
+                    <p className="desktop-text fs-3 my-0 ms-3">Facebook</p>
+                  </div>
                 </div>
-                <div>
-                  <Link to="/forgot-password" className="links">
-                    <span className="sign-up-span-link ">Forgot Password?</span>
-                  </Link>
-                </div>
-              </div>
-              <div
-                id="sign-up-btn"
-                onClick={(e) => this.login(e)}
-                ref={(node) => (this.btn = node)}
-              >
-                <div className="desktop-medium-button">
-                  {this.state.loggingIn === true ? (
-                    <div id="explore-loading"></div>
-                  ) : (
-                    <p className="desktop-big-button-text">Login</p>
-                  )}
-                </div>
-              </div>
-              <div id="sign-up-btn">
-                <span className="desktop-text">
-                  New User?
-                  <span>
-                    <Link to="/signup" className="links sign-up-span-link">
-                      Sign up here
+                <div className="desktop-header sign-up-header">OR</div>
+
+                <form>
+                  <div className="input-holder">
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder="Email Address"
+                      value={this.state.details.email}
+                      onChange={(e) => this.updateDetails(e)}
+                    />
+                  </div>
+                  <div className="input-holder">
+                    <input
+                      id="password"
+                      type="password"
+                      placeholder="Password"
+                      value={this.state.details.password}
+                      onChange={(e) => this.updateDetails(e)}
+                      onKeyPress={(e) => this.handleKeypress(e)}
+                    />
+                  </div>
+                </form>
+                {this.state.success === true ? (
+                  <div className="success-notification-holder">
+                    <p>Yay, Sign Up Successful</p>
+                  </div>
+                ) : null}
+                {this.state.incorrectPass === true ? (
+                  <div className="error-notification-holder">
+                    <p>Email Or Password Incorrect </p>
+                  </div>
+                ) : null}
+                {this.state.emptyFields === true ? (
+                  <div className="error-notification-holder">
+                    <p>Input fields cannot be empty</p>
+                  </div>
+                ) : null}
+                {this.state.invalidEmail === true ? (
+                  <div className="error-notification-holder">
+                    <p>Invalid Email</p>
+                  </div>
+                ) : null}
+                <div
+                  id="sign-up-wrapper"
+                  className="checkbox-forgot-pass desktop-text"
+                >
+                  <div
+                    id={this.state.check ? "check-wrapper2" : "check-wrapper"}
+                  >
+                    <div
+                      id={this.state.check ? "checked2" : "checkbox"}
+                      onClick={() => this.updateCheckBox()}
+                    ></div>
+                    <p>Remember me </p>
+                  </div>
+                  <div>
+                    <Link to="/forgot-password" className="links">
+                      <span className="sign-up-span-link ">
+                        Forgot Password?
+                      </span>
                     </Link>
+                  </div>
+                </div>
+                <div
+                  id="sign-up-btn"
+                  onClick={(e) => this.login(e)}
+                  ref={(node) => (this.btn = node)}
+                >
+                  <div className="desktop-medium-button">
+                    {this.state.loggingIn === true ? (
+                      <div id="explore-loading"></div>
+                    ) : (
+                      <p className="desktop-big-button-text">Login</p>
+                    )}
+                  </div>
+                </div>
+                <div id="sign-up-btn">
+                  <span className="desktop-text">
+                    New User ?
+                    <span>
+                      <Link to="/signup" className="links sign-up-span-link">
+                        Sign up here
+                      </Link>
+                    </span>
                   </span>
-                </span>
+                </div>
               </div>
-            </div>
-          </Col>
-        </Row>
+            </Col>
+          </Row>
+        </div>
         <Footer />
       </div>
     );

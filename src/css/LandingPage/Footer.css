@@ -26,10 +26,13 @@
 
 #footer-third-wrapper {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .footer-text {
+  /* flex: 1;
+  shrin */
   font-family: Poppins;
   font-style: normal;
   font-weight: Bold;

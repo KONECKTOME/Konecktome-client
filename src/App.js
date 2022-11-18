@@ -39,6 +39,7 @@ class App extends Component {
     dealDetails: [],
     loading: false,
     installationDateAndTime: null,
+    sideBarClassName: "default",
   };
 
   componentDidMount = async () => {
@@ -111,6 +112,19 @@ class App extends Component {
     });
     window.location.href = "https://konecktome-mvp.herokuapp.com/login";
   };
+
+  sideBarToggle = (boolean) => {
+    boolean
+      ? this.setState({
+          ...this.state,
+          sideBarClassName: "active",
+        })
+      : this.setState({
+          ...this.state,
+          sideBarClassName: "not-active",
+        });
+  };
+
   render(props) {
     const userDetails = this.state.userDetails;
     const dealDetails = this.state.dealDetails;
@@ -119,14 +133,34 @@ class App extends Component {
       <div className="App">
         <Router>
           <div id="fe-wrapper">
-            <div id="left-col">
-              <Index {...props} />
+            <div
+              id="left-col"
+              onClick={(e) => {
+                this.setState({
+                  ...this.state,
+                  sideBarClassName: "not-active",
+                });
+              }}
+              className={this.state.sideBarClassName}
+            >
+              <div
+                id="sidebar-warpper"
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+              >
+                <Index {...props} />
+              </div>
             </div>
             <div id="right-col">
               <UserDetailsContext.Provider
                 value={{ userDetails, dealDetails, loading }}
               >
-                <Navbar signOut={() => this.signOut()} {...props} />
+                <Navbar
+                  isSideBarShown={this.sideBarToggle}
+                  signOut={() => this.signOut()}
+                  {...props}
+                />
                 <Switch>
                   <Route
                     path="/dashboard/:userid"
