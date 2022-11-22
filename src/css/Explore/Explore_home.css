@@ -81,7 +81,7 @@
 #explore-compare-holder input[type="checkbox"] {
   width: 25px;
   height: 25px;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   float: left;
 }
 
@@ -92,6 +92,7 @@
 
 #explore-compare-holder input[type="checkbox"]:checked {
   background: green !important;
+  accent-color:green ;
 }
 
 #compare-label {
@@ -135,17 +136,16 @@
 }
 
 #explore-compare-delete-btn {
+  padding: .7rem;
   font-family: Poppins;
-  width: 50px;
-  height: 50px;
   background: transparent;
   opacity: 0.9;
   border-radius: 25%;
   display: flex;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
-
-  border: 2px solid #cdd8df;
+  border: 2px solid #5e5e5e;
 }
 
 #explore-compare-delete-btn > p {

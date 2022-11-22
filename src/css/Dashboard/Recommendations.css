@@ -47,10 +47,13 @@
   justify-content: space-between;
 }
 
+#card-wrapper{
+  padding: 1rem;
+}
+
 #dashboard-reco {
   background: #fafbfd;
   padding: 1.5rem;
-  flex-basis:550px;
   border-radius: 5px;
 }
 
@@ -170,6 +173,9 @@
 @media screen and (max-width: 768px) {
   #reco-inner {
     padding: 2rem 1rem;
+  }
+  #card-wrapper{
+    padding: 1rem 0rem;
   }
   #dashboard-reco {
     padding: 1.5rem;

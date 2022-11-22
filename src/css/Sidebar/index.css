@@ -17,30 +17,34 @@
   src: url(../../Fonts/Rubik-Regular.ttf);
 }
 
-
-
 #sidebar-list {
   margin-top: 54px;
   display: flex;
 }
 
 #logo-wrapper {
+  padding-inline: 2rem;
   display: flex;
   margin-top: 1rem;
 }
 
 #sidebar-list ul {
   padding-left: 0;
+  padding-inline: 2rem;
   list-style: none;
   width: 100%;
+  display: flex;
+  flex-direction: column;
   /* width: 210px; */
   /* height: 52px; */
 }
 #sidebar-list ul li {
-  padding-block: 1.8rem .5rem;
+  padding-block: 1.8rem 0.5rem;
   /* margin-top: 1rem; */
   border-bottom: 2px solid transparent;
-  
+}
+#user-detail {
+  display: none;
 }
 
 .links.active #nav-items-list {
@@ -63,7 +67,7 @@
 }
 
 .sidebar-item-paragraph {
-  color: #A3A2A2;
+  color: #a3a2a2;
   font-family: Poppins medium;
   font-style: normal;
   font-weight: 500;
@@ -77,11 +81,83 @@
 }
 
 #sidebar-footer {
-  margin-top: 8rem;
+  margin-top: 1.5rem;
   font-family: Poppins medium;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 21px;
   color: #ab7ab6;
+}
+#sidebar-signout {
+  display: none;
+}
+
+.sideBar-sign-out-button {
+  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+  opacity: 0.9;
+  border-radius: 90em;
+  display: flex;
+  justify-content: center;
+  width: calc(100%);
+  min-width: max-content;
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+.sideBar-sign-out-button-text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  
+
+  
+  #sidebar-list {
+    margin-top: 10px;
+  }
+
+
+
+  #sidebar-wrapper,
+  #sidebar-wrapper ul {
+    height: 100%;
+  }
+  #sidebar-wrapper #sidebar-list {
+    height: calc(100% - 180px);
+  }
+
+  #user-detail {
+    display: block;
+    padding-block: 30px 20px;
+    padding-inline: 2rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+    /* padding-bottom: 30px !important; */
+  }
+  .user-Avatar {
+    border: 2px solid #585858;
+    border-radius: 999px;
+    padding: 5px;
+  }
+  .user-Avatar path {
+    fill: #585858;
+  }
+
+  #user-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 999px;
+  }
+
+  #sidebar-signout {
+    margin-top: auto;
+    display: block;
+  }
 }

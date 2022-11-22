@@ -1,19 +1,26 @@
+.modal {
+  padding: 0 17px;
+}
 .modal-body {
-  padding: 2rem 5rem 5rem 5rem !important;
+  padding: 2rem 4rem !important;
 }
 
 #address-modal-body-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .review-modal-header {
-  padding: 3rem 0 3rem 0;
+  margin-top: 1.8rem;
 }
 
 #address-modal-current-delivery-checkbox-holder {
   display: flex;
+  gap: 10px;
   justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 #address-inputholder input[type="text"] {
@@ -61,6 +68,8 @@
 #address-modal-button {
   width: 40%;
   height: 45px;
+  min-width: max-content;
+  padding: 1rem 2rem;
   background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
   opacity: 0.9;
   border-radius: 90em;
@@ -111,9 +120,15 @@
 }
 
 #address-inputholder {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
-
+#address-inputholder > input {
+  padding-right: 1rem !important;
+  margin-bottom:.5rem ;
+}
+.settings_payment_user_details_label{
+  margin-bottom: 1rem !important;
+}
 #submit-btn {
   display: flex;
   justify-content: center;
@@ -182,4 +197,18 @@
 #address-modal-dropdown-holder ul li:not(:first-child):hover {
   background-color: rgb(244, 244, 244);
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-dialog{
+    max-width: 800px !important;
+  }
+}
+@media screen and (max-width: 576px) {
+  .modal-body {
+    padding: 4rem  1.5rem !important;
+  }
+  .modal {
+    padding: 0 13px;
+  }
 }

@@ -115,120 +115,115 @@ class PinModal extends React.Component {
             keyboard={false}
           >
             <Modal.Body>
-              <div id="settings_modal_wrapper">
-                <p id="settings_modal_header">Set Your Pin</p>
-                <p id="settings_modal_subheader">Enter Pin You'd Like To Use</p>
-                <div id="settings_modal_form_container">
-                  <div id="settings_modal_form_subcontainer">
-                    <form id="settings_modal_form" name="pinForm">
-                      <div id="pin-container">
-                        <input
-                          type="text"
-                          maxlength="1"
-                          id="pin1"
-                          value={this.state.pin.pin1}
-                          onInput={() =>
-                            this.autoTab(
-                              document.pinForm.pin1,
-                              document.pinForm.pin2
-                            )
-                          }
-                          onChange={(e) => this.updatePinDetails(e)}
-                        />
-                        <input
-                          type="text"
-                          maxlength="1"
-                          id="pin2"
-                          name="pin2"
-                          value={this.state.pin.pin2}
-                          onInput={() =>
-                            this.autoTab(
-                              document.pinForm.pin2,
-                              document.pinForm.pin3
-                            )
-                          }
-                          onChange={(e) => this.updatePinDetails(e)}
-                        />
-                        <input
-                          type="text"
-                          maxlength="1"
-                          id="pin3"
-                          value={this.state.pin.pin3}
-                          onInput={() =>
-                            this.autoTab(
-                              document.pinForm.pin3,
-                              document.pinForm.pin4
-                            )
-                          }
-                          onChange={(e) => this.updatePinDetails(e)}
-                        />
-                        <input
-                          type="text"
-                          maxlength="1"
-                          id="pin4"
-                          value={this.state.pin.pin4}
-                          onChange={(e) => this.updatePinDetails(e)}
-                        />
-                      </div>
-                    </form>
+              <div>
+                <h3 id="settings_modal_header">Set Your Pin</h3>
+
+                <form id="settings_modal_form" name="pinForm">
+                  <p id="settings_modal_subheader">
+                    Enter Pin You'd Like To Use
+                  </p>
+                  <div id="pin-container">
+                    <input
+                      type="text"
+                      maxlength="1"
+                      id="pin1"
+                      value={this.state.pin.pin1}
+                      onInput={() =>
+                        this.autoTab(
+                          document.pinForm.pin1,
+                          document.pinForm.pin2
+                        )
+                      }
+                      onChange={(e) => this.updatePinDetails(e)}
+                    />
+                    <input
+                      type="text"
+                      maxlength="1"
+                      id="pin2"
+                      name="pin2"
+                      value={this.state.pin.pin2}
+                      onInput={() =>
+                        this.autoTab(
+                          document.pinForm.pin2,
+                          document.pinForm.pin3
+                        )
+                      }
+                      onChange={(e) => this.updatePinDetails(e)}
+                    />
+                    <input
+                      type="text"
+                      maxlength="1"
+                      id="pin3"
+                      value={this.state.pin.pin3}
+                      onInput={() =>
+                        this.autoTab(
+                          document.pinForm.pin3,
+                          document.pinForm.pin4
+                        )
+                      }
+                      onChange={(e) => this.updatePinDetails(e)}
+                    />
+                    <input
+                      type="text"
+                      maxlength="1"
+                      id="pin4"
+                      value={this.state.pin.pin4}
+                      onChange={(e) => this.updatePinDetails(e)}
+                    />
                   </div>
-                </div>
-                <p id="settings_modal_subheader">Confirm Pin</p>
-                <div id="settings_modal_form_container">
-                  <div id="settings_modal_form_subcontainer">
-                    <form id="settings_modal_form" name="confirmPinForm">
-                      <div id="pin-container">
-                        <input
-                          type="text"
-                          maxlength="1"
-                          id="confirmpin1"
-                          value={this.state.confirmNewPin.confirmpin1}
-                          onInput={() =>
-                            this.autoTab(
-                              document.confirmPinForm.confirmpin1,
-                              document.confirmPinForm.confirmpin2
-                            )
-                          }
-                          onChange={(e) => this.updateConfirmPinDetails(e)}
-                        />
-                        <input
-                          type="text"
-                          maxlength="1"
-                          id="confirmpin2"
-                          name="pin2"
-                          value={this.state.confirmNewPin.confirmpin2}
-                          onInput={() =>
-                            this.autoTab(
-                              document.confirmPinForm.confirmpin2,
-                              document.confirmPinForm.confirmpin3
-                            )
-                          }
-                          onChange={(e) => this.updateConfirmPinDetails(e)}
-                        />
-                        <input
-                          type="text"
-                          maxlength="1"
-                          id="confirmpin3"
-                          value={this.state.confirmNewPin.confirmpin3}
-                          onInput={() =>
-                            this.autoTab(
-                              document.confirmPinForm.confirmpin3,
-                              document.confirmPinForm.confirmpin4
-                            )
-                          }
-                          onChange={(e) => this.updateConfirmPinDetails(e)}
-                        />
-                        <input
-                          type="text"
-                          maxlength="1"
-                          id="confirmpin4"
-                          value={this.state.confirmNewPin.confirmpin4}
-                          onChange={(e) => this.updateConfirmPinDetails(e)}
-                        />
-                      </div>
-                    </form>
+                </form>
+                <form id="settings_modal_form" name="confirmPinForm">
+                  <p id="settings_modal_subheader">Confirm Pin</p>
+                  <div id="pin-container">
+                    <input
+                      type="text"
+                      maxlength="1"
+                      id="confirmpin1"
+                      value={this.state.confirmNewPin.confirmpin1}
+                      onInput={() =>
+                        this.autoTab(
+                          document.confirmPinForm.confirmpin1,
+                          document.confirmPinForm.confirmpin2
+                        )
+                      }
+                      onChange={(e) => this.updateConfirmPinDetails(e)}
+                    />
+                    <input
+                      type="text"
+                      maxlength="1"
+                      id="confirmpin2"
+                      name="pin2"
+                      value={this.state.confirmNewPin.confirmpin2}
+                      onInput={() =>
+                        this.autoTab(
+                          document.confirmPinForm.confirmpin2,
+                          document.confirmPinForm.confirmpin3
+                        )
+                      }
+                      onChange={(e) => this.updateConfirmPinDetails(e)}
+                    />
+                    <input
+                      type="text"
+                      maxlength="1"
+                      id="confirmpin3"
+                      value={this.state.confirmNewPin.confirmpin3}
+                      onInput={() =>
+                        this.autoTab(
+                          document.confirmPinForm.confirmpin3,
+                          document.confirmPinForm.confirmpin4
+                        )
+                      }
+                      onChange={(e) => this.updateConfirmPinDetails(e)}
+                    />
+                    <input
+                      type="text"
+                      maxlength="1"
+                      id="confirmpin4"
+                      value={this.state.confirmNewPin.confirmpin4}
+                      onChange={(e) => this.updateConfirmPinDetails(e)}
+                    />
                   </div>
-                </div>
+                </form>
                 {this.state.error === true ? (
                   <div id="setting_modal_form_button_wrapper">
                     <div id="settings_modal_form_error_button">
@@ -266,14 +261,13 @@ class PinModal extends React.Component {
                   </div>
                 ) : null}
 
-                <div
-                  id="setting_modal_form_button_wrapper"
+                <button
                   onClick={() => this.sendPin()}
+                  id="settings_modal_form_button"
                 >
-                  <div id="settings_modal_form_button">
-                    <p id="settings_modal_form_button_text">Save</p>
-                  </div>
-                </div>
+                  Save
+                </button>
+
                 <div id="pin-container">
                   <p
                     id="settings_modal_forgotten_password"

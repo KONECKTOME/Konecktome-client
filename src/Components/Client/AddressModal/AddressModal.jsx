@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Row, Col } from "react-bootstrap";
 import "../../../css/AddressModal/AddressModal.css";
+import CrossIcon from "../../SvgIcons/CrossIcon";
 
 class AddressModal extends React.Component {
   state = {
@@ -278,39 +279,49 @@ class AddressModal extends React.Component {
         >
           <Modal.Body>
             <div id="address-modal-body-header" className="review-modal-header">
-              <p className="desktop-sub-header2">Add Address</p>
+              <h3 className="desktop-sub-header2 mb-0">Add Address</h3>
               <div
                 id="explore-compare-delete-btn"
                 onClick={() => this.props.hideAddressModal()}
               >
-                <p>X</p>
+                <CrossIcon color="#5e5e5e" />
               </div>
             </div>
             <div id="address-modal-body">
               <form>
-                <label className="explore-address-label">Check Post code</label>
                 <div id="explore-address-input-holder">
-                  <input
-                    type="text"
-                    placeholder="Ex. WQ3 6RC"
-                    onKeyUp={(e) =>
-                      this.fetchAddressViaPostCode(e.currentTarget.value)
-                    }
-                    value={this.state.addressFromPostCodeChecker}
-                    onChange={(e) =>
-                      this.setState({
-                        addressFromPostCodeChecker: e.currentTarget.value,
-                      })
-                    }
-                  />
-                  <div
-                    id="explore-address-close-btn"
-                    onClick={() => this.hideAddressHolder()}
-                  >
-                    X
+                  <h4>
+                    <label className="explore-address-label">
+                      Check Post code
+                    </label>
+                  </h4>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Ex. WQ3 6RC"
+                      onKeyUp={(e) =>
+                        this.fetchAddressViaPostCode(e.currentTarget.value)
+                      }
+                      value={this.state.addressFromPostCodeChecker}
+                      onChange={(e) =>
+                        this.setState({
+                          addressFromPostCodeChecker: e.currentTarget.value,
+                        })
+                      }
+                    />
+                    {this.state.addressFromPostCodeChecker && (
+                      <div
+                        id="explore-address-close-btn"
+                        onClick={() => this.hideAddressHolder()}
+                      >
+                        <CrossIcon color="#777" size="25" />
+                      </div>
+                    )}
                   </div>
                 </div>
-                {this.state.showAddressHolder === true ? (
+
+                {this.state.showAddressHolder === true &&
+                this.state.addressFromPostCodeChecker ? (
                   <div id="address-modal-dropdown-holder">
                     {this.state.checkingPostCodeloader === true ? (
                       <div id="explore-address-post-code-loader">
@@ -361,7 +372,8 @@ class AddressModal extends React.Component {
                     )}
                   </div>
                 ) : null}
-                <Row>
+
+                <Row className="mt-4">
                   <Col>
                     <label className="explore-address-label">
                       Date Of Arrival
@@ -395,6 +407,7 @@ class AddressModal extends React.Component {
                     />
                   </Col>
                 </Row>
+
                 <div id="address-modal-current-delivery-checkbox-holder">
                   <div id="explore-compare-holder">
                     <label
@@ -464,12 +477,13 @@ class AddressModal extends React.Component {
                 <div id="or-holder">
                   <p className="desktop-sub-header2">OR</p>
                 </div>
-                <div>
+                <div className="mb-4">
                   <p className="desktop-sub-header2">Enter Address Manually</p>
                 </div>
+
                 <form>
                   <Row>
-                    <Col>
+                    <Col md={6}>
                       <div id="address-inputholder">
                         <p className="settings_payment_user_details_label">
                           Building name
@@ -483,7 +497,7 @@ class AddressModal extends React.Component {
                         />
                       </div>
                     </Col>
-                    <Col>
+                    <Col md={6}>
                       <div id="address-inputholder">
                         <p className="settings_payment_user_details_label">
                           Address Line 1
@@ -497,7 +511,7 @@ class AddressModal extends React.Component {
                         />
                       </div>
                     </Col>
-                    <Col>
+                    <Col md={6}>
                       <div id="address-inputholder">
                         <p className="settings_payment_user_details_label">
                           Address Line 2
@@ -511,9 +525,7 @@ class AddressModal extends React.Component {
                         />
                       </div>
                     </Col>
-                  </Row>
-                  <Row>
-                    <Col>
+                    <Col md={6}>
                       <div id="address-inputholder">
                         <p className="settings_payment_user_details_label">
                           Town
@@ -527,7 +539,7 @@ class AddressModal extends React.Component {
                         />
                       </div>
                     </Col>
-                    <Col>
+                    <Col md={6}>
                       <div id="address-inputholder">
                         <p className="settings_payment_user_details_label">
                           Post Code
@@ -541,7 +553,7 @@ class AddressModal extends React.Component {
                         />
                       </div>
                     </Col>
-                    <Col>
+                    <Col md={6}>
                       <div id="address-inputholder">
                         <p className="settings_payment_user_details_label">
                           City
@@ -555,46 +567,41 @@ class AddressModal extends React.Component {
                         />
                       </div>
                     </Col>
+                    <Col md={6}>
+                      <div id="address-inputholder">
+                        <p className="settings_payment_user_details_label">
+                          Date Of Arrival
+                        </p>
+                        <input
+                          type="date"
+                          placeholder="dd-mm-yyyy"
+                          id="dateOfArrival"
+                          onChange={(e) =>
+                            this.setState({
+                              dateOfArrival: e.currentTarget.value,
+                            })
+                          }
+                        />
+                      </div>
+                    </Col>
+                    <Col md={6}>
+                      <div id="address-inputholder">
+                        <p className="settings_payment_user_details_label">
+                          Date Of Departure
+                        </p>
+                        <input
+                          type="date"
+                          placeholder="dd-mm-yyyy"
+                          id="dateOfDeparture"
+                          onChange={(e) =>
+                            this.setState({
+                              dateOfDeparture: e.currentTarget.value,
+                            })
+                          }
+                        />
+                      </div>
+                    </Col>
                   </Row>
-
-                  <div id="address-inputholder">
-                    <Row>
-                      <Col>
-                        <div>
-                          <p className="settings_payment_user_details_label">
-                            Date Of Arrival
-                          </p>
-                          <input
-                            type="date"
-                            placeholder="dd-mm-yyyy"
-                            id="dateOfArrival"
-                            onChange={(e) =>
-                              this.setState({
-                                dateOfArrival: e.currentTarget.value,
-                              })
-                            }
-                          />
-                        </div>
-                      </Col>
-                      <Col>
-                        <div>
-                          <p className="settings_payment_user_details_label">
-                            Date Of Departure
-                          </p>
-                          <input
-                            type="date"
-                            placeholder="dd-mm-yyyy"
-                            id="dateOfDeparture"
-                            onChange={(e) =>
-                              this.setState({
-                                dateOfDeparture: e.currentTarget.value,
-                              })
-                            }
-                          />
-                        </div>
-                      </Col>
-                    </Row>
-                  </div>
                 </form>
                 {this.state.sentSuccess === true ? (
                   <div className="success-notification-holder">

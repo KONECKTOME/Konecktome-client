@@ -66,6 +66,23 @@ class Index extends Component {
             <img src={konecktome_icon} />
           </div>
         </NavLink>
+        <div id="user-detail">
+          <div className="d-flex align-items-center">
+            {this.props.userDetails.imageUrl === undefined ||
+            !this.props.userDetails.imageUrl ? (
+              <div className="user-Avatar">
+                <AvatarIcon size="30" />
+              </div>
+            ) : (
+              <img src={this.props.userDetails.imageUrl} id="nav-img" />
+            )}
+            <h3 className="mb-0 ms-3">
+              {this.props.userDetails.firstName +
+                " " +
+                this.props.userDetails.lastName}
+            </h3>
+          </div>
+        </div>
         <div id="sidebar-list">
           <ul>
             <NavLink
@@ -339,11 +356,17 @@ class Index extends Component {
                 </div>
               </li>
             </NavLink>
-            <li>
-              <div id="sidebar-footer">
-                <p>Privacy Policy</p>
-                <p className={`mt-4`}>Legal Douments</p>
-              </div>
+            <li id="sidebar-footer">
+              <p>Privacy Policy</p>
+              <p className={`mt-4`}>Legal Douments</p>
+            </li>
+            <li id="sidebar-signout">
+              <button
+                onClick={() => this.props.signOut()}
+                className="sideBar-sign-out-button"
+              >
+                <p className="sideBar-sign-out-button-text">Sign Out</p>
+              </button>
             </li>
           </ul>
         </div>

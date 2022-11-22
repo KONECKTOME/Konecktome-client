@@ -149,7 +149,7 @@ class App extends Component {
                   e.stopPropagation();
                 }}
               >
-                <Index {...props} />
+                <Index userDetails={this.state.userDetails} signOut={() => this.signOut()} {...props} />
               </div>
             </div>
             <div id="right-col">

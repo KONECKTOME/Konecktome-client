@@ -7,6 +7,7 @@
 }
 
 #settings_modal_header {
+  margin-bottom: 0px;
   font-family: Poppins bold;
   font-style: normal;
   font-size: 20px;
@@ -17,25 +18,34 @@
 }
 
 #settings_modal_subheader {
+  margin-top: 1rem;
   font-family: Poppins;
   font-style: normal;
+  font-weight: bold;
   font-size: 16px;
   line-height: 30px;
   text-align: center;
   color: #000000;
   mix-blend-mode: normal;
-  opacity: 0.7;
 }
 
 #pin-container {
+  margin-top: 10px;
   display: flex;
-  justify-content: space-between;
+  width: max-content;
+  margin-inline: auto;
+  column-gap: 30px;
+}
+form#settings_modal_form[name="confirmPinForm"] {
+  margin-top: 25px;
 }
 #pin-container > input {
-  margin-right: 1rem;
-  width: 20%;
+  margin: 0;
+  width: 50px;
+  flex-shrink: 0;
   background: #f6f6f8;
   text-align: center;
+  padding: 0px;
 }
 
 #settings_modal_form_container {
@@ -43,7 +53,7 @@
 }
 #settings_modal_form_subcontainer {
   border-radius: 5px;
-  width: 400px;
+  /* width: 400px; */
   height: 50px;
 }
 
@@ -58,35 +68,43 @@
 #setting_modal_form_button_wrapper {
   display: flex;
   justify-content: center;
-  margin: 3rem 0px 3rem 0px;
+  margin: 3rem;
   cursor: pointer;
 }
 
 #settings_modal_form_button {
+  display: block;
+  margin: 3rem auto;
   background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
   border-radius: 30px;
-  width: 410px;
-  height: 50px;
+  width: 300px;
+  padding: 1.5rem;
+  color: white;
+  font-family: Poppins;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 1px;
 }
 
 #settings_modal_form_error_button {
   background: red;
   border-radius: 30px;
   width: 410px;
-  height: 50px;
+  padding: 1rem 2rem;
 }
 #settings_modal_form_success_button {
   background: green;
   border-radius: 30px;
   width: 410px;
   height: 50px;
+  padding: 1rem 2rem;
 }
 
 #settings_modal_form_button_text {
   text-align: center;
-  padding: 1rem 0rem 1rem 0rem;
   font-family: Poppins;
-  font-style: normal;
+  font-weight: bold;
   font-size: 18px;
   line-height: 27px;
   color: #ffffff;
@@ -117,6 +135,28 @@
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+}
+
+@media screen and (max-width: 576px) {
+  #pin-container {
+    width: 100%;
+    max-width: 200px;
+    column-gap: 5px;
+    justify-content: space-between;
+  }
+  #pin-container > input {
+    width: 100%;
+    max-width: 40px;
+  }
+
+  #settings_modal_form_button_text {
+    
+    font-size: 14px;
+  }
+  #settings_modal_form_button {
+    max-width: 199px;
+    width: 100%;
+  }
 }
 
 /* #reset-pin-spinner-holder > p {
