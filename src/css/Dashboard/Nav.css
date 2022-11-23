@@ -16,7 +16,6 @@
 
 #dashboard-nav-wrapper {
   display: flex;
-  /* justify-content: space-around; */
   gap: 2rem;
   width: 95%;
   flex-wrap: wrap;
@@ -27,7 +26,6 @@
   box-shadow: 1px 0px 14px #f2f2f2;
   border-radius: 5px;
   flex: 1;
-  min-width: 350px;
   height: 50px;
   padding: 1rem 1rem;
 }
@@ -44,8 +42,6 @@
   font-size: 16px;
   line-height: 24px;
   color: #000000;
-  mix-blend-mode: normal;
-  opacity: 0.4;
 }
 
 .nav-item-number {
@@ -57,12 +53,12 @@
   color: #ac7bb6;
 }
 
-#dashboard-nav-icon-wrapper {
-  /* background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%); */
-  mix-blend-mode: normal;
-  opacity: 0.9;
+@media screen and (max-width: 992px) {
+  .dashboard-nav-item {
+    flex-shrink: 0 ;
+    min-width: 350px;
+  }
 }
-
 @media screen and (max-width: 768px) {
   #dashboard-nav-wrapper {
     flex-direction: column;

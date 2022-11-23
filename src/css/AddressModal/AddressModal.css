@@ -38,8 +38,6 @@
   font-weight: bold;
   font-size: 18px;
   line-height: 27px;
-  color: #000000;
-  opacity: 0.5;
 }
 
 #address-modal-message input[type="text"]:active,
@@ -50,8 +48,6 @@
   font-size: 18px;
   line-height: 27px;
   color: #000000;
-  mix-blend-mode: normal;
-  opacity: 0.5;
   text-align: center;
 }
 
@@ -62,7 +58,6 @@
   font-size: 18px;
   line-height: 27px;
   color: #000000;
-  opacity: 0.5;
 }
 
 #address-modal-button {
@@ -71,7 +66,6 @@
   min-width: max-content;
   padding: 1rem 2rem;
   background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
-  opacity: 0.9;
   border-radius: 90em;
   display: flex;
   justify-content: center;
@@ -83,7 +77,6 @@
   width: 10%;
   height: 45px;
   background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
-  opacity: 0.9;
   border-radius: 10em;
   display: flex;
   justify-content: center;
@@ -172,7 +165,8 @@
   border-radius: 5px;
   position: absolute;
   z-index: 5;
-  width: 87%;
+  left: 4rem;
+  width: calc(100% - 8rem);
   height: 200px;
 }
 
@@ -211,4 +205,8 @@
   .modal {
     padding: 0 13px;
   }
+#address-modal-dropdown-holder {
+  left: 1.5rem;
+  width: calc(100% - 3rem);
+}
 }

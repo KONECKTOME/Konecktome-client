@@ -1,4 +1,4 @@
-const HamburgerIcon = ({ size = "20" }) => {
+const HamburgerIcon = ({ size = "20",color = "#A3A2A2" }) => {
   return (
     <svg
       width={size}
@@ -13,7 +13,7 @@ const HamburgerIcon = ({ size = "20" }) => {
         width="18.8095"
         height="2.28571"
         rx="1.14286"
-        fill="#FAA2D5"
+        fill={color}
       />
       <rect
         x="3"
@@ -21,7 +21,7 @@ const HamburgerIcon = ({ size = "20" }) => {
         width="13.022"
         height="2.28571"
         rx="1.14286"
-        fill="#A485CC"
+        fill={color}
       />
       <rect
         x="3"
@@ -29,7 +29,7 @@ const HamburgerIcon = ({ size = "20" }) => {
         width="15.9158"
         height="2.28571"
         rx="1.14286"
-        fill="#FAA2D5"
+        fill={color}
       />
     </svg>
   );

@@ -53,7 +53,7 @@ const Navbar = (props) => {
 
         <li id="Hamburger-Icon">
           <button onClick={()=>{props.isSideBarShown(true)}}>
-            <HamburgerIcon size="30" />
+            <HamburgerIcon size="30" color="#19233A" />
           </button>
         </li>
         <li id="nav-image">

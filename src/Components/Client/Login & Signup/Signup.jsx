@@ -163,7 +163,7 @@ class Signup extends React.Component {
                 <div className="desktop-header sign-up-header">OR</div>
                 <form>
                   <Row>
-                    <Col>
+                    <Col md={6}>
                       <div className="input-holder">
                         <input
                           id="firstName"
@@ -174,7 +174,7 @@ class Signup extends React.Component {
                         />
                       </div>
                     </Col>
-                    <Col>
+                    <Col md={6}>
                       <div className="input-holder">
                         <input
                           id="lastName"
@@ -184,20 +184,11 @@ class Signup extends React.Component {
                           onChange={(e) => this.updateDetails(e)}
                         />
                       </div>
-                      {/* <div className="input-holder">
-                      <label className="explore-address-label">Password</label>
-                      <input
-                        id="password"
-                        type="password"
-                        placeholder="Password"
-                        value={this.state.details.password}
-                        onChange={(e) => this.updateDetails(e)}
-                      />
-                    </div> */}
                     </Col>
                   </Row>
                   <div className="input-holder">
                     <input
+                    className="mt-1"
                       id="email"
                       type="email"
                       placeholder="Email Address"

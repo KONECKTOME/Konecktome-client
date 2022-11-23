@@ -37,8 +37,6 @@
   font-size: 20px;
   line-height: 36px;
   color: #000000;
-  mix-blend-mode: normal;
-  opacity: 0.4;
 }
 
 #reco-header-wrapper {
@@ -97,8 +95,6 @@
   font-size: 16px;
   line-height: 19px;
   color: #000000;
-  mix-blend-mode: normal;
-  opacity: 0.7;
 }
 
 .dashboard_reco_accordion_wrapper_show {

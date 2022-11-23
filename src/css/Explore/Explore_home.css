@@ -56,8 +56,6 @@
   font-size: 18px;
   line-height: 27px;
   color: #000000;
-  mix-blend-mode: normal;
-  opacity: 0.5;
 }
 
 #explore-dropdown-div {
@@ -139,7 +137,6 @@
   padding: .7rem;
   font-family: Poppins;
   background: transparent;
-  opacity: 0.9;
   border-radius: 25%;
   display: flex;
   justify-content: center;
