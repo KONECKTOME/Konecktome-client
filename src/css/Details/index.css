@@ -3,7 +3,7 @@
 }
 
 #details-header {
-  font-family: Poppins Bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
@@ -31,7 +31,7 @@
 
 .details-inner-text {
   text-align: center;
-  font-family: Poppins Bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;

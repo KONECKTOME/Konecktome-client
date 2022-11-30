@@ -4,6 +4,7 @@ import wishlist_icon from "../../../Assets/wishlist-card-icon.svg";
 import SmallLoader from "../Loader/SmallLoader";
 import { Link } from "react-router-dom";
 import { UserDetailsContext } from "../Context/UserDetailsContext";
+import Rating from "../../Reusable/Rating";
 
 class Wishlist extends React.Component {
   state = {
@@ -48,9 +49,9 @@ class Wishlist extends React.Component {
           <SmallLoader />
         ) : (
           <div id="favourites_wrapper">
-            <p className="desktop-header">My wishlist</p>
+            <p className="desktop-header m-0">My wishlist</p>
             {this.state.wishlist.length !== 0 ? (
-              <div className="cards">
+              <div className="cards mt-4">
                 {this.state.wishlist.map((item) => {
                   return (
                     <div className="card">
@@ -60,9 +61,10 @@ class Wishlist extends React.Component {
                       <div id="account-card-inner-first-div">
                         <p className="desktop-sub-header2">{item.dealName}</p>
                       </div>
+                      <Rating rating="2.5"  />
                       <div>
-                        <p className="desktop-text">{item.description}</p>
-                        <div className="desktop-badge1">
+                        <p className="desktop-text mt-3">{item.description}</p>
+                        <div className="desktop-badge1 mt-3">
                           <p className="desktop-badge-text">{item.tag}</p>
                         </div>
                       </div>

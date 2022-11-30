@@ -16,7 +16,7 @@
 }
 
 #hist-header-text {
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -37,7 +37,7 @@
 }
 
 .hist-text-header {
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;

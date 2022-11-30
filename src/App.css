@@ -50,7 +50,7 @@
 }
 
 .sidebar-nav-item {
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -68,7 +68,7 @@
 
 .desktop-header {
   margin: 2rem 0rem 1rem 3rem;
-  font-family: Poppins bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
@@ -77,7 +77,7 @@
 }
 
 .desktop-sub-header1 {
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -87,7 +87,7 @@
 }
 
 .desktop-sub-header2 {
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -96,7 +96,7 @@
 }
 
 .desktop-nav-header {
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -105,9 +105,8 @@
 }
 
 .desktop-text {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
-  font-weight: 900;
   font-size: 14px;
   line-height: 22px;
   color: #000000;
@@ -127,7 +126,7 @@
 }
 
 .desktop-big-button-text {
-  font-family: Poppins;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -149,7 +148,7 @@
 }
 
 .desktop-big-button-transparent-text {
-  font-family: Poppins;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -172,7 +171,7 @@
 }
 
 .desktop-medium-button-text {
-  font-family: Poppins;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -213,27 +212,27 @@
 }
 
 .desktop-badge1 {
-  width: 100px;
-  height: 35px;
+  width: fit-content;
   background: #ab7ab6;
   border-radius: 90em;
   display: flex;
   justify-content: center;
-  padding-top: 0.4rem;
+  padding: .5rem 2rem;
+
 }
 
 .desktop-badge-text {
-  font-family: Poppins;
+  font-family: "Poppins medium";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
-  padding-top: 0.1rem;
 }
 
 .desktop-cta {
-  font-family: Poppins bold;
+  cursor: pointer;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -246,7 +245,7 @@
 }
 
 .desktop-price {
-  font-family: Poppins;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -256,7 +255,7 @@
 }
 
 .desktop-price-number {
-  font-family: Poppins bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
   font-size: 19px;
@@ -288,8 +287,12 @@
 }
 
 .card-image {
+  border-radius:20px;
   width: 100%;
+  aspect-ratio: 1/1;
+  /* width: 100%;
   height: 100%;
+  max-height: 200px; */
   object-fit: cover;
 }
 
@@ -306,18 +309,22 @@
 }
 
 .empty-services-holder {
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 37%;
   margin-left: -100px;
   margin-top: -30px;
+  text-align: center; */
+  /* margin-left: 3rem ; */
+  margin-top: 10rem;
+  padding-inline: 2rem;
   text-align: center;
 }
 
 .empty-services-text {
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
-  font-weight: 900;
+  font-weight: 500;
   font-size: 22px;
   line-height: 22px;
   color: #000000;
@@ -325,7 +332,7 @@
 }
 
 .success-notification-holder {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-size: 18px;
   width: auto;
   height: 45px;
@@ -341,7 +348,7 @@
   mix-blend-mode: normal;
 }
 .error-notification-holder {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-size: 18px;
   width: auto;
   height: 45px;
@@ -357,7 +364,7 @@
   mix-blend-mode: normal;
 }
 .exist-notification-holder {
-  font-family: Poppins;
+  font-family: "Poppins bold";
   font-size: 18px;
   width: auto;
   height: 45px;
@@ -375,7 +382,7 @@
 
 input::placeholder {
   color: #000000;
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -396,7 +403,7 @@ select {
   width: 500px;
   border: 0;
   margin-bottom: 2rem;
-  font-family: Poppins;
+  font-family: "Poppins regular";
 }
 
 textarea[type="text"] {
@@ -411,7 +418,7 @@ textarea[type="text"] {
   width: 500px;
   border: 0;
   margin-bottom: 2rem;
-  font-family: Poppins;
+  font-family: "Poppins regular";
 }
 input[type="date"] {
   text-align: left;
@@ -427,7 +434,7 @@ input[type="date"] {
   width: 500px;
   border: 0;
   margin-bottom: 2rem;
-  font-family: Poppins;
+  font-family: "Poppins regular";
 }
 
 input[type="email"] {
@@ -499,9 +506,27 @@ input[type="checkbox"] {
   margin-left: 1rem;
 }
 
-@media screen and (max-width: 2000px) {
+.cards {
+  width: 100%;
+  grid-template-columns:repeat(3,minmax(auto,320px));
+}
+@media screen and (min-width: 1400px) {
   .cards {
-    grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:repeat(auto-fill,350px);
+    /* grid-template-columns: repeat(4, 1fr); */
+  }
+}
+@media screen and (max-width: 992px) {
+  .cards {
+  grid-template-columns:repeat(2,minmax(auto,320px));
+    /* grid-template-columns: repeat(2, 1fr); */
+  }
+}
+@media screen and (max-width: 576px) {
+  .cards {
+    justify-content: center;
+  grid-template-columns:repeat(1,minmax(auto,320px));
+  /* grid-template-columns: repeat(1, 1fr); */
   }
 }
 @media screen and (max-width: 768px) {

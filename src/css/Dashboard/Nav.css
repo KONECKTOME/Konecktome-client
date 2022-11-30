@@ -36,7 +36,7 @@
 }
 
 .nav-item-text {
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -45,7 +45,7 @@
 }
 
 .nav-item-number {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: bold;
   font-size: 24px;

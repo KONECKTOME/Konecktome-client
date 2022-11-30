@@ -1,0 +1,8 @@
+.rating-box-wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+}
+.rating-box-wrapper .rating-text {
+  margin-left: .5rem;
+}

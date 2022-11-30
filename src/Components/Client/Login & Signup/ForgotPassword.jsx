@@ -173,225 +173,225 @@ class ForgotPassword extends React.Component {
               </div>
             </Col>
             <Col md={6} className="p-0">
-                <div id="forget-psd-right-col">
-                  {this.state.resetPassword === true ? (
-                    <div className="w-100">
-                      {this.state.sendingResetToken === true ? (
-                        <>
-                          <div id="reset-pin-spinner-holder">
-                            <div id="reset-pin-spinner"></div>
-                          </div>
-                          <div id="reset-pin-spinner-holder">
-                            <p id="settings_modal_header">
-                              Sending Reset Token To Your Email
-                            </p>
-                          </div>
-                        </>
-                      ) : (
-                        <div id="recover-password-main">
-                          <p className="desktop-header sign-up-header">
-                            Reset Your Password
+              <div id="forget-psd-right-col">
+                {this.state.resetPassword === true ? (
+                  <div className="w-100">
+                    {this.state.sendingResetToken === true ? (
+                      <>
+                        <div id="reset-pin-spinner-holder">
+                          <div id="reset-pin-spinner"></div>
+                        </div>
+                        <div id="reset-pin-spinner-holder">
+                          <p id="settings_modal_header">
+                            Sending Reset Token To Your Email
                           </p>
-                          <p className="desktop-sub-header2 ">
-                            A 6 digit pin has been sent to your email, please
-                            enter it below
-                          </p>
-                          <form name="authenticationForm">
-                            <div id="pin-container">
-                              <input
-                                type="text"
-                                maxlength="1"
-                                id="authpin1"
-                                name="authpin1"
-                                value={this.state.authenticationPin.authpin1}
-                                onChange={(e) =>
-                                  this.updateValidationPinDetails(e)
-                                }
-                                maxLength={1}
-                                onInput={() =>
-                                  this.autoTab(
-                                    document.authenticationForm.authpin1,
-                                    document.authenticationForm.authpin2
-                                  )
-                                }
-                              />
-                              <input
-                                type="text"
-                                maxlength="1"
-                                id="authpin2"
-                                name="authpin2"
-                                value={this.state.authenticationPin.authpin2}
-                                onChange={(e) =>
-                                  this.updateValidationPinDetails(e)
-                                }
-                                maxLength={1}
-                                onInput={() =>
-                                  this.autoTab(
-                                    document.authenticationForm.authpin2,
-                                    document.authenticationForm.authpin3
-                                  )
-                                }
-                              />
-                              <input
-                                type="text"
-                                maxlength="1"
-                                id="authpin3"
-                                name="authpin3"
-                                value={this.state.authenticationPin.authpin3}
-                                onChange={(e) =>
-                                  this.updateValidationPinDetails(e)
-                                }
-                                maxLength={1}
-                                onInput={() =>
-                                  this.autoTab(
-                                    document.authenticationForm.authpin3,
-                                    document.authenticationForm.authpin4
-                                  )
-                                }
-                              />
-                              <input
-                                type="text"
-                                maxlength="1"
-                                id="authpin4"
-                                name="authpin4"
-                                value={this.state.authenticationPin.authpin4}
-                                onChange={(e) =>
-                                  this.updateValidationPinDetails(e)
-                                }
-                                onInput={() =>
-                                  this.autoTab(
-                                    document.authenticationForm.authpin4,
-                                    document.authenticationForm.authpin5
-                                  )
-                                }
-                              />
-                              <input
-                                type="text"
-                                maxlength="1"
-                                id="authpin5"
-                                name="authpin5"
-                                value={this.state.authenticationPin.pin5}
-                                onChange={(e) =>
-                                  this.updateValidationPinDetails(e)
-                                }
-                                onInput={() =>
-                                  this.autoTab(
-                                    document.authenticationForm.authpin5,
-                                    document.authenticationForm.authpin6
-                                  )
-                                }
-                              />
-                              <input
-                                type="text"
-                                maxlength="1"
-                                id="authpin6"
-                                name="authpin6"
-                                value={this.state.authenticationPin.authpin6}
-                                onChange={(e) =>
-                                  this.updateValidationPinDetails(e)
-                                }
-                              />
+                        </div>
+                      </>
+                    ) : (
+                      <div id="recover-password-main">
+                        <p className="desktop-header sign-up-header">
+                          Reset Your Password
+                        </p>
+                        <p className="desktop-sub-header2 ">
+                          A 6 digit pin has been sent to your email, please
+                          enter it below
+                        </p>
+                        <form name="authenticationForm">
+                          <div id="pin-container" className={`forgot-password`}>
+                            <input
+                              type="text"
+                              maxlength="1"
+                              id="authpin1"
+                              name="authpin1"
+                              value={this.state.authenticationPin.authpin1}
+                              onChange={(e) =>
+                                this.updateValidationPinDetails(e)
+                              }
+                              maxLength={1}
+                              onInput={() =>
+                                this.autoTab(
+                                  document.authenticationForm.authpin1,
+                                  document.authenticationForm.authpin2
+                                )
+                              }
+                            />
+                            <input
+                              type="text"
+                              maxlength="1"
+                              id="authpin2"
+                              name="authpin2"
+                              value={this.state.authenticationPin.authpin2}
+                              onChange={(e) =>
+                                this.updateValidationPinDetails(e)
+                              }
+                              maxLength={1}
+                              onInput={() =>
+                                this.autoTab(
+                                  document.authenticationForm.authpin2,
+                                  document.authenticationForm.authpin3
+                                )
+                              }
+                            />
+                            <input
+                              type="text"
+                              maxlength="1"
+                              id="authpin3"
+                              name="authpin3"
+                              value={this.state.authenticationPin.authpin3}
+                              onChange={(e) =>
+                                this.updateValidationPinDetails(e)
+                              }
+                              maxLength={1}
+                              onInput={() =>
+                                this.autoTab(
+                                  document.authenticationForm.authpin3,
+                                  document.authenticationForm.authpin4
+                                )
+                              }
+                            />
+                            <input
+                              type="text"
+                              maxlength="1"
+                              id="authpin4"
+                              name="authpin4"
+                              value={this.state.authenticationPin.authpin4}
+                              onChange={(e) =>
+                                this.updateValidationPinDetails(e)
+                              }
+                              onInput={() =>
+                                this.autoTab(
+                                  document.authenticationForm.authpin4,
+                                  document.authenticationForm.authpin5
+                                )
+                              }
+                            />
+                            <input
+                              type="text"
+                              maxlength="1"
+                              id="authpin5"
+                              name="authpin5"
+                              value={this.state.authenticationPin.pin5}
+                              onChange={(e) =>
+                                this.updateValidationPinDetails(e)
+                              }
+                              onInput={() =>
+                                this.autoTab(
+                                  document.authenticationForm.authpin5,
+                                  document.authenticationForm.authpin6
+                                )
+                              }
+                            />
+                            <input
+                              type="text"
+                              maxlength="1"
+                              id="authpin6"
+                              name="authpin6"
+                              value={this.state.authenticationPin.authpin6}
+                              onChange={(e) =>
+                                this.updateValidationPinDetails(e)
+                              }
+                            />
+                          </div>
+                        </form>
+                        <form>
+                          <div className="input-holder">
+                            <input
+                              id="resetPassword"
+                              type="password"
+                              placeholder="Enter New Password"
+                              value={this.state.resetPassword.resetPassword}
+                              onChange={(e) => this.updateResetDetails(e)}
+                            />
+                          </div>
+                          <div className="input-holder">
+                            <input
+                              id="confirmResetPassword"
+                              type="password"
+                              placeholder="Confirm Password"
+                              value={
+                                this.state.resetPassword.confirmResetPassword
+                              }
+                              onChange={(e) => this.updateResetDetails(e)}
+                            />
+                          </div>
+                          {this.state.emptyFields === true ? (
+                            <div className="error-notification-holder">
+                              <p>Input fields cannot be empty</p>
                             </div>
-                          </form>
-                          <form>
-                            <div className="input-holder">
-                              <input
-                                id="resetPassword"
-                                type="password"
-                                placeholder="Enter New Password"
-                                value={this.state.resetPassword.resetPassword}
-                                onChange={(e) => this.updateResetDetails(e)}
-                              />
+                          ) : null}
+                          {this.state.passwordsDontMatch === true ? (
+                            <div className="error-notification-holder">
+                              <p>Passwords Do Not Match</p>
                             </div>
-                            <div className="input-holder">
-                              <input
-                                id="confirmResetPassword"
-                                type="password"
-                                placeholder="Confirm Password"
-                                value={
-                                  this.state.resetPassword.confirmResetPassword
-                                }
-                                onChange={(e) => this.updateResetDetails(e)}
-                              />
+                          ) : null}
+                          {this.state.sentSuccess === true ? (
+                            <div className="success-notification-holder">
+                              <p>Password Reset Successful</p>
                             </div>
-                            {this.state.emptyFields === true ? (
-                              <div className="error-notification-holder">
-                                <p>Input fields cannot be empty</p>
-                              </div>
-                            ) : null}
-                            {this.state.passwordsDontMatch === true ? (
-                              <div className="error-notification-holder">
-                                <p>Passwords Do Not Match</p>
-                              </div>
-                            ) : null}
-                            {this.state.sentSuccess === true ? (
-                              <div className="success-notification-holder">
-                                <p>Password Reset Successful</p>
-                              </div>
-                            ) : null}
+                          ) : null}
+                          <div id="sign-up-btn">
                             <div
-                              id="sign-up-btn"
+                              className="desktop-medium-button"
                               onClick={(e) => this.resetPassword(e)}
                             >
-                              <div className="desktop-medium-button">
-                                <p className="desktop-big-button-text">
-                                  Reset password
-                                </p>
-                              </div>
+                              <p className="desktop-big-button-text">
+                                Reset password
+                              </p>
                             </div>
-                          </form>
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <div className="w-100"  id="recover-password-main">
-                      <p className="desktop-header sign-up-header">
-                        Recover Password
-                      </p>
-                      <form>
-                        <div className="input-holder">
-                          <input
-                            id="email"
-                            type="email"
-                            placeholder="Enter email you registered with"
-                            value={this.state.details.email}
-                            onChange={(e) => this.updateDetails(e)}
-                          />
-                        </div>
-                        <div id="recover-pass-login">
-                          <span>
-                            <Link
-                              to="/login"
-                              className="links sign-up-span-link desktop-text"
-                            >
-                              Go Back To Login
-                            </Link>
-                          </span>
-                        </div>
-                        {this.state.emptyFields === true ? (
-                          <div className="error-notification-holder">
-                            <p>Input Fields Cannot Be Empty </p>
                           </div>
-                        ) : null}
-                        {this.state.userNotFound === true ? (
-                          <div className="error-notification-holder">
-                            <p>User Not Found</p>
-                          </div>
-                        ) : null}
-                        <div
-                          id="sign-up-btn"
-                          onClick={(e) => this.sendResetToken(e)}
-                        >
-                          <div className="desktop-medium-button">
-                            <p className="desktop-big-button-text">
-                              Recover password
-                            </p>
-                          </div>
+                        </form>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div className="w-100" id="recover-password-main">
+                    <p className="desktop-header sign-up-header">
+                      Recover Password
+                    </p>
+                    <form>
+                      <div className="input-holder">
+                        <input
+                          id="email"
+                          type="email"
+                          placeholder="Enter email you registered with"
+                          value={this.state.details.email}
+                          onChange={(e) => this.updateDetails(e)}
+                        />
+                      </div>
+                      <div id="recover-pass-login">
+                        <span>
+                          <Link
+                            to="/login"
+                            className="links sign-up-span-link desktop-text"
+                          >
+                            Go Back To Login
+                          </Link>
+                        </span>
+                      </div>
+                      {this.state.emptyFields === true ? (
+                        <div className="error-notification-holder">
+                          <p>Input Fields Cannot Be Empty </p>
                         </div>
-                      </form>
-                    </div> 
-                  )}
-                </div>
+                      ) : null}
+                      {this.state.userNotFound === true ? (
+                        <div className="error-notification-holder">
+                          <p>User Not Found</p>
+                        </div>
+                      ) : null}
+                      <div
+                        id="sign-up-btn"
+                        onClick={(e) => this.sendResetToken(e)}
+                      >
+                        <div className="desktop-medium-button">
+                          <p className="desktop-big-button-text">
+                            Recover password
+                          </p>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                )}
+              </div>
             </Col>
           </Row>
           <Footer />

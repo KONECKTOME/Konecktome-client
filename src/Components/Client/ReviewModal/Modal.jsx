@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../../../css/Reviews/Modal.css";
+import CrossIcon from "../../SvgIcons/CrossIcon";
 
 class Modal extends React.Component {
   state = {
@@ -11,12 +12,12 @@ class Modal extends React.Component {
       <div class="review-modal">
         <div class="review-modal-content">
           <div id="review-modal-header">
-            <p className="desktop-sub-header2">Some servive provider name</p>
-            <h1 id="review-modal-close" onClick={() => this.props.hide()}>
-              X
-            </h1>
+            <h3 className="desktop-sub-header2">Service Provider</h3>
+            <button onClick={() => this.props.hide()}>
+              <CrossIcon color="#000" />
+            </button>
           </div>
-          <hr></hr>
+          <hr />
           <div id="review-modal-body">
             <div className="star-rating">
               {[...Array(5)].map((star, index) => {
@@ -48,7 +49,7 @@ class Modal extends React.Component {
                 type="text"
                 placeholder="Enter review message"
                 id="review-modal-message"
-                rows="2"
+                rows="3"
                 cols="50"
 
                 // value={this.state.details.email}
@@ -59,7 +60,7 @@ class Modal extends React.Component {
           <div id="review-modal-body">
             <div id="review-modal-button">
               <p className="desktop-big-button-text modal-button-text">
-                Add review
+                Add Review
               </p>
             </div>
           </div>

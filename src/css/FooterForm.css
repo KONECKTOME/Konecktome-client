@@ -22,7 +22,7 @@
   border-radius: 50px;
   border: none;
   margin-top: 2rem;
-  font-family: Poppins regular;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -34,7 +34,7 @@
 }
 
 #mail-list-text {
-  font-family: Poppins bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
   font-size: 40px;

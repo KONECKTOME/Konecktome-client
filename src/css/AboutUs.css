@@ -27,7 +27,7 @@
 
 .about-text {
   width: 726px;
-  font-family: Poppins regular;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -71,7 +71,7 @@
 
 .card-texts {
   width: 313px;
-  font-family: Poppins regular;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -134,7 +134,7 @@
 }
 
 #head-text {
-  font-family: Poppins bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
   font-size: 32px;
@@ -145,7 +145,7 @@
 }
 
 #sub-text {
-  font-family: Poppins regular;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;

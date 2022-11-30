@@ -23,7 +23,7 @@
 }
 
 .account-header-right-options {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -50,6 +50,10 @@
   margin-top: 3rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  column-gap: 1rem;
+  flex-wrap: wrap;
+
 }
 
 #no-services {

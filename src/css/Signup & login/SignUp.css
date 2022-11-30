@@ -11,8 +11,7 @@
 
 #login-row,
 #signup-row,
-#forgot-psd-row
- {
+#forgot-psd-row {
   min-height: 100vh;
 }
 #login-left-column,
@@ -24,30 +23,27 @@
   align-items: center;
 }
 #login-left-column img,
-#signup-left-column img, 
+#signup-left-column img,
 #forgot-psd-left-column img {
   width: 65%;
 }
 
 #login-right-col,
 #sign-up-right-col,
-#forget-psd-right-col
- {
+#forget-psd-right-col {
   margin-top: 8rem;
   max-width: 500px;
   margin-inline: auto;
   padding-inline: 2rem;
   padding-bottom: 2rem;
 }
-#forget-psd-right-col
-{
+#forget-psd-right-col {
   margin-top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
-
 
 .sign-up-header {
   margin: 0 !important;
@@ -75,7 +71,7 @@
   width: 95%;
   border: 0;
   margin-bottom: 2rem;
-  font-family: Poppins;
+  font-family: "Poppins regular";
 }
 
 .input-holder > input[type="text"] {
@@ -91,7 +87,7 @@
   width: 100%;
   border: 0;
   margin-bottom: 2rem;
-  font-family: Poppins;
+  font-family: "Poppins regular";
 }
 
 .input-holder > input[type="email"] {
@@ -107,7 +103,7 @@
   width: 100%;
   border: 0;
   margin-bottom: 2rem;
-  font-family: Poppins;
+  font-family: "Poppins regular";
 }
 
 .input-holder > input[type="password"] {
@@ -123,7 +119,7 @@
   width: 100%;
   border: 0;
   margin-bottom: 2rem;
-  font-family: Poppins;
+  font-family: "Poppins regular";
 }
 
 .sign-up-span-link {
@@ -200,8 +196,6 @@
   object-fit: contain;
 }
 
-
-
 #recover-password-main > .desktop-sub-header2 {
   margin-bottom: 2rem;
   text-align: center;
@@ -209,6 +203,12 @@
 
 #recover-pass-login {
   text-align: right;
+}
+#pin-container.forgot-password {
+  margin-block: 2rem;
+  column-gap: 5px;
+  justify-content: space-between;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -230,7 +230,7 @@
   #forget-psd-right-col {
     margin-top: 8rem;
     display: block;
-    height: auto ;
+    height: auto;
   }
   #login-icon-wrapper {
     column-gap: 13px;
@@ -242,10 +242,14 @@
     width: 20px;
   }
 }
-@media screen and (max-width: 546px) {
+@media screen and (max-width: 576px) {
   #login-left-column img,
   #signup-left-column img,
   #forgot-psd-left-column img {
     width: 85%;
+  }
+
+  #pin-container.forgot-password {
+    max-width: 100%;
   }
 }

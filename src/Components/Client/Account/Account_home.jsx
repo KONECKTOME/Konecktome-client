@@ -64,33 +64,34 @@ class Account_home extends React.Component {
         ) : (
           <div>
             <div>
-              <p className="desktop-header">My Accounts</p>
+              <p className="desktop-header m-0">My Accounts</p>
             </div>
             {this.state.accounts.length !== 0 ? (
-              <div className="cards">
+              
+              <div className="cards mt-5">
                 {this.state.accounts.map((acc) => {
                   return (
                     <div className="card">
                       <div id="image-holder">
                         <img src={acc.companyImage} className="card-image" />
                       </div>
-                      <div id="account-card-inner-first-div">
+                      <div id="account-card-inner-first-div mt-2">
                         <p className="desktop-sub-header2">
                           {acc.serviceProviderName}
                         </p>
                         {/* <div>
-                          <p>Stars</p>
-                          <p>Trust Pilot ratings</p>
-                        </div> */}
+                             <p>Stars</p>
+                              <p>Trust Pilot ratings</p>
+                            </div> */}
                       </div>
                       <div>
-                        <p className="desktop-text">
+                        <p className="desktop-text mt-3">
                           You subscribed to {acc.dealName} on {acc.joinDate}
                         </p>
-                        <p className="desktop-text">
+                        <p className="desktop-text mt-3">
                           Details are {acc.description}
                         </p>
-                        <div className="desktop-badge1">
+                        <div className="desktop-badge1 mt-3">
                           <p className="desktop-badge-text">{acc.tag}</p>
                         </div>
                       </div>

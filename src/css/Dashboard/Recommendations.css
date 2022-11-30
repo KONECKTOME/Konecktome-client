@@ -31,7 +31,7 @@
 }
 
 #reco-header {
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -67,11 +67,11 @@
 }
 
 #more-details-holder p {
-  font-family: Poppins bold;
+  font-family: "Poppins bold";
 }
 
 .reco-col-inner-header {
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -80,7 +80,7 @@
 }
 
 #reco-col-inner-header-plus-icon {
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -118,7 +118,7 @@
 }
 
 .dashboard_reco_accordion_header {
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -150,7 +150,7 @@
 }
 
 #dashboard-reco-accordion-text {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;

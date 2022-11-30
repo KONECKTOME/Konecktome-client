@@ -74,7 +74,7 @@
 
 #sidebar-footer {
   margin-top: 1.5rem;
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -97,7 +97,7 @@
 }
 
 .sideBar-sign-out-button-text {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;

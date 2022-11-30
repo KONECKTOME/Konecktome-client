@@ -6,6 +6,7 @@ import { Row, Col } from "react-bootstrap";
 import Explore_comparison from "./Explore_comparison";
 import Loader from "../Loader/Loader";
 import SmallLoader from "../Loader/SmallLoader";
+import Rating from "../../Reusable/Rating";
 
 class Explore_home extends Component {
   state = {
@@ -175,7 +176,7 @@ class Explore_home extends Component {
           <SmallLoader />
         ) : (
           <div id="explore-wrapper">
-            <p className="desktop-header">Explore</p>
+            <p className="desktop-header m-0">Explore</p>
             {this.state.showComparePage === true ? (
               <div>
                 <Explore_comparison
@@ -224,17 +225,16 @@ class Explore_home extends Component {
                                     className="card-image"
                                   />
                                 </div>
-                                <div className="card-inner-first-div">
+                                <div className="card-inner-first-div mb-1">
                                   <p className="desktop-sub-header2">
                                     {deal.dealName} By {deal.companyName}
                                   </p>
                                 </div>
-                                <div>
-                                  <div className="desktop-badge1">
-                                    <p className="desktop-badge-text">
-                                      {deal.tag}
-                                    </p>
-                                  </div>
+                                <Rating />
+                                <div className="desktop-badge1 mt-3">
+                                  <p className="desktop-badge-text">
+                                    {deal.tag}
+                                  </p>
                                 </div>
                                 <div id="account-card-footer">
                                   <div id="explore-compare-holder">

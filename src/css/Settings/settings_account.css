@@ -20,7 +20,7 @@
   width: 80%;
   padding: 1rem 0rem 1rem 0rem;
   text-align: center;
-  font-family: Poppins regular;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -44,7 +44,7 @@
 } */
 
 .settings_account_service-provider-text {
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -53,7 +53,7 @@
 }
 
 .settings_account_type_date_text {
-  font-family: Poppins regular;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;

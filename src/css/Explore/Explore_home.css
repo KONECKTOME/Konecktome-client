@@ -50,7 +50,7 @@
 }
 
 .explore-search-form::placeholder {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -81,6 +81,7 @@
   height: 25px;
   /* margin-bottom: 1rem; */
   float: left;
+  margin-left: 0;
 }
 
 #input-compare-text {
@@ -113,7 +114,7 @@
 
 #explore-compare-items-wrapper > p {
   text-align: center;
-  font-family: Poppins Bold;
+  font-family: "Poppins bold";
   font-size: 24px;
 }
 
@@ -135,7 +136,7 @@
 
 #explore-compare-delete-btn {
   padding: .7rem;
-  font-family: Poppins;
+  font-family: "Poppins regular";
   background: transparent;
   border-radius: 25%;
   display: flex;

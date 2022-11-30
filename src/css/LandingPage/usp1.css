@@ -24,7 +24,7 @@
 }
 
 .usp-item-header {
-  font-family: Poppins Bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
@@ -33,7 +33,7 @@
 }
 
 .usp-item-text {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;

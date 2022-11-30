@@ -33,16 +33,15 @@
   background-color: #f6f6f8 !important;
   height: 55px;
   padding: 0 1rem 0 1rem;
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
-  font-weight: bold;
   font-size: 18px;
   line-height: 27px;
 }
 
 #address-modal-message input[type="text"]:active,
 #address-modal-message input[type="text"]:focus {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -52,7 +51,7 @@
 }
 
 #address-modal-message::placeholder {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -84,7 +83,7 @@
 }
 
 .modal-close-button-text {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: 900;
   font-size: 24px;

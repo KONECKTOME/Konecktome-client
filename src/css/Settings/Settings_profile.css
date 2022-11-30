@@ -50,7 +50,7 @@
 }
 
 #settings_profile_details_header {
-  font-family: Poppins regular;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -59,7 +59,7 @@
 }
 
 #settings_profile_details_sub_header {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -72,7 +72,7 @@
 }
 
 .settings-profile-input-container > input {
-  font-family: Poppins;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -102,7 +102,7 @@
 } */
 
 .form-labels {
-  font-family: Poppins regular;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -141,7 +141,7 @@
 
 #settings-profile-button > p {
   text-align: center;
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;

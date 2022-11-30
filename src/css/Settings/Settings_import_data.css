@@ -15,7 +15,7 @@
 }
 
 #settings_import_data_text_header {
-  font-family: Poppins regular;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
@@ -25,7 +25,7 @@
 }
 
 #settings_import_data_text_sub-header {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: 200;
   font-size: 16px;
@@ -52,7 +52,7 @@
   width: 400px;
   padding: 1rem 0rem 1rem 0rem;
   text-align: center;
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;

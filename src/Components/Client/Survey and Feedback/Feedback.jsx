@@ -56,8 +56,8 @@ class Feedback extends Component {
         <div>
           {/* <img src={survey_icon} /> */}
           <p className="desktop-header">
-            Improve the performance of your “VLA” and the <br></br>KONNECKTOME
-            Platform and win up to £500"
+            Improve the performance of your “VLA” and the KONNECKTOME
+            Platform and win up to "£500"
           </p>
           <div>
             <form>

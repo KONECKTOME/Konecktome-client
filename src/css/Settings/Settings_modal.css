@@ -2,13 +2,13 @@
   text-align: right;
   color: #2d2d2d;
   font-size: 18px;
-  font-family: Poppins bold;
+  font-family: "Poppins bold";
   font-style: normal;
 }
 
 #settings_modal_header {
   margin-bottom: 0px;
-  font-family: Poppins bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-size: 20px;
   line-height: 40px;
@@ -19,7 +19,7 @@
 
 #settings_modal_subheader {
   margin-top: 1rem;
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -80,7 +80,7 @@ form#settings_modal_form[name="confirmPinForm"] {
   width: 300px;
   padding: 1.5rem;
   color: white;
-  font-family: Poppins;
+  font-family: "Poppins bold";
   font-weight: bold;
   font-size: 18px;
   line-height: 27px;
@@ -103,7 +103,7 @@ form#settings_modal_form[name="confirmPinForm"] {
 
 #settings_modal_form_button_text {
   text-align: center;
-  font-family: Poppins;
+  font-family: "Poppins bold";
   font-weight: bold;
   font-size: 18px;
   line-height: 27px;
@@ -112,7 +112,7 @@ form#settings_modal_form[name="confirmPinForm"] {
 
 #settings_modal_forgotten_password {
   cursor: pointer;
-  font-family: Poppins;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: 800;
   font-size: 14px;

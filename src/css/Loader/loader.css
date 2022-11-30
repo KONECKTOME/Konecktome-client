@@ -48,7 +48,7 @@
 }
 
 .desktop-header-loader {
-  font-family: Poppins bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
@@ -57,7 +57,7 @@
 }
 
 .desktop-small-loader-header {
-  font-family: Poppins bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
   font-size: 24px;

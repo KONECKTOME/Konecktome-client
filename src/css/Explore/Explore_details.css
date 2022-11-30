@@ -18,7 +18,7 @@
 }
 
 #explore-details-header {
-  font-family: Poppins Bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
@@ -27,7 +27,7 @@
 }
 
 #explore-details-active {
-  font-family: Poppins Bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
@@ -35,7 +35,7 @@
   color: #ab7ab6;
 }
 #explore-details-sub-header {
-  font-family: Poppins Bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -157,7 +157,7 @@
 }
 
 #explore-details-review-name {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 16px;

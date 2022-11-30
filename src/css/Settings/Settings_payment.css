@@ -8,7 +8,7 @@
 }
 
 #new-address-btn > div > p {
-  font-family: Poppins Bold;
+  font-family: "Poppins bold";
   color: #000000 !important;
   font-weight: 900;
 }
@@ -29,7 +29,7 @@
 #settings_payment_box_header {
   display: flex;
   justify-content: space-between;
-  font-family: Poppins Bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -52,7 +52,7 @@
 }
 
 .settings_payment_user_details_label {
-  font-family: Poppins regular;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -61,7 +61,7 @@
 }
 
 .settings_payment_user_details_response {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -88,7 +88,7 @@
 }
 
 .settings_payment_right_box_inner_div_payment_card_numbers {
-  font-family: Poppins regular;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -98,7 +98,7 @@
 }
 
 #settings_payment_right_box_inner_div_payment_card_header {
-  font-family: Poppins regular;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -108,7 +108,7 @@
 
 #settings_payment_right_box_inner_div_card_instructions {
   width: 30%;
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: italic;
   font-weight: normal;
   font-size: 13px;

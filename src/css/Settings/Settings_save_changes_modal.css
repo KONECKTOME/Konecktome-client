@@ -2,7 +2,7 @@
 }
 
 #settings_confirmation_modal_subheader {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: 200;
   font-size: 16px;
@@ -37,7 +37,7 @@
 }
 
 #settings_profile_modal_confirmation-service-provider-name {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;

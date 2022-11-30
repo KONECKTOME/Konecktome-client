@@ -1,27 +1,30 @@
 .review-modal {
-  display: block !important; /* Hidden by default */
+  display: flex ; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  height: 100vh; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
+  /* background-color: rgb(0, 0, 0); Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 .review-modal-content {
-  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
+  border-radius: 8px;
+  /* background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%); */
+  background-color: white;
+  margin:auto; /* 15% from the top and centered */
+  padding: 1.5rem 2.5rem;
+  
   border: 1px solid #888;
-  width: 30%; /* Could be more or less, depending on screen size */
+  max-width: 550px; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
 #review-modal-close {
-  font-family: Poppins medium;
+  font-family: "Poppins medium";
   font-style: normal;
   font-weight: bold;
   font-size: 28px;
@@ -39,40 +42,49 @@
 #review-modal-header {
   display: flex;
   justify-content: space-between;
-  padding-top: 3rem;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+#review-modal-header h3{
+  margin-bottom: 0;
 }
 
 #review-modal-body {
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  /* margin-top: 1rem; */
+  /* padding: 2rem; */
 }
 
 #review-modal-body > form {
   width: 100% !important;
   border-radius: 25px;
+  margin-top: 1.5rem;
 }
 
 #review-modal-body textarea[type="text"] {
   width: 100% !important;
   border-radius: 5px;
+  resize: none;
+  font-size: 18px !important;
+  padding: 1rem;
+
+
 }
 
 #review-modal-body textarea[type="text"]:active,
 #review-modal-body textarea[type="text"]:focus {
   outline: none;
   color: #000000;
-  font-size: 16px !important;
+  font-size: 18px !important;
   width: 100% !important;
-  font-family: Poppins;
-  padding: 1rem;
+  font-family: "Poppins regular";
 }
 
 #review-modal-message::placeholder {
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
   line-height: 27px;
   color: #000000;
   text-align: center;
@@ -84,27 +96,37 @@ button {
   cursor: pointer;
 }
 .on {
-  color: #000;
+  color: #FEB62E;
 }
 .off {
   color: #ccc;
 }
 #review-modal-body > .star-rating > button > span {
   width: 90vw;
+  font-size: 4rem;
 }
 
 #review-modal-button {
-  width: 50%;
-  height: 45px;
-  background: white;
-  opacity: 0.9;
+  /* width: 50%;
+  height: 45px; */
+  /* background: white; */
+  cursor: pointer;
+  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
   border-radius: 90em;
-  display: flex;
-  justify-content: center;
-  padding-top: 1rem;
+  padding: .8rem 3rem;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-.modal-button-text {
-  color: #ffffff !important;
+@media screen and (max-width:768px){
+.review-modal {
+  padding-inline: 1.6rem;
+}
+
+
+
+#review-modal-body > .star-rating > button > span {
+  width: 90vw;
+  font-size: 3.5rem;
+}
 }

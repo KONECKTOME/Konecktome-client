@@ -15,7 +15,7 @@
 #footer-second-wrapper {
   display: flex;
   justify-content: center;
-  font-family: Poppins regular;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -33,9 +33,9 @@
 .footer-text {
   /* flex: 1;
   shrin */
-  font-family: Poppins;
+  font-family: "Poppins bold";
   font-style: normal;
-  font-weight: Bold;
+  font-weight:bold;
   font-size: 14px;
   line-height: 30px;
   margin-left: 1.2rem;
