@@ -8,10 +8,10 @@ import Details_home from "../Details/Details_home";
 import History_home from "../History/History_home";
 import Navbar from "../Navbar/Navbar";
 import Explore_comparison from "../Explore/Explore_comparison";
-import Recommendations_home from "../Recommendations/Recommendations_home";
+// import Recommendations_home from "../Recommendations/Recommendations_home";
 import Settings_home from "../Settings/Settings_home";
-import Notifications_home from "../Notifications/Notifications_home";
-import Favourites_home from "../Favourites/Favourites_home";
+// import Notifications_home from "../Notifications/Notifications_home";
+// import Favourites_home from "../Favourites/Favourites_home";
 import Wishlist from "../Wishlist/Wishlist";
 import Explore_details from "../Explore/Explore_details";
 import PaymentSuccess from "../PaymentSuccess/PaymentSuccess";
@@ -71,7 +71,6 @@ class DashBoardIndex extends Component {
   resetBoughtDeal = () => {
     this.setState({ paidDeal: "" });
   };
-
 
   render(props) {
     const userDetails = this.state.userDetails;

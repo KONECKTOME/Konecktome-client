@@ -11,10 +11,10 @@ import Details_home from "./Components/Client/Details/Details_home";
 import History_home from "./Components/Client/History/History_home";
 import Navbar from "./Components/Client/Navbar/Navbar";
 import Explore_comparison from "./Components/Client/Explore/Explore_comparison";
-import Recommendations_home from "./Components/Client/Recommendations/Recommendations_home";
+// import Recommendations_home from "./Components/Client/Recommendations/Recommendations_home";
 import Settings_home from "./Components/Client/Settings/Settings_home";
-import Notifications_home from "./Components/Client/Notifications/Notifications_home";
-import Favourites_home from "./Components/Client/Favourites/Favourites_home";
+// import Notifications_home from "./Components/Client/Notifications/Notifications_home";
+// import Favourites_home from "./Components/Client/Favourites/Favourites_home";
 import Wishlist from "./Components/Client/Wishlist/Wishlist";
 import Explore_details from "./Components/Client/Explore/Explore_details";
 import PaymentSuccess from "./Components/Client/PaymentSuccess/PaymentSuccess";
@@ -149,7 +149,11 @@ class App extends Component {
                   e.stopPropagation();
                 }}
               >
-                <Index userDetails={this.state.userDetails} signOut={() => this.signOut()} {...props} />
+                <Index
+                  userDetails={this.state.userDetails}
+                  signOut={() => this.signOut()}
+                  {...props}
+                />
               </div>
             </div>
             <div id="right-col">
@@ -259,11 +263,11 @@ class App extends Component {
                     component={Explore_home}
                   />
 
-                  <Route
+                  {/* <Route
                     path="/dashboard/recommendations/:userid"
                     exact
                     component={Recommendations_home}
-                  />
+                  /> */}
                   <Route
                     path="/dashboard/explore/compare/:userid/:dealId"
                     exact
