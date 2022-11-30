@@ -208,18 +208,18 @@ class App extends Component {
                     {...props}
                   />
 
-                  <Route
+                  {/* <Route
                     path="/dashboard/notifications/:userid"
                     exact
                     component={Notifications_home}
                     userDetails={this.state.userDetails}
                     {...props}
-                  />
-                  <Route
+                  /> */}
+                  {/* <Route
                     path="/dashboard/favourites/:userid"
                     exact
                     component={Favourites_home}
-                  />
+                  /> */}
                   <Route
                     path="/dashboard/wishlist/:userid"
                     exact
