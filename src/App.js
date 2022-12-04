@@ -152,6 +152,7 @@ class App extends Component {
                 <Index
                   userDetails={this.state.userDetails}
                   signOut={() => this.signOut()}
+                  isSideBarShown={this.sideBarToggle}
                   {...props}
                 />
               </div>

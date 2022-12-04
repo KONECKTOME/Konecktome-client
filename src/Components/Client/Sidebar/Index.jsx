@@ -89,6 +89,7 @@ class Index extends Component {
               to={"/dashboard/" + this.state.userId}
               className="links"
               activeClassName="active"
+              onClick={() => this.props.isSideBarShown(false)}
             >
               <li id="nav-items-list">
                 <div>
@@ -112,6 +113,7 @@ class Index extends Component {
               to={"/dashboard/account/" + this.state.userId}
               className="links"
               activeClassName="active"
+              onClick={() => this.props.isSideBarShown(false)}
             >
               <li id="nav-items-list">
                 <div>
@@ -150,6 +152,7 @@ class Index extends Component {
               to={"/dashboard/explore/" + this.state.userId}
               className="links"
               activeClassName="active"
+              onClick={() => this.props.isSideBarShown(false)}
             >
               <li id="nav-items-list">
                 <div className={`d-flex align-item-center`}>
@@ -170,6 +173,7 @@ class Index extends Component {
               to={"/dashboard/history/" + this.state.userId}
               className="links"
               activeClassName="active"
+              onClick={() => this.props.isSideBarShown(false)}
             >
               <li id="nav-items-list">
                 <div className={`d-flex align-item-center`}>
@@ -257,6 +261,7 @@ class Index extends Component {
               to={"/dashboard/wishlist/" + this.state.userId}
               className="links"
               activeClassName="active"
+              onClick={() => this.props.isSideBarShown(false)}
             >
               <li id="nav-items-list">
                 <div className={`d-flex align-item-center`}>
@@ -290,6 +295,7 @@ class Index extends Component {
             <NavLink
               to={"/dashboard/feedback/" + this.state.userId}
               className="links"
+              onClick={() => this.props.isSideBarShown(false)}
             >
               <li id="nav-items-list">
                 <div className={`d-flex align-item-center`}>
@@ -340,6 +346,7 @@ class Index extends Component {
               to={"/dashboard/settings/" + this.state.userId}
               className="links"
               activeClassName="active"
+              onClick={() => this.props.isSideBarShown(false)}
             >
               <li id="nav-items-list">
                 <div className={`d-flex align-item-center`}>
