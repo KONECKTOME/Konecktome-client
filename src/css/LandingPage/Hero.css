@@ -231,7 +231,7 @@ form input[type="password"] {
     background-color: transparent;
     color: #000000;
     border: 2px solid #000000;
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 1.5rem;
   }
   input[type="email"] {
@@ -239,7 +239,7 @@ form input[type="password"] {
     background-color: transparent;
     color: #000000;
     border: 2px solid #000000;
-    font-size: 20px;
+    font-size: 18px;
   }
   #btn {
     width: 100%;
@@ -299,25 +299,18 @@ form input[type="password"] {
   }
   input[type="text"] {
     width: 100%;
-    font-size: 30px;
+    font-size: 18px;
   }
   input[type="email"] {
     margin-top: 1rem;
     width: 100%;
-    font-size: 30px;
+    font-size: 18px;
   }
   input::placeholder {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
   }
-  input[type="text"]:active,
-  input[type="text"]:focus {
-    font-size: 30px;
-  }
-  input[type="email"]:active,
-  input[type="email"]:focus {
-    font-size: 30px;
-  }
+ 
   #btn {
     margin-top: 2rem;
     font-size: 26px;
@@ -377,24 +370,16 @@ form input[type="password"] {
   }
   input[type="text"] {
     width: 100%;
-    font-size: 30px;
+    font-size: 18px;
   }
   input[type="email"] {
     margin-top: 1rem;
     width: 100%;
-    font-size: 30px;
+    font-size: 18px;
   }
   input::placeholder {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
-  }
-  input[type="text"]:active,
-  input[type="text"]:focus {
-    font-size: 30px;
-  }
-  input[type="email"]:active,
-  input[type="email"]:focus {
-    font-size: 30px;
   }
   #btn {
     margin-top: 2rem;
