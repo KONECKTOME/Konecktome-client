@@ -1,5 +1,5 @@
 .modal {
-  padding: 0 17px;
+  padding: 0 17px !important;
 }
 .modal-body {
   padding: 2rem 4rem !important;
@@ -202,7 +202,7 @@
     padding: 4rem  1.5rem !important;
   }
   .modal {
-    padding: 0 13px;
+    padding: 0 13px !important;
   }
 #address-modal-dropdown-holder {
   left: 1.5rem;

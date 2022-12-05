@@ -374,7 +374,7 @@ class AddressModal extends React.Component {
                 ) : null}
 
                 <Row className="mt-4">
-                  <Col>
+                  <Col sm={12} md={6}>
                     <label className="explore-address-label">
                       Date Of Arrival
                     </label>
@@ -390,7 +390,7 @@ class AddressModal extends React.Component {
                       }
                     />
                   </Col>
-                  <Col>
+                  <Col sm={12} md={6}>
                     <label className="explore-address-label">
                       Date Of Departure
                     </label>
