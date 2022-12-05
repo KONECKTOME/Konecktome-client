@@ -30,7 +30,7 @@
 
 #sidebar-list ul {
   padding-left: 0;
-  padding-inline: 2rem;
+  padding-inline: 2rem !important;
   list-style: none;
   width: 100%;
   display: flex;
