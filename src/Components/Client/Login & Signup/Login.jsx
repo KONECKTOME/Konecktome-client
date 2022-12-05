@@ -214,12 +214,12 @@ class Login extends React.Component {
                     </Link>
                   </div>
                 </div>
-                <div
-                  id="sign-up-btn"
-                  onClick={(e) => this.login(e)}
-                  ref={(node) => (this.btn = node)}
-                >
-                  <div className="desktop-medium-button">
+                <div id="sign-up-btn">
+                  <div
+                    className="desktop-medium-button"
+                    onClick={(e) => this.login(e)}
+                    ref={(node) => (this.btn = node)}
+                  >
                     {this.state.loggingIn === true ? (
                       <div id="explore-loading"></div>
                     ) : (

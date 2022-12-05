@@ -380,9 +380,9 @@ class ForgotPassword extends React.Component {
                       ) : null}
                       <div
                         id="sign-up-btn"
-                        onClick={(e) => this.sendResetToken(e)}
+                        
                       >
-                        <div className="desktop-medium-button">
+                        <div className="desktop-medium-button" onClick={(e) => this.sendResetToken(e)}>
                           <p className="desktop-big-button-text">
                             Recover password
                           </p>

@@ -184,6 +184,7 @@ hr {
 
 @media screen and (max-width: 768px) {
   #nav-wrapper {
+    z-index: 9;
     position: sticky;
     top: 0;
   }

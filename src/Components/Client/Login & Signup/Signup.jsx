@@ -107,9 +107,8 @@ class Signup extends React.Component {
             () => this.setState({ sendLoading: false, success: false }),
             1500
           );
-
-          // window.location.href = `https://konecktome-mvp.herokuapp.com/dashboard/${details.id}`;
-          window.location.href = `http://localhost:3000/dashboard/${details.id}`;
+          window.location.href = `https://konecktome-mvp.herokuapp.com/dashboard/${details.id}`;
+          // window.location.href = `http://localhost:3000/dashboard/${details.id}`;
         }
       }
     }
@@ -136,7 +135,7 @@ class Signup extends React.Component {
         <div id="signup-container">
           <Row id="signup-row" className="mx-0">
             <Col md={6} className="p-0">
-            <div id="signup-left-column" className="w-100 h-100">
+             <div id="signup-left-column" className="w-100 h-100">
                 <img src={signUpImage} />
               </div>
             </Col>
@@ -188,7 +187,7 @@ class Signup extends React.Component {
                   </Row>
                   <div className="input-holder">
                     <input
-                    className="mt-1"
+                      className="mt-1"
                       id="email"
                       type="email"
                       placeholder="Email Address"
@@ -256,12 +255,12 @@ class Signup extends React.Component {
                     </span>
                   </span>
                 </div>
-                <div
-                  id="sign-up-btn"
-                  onClick={(e) => this.register(e)}
-                  ref={(node) => (this.btn = node)}
-                >
-                  <div className="desktop-medium-button">
+                <div id="sign-up-btn">
+                  <div
+                    className="desktop-medium-button"
+                    onClick={(e) => this.register(e)}
+                    ref={(node) => (this.btn = node)}
+                  >
                     {this.state.sendLoading === true ? (
                       <div id="explore-loading"></div>
                     ) : (
