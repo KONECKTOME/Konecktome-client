@@ -33,7 +33,7 @@ class ExploreInstallationInfo extends Component {
       this.setState({ paymentLoader: true });
       localStorage.setItem(
         "installationDateAndTime",
-        this.state.selectedInstallationDateAndTime
+        JSON.stringify(this.state.selectedInstallationDateAndTime)
       );
 
       const productNameConcat =
@@ -69,7 +69,7 @@ class ExploreInstallationInfo extends Component {
   render() {
     return (
       <div id="explore-installation-wrapper" className="explore-installation">
-        <p className="desktop-header selection-Heading" >
+        <p className="desktop-header selection-Heading">
           Please Select Installation Date And Time
         </p>
         <p

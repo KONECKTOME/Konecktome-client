@@ -21,7 +21,7 @@
   padding-block: 15px;
 }
 
-#postcode-checker-holder form .row .col-lg-6 input[type="text"] {
+#manual-address-section form .row .col-lg-6 input[type="text"] {
   width: 600px;
 }
 
@@ -164,14 +164,14 @@
 
 /* Responsive Styling */
 
-#postcode-checker-holder #explore-address-input-holder {
+#manual-address-section #explore-address-input-holder {
   position: relative;
   margin-top: 0px !important;
 }
-#postcode-checker-holder #explore-address-input-holder .check-post-code {
+#manual-address-section #explore-address-input-holder .check-post-code {
   margin-bottom: 2rem !important;
 }
-#postcode-checker-holder
+#manual-address-section
   #explore-address-input-holder
   #explore-address-close-btn {
   position: absolute;
@@ -182,10 +182,10 @@
   align-items: center;
   justify-content: center;
 }
-#postcode-checker-holder #address-dropdown-holder {
+#manual-address-section #address-dropdown-holder {
   width: calc(100% - 1.5rem) !important;
 }
-#postcode-checker-holder #explore-compare-holder input{
+#manual-address-section #explore-compare-holder input {
   margin-left: 1rem !important;
 }
 
@@ -193,20 +193,19 @@
   width: 100% !important;
 }
 #manual-address-section #compare-label,
-#postcode-checker-holder #compare-label {
+#manual-address-section #compare-label {
   display: flex !important;
   align-items: flex-start;
 }
 
 #manual-address-section #compare-label span,
-#postcode-checker-holder #compare-label span{
+#manual-address-section #compare-label span {
   margin-bottom: 0 !important;
 }
 
 @media screen and (max-width: 768px) {
-  #postcode-checker-holder #explore-compare-holder{
+  #manual-address-section #explore-compare-holder {
     margin-bottom: 2rem;
-
   }
   #manual-address-section #compare-label.delivery-address-checkbox {
     margin-top: 2rem;
