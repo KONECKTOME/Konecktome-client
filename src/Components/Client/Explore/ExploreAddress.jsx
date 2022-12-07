@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../../css/Explore/ExploreAddress.css";
 import { Row, Col } from "react-bootstrap";
 import ExploreInstallationInfo from "./ExploreInstallationInfo";
+import CrossIcon from "../../SvgIcons/CrossIcon";
 
 class ExploreAddress extends Component {
   state = {
@@ -294,7 +295,7 @@ class ExploreAddress extends Component {
 
   render() {
     return (
-      <div>
+      <div className="mt-5">
         {this.state.displayInstallationInfo === true ? (
           <ExploreInstallationInfo
             userId={this.props.userId}
@@ -316,7 +317,7 @@ class ExploreAddress extends Component {
             <div id="postcode-checker-holder">
               <form>
                 <Row>
-                  <Col lg={6}>
+                  <Col lg={6} className="position-relative">
                     <label className="explore-address-label">
                       Check Post code
                     </label>
@@ -335,14 +336,17 @@ class ExploreAddress extends Component {
                           })
                         }
                       />
-                      <div
-                        id="explore-address-close-btn"
-                        onClick={() => this.hideAddressHolder()}
-                      >
-                        X
-                      </div>
+                      {this.state.postCode && (
+                        <div
+                          id="explore-address-close-btn"
+                          onClick={() => this.hideAddressHolder()}
+                        >
+                          <CrossIcon size="25" />
+                        </div>
+                      )}
                     </div>
-                    {this.state.showAddressHolder === true ? (
+                    {this.state.showAddressHolder === true &&
+                    this.state.postCode ? (
                       <div id="address-dropdown-holder">
                         {this.state.checkingPostCodeloader === true ? (
                           <div id="explore-address-post-code-loader">
@@ -394,7 +398,7 @@ class ExploreAddress extends Component {
                       </div>
                     ) : null}
                   </Col>
-                  <Col lg={3}>
+                  <Col lg={3} md={6}>
                     <label className="explore-address-label">
                       Date Of Arrival
                     </label>
@@ -410,7 +414,7 @@ class ExploreAddress extends Component {
                       }
                     />
                   </Col>
-                  <Col lg={3}>
+                  <Col lg={3} md={6}>
                     <label className="explore-address-label">
                       Date Of Departure
                     </label>
@@ -428,7 +432,7 @@ class ExploreAddress extends Component {
                   </Col>
                 </Row>
                 <Row>
-                  <Col lg={6}>
+                  <Col md={6}>
                     <div id="explore-compare-holder">
                       <label for="compare" id="compare-label">
                         <input
@@ -450,7 +454,7 @@ class ExploreAddress extends Component {
                       </label>
                     </div>
                   </Col>
-                  <Col lg={6}>
+                  <Col md={6}>
                     <label for="compare" id="compare-label">
                       <input
                         type="checkbox"
@@ -470,48 +474,51 @@ class ExploreAddress extends Component {
                     </label>
                   </Col>
                 </Row>
-                {this.state.emptyFieldsFromPostCodeChecker === true ? (
+                <div className="mt-5">
+                  {this.state.emptyFieldsFromPostCodeChecker === true ? (
+                    <div
+                      className="error-notification-holder"
+                      id="expore-address-error"
+                    >
+                      <p>Input Fields Cannot Be Empty</p>
+                    </div>
+                  ) : null}
+                  {this.state.errorFromPostCodeChecker === true ? (
+                    <div
+                      className="error-notification-holder"
+                      id="expore-address-error"
+                    >
+                      <p>
+                        Date Of Arrival Cannot Be More Than Date Of Departure
+                      </p>
+                    </div>
+                  ) : null}
+                  {this.state.sentSuccessFromPostCodeChecker === true ? (
+                    <div
+                      className="success-notification-holder"
+                      id="expore-address-error"
+                    >
+                      <p>Address Saved</p>
+                    </div>
+                  ) : null}
                   <div
-                    className="error-notification-holder"
-                    id="expore-address-error"
+                    className="desktop-big-button"
+                    id="explore-send-address"
+                    onClick={(e) => this.sendAddress(e, true)}
                   >
-                    <p>Input Fields Cannot Be Empty</p>
+                    <p className="desktop-big-button-text">Save Address</p>
                   </div>
-                ) : null}
-                {this.state.errorFromPostCodeChecker === true ? (
-                  <div
-                    className="error-notification-holder"
-                    id="expore-address-error"
-                  >
-                    <p>Date Of Arrival Cannot Be More Than Date Of Departure</p>
-                  </div>
-                ) : null}
-                {this.state.sentSuccessFromPostCodeChecker === true ? (
-                  <div
-                    className="success-notification-holder"
-                    id="expore-address-error"
-                  >
-                    <p>Address Saved</p>
-                  </div>
-                ) : null}
-                <div
-                  className="desktop-big-button"
-                  id="explore-send-address"
-                  onClick={(e) => this.sendAddress(e, true)}
-                >
-                  <p className="desktop-big-button-text">Save Address</p>
                 </div>
               </form>
             </div>
-            <div>
+
+            <div id="manual-address-section">
               <div id="or-holder">
                 <p className="desktop-sub-header2">Enter Address Manually</p>
               </div>
-            </div>
-            <div>
               <form>
                 <Row>
-                  <Col lg={6}>
+                  <Col md={6}>
                     <label className="explore-address-label">
                       Building Name
                     </label>
@@ -527,7 +534,7 @@ class ExploreAddress extends Component {
                       onChange={(e) => this.updateAddressDetails(e)}
                     />
                   </Col>
-                  <Col lg={6}>
+                  <Col md={6}>
                     <label className="explore-address-label">
                       Address Line 1
                     </label>
@@ -543,7 +550,7 @@ class ExploreAddress extends Component {
                       onChange={(e) => this.updateAddressDetails(e)}
                     />
                   </Col>
-                  <Col lg={6}>
+                  <Col md={6}>
                     <label className="explore-address-label">
                       Address Line 2
                     </label>
@@ -559,7 +566,7 @@ class ExploreAddress extends Component {
                       onChange={(e) => this.updateAddressDetails(e)}
                     />
                   </Col>
-                  <Col lg={6}>
+                  <Col md={6}>
                     <label className="explore-address-label">Town</label>
                     <input
                       type="text"
@@ -573,7 +580,7 @@ class ExploreAddress extends Component {
                       onChange={(e) => this.updateAddressDetails(e)}
                     />
                   </Col>
-                  <Col lg={6}>
+                  <Col md={6}>
                     <label className="explore-address-label">City</label>
                     <input
                       type="text"
@@ -587,7 +594,7 @@ class ExploreAddress extends Component {
                       onChange={(e) => this.updateAddressDetails(e)}
                     />
                   </Col>
-                  <Col lg={6}>
+                  <Col md={6}>
                     <label className="explore-address-label">Post Code</label>
                     <input
                       type="text"
@@ -601,7 +608,7 @@ class ExploreAddress extends Component {
                       onChange={(e) => this.updateAddressDetails(e)}
                     />
                   </Col>
-                  <Col lg={6}>
+                  <Col md={6}>
                     <label className="explore-address-label">
                       Date Of Arrival
                     </label>
@@ -622,7 +629,7 @@ class ExploreAddress extends Component {
                       }
                     />
                   </Col>
-                  <Col lg={6}>
+                  <Col md={6}>
                     <label className="explore-address-label">
                       Date Of Departure
                     </label>
@@ -643,7 +650,7 @@ class ExploreAddress extends Component {
                       }
                     />
                   </Col>
-                  <Col lg={6}>
+                  <Col md={6}>
                     <label for="compare" id="compare-label">
                       <input
                         type="checkbox"
@@ -662,8 +669,12 @@ class ExploreAddress extends Component {
                       </span>
                     </label>
                   </Col>
-                  <Col lg={6}>
-                    <label for="compare" id="compare-label">
+                  <Col md={6}>
+                    <label
+                      for="compare"
+                      id="compare-label"
+                      className="delivery-address-checkbox"
+                    >
                       <input
                         type="checkbox"
                         onChange={(e) =>

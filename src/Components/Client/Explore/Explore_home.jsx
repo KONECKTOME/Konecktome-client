@@ -7,6 +7,7 @@ import Explore_comparison from "./Explore_comparison";
 import Loader from "../Loader/Loader";
 import SmallLoader from "../Loader/SmallLoader";
 import Rating from "../../Reusable/Rating";
+import CrossIcon from "../../SvgIcons/CrossIcon";
 
 class Explore_home extends Component {
   state = {
@@ -363,11 +364,11 @@ class Explore_home extends Component {
                 )}
                 {this.state.showCompare === true ? (
                   <div id="explore-compare-items-wrapper">
-                    <Row>
+                    <Row className="justify-content-center">
                       {this.state.compareItems.map((item) => {
                         return (
-                          <Col lg={3} md={4} sm={12}>
-                            <div id="explore-compare-items-inner">
+                          <Col lg={3} md={4} sm={6} className="pb-4">
+                            <div id="explore-compare-items-inner" className="pe-3">
                               <div id="explore-compare-item">
                                 <p className="desktop-text">{item.dealName}</p>
                                 <p className="desktop-price-number">
@@ -379,8 +380,9 @@ class Explore_home extends Component {
                                 onClick={() =>
                                   this.deleteCompareItem(item.dealName)
                                 }
+                                className="ms-3"
                               >
-                                <p>X</p>
+                                <CrossIcon size="22" color="#000" />
                               </div>
                             </div>
                           </Col>
@@ -388,7 +390,7 @@ class Explore_home extends Component {
                       })}
                     </Row>
                     {this.state.compareMoreThanOne === false ? (
-                      <p>Add Another Deal to Begin Comparing</p>
+                      <p className="my-4">Add Another Deal to Begin Comparing</p>
                     ) : (
                       <div
                         id="explore-compare-btn"

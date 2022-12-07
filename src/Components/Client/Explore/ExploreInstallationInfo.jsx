@@ -68,8 +68,8 @@ class ExploreInstallationInfo extends Component {
 
   render() {
     return (
-      <div id="explore-installation-wrapper">
-        <p className="desktop-header">
+      <div id="explore-installation-wrapper" className="explore-installation">
+        <p className="desktop-header selection-Heading" >
           Please Select Installation Date And Time
         </p>
         <p

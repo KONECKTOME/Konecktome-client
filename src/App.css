@@ -35,6 +35,7 @@
   position: fixed;
   z-index: 1;
   left: 0px;
+  background-color: #fff;
 }
 #left-col.default #sidebar-warpper,
 #left-col.not-active #sidebar-warpper,
@@ -136,7 +137,9 @@
 
 .desktop-big-button-transparent {
   width: 100%;
-  height: 45px;
+  min-width: fit-content;
+  word-wrap: break-word;
+  padding: 1rem 2rem;
   background: transparent;
   border-radius: 90em;
   display: flex;
@@ -145,6 +148,7 @@
   border: 1px solid #ae7cb8;
   margin-bottom: 1.5rem;
   cursor: pointer;
+  text-align: center;
 }
 
 .desktop-big-button-transparent-text {
@@ -158,9 +162,8 @@
 
 .desktop-medium-button {
   width: 50%;
-  min-width: max-content;
+  min-width: fit-content;
   padding: 1rem 2rem;
-  height: 45px;
   background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
   border-radius: 90em;
   display: flex;
@@ -181,9 +184,8 @@
 
 .desktop-small-button {
   width: 25%;
-  min-width: max-content;
+  min-width: fit-content;
   padding: 1rem 2rem;
-  height: 45px;
   background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
   border-radius: 90em;
   display: flex;
@@ -217,8 +219,7 @@
   border-radius: 90em;
   display: flex;
   justify-content: center;
-  padding: .5rem 2rem;
-
+  padding: 0.5rem 2rem;
 }
 
 .desktop-badge-text {
@@ -287,7 +288,7 @@
 }
 
 .card-image {
-  border-radius:20px;
+  border-radius: 20px;
   width: 100%;
   aspect-ratio: 1/1;
   /* width: 100%;
@@ -335,7 +336,7 @@
   font-family: "Poppins regular";
   font-size: 18px;
   width: auto;
-  height: 45px;
+  padding: 1rem 2rem;
   background: green;
   border-radius: 90em;
   display: flex;
@@ -345,13 +346,14 @@
   color: #ffffff;
   font-weight: 900;
   line-height: 22px;
-  mix-blend-mode: normal;
+  text-align: center;
 }
 .error-notification-holder {
+  padding: 1rem 2rem;
+  text-align: center;
   font-family: "Poppins regular";
   font-size: 18px;
   width: auto;
-  height: 45px;
   background: red;
   border-radius: 90em;
   display: flex;
@@ -367,7 +369,8 @@
   font-family: "Poppins bold";
   font-size: 18px;
   width: auto;
-  height: 45px;
+  padding: 1rem 2rem;
+  text-align: center;
   background: grey;
   border-radius: 90em;
   display: flex;
@@ -451,7 +454,6 @@ input[type="email"] {
   height: 55px;
   padding-left: 2rem;
   padding-right: 1.5rem;
-
 }
 input[type="password"] {
   text-align: left;
@@ -465,7 +467,6 @@ input[type="password"] {
   height: 55px;
   padding-left: 2rem;
   padding-right: 1.5rem;
-
 }
 
 input[type="email"]:invalid {
@@ -510,32 +511,32 @@ input[type="checkbox"] {
 
 .cards {
   width: 100%;
-  grid-template-columns:repeat(3,minmax(auto,320px));
+  grid-template-columns: repeat(3, minmax(auto, 320px));
 }
 @media screen and (min-width: 1400px) {
   .cards {
-  grid-template-columns:repeat(auto-fill,350px);
+    grid-template-columns: repeat(auto-fill, 350px);
   }
 }
 @media screen and (max-width: 992px) {
   .cards {
-  grid-template-columns:repeat(2,minmax(auto,320px));
+    grid-template-columns: repeat(2, minmax(auto, 320px));
   }
 }
 @media screen and (max-width: 768px) {
   .cards {
     justify-content: center;
-  grid-template-columns:repeat(2,minmax(auto,320px));
+    grid-template-columns: repeat(2, minmax(auto, 320px));
   }
 }
 @media screen and (max-width: 576px) {
   .cards {
     justify-content: center;
-  grid-template-columns:repeat(1,minmax(auto,320px));
+    grid-template-columns: repeat(1, minmax(auto, 320px));
   }
 }
 @media screen and (max-width: 768px) {
-  #right-col{
+  #right-col {
     margin-left: 0px;
   }
   #left-col.default {
@@ -580,7 +581,6 @@ input[type="checkbox"] {
   }
 }
 
-
 @keyframes hideBackground {
   0% {
     background-color: #00000076;
@@ -624,6 +624,4 @@ input[type="checkbox"] {
   to {
     transform: translateX(-100%);
   }
-
- 
 }

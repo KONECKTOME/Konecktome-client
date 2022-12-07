@@ -111,9 +111,9 @@ class ExploreUserDetails extends Component {
                 fetchUser={() => this.props.fetchUser()}
               />
             ) : (
-              <div>
+              <div id="information-form-wrapper">
                 <div id="settings_password_security_wrapper">
-                  <div id="settings_password_security_sub_wrapper">
+                  <div id="settings_password_security_sub_wrapper" className="mb-3">
                     <p id="settings_password_security_header_text">
                       PLEASE UPDATE DETAILS
                     </p>

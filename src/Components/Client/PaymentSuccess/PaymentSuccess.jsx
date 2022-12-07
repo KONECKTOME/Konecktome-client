@@ -73,7 +73,35 @@ class PaymentSuccess extends React.Component {
                 successful!
               </p>
               <div id="payment-success-tran-details">
-                <div>
+                <div >
+                  <p className="desktop-text heading">Date</p>
+                  <p className="desktop-text">22-09-22</p>
+                </div>
+                <div >
+                  <p className="desktop-text heading">Installation Date And Time</p>
+                  <p className="desktop-text">{this.state.transactionDetails.installationDateAndTime}</p>
+                </div>
+                <div >
+                  <p className="desktop-text heading">Monthly Subscription Price</p>
+                  <p className="desktop-text">£{this.state.transactionDetails.subscriptionPrice}</p>
+                </div>
+                <div >
+                  <p className="desktop-text heading">Set Up Fee</p>
+                  <p className="desktop-text">£{this.state.transactionDetails.oneOffPrice}</p>
+                </div>
+                <div >
+                  <p className="desktop-text heading">Status</p>
+                  <p className="desktop-text">{this.state.transactionDetails.status}</p>
+                </div>
+                <div >
+                  <p className="desktop-text heading">Delivery Address</p>
+                  <p className="desktop-text">{this.state.deliveryAddress}</p>
+                </div>
+                <div >
+                  <p className="desktop-text heading">Total</p>
+                  <p className="desktop-text">£{this.state.transactionDetails.total}</p>
+                </div>
+                {/* <div>
                   <p className="desktop-text">Date</p>
                   <p className="desktop-text">Installation Date And Time</p>
                   <p className="desktop-text">Monthly Subscription Price</p>
@@ -100,7 +128,7 @@ class PaymentSuccess extends React.Component {
                   <p className="desktop-text">
                     £{this.state.transactionDetails.total}
                   </p>
-                </div>
+                </div> */}
               </div>
               <div
                 id="payment-success-image-holder"

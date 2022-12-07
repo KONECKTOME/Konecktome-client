@@ -7,6 +7,7 @@ import { UserDetailsContext } from "../Context/UserDetailsContext";
 import ExploreInstallationInfo from "./ExploreInstallationInfo";
 import Loader from "../Loader/Loader";
 import { Row, Col } from "react-bootstrap";
+import Rating from "../../Reusable/Rating";
 class Explore_details_right_col extends React.Component {
   static contextType = UserDetailsContext;
   state = {
@@ -53,7 +54,7 @@ class Explore_details_right_col extends React.Component {
 
   render(props) {
     return (
-      <div>
+      <div id="right-wrapper">
         {this.props.loading === true ? (
           <Loader />
         ) : (
@@ -70,11 +71,11 @@ class Explore_details_right_col extends React.Component {
                       {this.props.deal[0].companyName}
                     </p>
                   </div>
-                  <div id="explore-details-sub-header-inner-wrapper">
-                    <p>4.5</p>
+                </div>
+                <div id="explore-details-sub-header-inner-wrapper">
+                    <Rating rating="4.5" size="20" />
                     <p>(28,112)</p>
                   </div>
-                </div>
                 <div id="explore-details-inner-right-btn-wrapper">
                   <div className="desktop-badge1">
                     <p className="desktop-badge-text">
@@ -106,7 +107,7 @@ class Explore_details_right_col extends React.Component {
               <div id="explore-details-inner-left">
                 <div id="explore-details-inner-left-inner-wrapper">
                   <div>
-                    <p className="desktop-price"> Price</p>
+                    <p className="desktop-sub-header2"> Price</p>
                     {this.props.deal[0].subTitle !== "" ? (
                       <p className="desktop-price-number">
                         £{this.props.deal[0].dealPrice} Per Month With{" "}
@@ -143,7 +144,7 @@ class Explore_details_right_col extends React.Component {
                       Chat with service provider
                     </p>
                   </div> */}
-                  <div
+                <div
                     className="desktop-big-button-transparent"
                     onClick={() => this.addtoWishlist(this.props.deal[0]._id)}
                   >
@@ -153,7 +154,7 @@ class Explore_details_right_col extends React.Component {
                   </div>
                 </div>
                 <div id="explore-details-review">
-                  <p className="desktop-sub-header2"> Reviews</p>
+                  <p className="desktop-sub-header2 mb-4"> Reviews</p>
                   {this.state.reviews.map((rr) => {
                     return (
                       <div id="explore-details-reviews-first-inner-div">

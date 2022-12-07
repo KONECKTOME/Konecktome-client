@@ -37,7 +37,7 @@ class ExploreMoreInfo extends React.Component {
   render() {
     return (
       <>
-        <div id="explore-details-header-wrapper">
+        <div id="explore-details-header-wrapper" className="more-info">
           <p>
             <Link
               to={"/dashboard/explore/" + this.props.userDetails._id}
@@ -63,6 +63,8 @@ class ExploreMoreInfo extends React.Component {
             </Link>
           </p>
         </div>
+        {/* {this.state.renderAddressAndUserDetails === true ? ( */}
+        {/* {false ? ( */}
         {this.state.renderAddressAndUserDetails === true ? (
           <div>
             <ExploreUserDetails

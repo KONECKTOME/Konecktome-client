@@ -25,7 +25,7 @@ class Explore_details_left_col extends React.Component {
   };
   render() {
     return (
-      <div id="left">
+      <div id="left" >
         {/* <p className="desktop-sub-header2">
           People viewing this deal, also viewed
         </p> */}
@@ -47,8 +47,8 @@ class Explore_details_left_col extends React.Component {
               <p className="desktop-sub-header2">{item.subTitle}</p>
 
               <div>
-                <div className="desktop-badge1">
-                  <p className="desktop-badge-text">{item.tag}</p>
+                <div className="desktop-badge1 mt-3">
+                  <p className="desktop-badge-text ">{item.tag}</p>
                 </div>
               </div>
               <div id="account-card-footer">
