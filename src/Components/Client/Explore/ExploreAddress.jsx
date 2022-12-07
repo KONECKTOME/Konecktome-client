@@ -650,7 +650,7 @@ class ExploreAddress extends Component {
                       }
                     />
                   </Col>
-                  <Col md={6}>
+                  <Col md={6} className="mb-4">
                     <label for="compare" id="compare-label">
                       <input
                         type="checkbox"
@@ -669,7 +669,7 @@ class ExploreAddress extends Component {
                       </span>
                     </label>
                   </Col>
-                  <Col md={6}>
+                  <Col md={6}  className="mb-4">
                     <label
                       for="compare"
                       id="compare-label"
@@ -694,6 +694,7 @@ class ExploreAddress extends Component {
                   </Col>
                 </Row>
 
+
                 {this.state.emptyFields === true ? (
                   <div
                     className="error-notification-holder"
@@ -702,7 +703,8 @@ class ExploreAddress extends Component {
                     <p>Input Fields Cannot Be Empty</p>
                   </div>
                 ) : null}
-                {this.state.sentSuccess === true ? (
+                {/* {this.state.sentSuccess === true ? ( */}
+                {true ? (
                   <div
                     className="success-notification-holder"
                     id="expore-address-error"

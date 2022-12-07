@@ -63,8 +63,6 @@ class ExploreMoreInfo extends React.Component {
             </Link>
           </p>
         </div>
-        {/* {this.state.renderAddressAndUserDetails === true ? ( */}
-        {/* {false ? ( */}
         {this.state.renderAddressAndUserDetails === true ? (
           <div>
             <ExploreUserDetails

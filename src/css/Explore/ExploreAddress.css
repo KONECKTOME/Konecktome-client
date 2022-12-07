@@ -3,6 +3,10 @@
   justify-content: space-around;
 } */
 
+#notification-holder{
+  color: #000 !important;
+}
+
 #explore-address-input-holder {
   margin-top: 25px;
 }
@@ -189,8 +193,13 @@
   margin-left: 1rem !important;
 }
 
+#address-modal-body input:not([type="checkbox"]),
+#address-inputholder input:not([type="checkbox"]),
+#postcode-checker-holder input:not([type="checkbox"]),
 #manual-address-section input:not([type="checkbox"]) {
   width: 100% !important;
+  min-width: 100% !important;
+  display:block !important ;
 }
 #manual-address-section #compare-label,
 #postcode-checker-holder #compare-label {
