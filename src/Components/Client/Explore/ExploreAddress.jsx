@@ -265,13 +265,13 @@ class ExploreAddress extends Component {
           />
         ) : (
           <div>
-            {this.state.sentSuccess === true ? (
+            {/* {this.state.sentSuccess === true ? (
               <div id="notification-holder">
                 <p className="desktop-big-button-text modal-button-text">
                   Yay, address added successfully !!!
                 </p>
               </div>
-            ) : null}
+            ) : null} */}
             <div id="postcode-checker-holder">
               <form>
                 <Row>
