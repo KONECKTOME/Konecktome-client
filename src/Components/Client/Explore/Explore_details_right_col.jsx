@@ -73,9 +73,9 @@ class Explore_details_right_col extends React.Component {
                   </div>
                 </div>
                 <div id="explore-details-sub-header-inner-wrapper">
-                    <Rating rating="4.5" size="20" />
-                    <p>(28,112)</p>
-                  </div>
+                  <Rating rating="4.5" size="20" />
+                  <p>(28,112)</p>
+                </div>
                 <div id="explore-details-inner-right-btn-wrapper">
                   <div className="desktop-badge1">
                     <p className="desktop-badge-text">
@@ -136,15 +136,8 @@ class Explore_details_right_col extends React.Component {
                       <p className="desktop-big-button-text">Buy Now</p>
                     )}
                   </div>
-                  {/* <Link to="/dashboard/pay-success/62af8dc3d86ce1c75d6e791a">
-                    HERE
-                  </Link> */}
-                  {/* <div className="desktop-big-button-transparent">
-                    <p className="desktop-big-button-transparent-text">
-                      Chat with service provider
-                    </p>
-                  </div> */}
-                <div
+
+                  <div
                     className="desktop-big-button-transparent"
                     onClick={() => this.addtoWishlist(this.props.deal[0]._id)}
                   >

@@ -81,7 +81,7 @@
 }
 #explore-details-inner-right-text p,
 #explore-details-inner-features-wrapper p {
-  margin-bottom: 0.8rem !important;
+  margin-bottom: .8rem !important;
 }
 
 #explore-details-inner-wrapper {
@@ -340,6 +340,14 @@ flex-shrink:0; */
   }
   #explore-details-wrapper {
     padding: 1.3rem;
+  }
+
+  #explore-details-wrapper .exist-notification-holder,
+  #explore-details-wrapper .success-notification-holder {
+    z-index: 9;
+    position: sticky;
+    top: 40px;
+    margin-top: 0;
   }
   #right-with-compare {
     flex-direction: column;
