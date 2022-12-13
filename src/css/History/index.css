@@ -54,10 +54,58 @@
   color: #000000;
   margin-bottom: 2rem;
 }
-
-#history_account_items {
-  margin-bottom: 3rem !important;
+#history-table-wrapper{
+  max-width: 950px;
+  width: calc(100vw - 290px);
+  overflow-x: auto;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 }
+
+#history-table-wrapper::-webkit-scrollbar {
+  height: 10px;
+}
+#history-table-wrapper::-webkit-scrollbar-track {
+  background-color: #e5e5e5;
+  border-radius: 10px;
+}
+
+#history-table-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background:linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+}
+
+#history-table{
+  min-width: 660px;
+
+}
+#history-table th{
+  vertical-align: text-top;
+}
+
+#history-table tbody tr {
+  border-top: 2px solid #E5E5E5;
+}
+
+#history-table th,
+#history-table td {
+  padding-block: 1rem !important;
+  padding-right: 1rem;
+}
+#history_account_items td.image-container{
+  display: flex;
+  align-items: center;
+}
+#history_account_items td.image-container .small-profile-image-container{
+  flex-shrink: 0;
+}
+#history_account_items td.image-container .small-profile-image{
+  width: 50px !important;
+  height: 50px !important;
+  object-fit: cover;
+
+}
+
 
 #history-main-content,
 #history-main-content-item {
@@ -65,7 +113,7 @@
 }
 
 .history-service-provider-text {
-  margin: 1rem;
+  padding-left: 1rem;
   color: #00beff !important;
 }
 
@@ -88,4 +136,10 @@
 }
 .table-body-cell {
   display: table-cell;
+}
+
+@media screen and (max-width:768px) {
+  #history-table-wrapper{
+    width: calc(100vw - 57px);
+  }
 }

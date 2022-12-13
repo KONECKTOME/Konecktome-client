@@ -52,7 +52,7 @@ class History_home extends React.Component {
           <SmallLoader />
         ) : (
           <div id="history-wrapper">
-            <p className="desktop-header">Transaction History</p>
+            <p className="desktop-header mt-0 ms-0">Transaction History</p>
             {this.state.transactionHistory.length !== 0 ? (
               <div>
                 {/* <div id="history_form-div">
@@ -68,64 +68,72 @@ class History_home extends React.Component {
                 {/* <div id="history_no_of_items_text">
                   <p>Showing 7 of 78</p>
                 </div> */}
-                <table>
-                  <tr>
-                    <th>
-                      <p className="acc-nav-inner-text">Name</p>
-                    </th>
-                    <th>
-                      <p className="desktop-sub-header2">Date & Time</p>
-                    </th>
-                    <th>
-                      <p className="desktop-sub-header2">Set Up Fee</p>
-                    </th>
-                    <th>
-                      <p className="desktop-sub-header2">Subscription Price</p>
-                    </th>
-                    {/* <th>
+                <div id="history-table-wrapper" className="">
+                  <table id="history-table">
+                    <thead>
+                      <tr>
+                        <th>
+                          <p className="acc-nav-inner-text desktop-sub-header2">
+                            Name
+                          </p>
+                        </th>
+                        <th>
+                          <p className="desktop-sub-header2">Date & Time</p>
+                        </th>
+                        <th>
+                          <p className="desktop-sub-header2">Set Up Fee</p>
+                        </th>
+                        <th>
+                          <p className="desktop-sub-header2">
+                            Subscription Price
+                          </p>
+                        </th>
+                        {/* <th>
               <p className="desktop-sub-header2">Description</p>
             </th> */}
-                  </tr>
-                  {this.state.transactionHistory
-                    .reverse()
-                    .slice(0, this.state.batchValue)
-                    .map((tt) => {
-                      return (
-                        <tr id="history_account_items">
-                          <td>
-                            <Row>
-                              <Col lg={2}>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {this.state.transactionHistory
+                        .reverse()
+                        .slice(0, this.state.batchValue)
+                        .map((tt) => {
+                          console.log(tt, "===>>");
+                          return (
+                            <tr id="history_account_items">
+                              <td className="image-container">
                                 <div className="small-profile-image-container">
                                   <img
                                     src={tt.serviceProviderLogo}
                                     className="small-profile-image"
                                   />
                                 </div>
-                              </Col>
-                              <Col lg={10}>
                                 <p className="desktop-text history-service-provider-text">
                                   {tt.dealName}
                                 </p>
-                              </Col>
-                            </Row>
-                          </td>
-                          <td>
-                            <p className="desktop-text">
-                              {tt.dateOfTransaction} : {tt.timeOfTransaction}
-                            </p>
-                          </td>
-                          <td className="settings_account_type_date_text">
-                            <p className="desktop-text">£ {tt.oneOffPrice}</p>
-                          </td>
-                          <td>
-                            <p className="desktop-text">
-                              £ {tt.subscriptionPrice}
-                            </p>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                </table>
+                              </td>
+                              <td>
+                                <p className="desktop-text">
+                                  {tt.dateOfTransaction} :{" "}
+                                  {tt.timeOfTransaction}
+                                </p>
+                              </td>
+                              <td className="settings_account_type_date_text">
+                                <p className="desktop-text">
+                                  £ {tt.oneOffPrice}
+                                </p>
+                              </td>
+                              <td>
+                                <p className="desktop-text">
+                                  £ {tt.subscriptionPrice}
+                                </p>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                    </tbody>
+                  </table>
+                </div>
                 <div className="desktop-big-button" id="explore-send-address">
                   <p
                     className="desktop-big-button-text"
