@@ -709,7 +709,7 @@ class ExploreAddress extends Component {
                       </span>
                     </label>
                   </Col>
-                  <Col md={6}  className="mb-4">
+                  <Col md={6} className="mb-4">
                     <label
                       for="compare"
                       id="compare-label"
@@ -734,7 +734,6 @@ class ExploreAddress extends Component {
                   </Col>
                 </Row>
 
-
                 {this.state.emptyFields === true ? (
                   <div
                     className="error-notification-holder"
@@ -744,7 +743,7 @@ class ExploreAddress extends Component {
                   </div>
                 ) : null}
                 {/* {this.state.sentSuccess === true ? ( */}
-                {true ? (
+                {this.state.sentSuccess === true ? (
                   <div
                     className="success-notification-holder"
                     id="expore-address-error"
