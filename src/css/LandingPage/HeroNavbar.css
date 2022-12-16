@@ -1,12 +1,12 @@
 #hero-navbar-wrapper {
-  height: auto;
-  padding: 1rem 4rem 1rem 4rem;
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  z-index: 1;
+  position: sticky;
   top: 0;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 1rem;
+  z-index: 99;
+  padding: 1rem 4rem 1rem 4rem;
   background: #ffffff;
 }
 
@@ -18,8 +18,7 @@
   background: #000000;
   border-radius: 30px;
   width: 170px;
-  height: 60px;
-  padding: 1.2rem;
+  padding: 1.7rem 1rem;
   text-align: center;
 }
 
@@ -30,4 +29,10 @@
   font-size: 18px;
   line-height: 27px;
   color: #ffffff;
+}
+
+@media screen and (max-width:768px) {
+  #hero-navbar-wrapper {
+    padding: 1rem 2rem;
+  }
 }

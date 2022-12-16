@@ -10,7 +10,7 @@ class AboutUs extends Component {
         <div id="about-us-holder">
           <img src={aboutKonecktomelogo} />
         </div>
-        <div id="about-us-holder">
+        <div id="about-us-holder" className="details-wrapper">
           <div>
             <p id="about-us-sub-text">
               KONECKTOME creates an avenue for you to have easy access to a
@@ -18,7 +18,7 @@ class AboutUs extends Component {
               be stored, easily retrieved and used for any service you want to
               use it for, without any hassle.
             </p>
-            <p id="about-us-sub-text">
+            <p id="about-us-sub-text" className="second-para">
               We focus on personalisation, ease, and integration with your
               personal data, to enable you to efficiently sign up and purchase
               various services and products.

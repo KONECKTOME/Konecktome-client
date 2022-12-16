@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../../css/Explore/Explore_comparison.css";
 import image_placeholder from "../../../Assets/account-card-placeholder.png";
-import { Row, Col } from "react-bootstrap";
+// import { Row, Col } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 
 class Explore_comparison extends React.Component {
@@ -18,17 +18,17 @@ class Explore_comparison extends React.Component {
           id="more-details-holder"
           onClick={() => this.props.showComparePage()}
         >
-          <p className="desktop-cta">Go Back To Explore</p>
+          <p className="desktop-cta mb-4">Go Back To Explore</p>
         </div>
-        <Row>
+        <div className="cards">
           {this.props.compareItems.map((item) => {
             return (
-              <Col>
+              <div className="card">
                 <div>
                   <img src={image_placeholder} id="explore-compare-image" />
                 </div>
                 <div id="explore-compare-details-holder">
-                  <p className="desktop-text">{item.dealName}</p>
+                  <p className="desktop-text fw-bold">{item.dealName}</p>
                   <p className="desktop-price-number">£{item.dealPrice}</p>
                   {item.features.map((feature) => {
                     return (
@@ -37,7 +37,7 @@ class Explore_comparison extends React.Component {
                   })}
                 </div>
                 <div
-                  className="desktop-small-button"
+                  className="desktop-small-button mt-4"
                   //   onClick={() =>
                   //     this.buyService(
                   //       this.props.deal[0].dealName,
@@ -53,10 +53,10 @@ class Explore_comparison extends React.Component {
                     <p className="desktop-big-button-text">Buy Now</p>
                   )}
                 </div>
-              </Col>
+              </div>
             );
           })}
-        </Row>
+        </div>
       </div>
     );
   }

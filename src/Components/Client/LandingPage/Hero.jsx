@@ -220,18 +220,18 @@ class Hero extends Component {
               <h2 class="hr-lines">Or Continue With</h2>
               <div id="login-icon-wrapper">
                 <div
-                  className="icons-holder"
+                  className="icons-holder landing-page-icon-holder"
                   onClick={() => this.loginWithGoogle()}
                 >
                   <img src={googleIcon} className="auth-icons" />
-                  <p className="desktop-text">Google</p>
+                  <p className="desktop-text fs-4 ms-3">Google</p>
                 </div>
                 <div
-                  className="icons-holder"
+                  className="icons-holder landing-page-icon-holder"
                   onClick={() => this.loginWithFacebook()}
                 >
                   <img src={facebookIcon} className="auth-icons" />
-                  <p className="desktop-text">Facebook</p>
+                  <p className="desktop-text fs-4 ms-3">Facebook</p>
                 </div>
               </div>
               {/* <div id="hero-btn-wrapper">

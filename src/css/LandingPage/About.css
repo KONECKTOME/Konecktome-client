@@ -1,6 +1,10 @@
 #about-us-holder {
   display: flex;
   justify-content: center;
+  padding-inline: 2rem;
+}
+#about-us-holder.details-wrapper {
+  margin-top: 3rem;
 }
 
 #about-holder {
@@ -19,7 +23,7 @@
 }
 
 #about-us-sub-text {
-  font-family: "Poppins";
+  font-family: "Poppins regular";
   font-style: italic;
   font-weight: 400;
   font-size: 16px;
@@ -28,6 +32,9 @@
   align-items: center;
   text-align: center;
   color: #4a4a4a;
+}
+#about-us-sub-text.second-para {
+  margin-top: 3rem;
 }
 
 #all-wrapper {

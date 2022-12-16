@@ -17,7 +17,7 @@ class Footer extends Component {
               <p className="footer-text">Terms of services</p>
             </div>
           </div>
-          <div id="footer-second-wrapper">
+          <div id="footer-second-wrapper" className="copyright-text">
             <p className="footer-text">
               © {this.state.currentYear} KONECKTOME. All rights reserved.
             </p>

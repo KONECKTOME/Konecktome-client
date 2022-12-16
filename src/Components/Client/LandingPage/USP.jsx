@@ -14,13 +14,13 @@ class USP extends Component {
     return (
       <div>
         <div id="usp-holder">
-          <Row>
-            <Col lg={7}>
+          <Row className="mx-0">
+            <Col md={6} className>
               <div className="usp-image-holder">
                 <img src={Exclusive} />
               </div>
             </Col>
-            <Col lg={5}>
+            <Col md={6} className="padding-left-spacing">
               <div className="usp-item-holder">
                 <p className="usp-item-header">Exclusive</p>
                 <p className="usp-item-text">
@@ -32,8 +32,8 @@ class USP extends Component {
           </Row>
         </div>
         <div id="usp-holder">
-          <Row>
-            <Col lg={7}>
+          <Row className="mx-0">
+            <Col md={6} className="change-order">
               <div className="usp-item-holder">
                 <p className="usp-item-header">Cancellation</p>
                 <p className="usp-item-text">
@@ -41,7 +41,7 @@ class USP extends Component {
                 </p>
               </div>
             </Col>
-            <Col lg={5}>
+            <Col md={6} className="padding-left-spacing ">
               <div className="usp-image-holder">
                 <img src={Cancellation} />
               </div>
@@ -49,13 +49,13 @@ class USP extends Component {
           </Row>
         </div>
         <div id="usp-holder">
-          <Row>
-            <Col lg={7}>
+          <Row className="mx-0">
+            <Col md={6}>
               <div className="usp-image-holder">
                 <img src={Security} />
               </div>
             </Col>
-            <Col lg={5}>
+            <Col md={6} className="padding-left-spacing">
               <div className="usp-item-holder">
                 <p className="usp-item-header">Security</p>
                 <p className="usp-item-text">
@@ -68,8 +68,8 @@ class USP extends Component {
           </Row>
         </div>
         <div id="usp-holder">
-          <Row>
-            <Col lg={7}>
+          <Row className="mx-0">
+            <Col md={6} className="change-order">
               <div className="usp-item-holder">
                 <p className="usp-item-header">Management</p>
                 <p className="usp-item-text">
@@ -78,7 +78,7 @@ class USP extends Component {
                 </p>
               </div>
             </Col>
-            <Col lg={5}>
+            <Col md={6} className="padding-left-spacing">
               <div className="usp-image-holder">
                 <img src={Management} />
               </div>
@@ -86,13 +86,13 @@ class USP extends Component {
           </Row>
         </div>
         <div id="usp-holder">
-          <Row>
-            <Col lg={7}>
+          <Row className="mx-0">
+            <Col md={6}>
               <div className="usp-image-holder">
                 <img src={Reviews} />
               </div>
             </Col>
-            <Col lg={5}>
+            <Col md={6} className="padding-left-spacing">
               <div className="usp-item-holder">
                 <p className="usp-item-header">User Reviews</p>
                 <p className="usp-item-text">
@@ -105,8 +105,8 @@ class USP extends Component {
           </Row>
         </div>
         <div id="usp-holder">
-          <Row>
-            <Col lg={7}>
+          <Row className="mx-0">
+            <Col md={6} className="change-order">
               <div className="usp-item-holder">
                 <p className="usp-item-header">Simply Enabled</p>
                 <p className="usp-item-text">
@@ -115,7 +115,7 @@ class USP extends Component {
                 </p>
               </div>
             </Col>
-            <Col lg={5}>
+            <Col md={6} className="padding-left-spacing">
               <div className="usp-image-holder">
                 <img src={Enable} />
               </div>
