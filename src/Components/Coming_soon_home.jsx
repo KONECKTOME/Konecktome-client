@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import ComingSoon from "./Comingsoon";
 import Navbar from "./Navbar";
-import About from "./About";
 import USP from "../Components/USP";
 import Footer from "./Footer";
-import ProblemSolution from "./ProblemSolution";
 import FooterForm from "./FooterForm";
-import Benefits from "./Benefits";
+import About from "./About";
 
 class Coming_soon_home extends React.Component {
   render() {
@@ -14,8 +12,8 @@ class Coming_soon_home extends React.Component {
       <div>
         <Navbar />
         <ComingSoon />
-        {/* <ProblemSolution /> */}
-        <Benefits />
+        <About />
+        <USP />
         <FooterForm />
         <Footer />
       </div>

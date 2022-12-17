@@ -308,7 +308,7 @@ input[type="email"]:focus {
   #success-text > p,
   #no-text-error > p,
   #email-exists > p {
-    font-family: Poppins Medium;
+    font-family: Poppins regular;
     font-size: 15px;
   }
   #get-notified-text-mobile {
@@ -420,7 +420,7 @@ input[type="email"]:focus {
   #btn {
     margin-top: 2rem;
     font-size: 26px;
-    width: 100%;
+    width: 100% !important;
   }
   #checkbox-wrapper {
     margin-top: 3rem;
@@ -481,31 +481,11 @@ input[type="email"]:focus {
   #firstName {
     margin-bottom: 1rem;
   }
-  /* input[type="text"] {
-    width: 100%;
-    font-size: 30px;
-  }
-  input[type="email"] {
-    margin-top: 1rem;
-    width: 100%;
-    font-size: 30px;
-  } */
-  /* input::placeholder {
-    font-size: 20px;
-    font-weight: 600;
-  }
-  input[type="text"]:active,
-  input[type="text"]:focus {
-    font-size: 16px;
-  }
-  input[type="email"]:active,
-  input[type="email"]:focus {
-    font-size: 16px;
-  } */
+
   #btn {
     margin-top: 2rem;
     font-size: 18px;
-    width: 100%;
+    width: 100% !important;
   }
   #checkbox-wrapper {
     margin-top: 3rem;
@@ -587,7 +567,7 @@ input[type="email"]:focus {
   #btn {
     margin-top: 2rem;
     font-size: 18px;
-    width: 100%;
+    width: 95% !important;
   }
   #checkbox-wrapper {
     margin-top: 3rem;
@@ -621,5 +601,13 @@ input[type="email"]:focus {
   #right-col2 > div {
     width: 600px !important;
     height: 500px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #no-text-error,
+  #success-text {
+    height: 50px !important;
+    width: 100%;
   }
 }

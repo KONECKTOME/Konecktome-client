@@ -33,6 +33,10 @@
   height: 60px;
 }
 
+#mail-list-text-coming-soon {
+  font-family: Poppins regular;
+}
+
 /* #mail-list-text-coming-soon {
   font-family: Poppins bold;
   font-style: normal;

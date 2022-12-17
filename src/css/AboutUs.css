@@ -1,11 +1,19 @@
 #about-us-holder {
   display: flex;
   justify-content: center;
+  padding-inline: 2rem;
+}
+#about-us-holder.details-wrapper {
+  margin-top: 3rem;
+}
+
+#about-holder {
+  margin: 6rem 0 0 0;
 }
 
 #about-us-holder div {
   width: 1000px;
-  margin: 10rem 0 6rem 0;
+  margin: 2rem 0 6rem 0;
 }
 
 #about-us-header {
@@ -15,7 +23,7 @@
 }
 
 #about-us-sub-text {
-  font-family: "Poppins";
+  font-family: "Poppins regular";
   font-style: italic;
   font-weight: 400;
   font-size: 16px;
@@ -25,20 +33,12 @@
   text-align: center;
   color: #4a4a4a;
 }
-
-#all-wrapper {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+#about-us-sub-text.second-para {
+  margin-top: 3rem;
 }
 
-#about-us-header {
-  text-align: center;
-  font-family: Poppins bold;
-  font-size: 32px;
-  line-height: 70px;
-  color: #000000;
-  text-align: center;
-  margin-bottom: 4rem;
+#all-wrapper {
+  margin-bottom: 5rem;
 }
 
 #about-text-wrapper {
@@ -54,14 +54,9 @@
   margin-bottom: 50px;
 }
 
-#trademark-about-us {
-  width: 2%;
-  margin-bottom: 4rem;
-}
-
 .about-text {
   width: 726px;
-  font-family: Poppins;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -69,7 +64,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: #000000;
+  color: #2d2d2d;
   mix-blend-mode: normal;
   opacity: 0.7;
 }
@@ -105,7 +100,7 @@
 
 .card-texts {
   width: 313px;
-  font-family: Poppins regular;
+  font-family: "Poppins regular";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -117,17 +112,17 @@
   margin: 0 auto;
 }
 
-/* .vector-width {
-  height: 400px;
-  width: 400px;
+.vector-width {
+  height: 300px;
+  width: 449.2660217285156px;
 }
 .vector-width2 {
-  height: 400px;
-  width: 400px;
+  height: 350.00030517578125px;
+  width: 387.0038146972656px;
 }
 .vector-width3 {
-  height: 400px;
-  width: 400px;
+  height: 300.00042724609375px;
+  width: 448.96527099609375px;
 }
 #vector3-holder {
   margin-right: 7rem !important;
@@ -159,7 +154,7 @@
   height: 132px;
   margin-top: 12rem;
   margin-right: 17rem;
-} */
+}
 
 #text-holder {
   width: 372px;
@@ -168,32 +163,35 @@
 }
 
 #head-text {
-  font-family: Poppins bold;
+  font-family: "Poppins bold";
   font-style: normal;
   font-weight: bold;
-  font-size: 25px;
-  line-height: inherit;
+  font-size: 32px;
+  line-height: 28px;
   color: #2d2d2d;
   mix-blend-mode: normal;
   opacity: 0.7;
 }
 
-.coming-soon-sm-icons {
-  width: 25px;
+#sub-text {
+  font-family: "Poppins regular";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 28px;
+  color: #2d2d2d;
+  mix-blend-mode: normal;
+  opacity: 0.7;
+  height: 84px;
+  width: 372px;
 }
-/* 
+
 @media screen and (max-width: 700px) {
   #all-wrapper {
     padding: 1rem 3rem;
   }
   .about-us-vector-wrapper {
     display: block;
-  }
-  #about-us-header {
-    text-align: center;
-    font-family: Poppins bold;
-    font-size: 26px;
-    line-height: 30px;
   }
   .about-us-vector-snd-wrapper {
     flex-direction: row-reverse;
@@ -202,9 +200,22 @@
   #real-and-true {
     padding-top: 7rem;
   }
-
-  #trademark-about-us {
-    width: 6%;
+  .vector-width {
+    height: 95%;
+    width: 95%;
+  }
+  .vector-width2 {
+    height: 100%;
+    width: 100%;
+  }
+  .vector-width3 {
+    height: 140%;
+    width: 140%;
+  }
+  #text-holder {
+    width: auto;
+    height: auto;
+    margin: 0rem 0rem;
   }
 
   #head-text {
@@ -213,6 +224,7 @@
   }
   #sub-text {
     font-size: 14px;
+    line-height: 20px;
     height: auto;
     width: auto;
   }
@@ -225,19 +237,14 @@
     margin-top: 0rem;
     margin-right: 0rem;
   }
-  #vector3-holder {
-    margin-right: 2rem !important;
-  }
-} */
+}
 
-/* @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
   #text-holder {
+    width: auto;
+    height: auto;
     margin: 0rem;
-    padding-top: 7rem;
-  }
-
-  #trademark-about-us {
-    width: 3%;
+    padding-top: 6rem;
   }
 
   #head-text {
@@ -246,6 +253,7 @@
   }
   #sub-text {
     font-size: 18px;
+    line-height: 20px;
     height: auto;
     width: auto;
   }
@@ -253,31 +261,28 @@
     margin-top: 0px !important;
   }
   #real-time-text-holder {
+    width: auto;
     height: auto;
-    margin-top: 6rem;
+    margin-top: 9rem;
     margin-right: 0rem;
   }
-
+  #real-and-true {
+    padding-top: 7rem;
+  }
   .vector-width {
-    height: auto;
-    width: 277.27px;
+    height: 100%;
+    width: 100%;
   }
   .vector-width2 {
-    height: auto;
-    width: 277.27px;
+    height: 100%;
+    width: 100%;
   }
   .vector-width3 {
-    height: auto;
-    width: 277.27px;
+    height: 120%;
+    width: 120%;
   }
 
   .scnd-text-holder {
     padding-left: 2rem;
   }
-  #vector3-holder {
-    margin-right: 2rem !important;
-  }
-  .test {
-    width: 23px;
-  }
-} */
+}
