@@ -18,7 +18,6 @@ class AddressModal extends React.Component {
       town: "",
       city: "",
       currentAddress: null,
-      postCode: "",
     },
     dateOfArrival: "",
     dateOfDeparture: "",
@@ -66,125 +65,56 @@ class AddressModal extends React.Component {
 
   sendAddress = async (e, fromPostCodeChecker) => {
     e.preventDefault();
-    if (fromPostCodeChecker) {
-      if (
-        this.state.addressFromPostCodeChecker === "" ||
-        this.state.postCodeCheckerDateOfArrival === "" ||
-        this.state.postCodeCheckerDateOfDeparture === ""
-      ) {
-        this.setState({ emptyFieldsFromPostCodeChecker: true });
-        setTimeout(
-          () => this.setState({ emptyFieldsFromPostCodeChecker: false }),
-          1500
-        );
-      } else {
-        let addressFromPostCodeCheckerInArray =
-          this.state.addressFromPostCodeChecker.split(",");
-        let addressline2FromPostCodeChecker = "";
-        addressFromPostCodeCheckerInArray[2] !== undefined
-          ? (addressline2FromPostCodeChecker =
-              addressFromPostCodeCheckerInArray[2])
-          : (addressline2FromPostCodeChecker = "");
-        const response = await fetch(
-          "https://konecktomebackend.herokuapp.com/users/update-address",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              userId: this.props.userId,
-              addressId: null,
-              buildingName: "",
-              addressLine1:
-                addressFromPostCodeCheckerInArray[0] +
-                addressFromPostCodeCheckerInArray[1],
-              addressLine2: addressline2FromPostCodeChecker.trim(),
-              town: addressFromPostCodeCheckerInArray[3].trim(),
-              city: addressFromPostCodeCheckerInArray[4].trim(),
-              currentAddress: this.state.currentAddressFromPostCodeChecker,
-              deliveryAddress: this.state.deliveryAddressFromPostCodeChecker,
-              postCode: this.state.postCodeFromPostChecker,
-              dateOfArrival: this.fixDateString(
-                this.state.postCodeCheckerDateOfArrival
-              ),
-              dateOfDeparture: this.fixDateString(
-                this.state.postCodeCheckerDateOfDeparture
-              ),
-            }),
-            headers: {
-              "Content-type": "application/json",
-            },
-          }
-        );
-        const details = await response.json();
-        if (details.message === "Address added") {
-          this.setState({ sentSuccessFromPostCodeChecker: true });
-          setTimeout(
-            () => this.setState({ sentSuccessFromPostCodeChecker: false }),
-            1500
-          );
-        } else if (
-          details.message ===
-          "Date Of Arrival cannot be more than Date Of Departure"
-        ) {
-          this.setState({ errorFromPostCodeChecker: true });
-          setTimeout(
-            () => this.setState({ errorFromPostCodeChecker: false }),
-            1500
-          );
-        }
-      }
+    if (
+      this.state.addressDetails.addressLine1 === "" ||
+      this.state.addressDetails.addressLine2 === "" ||
+      this.state.addressDetails.town === "" ||
+      this.state.addressDetails.city === "" ||
+      this.state.dateOfArrival === "" ||
+      this.state.dateOfDeparture === ""
+    ) {
+      this.setState({ emptyFields: true });
+      setTimeout(() => this.setState({ emptyFields: false }), 1500);
     } else {
-      if (
-        this.state.addressDetails.buildingName === "" ||
-        this.state.addressDetails.addressLine1 === "" ||
-        this.state.addressDetails.addressLine2 === "" ||
-        this.state.addressDetails.town === "" ||
-        this.state.addressDetails.city === "" ||
-        this.state.dateOfArrival === "" ||
-        this.state.dateOfDeparture === ""
-      ) {
-        this.setState({ emptyFields: true });
-        setTimeout(() => this.setState({ emptyFields: false }), 1500);
-      } else {
-        let addressId = null;
+      let addressId = null;
+      {
+        this.props.addressId !== undefined
+          ? (addressId = this.props.addressId)
+          : (addressId = null);
+      }
+      const response = await fetch(
+        "https://konecktomebackend.herokuapp.com/users/update-address",
         {
-          this.props.addressId !== undefined
-            ? (addressId = this.props.addressId)
-            : (addressId = null);
+          method: "POST",
+          body: JSON.stringify({
+            userId: this.props.userId,
+            addressId: addressId,
+            buildingName: this.state.addressDetails.buildingName,
+            addressLine1: this.state.addressDetails.addressLine1,
+            addressLine2: this.state.addressDetails.addressLine2,
+            town: this.state.addressDetails.town,
+            city: this.state.addressDetails.city,
+            currentAddress: false,
+            postCode: this.state.addressDetails.postCode,
+            dateOfArrival: this.fixDateString(this.state.dateOfArrival),
+            dateOfDeparture: this.fixDateString(this.state.dateOfDeparture),
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
         }
-        const response = await fetch(
-          "https://konecktomebackend.herokuapp.com/users/update-address",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              userId: this.props.userId,
-              addressId: addressId,
-              buildingName: this.state.addressDetails.buildingName,
-              addressLine1: this.state.addressDetails.addressLine1,
-              addressLine2: this.state.addressDetails.addressLine2,
-              town: this.state.addressDetails.town,
-              city: this.state.addressDetails.city,
-              currentAddress: false,
-              postCode: this.state.addressDetails.postCode,
-              dateOfArrival: this.fixDateString(this.state.dateOfArrival),
-              dateOfDeparture: this.fixDateString(this.state.dateOfDeparture),
-            }),
-            headers: {
-              "Content-type": "application/json",
-            },
-          }
-        );
-        const details = await response.json();
-        if (details.message === "Address added") {
-          this.setState({ sentSuccess: true });
-          setTimeout(() => this.setState({ sentSuccess: false }), 1500);
-          this.props.fetchUser();
-        } else if (
-          details.message ===
-          "Date Of Arrival cannot be more than Date Of Departure"
-        ) {
-          this.setState({ durationError: true });
-          setTimeout(() => this.setState({ durationError: false }), 1500);
-        }
+      );
+      const details = await response.json();
+      if (details.message === "Address added") {
+        this.setState({ sentSuccess: true });
+        setTimeout(() => this.setState({ sentSuccess: false }), 1500);
+        this.props.fetchUser();
+      } else if (
+        details.message ===
+        "Date Of Arrival cannot be more than Date Of Departure"
+      ) {
+        this.setState({ durationError: true });
+        setTimeout(() => this.setState({ durationError: false }), 1500);
       }
     }
   };
@@ -244,8 +174,15 @@ class AddressModal extends React.Component {
     if (!line2) {
       selectedAddress = line1 + "," + " " + town + "," + " " + county;
       this.setState({
-        addressFromPostCodeChecker: selectedAddress,
+        // postCode: selectedAddress,
         showAddressHolder: false,
+        addressDetails: {
+          buildingName: "",
+          postCode: this.state.postCode,
+          addressLine1: line1,
+          town: town,
+          city: county,
+        },
       });
     } else {
       selectedAddress =
@@ -253,6 +190,14 @@ class AddressModal extends React.Component {
       this.setState({
         addressFromPostCodeChecker: selectedAddress,
         showAddressHolder: false,
+        addressDetails: {
+          buildingName: "",
+          postCode: this.state.postCode,
+          addressLine1: line1,
+          addressLine2: line2,
+          town: town,
+          city: county,
+        },
       });
     }
   };
@@ -373,7 +318,7 @@ class AddressModal extends React.Component {
                   </div>
                 ) : null}
 
-                <Row className="mt-4">
+                {/* <Row className="mt-4">
                   <Col sm={12} md={6}>
                     <label className="explore-address-label">
                       Date Of Arrival
@@ -406,8 +351,8 @@ class AddressModal extends React.Component {
                       }
                     />
                   </Col>
-                </Row>
-
+                </Row> */}
+                {/* 
                 <div id="address-modal-current-delivery-checkbox-holder">
                   <div id="explore-compare-holder">
                     <label
@@ -446,8 +391,8 @@ class AddressModal extends React.Component {
                       <span id="input-compare-text">Current Address</span>
                     </label>
                   </div>
-                </div>
-                {this.state.emptyFieldsFromPostCodeChecker === true ? (
+                </div> */}
+                {/* {this.state.emptyFieldsFromPostCodeChecker === true ? (
                   <div className="error-notification-holder">
                     <p>Input fields cannot be empty</p>
                   </div>
@@ -468,163 +413,162 @@ class AddressModal extends React.Component {
                   onClick={(e) => this.sendAddress(e, true)}
                 >
                   <p className="desktop-big-button-text">Save Address</p>
-                </div>
+                </div> */}
               </form>
             </div>
 
-            {this.state.addressSelected === false ? (
-              <div>
-                <div id="or-holder">
-                  <p className="desktop-sub-header2">OR</p>
-                </div>
-                <div className="mb-4">
-                  <p className="desktop-sub-header2">Enter Address Manually</p>
-                </div>
+            <div>
+              {/* <div id="or-holder">
+                <p className="desktop-sub-header2">OR</p>
+              </div> */}
+              {/* <div className="mb-4">
+                <p className="desktop-sub-header2">Enter Address Manually</p>
+              </div> */}
 
-                <form>
-                  <Row>
-                    <Col md={6}>
-                      <div id="address-inputholder">
-                        <p className="settings_payment_user_details_label">
-                          Building name
-                        </p>
-                        <input
-                          type="text"
-                          placeholder="Ex. 1 Road Court"
-                          id="buildingName"
-                          value={this.state.addressDetails.buildingName}
-                          onChange={(e) => this.updateAddressDetails(e)}
-                        />
-                      </div>
-                    </Col>
-                    <Col md={6}>
-                      <div id="address-inputholder">
-                        <p className="settings_payment_user_details_label">
-                          Address Line 1
-                        </p>
-                        <input
-                          type="text"
-                          placeholder="Ex. 1 Road Way"
-                          id="addressLine1"
-                          value={this.state.addressDetails.addressLine1}
-                          onChange={(e) => this.updateAddressDetails(e)}
-                        />
-                      </div>
-                    </Col>
-                    <Col md={6}>
-                      <div id="address-inputholder">
-                        <p className="settings_payment_user_details_label">
-                          Address Line 2
-                        </p>
-                        <input
-                          type="text"
-                          placeholder="Ex. 1 Road Way"
-                          id="addressLine2"
-                          value={this.state.addressDetails.addressLine2}
-                          onChange={(e) => this.updateAddressDetails(e)}
-                        />
-                      </div>
-                    </Col>
-                    <Col md={6}>
-                      <div id="address-inputholder">
-                        <p className="settings_payment_user_details_label">
-                          Town
-                        </p>
-                        <input
-                          type="text"
-                          placeholder="Ex. SW5 RTD"
-                          id="town"
-                          value={this.state.addressDetails.town}
-                          onChange={(e) => this.updateAddressDetails(e)}
-                        />
-                      </div>
-                    </Col>
-                    <Col md={6}>
-                      <div id="address-inputholder">
-                        <p className="settings_payment_user_details_label">
-                          Post Code
-                        </p>
-                        <input
-                          type="text"
-                          placeholder="Enter post code"
-                          id="postCode"
-                          value={this.state.addressDetails.postCode}
-                          onChange={(e) => this.updateAddressDetails(e)}
-                        />
-                      </div>
-                    </Col>
-                    <Col md={6}>
-                      <div id="address-inputholder">
-                        <p className="settings_payment_user_details_label">
-                          City
-                        </p>
-                        <input
-                          type="text"
-                          placeholder="Enter post code"
-                          id="city"
-                          value={this.state.addressDetails.city}
-                          onChange={(e) => this.updateAddressDetails(e)}
-                        />
-                      </div>
-                    </Col>
-                    <Col md={6}>
-                      <div id="address-inputholder">
-                        <p className="settings_payment_user_details_label">
-                          Date Of Arrival
-                        </p>
-                        <input
-                          type="date"
-                          placeholder="dd-mm-yyyy"
-                          id="dateOfArrival"
-                          onChange={(e) =>
-                            this.setState({
-                              dateOfArrival: e.currentTarget.value,
-                            })
-                          }
-                        />
-                      </div>
-                    </Col>
-                    <Col md={6}>
-                      <div id="address-inputholder">
-                        <p className="settings_payment_user_details_label">
-                          Date Of Departure
-                        </p>
-                        <input
-                          type="date"
-                          placeholder="dd-mm-yyyy"
-                          id="dateOfDeparture"
-                          onChange={(e) =>
-                            this.setState({
-                              dateOfDeparture: e.currentTarget.value,
-                            })
-                          }
-                        />
-                      </div>
-                    </Col>
-                  </Row>
-                </form>
-                {this.state.sentSuccess === true ? (
-                  <div className="success-notification-holder">
-                    <p>
-                      Address Saved, Add Another Address or use the close btn
-                      above to close{" "}
-                    </p>
-                  </div>
-                ) : null}
-                {this.state.emptyFields === true ? (
-                  <div className="error-notification-holder">
-                    <p className="">Empty fields</p>
-                  </div>
-                ) : null}
-                {this.state.durationError === true ? (
-                  <div className="error-notification-holder">
-                    <p className="">
-                      Date Of Arrival Cannot Be Less Than Date Of Departure
-                    </p>
-                  </div>
-                ) : null}
-              </div>
-            ) : null}
+              <form>
+                <Row>
+                  <Col md={6}>
+                    <div id="address-inputholder">
+                      <p className="settings_payment_user_details_label">
+                        Building name
+                      </p>
+                      <input
+                        type="text"
+                        placeholder="Ex. 1 Road Court"
+                        id="buildingName"
+                        value={this.state.addressDetails.buildingName}
+                        onChange={(e) => this.updateAddressDetails(e)}
+                      />
+                    </div>
+                  </Col>
+                  <Col md={6}>
+                    <div id="address-inputholder">
+                      <p className="settings_payment_user_details_label">
+                        Address Line 1
+                      </p>
+                      <input
+                        type="text"
+                        placeholder="Ex. 1 Road Way"
+                        id="addressLine1"
+                        value={this.state.addressDetails.addressLine1}
+                        onChange={(e) => this.updateAddressDetails(e)}
+                      />
+                    </div>
+                  </Col>
+                  <Col md={6}>
+                    <div id="address-inputholder">
+                      <p className="settings_payment_user_details_label">
+                        Address Line 2
+                      </p>
+                      <input
+                        type="text"
+                        placeholder="Ex. 1 Road Way"
+                        id="addressLine2"
+                        value={this.state.addressDetails.addressLine2}
+                        onChange={(e) => this.updateAddressDetails(e)}
+                      />
+                    </div>
+                  </Col>
+                  <Col md={6}>
+                    <div id="address-inputholder">
+                      <p className="settings_payment_user_details_label">
+                        Town
+                      </p>
+                      <input
+                        type="text"
+                        placeholder="Ex. SW5 RTD"
+                        id="town"
+                        value={this.state.addressDetails.town}
+                        onChange={(e) => this.updateAddressDetails(e)}
+                      />
+                    </div>
+                  </Col>
+                  <Col md={6}>
+                    <div id="address-inputholder">
+                      <p className="settings_payment_user_details_label">
+                        Post Code
+                      </p>
+                      <input
+                        type="text"
+                        placeholder="Enter post code"
+                        id="postCode"
+                        value={this.state.addressDetails.postCode}
+                        onChange={(e) => this.updateAddressDetails(e)}
+                      />
+                    </div>
+                  </Col>
+                  <Col md={6}>
+                    <div id="address-inputholder">
+                      <p className="settings_payment_user_details_label">
+                        City
+                      </p>
+                      <input
+                        type="text"
+                        placeholder="Enter post code"
+                        id="city"
+                        value={this.state.addressDetails.city}
+                        onChange={(e) => this.updateAddressDetails(e)}
+                      />
+                    </div>
+                  </Col>
+                  <Col md={6}>
+                    <div id="address-inputholder">
+                      <p className="settings_payment_user_details_label">
+                        Date Of Arrival
+                      </p>
+                      <input
+                        type="date"
+                        placeholder="dd-mm-yyyy"
+                        id="dateOfArrival"
+                        onChange={(e) =>
+                          this.setState({
+                            dateOfArrival: e.currentTarget.value,
+                          })
+                        }
+                      />
+                    </div>
+                  </Col>
+                  <Col md={6}>
+                    <div id="address-inputholder">
+                      <p className="settings_payment_user_details_label">
+                        Date Of Departure
+                      </p>
+                      <input
+                        type="date"
+                        placeholder="dd-mm-yyyy"
+                        id="dateOfDeparture"
+                        onChange={(e) =>
+                          this.setState({
+                            dateOfDeparture: e.currentTarget.value,
+                          })
+                        }
+                      />
+                    </div>
+                  </Col>
+                </Row>
+              </form>
+              {this.state.sentSuccess === true ? (
+                <div className="success-notification-holder">
+                  <p>
+                    Address Saved, Add Another Address or use the close btn
+                    above to close{" "}
+                  </p>
+                </div>
+              ) : null}
+              {this.state.emptyFields === true ? (
+                <div className="error-notification-holder">
+                  <p className="">Empty fields</p>
+                </div>
+              ) : null}
+              {this.state.durationError === true ? (
+                <div className="error-notification-holder">
+                  <p className="">
+                    Date Of Arrival Cannot Be Less Than Date Of Departure
+                  </p>
+                </div>
+              ) : null}
+            </div>
+
             <div id="submit-btn" onClick={(e) => this.sendAddress(e, false)}>
               <div id="address-modal-button">
                 <p className="desktop-big-button-text modal-button-text">

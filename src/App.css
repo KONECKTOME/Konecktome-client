@@ -342,11 +342,12 @@
   display: flex;
   justify-content: center;
   padding-top: 1rem;
-  margin-top: 2rem;
+
   color: #ffffff;
   font-weight: 900;
   line-height: 32px;
   text-align: center;
+  margin-bottom: 1.5rem;
 }
 .error-notification-holder {
   padding: 1rem 2rem;
@@ -359,11 +360,12 @@
   display: flex;
   justify-content: center;
   padding-top: 1rem;
-  margin-top: 2rem;
+
   color: #ffffff;
   font-weight: 900;
   line-height: 22px;
   mix-blend-mode: normal;
+  margin-bottom: 1.5rem;
 }
 .exist-notification-holder {
   font-family: "Poppins bold";
@@ -376,11 +378,11 @@
   display: flex;
   justify-content: center;
   padding-top: 1rem;
-  margin-top: 2rem;
   color: #ffffff;
   font-weight: 900;
   line-height: 22px;
   mix-blend-mode: normal;
+  margin-bottom: 1.5rem;
 }
 
 input::placeholder {

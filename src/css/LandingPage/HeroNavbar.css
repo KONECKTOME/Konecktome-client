@@ -11,7 +11,7 @@
 }
 
 #logo-img {
-  width: 100%;
+  display: none;
 }
 
 #hero-navbar-demo-button {
@@ -31,8 +31,14 @@
   color: #ffffff;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
   #hero-navbar-wrapper {
     padding: 1rem 2rem;
+  }
+  #logo-img {
+    display: block;
+  }
+  #logo-img-text {
+    display: none;
   }
 }

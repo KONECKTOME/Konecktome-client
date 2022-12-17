@@ -117,8 +117,6 @@ class ExploreAddress extends Component {
           checkingPostCodeloader: false,
         });
       }
-
-      console.log(addresses[0].delivery_points);
     }
   };
 
