@@ -1,5 +1,5 @@
 #settings_home_wrapper {
-  padding: 2rem 2rem 2rem 2rem;
+  padding: 2rem;
 }
 
 #settings_home_header {
@@ -15,11 +15,15 @@
   background: #ffffff;
   box-shadow: 1px 0px 14px #f2f2f2;
   border-radius: 5px;
-  padding: 2rem 0rem 0rem 3rem;
-  height: 83vh;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  min-height: 76vh;
 }
 
 #settings_home_row {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 4.5rem;
 }
 
 .settings_navbar {
@@ -47,4 +51,32 @@
 
 .settings_navbar_inactive {
   background: blue;
+}
+
+@media screen and (max-width: 768px) {
+  #settings_home_wrapper {
+    padding: 1.5rem;
+  }
+  #settings_home_row {
+    column-gap: 3rem;
+
+  }
+}
+@media screen and (max-width: 576px) {
+  #action-wrapper {
+    overflow-x: auto;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
+  }
+  #action-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  #settings_home_row {
+    column-gap: 2rem;
+
+  }
+  #settings_home_row > * {
+    flex-shrink: 0;
+  }
+
 }

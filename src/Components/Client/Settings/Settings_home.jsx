@@ -142,32 +142,45 @@ class Settings_home extends React.Component {
         <div id="settings_home_wrapper">
           <p id="settings_home_header">Settings</p>
           <div id="settings_home_subcontainer">
-            <Row id="settings_home_row">
-              <Col>
-                <p
-                  onClick={(e) => this.alternateNav(e)}
-                  className={
-                    this.state.profile === true
-                      ? "settings_navbar_active"
-                      : "settings_navbar"
-                  }
-                >
-                  Profile
-                </p>
-              </Col>
-              <Col>
-                <p
-                  onClick={(e) => this.alternateNav(e)}
-                  className={
-                    this.state.paymentDetails === true
-                      ? "settings_navbar_active"
-                      : "settings_navbar"
-                  }
-                >
-                  Address Details
-                </p>
-              </Col>
-              {/* <Col>
+            <div id="action-wrapper">
+              <div id="settings_home_row" className="mx-0">
+                <div>
+                  <p
+                    onClick={(e) => this.alternateNav(e)}
+                    className={
+                      this.state.profile === true
+                        ? "settings_navbar_active"
+                        : "settings_navbar"
+                    }
+                  >
+                    Profile
+                  </p>
+                </div>
+                <div>
+                  <p
+                    onClick={(e) => this.alternateNav(e)}
+                    className={
+                      this.state.paymentDetails === true
+                        ? "settings_navbar_active"
+                        : "settings_navbar"
+                    }
+                  >
+                    Address Details
+                  </p>
+                </div>
+                <div>
+                  <p
+                    onClick={(e) => this.alternateNav(e)}
+                    className={
+                      this.state.passSecurity === true
+                        ? "settings_navbar_active"
+                        : "settings_navbar"
+                    }
+                  >
+                    Password and Security
+                  </p>
+                </div>
+                {/* <div>
                 <p
                   onClick={(e) => this.alternateNav(e)}
                   className={
@@ -178,9 +191,9 @@ class Settings_home extends React.Component {
                 >
                   Accounts
                 </p>
-              </Col> */}
+              </div> */}
 
-              {/* <Col>
+                {/* <div>
                 <p
                   onClick={(e) => this.alternateNav(e)}
                   className={
@@ -191,20 +204,9 @@ class Settings_home extends React.Component {
                 >
                   Import Data
                 </p>
-              </Col> */}
-              <Col>
-                <p
-                  onClick={(e) => this.alternateNav(e)}
-                  className={
-                    this.state.passSecurity === true
-                      ? "settings_navbar_active"
-                      : "settings_navbar"
-                  }
-                >
-                  Password and Security
-                </p>
-              </Col>
-              {/* <Col>
+              </div> */}
+
+                {/* <div>
                 <p
                   onClick={(e) => this.alternateNav(e)}
                   className={
@@ -215,9 +217,10 @@ class Settings_home extends React.Component {
                 >
                   Close Accounts
                 </p>
-              </Col> */}
-            </Row>
-            <hr></hr>
+              </div> */}
+              </div>
+            </div>
+            <hr className="mt-4"></hr>
             {this.state.profile === true ? (
               <Settings_profile
                 userDetails={this.context.userDetails}

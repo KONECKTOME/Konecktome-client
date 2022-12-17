@@ -37,7 +37,7 @@ class Explore_comparison extends React.Component {
                   })}
                 </div>
                 <div
-                  className="desktop-small-button mt-4"
+                  className="desktop-small-button mt-4 mb-0"
                   //   onClick={() =>
                   //     this.buyService(
                   //       this.props.deal[0].dealName,
