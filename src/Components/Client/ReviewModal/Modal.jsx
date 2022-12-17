@@ -6,13 +6,50 @@ class Modal extends React.Component {
   state = {
     rating: 0,
     hover: 0,
+    comment: "",
+  };
+
+  sendReview = async (e) => {
+    e.preventDefault();
+    if (this.state.rating === 0 || this.state.comment === "") {
+      alert("emoty fileds");
+    } else {
+      const response = await fetch(
+        `https://konecktomebackend.herokuapp.com/companies/update-reviews`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            userId: this.props.userId,
+            companyId: this.props.companyId,
+            rating: this.state.rating,
+            comment: this.state.comment,
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
+      const details = await response.json();
+      if (details.message === "New review added") {
+        this.setState({
+          rating: 0,
+          hover: 0,
+          comment: "",
+        });
+        alert("success");
+      } else {
+        alert("not added");
+      }
+    }
   };
   render() {
     return (
       <div class="review-modal">
         <div class="review-modal-content">
           <div id="review-modal-header">
-            <h3 className="desktop-sub-header2">Service Provider</h3>
+            <h3 className="desktop-sub-header2">
+              Leave A Review For {this.props.serviceProviderName}
+            </h3>
             <button onClick={() => this.props.hide()}>
               <CrossIcon color="#000" />
             </button>
@@ -51,13 +88,16 @@ class Modal extends React.Component {
                 id="review-modal-message"
                 rows="3"
                 cols="50"
-
-                // value={this.state.details.email}
-                // onChange={(e) => this.updateDetails(e)}
+                value={this.state.comment}
+                onChange={(e) =>
+                  this.setState({
+                    comment: e.currentTarget.value,
+                  })
+                }
               />
             </form>
           </div>
-          <div id="review-modal-body">
+          <div id="review-modal-body" onClick={(e) => this.sendReview(e)}>
             <div id="review-modal-button">
               <p className="desktop-big-button-text modal-button-text">
                 Add Review

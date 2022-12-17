@@ -12,6 +12,9 @@ class Account_home extends React.Component {
     showModal: false,
     loading: true,
     accounts: [],
+    serviceProviderName: "",
+    companyId: "",
+    userId: "",
   };
 
   componentDidMount = () => {
@@ -19,7 +22,6 @@ class Account_home extends React.Component {
   };
 
   getUser = async () => {
-    console.log("context", this.context);
     let id = "";
     const idInArray = this.props.location.pathname.split("/");
     if (idInArray.length === 4) {
@@ -29,7 +31,7 @@ class Account_home extends React.Component {
     } else if (idInArray.length === 6) {
       id = this.props.location.pathname.split("/")[4];
     }
-    console.log("from account", id);
+
     const response = await fetch(
       `https://konecktomebackend.herokuapp.com/users/get-user-by-id/${id}`,
       {
@@ -45,12 +47,20 @@ class Account_home extends React.Component {
         loading: true,
       });
     } else {
-      this.setState({ accounts: userDetails.accounts, loading: false });
+      this.setState({
+        accounts: userDetails.accounts,
+        loading: false,
+        userId: id,
+      });
     }
   };
 
-  showReviewModal = () => {
-    this.setState({ showModal: true });
+  showReviewModal = (serviceProviderName, companyId) => {
+    this.setState({
+      showModal: true,
+      serviceProviderName: serviceProviderName,
+      companyId: companyId,
+    });
   };
 
   hideReviewModal = () => {
@@ -67,7 +77,6 @@ class Account_home extends React.Component {
               <p className="desktop-header m-0">My Accounts</p>
             </div>
             {this.state.accounts.length !== 0 ? (
-              
               <div className="cards mt-5">
                 {this.state.accounts.map((acc) => {
                   return (
@@ -100,7 +109,14 @@ class Account_home extends React.Component {
                           <p className="desktop-price"> Price</p>
                           <p className="desktop-price-number">£{acc.price}</p>
                         </div>
-                        <div onClick={() => this.showReviewModal()}>
+                        <div
+                          onClick={() =>
+                            this.showReviewModal(
+                              acc.serviceProviderName,
+                              acc.companyId
+                            )
+                          }
+                        >
                           <p className="desktop-cta">Write a review</p>
                         </div>
                       </div>
@@ -127,7 +143,12 @@ class Account_home extends React.Component {
             )}
 
             {this.state.showModal === true ? (
-              <Modal hide={() => this.hideReviewModal()} />
+              <Modal
+                hide={() => this.hideReviewModal()}
+                serviceProviderName={this.state.serviceProviderName}
+                companyId={this.state.companyId}
+                userId={this.state.userId}
+              />
             ) : null}
           </div>
         )}
