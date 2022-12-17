@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 
 import "../css/AboutUs.css";
-
-import aboutKonecktomelogo from "../Assets/USP Assets/Konecktome.png";
+import aboutKonecktomelogo from "../Assets/USP Assets/konecktome-about.png";
 
 class About extends Component {
   state = {};
