@@ -20,7 +20,7 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 30px;
-  color: #fff;
+  color: #000000;
   mix-blend-mode: normal;
 }
 
@@ -36,7 +36,7 @@
   shrin */
   font-family: "Poppins bold";
   font-style: normal;
-  font-weight:bold;
+  font-weight: bold;
   font-size: 14px;
   line-height: 30px;
   margin-left: 1.2rem;
@@ -45,4 +45,10 @@
 
 #footer-second-wrapper.copyright-text {
   margin-top: 2.5rem;
+}
+
+@media screen and (max-width: 767px) {
+  #footer-third-wrapper {
+    display: block;
+  }
 }
