@@ -138,186 +138,217 @@ class Settings_profile extends React.Component {
                       src={profilePictureIcon}
                       id="settings_profile_edit_icon"
                     />
+                    <input
+                      hidden
+                      id="file-input"
+                      type="file"
+                      image="file"
+                      onChange={(e) => this.handleChange(e)}
+                      accept="image/*"
+                    />
                   </label>
-                  <input
-                    id="file-input"
-                    type="file"
-                    image="file"
-                    onChange={(e) => this.handleChange(e)}
-                    accept="image/*"
-                  />
                 </div>
               </div>
             </div>
             <div id="settings-profile-details-container">
               {this.state.showEditProfile === true ? (
-                <Row id="edit-profile-row">
-                  <Col lg={4}>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Name</p>
-                      <div className="settings-profile-input-container">
-                        <input
-                          id="firstName"
-                          value={this.state.userDetails.firstName}
-                          onChange={(e) => this.updateUserDetails(e)}
-                        />
+                <>
+                  <Row id="edit-profile-row" className="mx-0">
+                    <Col sm={6} xl={4}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">Name</p>
+                        <div className="settings-profile-input-container">
+                          <input
+                            id="firstName"
+                            value={this.state.userDetails.firstName}
+                            onChange={(e) => this.updateUserDetails(e)}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Phone</p>
-                      <div className="settings-profile-input-container">
-                        <input
-                          id="phone"
-                          value={this.state.userDetails.phone}
-                          onChange={(e) => this.updateUserDetails(e)}
-                        />
+                    </Col>
+                    <Col sm={6} xl={4}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">Last Name</p>
+                        <div className="settings-profile-input-container">
+                          <input
+                            id="lastName"
+                            value={this.state.userDetails.lastName}
+                            onChange={(e) => this.updateUserDetails(e)}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Date Of Birth</p>
-                      <div className="settings-profile-input-container">
-                        <input
-                          id="dob"
-                          type="date"
-                          value={this.state.dob}
-                          onChange={(e) =>
-                            this.setState({ dob: e.currentTarget.value })
-                          }
-                        />
+                    </Col>
+                    <Col sm={6} xl={4}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">Email</p>
+                        <div className="settings-profile-input-container">
+                          <input
+                            id="email"
+                            value={this.state.userDetails.email}
+                            onChange={(e) => this.updateUserDetails(e)}
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </Col>
+                    </Col>
 
-                  <Col lg={4}>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Last Name</p>
-                      <div className="settings-profile-input-container">
-                        <input
-                          id="lastName"
-                          value={this.state.userDetails.lastName}
-                          onChange={(e) => this.updateUserDetails(e)}
-                        />
+                    <Col sm={6} xl={4}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">Phone</p>
+                        <div className="settings-profile-input-container">
+                          <input
+                            id="phone"
+                            value={this.state.userDetails.phone}
+                            onChange={(e) => this.updateUserDetails(e)}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Profession</p>
-                      <div className="settings-profile-input-container">
-                        <input
-                          id="profession"
-                          value={this.state.userDetails.profession}
-                          onChange={(e) => this.updateUserDetails(e)}
-                        />
+                    </Col>
+                    <Col sm={6} xl={4}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">Profession</p>
+                        <div className="settings-profile-input-container">
+                          <input
+                            id="profession"
+                            value={this.state.userDetails.profession}
+                            onChange={(e) => this.updateUserDetails(e)}
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </Col>
-                  <Col lg={4}>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Email</p>
-                      <div className="settings-profile-input-container">
-                        <input
-                          id="email"
-                          value={this.state.userDetails.email}
-                          onChange={(e) => this.updateUserDetails(e)}
-                        />
+                    </Col>
+
+                    <Col sm={6} xl={4}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">Gender</p>
+                        <div className="settings-profile-input-container">
+                          <input
+                            id="gender"
+                            value={this.state.userDetails.gender}
+                            onChange={(e) => this.updateUserDetails(e)}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Gender</p>
-                      <div className="settings-profile-input-container">
-                        <input
-                          id="gender"
-                          value={this.state.userDetails.gender}
-                          onChange={(e) => this.updateUserDetails(e)}
-                        />
+                    </Col>
+                    <Col sm={6} xl={4}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">
+                          Date Of Birth
+                        </p>
+                        <div className="settings-profile-input-container">
+                          <input
+                            id="dob"
+                            type="date"
+                            value={this.state.dob}
+                            onChange={(e) =>
+                              this.setState({ dob: e.currentTarget.value })
+                            }
+                          />
+                        </div>
                       </div>
-                    </div>
+                    </Col>
+                    <Col sm={6} xl={4}></Col>
                     <div
                       id="settings-profile-button"
                       onClick={(e) => this.updateProfileDetails(e)}
                     >
                       <p>Update Profile</p>
                     </div>
-                  </Col>
-                </Row>
+                  </Row>
+                </>
               ) : (
-                <Row id="profile-details-row">
-                  <Col>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Name</p>
-                      <p id="settings_profile_details_sub_header">
-                        {this.props.userDetails.firstName}
-                      </p>
-                    </div>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Phone</p>
-                      <p id="settings_profile_details_sub_header">
-                        {this.props.userDetails.phone === undefined ||
-                        this.props.userDetails.phone === null
-                          ? "Note Provided"
-                          : this.props.userDetails.phone}
-                      </p>
-                    </div>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Age</p>
-                      <p id="settings_profile_details_sub_header">
-                        {this.props.userDetails.age === undefined ||
-                        this.props.userDetails.age === null
-                          ? "Note Provided"
-                          : this.props.userDetails.age}
-                        years
-                      </p>
-                    </div>
-                  </Col>
-                  <Col>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Last Name</p>
-                      <p id="settings_profile_details_sub_header">
-                        {this.props.userDetails.lastName}
-                      </p>
-                    </div>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Profession</p>
-                      <p id="settings_profile_details_sub_header">
-                        {this.props.userDetails.profession === undefined ||
-                        this.props.userDetails.profession === null
-                          ? "Note Provided"
-                          : this.props.userDetails.profession}
-                      </p>
-                    </div>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Date Of Birth</p>
-                      <p id="settings_profile_details_sub_header">
-                        {this.props.userDetails.dob === undefined ||
-                        this.props.userDetails.dob === null
-                          ? "Note Provided"
-                          : this.props.userDetails.dob}
-                      </p>
-                    </div>
-                  </Col>
-                  <Col>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Email</p>
-                      <p id="settings_profile_details_sub_header">
-                        {this.props.userDetails.email}
-                      </p>
-                    </div>
-                    <div className="settings-profile-input-label-container">
-                      <p id="settings_profile_details_header">Gender</p>
-                      <p id="settings_profile_details_sub_header">
-                        {this.props.userDetails.gender === undefined ||
-                        this.props.userDetails.gender === null
-                          ? "Not Provided"
-                          : this.props.userDetails.gender}
-                      </p>
-                    </div>
+                <>
+                  <Row id="profile-details-row" className="mx-0">
+                    <Col sm={7} xl={4}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">Name</p>
+                        <p id="settings_profile_details_sub_header">
+                          {this.props.userDetails.firstName}
+                        </p>
+                      </div>
+                    </Col>
+                    <Col sm={5} xl={3}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">Last Name</p>
+                        <p id="settings_profile_details_sub_header">
+                          {this.props.userDetails.lastName}
+                        </p>
+                      </div>
+                    </Col>
+                    <Col sm={7} xl={5}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">Email</p>
+                        <p id="settings_profile_details_sub_header">
+                          {this.props.userDetails.email}
+                        </p>
+                      </div>
+                    </Col>
+
+                    <Col sm={5} xl={4}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">Phone</p>
+                        <p id="settings_profile_details_sub_header">
+                          {this.props.userDetails.phone === undefined ||
+                          this.props.userDetails.phone === null
+                            ? "Note Provided"
+                            : this.props.userDetails.phone}
+                        </p>
+                      </div>
+                    </Col>
+                    <Col sm={7} xl={3}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">Profession</p>
+                        <p id="settings_profile_details_sub_header">
+                          {this.props.userDetails.profession === undefined ||
+                          this.props.userDetails.profession === null
+                            ? "Note Provided"
+                            : this.props.userDetails.profession}
+                        </p>
+                      </div>
+                    </Col>
+                    <Col sm={5} xl={5}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">Gender</p>
+                        <p id="settings_profile_details_sub_header">
+                          {this.props.userDetails.gender === undefined ||
+                          this.props.userDetails.gender === null
+                            ? "Not Provided"
+                            : this.props.userDetails.gender}
+                        </p>
+                      </div>
+                    </Col>
+
+                    <Col sm={7} xl={4}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">Age</p>
+                        <p id="settings_profile_details_sub_header">
+                          {this.props.userDetails.age === undefined ||
+                          this.props.userDetails.age === null
+                            ? "Note Provided"
+                            : this.props.userDetails.age}{" "}
+                          years
+                        </p>
+                      </div>
+                    </Col>
+                    <Col sm={5} xl={3}>
+                      <div className="settings-profile-input-label-container">
+                        <p id="settings_profile_details_header">
+                          Date Of Birth
+                        </p>
+                        <p id="settings_profile_details_sub_header">
+                          {this.props.userDetails.dob === undefined ||
+                          this.props.userDetails.dob === null
+                            ? "Note Provided"
+                            : this.props.userDetails.dob}
+                        </p>
+                      </div>
+                    </Col>
                     <div
                       id="settings-profile-button"
                       onClick={() => this.showEditProfile()}
                     >
                       <p>Edit Profile</p>
                     </div>
-                  </Col>
-                </Row>
+                  </Row>
+                </>
               )}
             </div>
           </div>
