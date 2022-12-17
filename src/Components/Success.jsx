@@ -21,13 +21,13 @@ class Sucess extends React.Component {
                 <p id="success-header">
                   Confirmed! You’re on the newsletter list!
                 </p>
-                <p>Thanks for being awesome!</p>
-                <p>
+                <p id="success-subtext">Thanks for being awesome!</p>
+                <p id="success-subtext">
                   You’ll be receiving our congratulatory email from us shortly,
                   so make sure to keep a lookout for it! Don’t forget to check
                   your spam section too just in case we end up there.
                 </p>
-                <p>
+                <p id="success-subtext">
                   Feel free to also spread the word about the upcoming platform
                   that ensures you get the best value for yourself at no cost at
                   all. Who wouldn't love that!

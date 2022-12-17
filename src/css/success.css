@@ -1,4 +1,4 @@
-/* @font-face {
+@font-face {
   font-family: "Poppins regular";
   src: url(../Fonts/Poppins-Regular.ttf);
 }
@@ -30,7 +30,7 @@
   margin-top: 30px;
 }
 
-p {
+#success-subtext {
   font-family: Poppins;
   font-style: normal;
   font-weight: bold;
@@ -43,4 +43,4 @@ p {
   #success-left-col {
     display: none;
   }
-} */
+}
