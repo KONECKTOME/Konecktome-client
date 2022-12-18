@@ -23,7 +23,15 @@
 #settings_home_row {
   display: flex;
   align-items: flex-start;
-  column-gap: 4.5rem;
+  max-width: 950px;
+  justify-content: space-between;
+  /* column-gap: 4.5rem; */
+}
+#settings_home_row > * {
+  /* flex: 1; */
+}
+#settings_home_row > *  > p{
+  /* width: fit-content; */
 }
 
 .settings_navbar {
@@ -59,6 +67,8 @@
   }
   #settings_home_row {
     column-gap: 3rem;
+  justify-content: flex-start;
+
 
   }
 }

@@ -42,19 +42,23 @@
 
 #settings_payment_user_details {
   width: 100%;
-  display: flex;
+  /* display: flex; */
   justify-content: space-between;
   margin-top: 1.5rem;
 }
 
 .settings_payment_user_details_inner_div {
   margin-bottom: 2rem;
+  min-height: 48px;
 }
 
+#settings_payment_user_details .settings_payment_user_details_label {
+  margin-bottom: 0 !important;
+}
 .settings_payment_user_details_label {
   font-family: "Poppins regular";
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 16px;
   line-height: 24px;
   color: #000000;

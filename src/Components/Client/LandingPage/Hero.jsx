@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 import Animation from "../../../Animation/Circles_Hover_Animation.json";
 import Lottie from "lottie-react";
 import { withRouter } from "react-router-dom";
+import FacebookIcon from "../../SvgIcons/FacebookIcon";
+import TwitterIcon from "../../SvgIcons/TwitterIcon";
+import LinkedinIcon from "../../SvgIcons/LinkedinIcon";
 
 class Hero extends Component {
   state = {
@@ -234,6 +237,12 @@ class Hero extends Component {
                   <p className="desktop-text fs-4 ms-3">Facebook</p>
                 </div>
               </div>
+              <div id="socialmedia-icons-container" >
+              <a href="#!"><FacebookIcon size="25" color="#fff" /></a>
+              <a href="#!"><TwitterIcon size="25" color="#fff" /></a>
+              <a href="#!"><LinkedinIcon size="25" color="#fff" /></a>
+              </div>
+
               {/* <div id="hero-btn-wrapper">
                 <Link to="/signup" className="links">
                   <div id="hero-sign-up-btn-wrapper">

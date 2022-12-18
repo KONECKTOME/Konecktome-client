@@ -286,3 +286,9 @@
     padding-left: 2rem;
   }
 }
+
+@media screen and (max-width:576px) {
+#about-holder img {
+  width: 80vw;
+}
+}
