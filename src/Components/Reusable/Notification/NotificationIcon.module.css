@@ -1,0 +1,29 @@
+.notificationIconWrapper{
+    position: relative;
+}
+.notificationIconWrapper span{
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    background-color: #F44236;
+    color: #fff;
+    border-radius: 999px;
+    min-width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    outline: 3px solid #fff;    
+}
+.notificationIconWrapper.secondary{
+    width: fit-content;
+}
+.notificationIconWrapper.secondary .bellIconWrapper{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5px;
+}

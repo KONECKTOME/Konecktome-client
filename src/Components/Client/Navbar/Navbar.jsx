@@ -9,6 +9,7 @@ import "../../../css/Navbar/Navbar.css";
 import { useState } from "react";
 import AvatarIcon from "../../SvgIcons/AvatarIcon";
 import HamburgerIcon from "../../SvgIcons/HamburgerIcon";
+import NotificationIcon from "../../Reusable/Notification/NotificationIcon";
 
 const Navbar = (props) => {
   const { userDetails } = useContext(UserDetailsContext);
@@ -52,8 +53,17 @@ const Navbar = (props) => {
         </div> */}
 
         <li id="Hamburger-Icon">
-          <button onClick={()=>{props.isSideBarShown(true)}}>
+          <button
+            onClick={() => {
+              props.isSideBarShown(true);
+            }}
+          >
             <HamburgerIcon size="30" color="#19233A" />
+          </button>
+        </li>
+        <li id="notification-icon">
+          <button>
+            <NotificationIcon notifications={5} />
           </button>
         </li>
         <li id="nav-image">
