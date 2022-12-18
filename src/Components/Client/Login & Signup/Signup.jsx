@@ -107,8 +107,8 @@ class Signup extends React.Component {
             () => this.setState({ sendLoading: false, success: false }),
             1500
           );
-          // window.location.href = `https://konecktome-mvp.herokuapp.com/dashboard/${details.id}`;
-          window.location.href = `http://localhost:3000/dashboard/${details.id}`;
+          window.location.href = `https://konecktome-mvp.herokuapp.com/dashboard/${details.id}`;
+          // window.location.href = `http://localhost:3000/dashboard/${details.id}`;
         }
       }
     }
@@ -135,7 +135,7 @@ class Signup extends React.Component {
         <div id="signup-container">
           <Row id="signup-row" className="mx-0">
             <Col md={6} className="p-0">
-             <div id="signup-left-column" className="w-100 h-100">
+              <div id="signup-left-column" className="w-100 h-100">
                 <img src={signUpImage} />
               </div>
             </Col>
