@@ -14,15 +14,13 @@ class About extends Component {
         <div id="about-us-holder" className="details-wrapper">
           <div>
             <p id="about-us-sub-text">
-              KONECKTOME creates an avenue for you to have easy access to a
-              secure, centralised platform where your personal details data can
-              be stored, easily retrieved and used for any service you want to
-              use it for, without any hassle.
+              KONECKTOME is the comparison site for lower-priced and
+              highly-rated services such as broadband, utilities, and financial
+              services.
             </p>
             <p id="about-us-sub-text" className="second-para">
-              We focus on personalisation, ease, and integration with your
-              personal data, to enable you to efficiently sign up and purchase
-              various services and products.
+              Get genuine feedback from real purchasers, to help you in the
+              journey to making your perfect buy.
             </p>
           </div>
         </div>
