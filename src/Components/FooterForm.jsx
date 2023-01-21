@@ -82,7 +82,7 @@ class FooterForm extends Component {
         method: "POST",
         body: JSON.stringify({
           fName: this.state.details.firstName,
-          lName: this.state.details.lastName,
+          lName: "no name",
           email: this.state.details.email,
         }),
         headers: {
@@ -181,17 +181,8 @@ class FooterForm extends Component {
                         <input
                           id="firstName"
                           type="text"
-                          placeholder="First Name"
+                          placeholder="Your Name"
                           value={this.state.details.firstName}
-                          onChange={(e) => this.updateDetails(e)}
-                        />
-                      </Col>
-                      <Col>
-                        <input
-                          id="lastName"
-                          type="text"
-                          placeholder="Last Name"
-                          value={this.state.details.lastName}
                           onChange={(e) => this.updateDetails(e)}
                         />
                       </Col>

@@ -67,7 +67,7 @@ class Comingsoon extends Component {
         method: "POST",
         body: JSON.stringify({
           fName: this.state.details.firstName,
-          lName: this.state.details.lastName,
+          lName: "",
           email: this.state.details.email,
         }),
         headers: {
@@ -106,7 +106,7 @@ class Comingsoon extends Component {
         method: "POST",
         body: JSON.stringify({
           fName: this.state.details.firstName,
-          lName: this.state.details.lastName,
+          lName: "no name",
           email: this.state.details.email,
         }),
         headers: {
@@ -226,26 +226,13 @@ class Comingsoon extends Component {
                 /> */}
               </div>
               <form>
-                <Row>
-                  <Col>
-                    <input
-                      id="firstName"
-                      type="text"
-                      placeholder="First Name"
-                      value={this.state.details.firstName}
-                      onChange={(e) => this.updateDetails(e)}
-                    />
-                  </Col>
-                  <Col>
-                    <input
-                      id="lastName"
-                      type="text"
-                      placeholder="Last Name"
-                      value={this.state.details.lastName}
-                      onChange={(e) => this.updateDetails(e)}
-                    />
-                  </Col>
-                </Row>
+                <input
+                  id="firstName"
+                  type="text"
+                  placeholder="Your Name"
+                  value={this.state.details.firstName}
+                  onChange={(e) => this.updateDetails(e)}
+                />
                 <input
                   id="email"
                   type="email"
