@@ -1,414 +1,154 @@
 import React, { Component } from "react";
 import "../../../css/Explore/Explore_home.css";
-import image_placeholder from "../../../Assets/account-card-placeholder.png";
-import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
-import Explore_comparison from "./Explore_comparison";
-import Loader from "../Loader/Loader";
-import SmallLoader from "../Loader/SmallLoader";
-import Rating from "../../Reusable/Rating";
-import CrossIcon from "../../SvgIcons/CrossIcon";
+import placeholder from "../../../Assets/virginMediaLogo.png";
 
 class Explore_home extends Component {
   state = {
-    companies: [],
+    data: [1, 2, 3],
     deals: [],
-    searchDeals: [],
-    searchStatus: false,
-    searchQuery: "",
-    showCompare: false,
-    compareItems: [],
-    compareMoreThanOne: false,
-    compareLength: null,
-    showComparePage: false,
-    checkedItems: [],
-    checked: false,
-    batchValue: 6,
-    loading: true,
   };
 
   componentDidMount = async () => {
-    const dealArr = [];
-    const response = await fetch(
-      `https://konecktomebackend.herokuapp.com/companies/all-deals`,
-      {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json",
-        },
-      }
-    );
+    this.getDeals();
+  };
+
+  getDeals = async () => {
+    const response = await fetch(`http://localhost:3002/aff/`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
     const deals = await response.json();
-    if (deals) {
-      this.setState({ loading: false, deals });
-    }
+    console.clear();
+    console.log(deals.message);
+
+    this.setState({ deals: deals.message });
   };
 
-  getDealById = async () => {
-    const response = await fetch(
-      `https://konecktomebackend.herokuapp.com/companies/get-deal-by-id/${this.props.match.params.dealId}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json",
-        },
-      }
-    );
-    const deal = await response.json();
-    this.setState({ deal: deal.message });
-    console.log(this.state.deal);
-  };
-
-  searchDeals = (e) => {
-    e.preventDefault();
-    let searchResult = [];
-    let searchQuery = e.currentTarget.value
-      .split(" ")
-      .join("")
-      .trim()
-      .toLowerCase();
-    const deals = this.state.deals;
-
-    for (let deal in deals) {
-      if (
-        deals[deal].dealName
-          .split(" ")
-          .join("")
-          .trim()
-          .toLowerCase()
-          .includes(searchQuery) === true
-      ) {
-        searchResult.push(deals[deal]);
-        this.setState({ searchDeals: searchResult, searchStatus: true });
-      }
-      if (this.state.searchQuery === "") {
-        this.setState({ searchDeals: [], searchStatus: false });
-      }
-    }
-  };
-
-  showCompare = (dealName, dealPrice, features, dealContractPlans, e) => {
-    if (e.target.checked === false && this.state.compareLength === 1) {
-      this.setState({
-        checkedItems: [],
-        showCompare: false,
-        compareItems: [],
-        compareMoreThanOne: false,
-        compareLength: "",
-      });
-    } else if (e.target.checked === false && this.state.compareLength > 1) {
-      const filter = this.state.compareItems.filter(
-        (item) => item.dealName !== dealName
-      );
-      this.setState({
-        compareItems: filter,
-        compareLength: filter.length,
-      });
-    } else if (this.state.compareLength === 4) {
-      alert("too much");
-    } else if (e.target.checked === true && this.state.compareLength !== 4) {
-      let compareItem = { dealName, dealPrice, features, dealContractPlans };
-      this.setState((state) => ({
-        showCompare: true,
-        compareItems: state.compareItems.concat([compareItem]),
-        compareLength: this.state.compareItems.length + 1,
-      }));
-
-      if (this.state.compareItems.length > 0) {
-        this.setState({
-          compareMoreThanOne: true,
-        });
-      } else {
-        this.setState({
-          compareMoreThanOne: false,
-        });
-      }
-      console.log(this.state.compareMoreThanOne);
-    }
-  };
-
-  deleteCompareItem = (dealName) => {
-    if (this.state.compareLength === 1) {
-      const filter = this.state.compareItems.filter(
-        (item) => item.dealName !== dealName
-      );
-      this.setState({
-        compareItems: filter,
-        compareLength: filter.length,
-        showCompare: false,
-      });
-    } else {
-      const filter = this.state.compareItems.filter(
-        (item) => item.dealName !== dealName
-      );
-      this.setState({
-        compareItems: filter,
-        compareLength: filter.length,
-      });
-    }
-  };
-
-  showComparePage = () => {
-    if (this.state.showComparePage === true) {
-      this.setState({
-        showComparePage: false,
-        showCompare: false,
-        compareItems: [],
-        compareMoreThanOne: false,
-        compareLength: "",
-        showComparePage: false,
-      });
-    } else {
-      this.setState({
-        showComparePage: true,
-      });
-    }
-  };
-
-  batchLoader = () => {
-    let numberOfDealItems = this.state.deals.length;
-    this.setState({ batchValue: this.state.batchValue + 3 });
-  };
-
-  render(props) {
+  render() {
     return (
       <>
-        {this.state.loading === true ? (
-          <SmallLoader />
-        ) : (
-          <div id="explore-wrapper">
-            <p className="desktop-header m-0">Explore</p>
-            {this.state.showComparePage === true ? (
-              <div>
-                <Explore_comparison
-                  compareItems={this.state.compareItems}
-                  showComparePage={() => this.showComparePage()}
-                  {...props}
-                />
-              </div>
-            ) : (
-              <>
-                {/* <div id="form-div">
-              <form>
-                <input
-                  id="searchQuery"
-                  type="text"
-                  placeholder="Search by name, category"
-                  className="explore-search-form"
-                  onKeyUp={(e) => this.searchDeals(e)}
-                  // value={this.state.details.email}
-                  onChange={(e) =>
-                    this.setState({ searchQuery: e.currentTarget.value })
-                  }
-                />
-              </form>
-            </div> */}
-                {this.state.searchStatus === false ? (
-                  <div id="explore-inner-div">
-                    <div id="explore-cards-pagination-wrapper">
-                      <div
-                        className="cards"
-                        id={
-                          this.state.showCompare === true
-                            ? "explore-cards-shown"
-                            : null
-                        }
-                      >
-                        {this.state.deals
-                          .slice(0, this.state.batchValue)
-                          .map((deal) => {
-                            return (
-                              <div className="card">
-                                <div id="image-holder">
-                                  <img
-                                    src={deal.companyLogo}
-                                    // src={image_placeholder}
-                                    className="card-image"
-                                  />
-                                </div>
-                                <div className="card-inner-first-div mb-1">
-                                  <p className="desktop-sub-header2">
-                                    {deal.dealName} By {deal.companyName}
+        <div id="kt-af-deals">
+          <div className="cards">
+            {this.state.deals.map((item) => {
+              return (
+                <div className="card">
+                  <div>
+                    <div id="dsk-card-header">
+                      <Row>
+                        <Col lg={2} md={2}>
+                          <img src={placeholder} className="card-image" />
+                        </Col>
+                        <Col lg={8} md={8}>
+                          <div>
+                            <p className="desktop-header">{item.title}</p>
+                            {/* {item.promotions.length != 0 ? (
+                              <Row id="ch-promotions">
+                                <Col id="ch-promotions-col">
+                                  <p className="desktop-text">
+                                    This is a promotion text
                                   </p>
-                                </div>
-                                <Rating />
-                                <div className="desktop-badge1 mt-3">
-                                  <p className="desktop-badge-text">
-                                    {deal.tag}
+                                </Col>
+                                <Col id="ch-promotions-col">
+                                  <p className="desktop-text">
+                                    This is a promotion text
                                   </p>
-                                </div>
-                                <div id="account-card-footer">
-                                  <div id="explore-compare-holder">
-                                    <label
-                                      for="compare"
-                                      className="desktop-price"
-                                      id="compare-label"
-                                    >
-                                      <input
-                                        value={deal.dealName}
-                                        id={deal.dealName}
-                                        type="checkbox"
-                                        onChange={(e) =>
-                                          this.showCompare(
-                                            deal.dealName,
-                                            deal.dealPrice,
-                                            deal.features,
-                                            deal.dealContractPlans,
-                                            e
-                                          )
-                                        }
-                                      />
-
-                                      <span id="input-compare-text">
-                                        Compare
-                                      </span>
-                                    </label>
-                                  </div>
-                                  <div>
-                                    <p className="desktop-price"> Price</p>
-                                    <p className="desktop-price-number">
-                                      £{deal.dealPrice}
-                                    </p>
-                                  </div>
-                                  <div>
-                                    <Link
-                                      className="links"
-                                      to={
-                                        "/dashboard/explore/details/" +
-                                        this.props.match.params.userid +
-                                        "/" +
-                                        deal._id
-                                      }
-                                    >
-                                      <p className="desktop-cta">
-                                        View details
-                                      </p>
-                                    </Link>
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          })}
+                                </Col>
+                                <Col id="ch-promotions-col">
+                                  <p className="desktop-text">
+                                    This is a promotion text
+                                  </p>
+                                </Col>
+                              </Row>
+                            ) : null} */}
+                          </div>
+                        </Col>
+                        <Col lg={2} md={2}>
+                          <div className="desktop-big-button-transparent">
+                            <p className="desktop-big-button-transparent-text">
+                              Promotion
+                            </p>
+                          </div>
+                        </Col>
+                      </Row>
+                    </div>
+                    <div id="mw-card-header">
+                      <Row>
+                        <Col>
+                          <img src={placeholder} className="card-image" />
+                        </Col>
+                        <Col>
+                          <div className="desktop-big-button-transparent">
+                            <p className="desktop-big-button-transparent-text">
+                              Promotion
+                            </p>
+                          </div>
+                        </Col>
+                      </Row>
+                      <div>
+                        <p className="desktop-header">{item.title}</p>
+                        <Row id="ch-promotions">
+                          <Col id="ch-promotions-col">
+                            <p className="desktop-text">
+                              This is a promotion text
+                            </p>
+                          </Col>
+                          <Col id="ch-promotions-col">
+                            <p className="desktop-text">
+                              This is a promotion text
+                            </p>
+                          </Col>
+                          <Col id="ch-promotions-col">
+                            <p className="desktop-text">
+                              This is a promotion text
+                            </p>
+                          </Col>
+                        </Row>
                       </div>
                     </div>
-                    <div
-                      className="desktop-big-button"
-                      id="explore-send-address"
-                    >
-                      <p
-                        className="desktop-big-button-text"
-                        onClick={() => this.batchLoader()}
-                      >
-                        Load More
-                      </p>
+                    <div id="card-body">
+                      <div id="cb-price-box">
+                        <p className="desktop-header">
+                          £{item.price}{" "}
+                          <span className="desktop-text">/month</span>
+                        </p>
+                      </div>
+                      <div id="cb-contract-box">
+                        <p className="desktop-header">
+                          {item.duration}{" "}
+                          {/* <span className="desktop-text">months contract</span> */}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ) : (
-                  <div id="explore-inner-div">
-                    <div id="explore-cards-pagination-wrapper">
-                      <div className="cards">
-                        {this.state.searchDeals.map((deal) => {
+                    <div id="card-footer">
+                      <div id="features">
+                        {item.features.map((feature) => {
                           return (
-                            <div className="card">
-                              <div id="image-holder">
-                                <img
-                                  src={image_placeholder}
-                                  className="card-image"
-                                />
-                              </div>
-                              <div className="card-inner-first-div">
-                                <p className="desktop-sub-header2">
-                                  {deal.dealName} By {deal.companyName}
-                                </p>
-                                <div>
-                                  <p>Stars</p>
-                                  <p>Trust Pilot ratings</p>
-                                </div>
-                              </div>
-                              <div>
-                                {/* <p className="desktop-sub-header2">{deal.dealName}</p> */}
-                                <div className="desktop-badge1">
-                                  <p className="desktop-badge-text">
-                                    {deal.tag}
-                                  </p>
-                                </div>
-                              </div>
-                              <div id="account-card-footer">
-                                <div>
-                                  <p className="desktop-price"> Price</p>
-                                  <p className="desktop-price-number">
-                                    £{deal.dealPrice}
-                                  </p>
-                                </div>
-                                <div>
-                                  <Link
-                                    className="links"
-                                    to={
-                                      "/dashboard/explore/details/" +
-                                      this.props.match.params.userid +
-                                      "/" +
-                                      deal._id
-                                    }
-                                  >
-                                    <p className="desktop-cta">View details</p>
-                                  </Link>
-                                </div>
-                              </div>
+                            <div id="cf-features-holder">
+                              <p className="desktop-text">{feature}</p>
                             </div>
                           );
                         })}
                       </div>
-                      {/* <div className="pagination-button">dhdh</div> */}
-                    </div>
-                  </div>
-                )}
-                {this.state.showCompare === true ? (
-                  <div id="explore-compare-items-wrapper">
-                    <Row className="justify-content-center">
-                      {this.state.compareItems.map((item) => {
-                        return (
-                          <Col lg={3} md={4} sm={6} className="pb-4">
-                            <div id="explore-compare-items-inner" className="pe-3">
-                              <div id="explore-compare-item">
-                                <p className="desktop-text">{item.dealName}</p>
-                                <p className="desktop-price-number">
-                                  £{item.dealPrice}
-                                </p>
-                              </div>
-                              <div
-                                id="explore-compare-delete-btn"
-                                onClick={() =>
-                                  this.deleteCompareItem(item.dealName)
-                                }
-                                className="ms-3"
-                              >
-                                <CrossIcon size="22" color="#000" />
-                              </div>
-                            </div>
-                          </Col>
-                        );
-                      })}
-                    </Row>
-                    {this.state.compareMoreThanOne === false ? (
-                      <p className="my-4">Add Another Deal to Begin Comparing</p>
-                    ) : (
-                      <div
-                        id="explore-compare-btn"
-                        onClick={() => this.showComparePage()}
-                      >
+                      <div id="cf-cta-holder">
                         <div className="desktop-small-button">
-                          <p className="desktop-big-button-text">
-                            Compare {this.state.compareLength} Of 4
+                          <p className="desktop-medium-button-text">
+                            Visit Now
                           </p>
                         </div>
                       </div>
-                    )}
+                    </div>
                   </div>
-                ) : null}
-              </>
-            )}
+                  <div id="card-footer-2">
+                    <p className="desktop-text">See all deals from brand</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        )}
+        </div>
       </>
     );
   }

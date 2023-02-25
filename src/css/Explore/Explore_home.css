@@ -24,139 +24,90 @@
   }
 }
 
-#explore-wrapper {
-  padding: 2rem 2rem 2rem 2rem;
-  position: relative;
+#mw-card-header {
+  display: none;
 }
 
-#explore-form-btn {
+#card-body {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-bottom: 2rem;
 }
 
-#form-div {
-  background: #ffffff;
-  box-shadow: 0px 1px 14px #f2f2f2;
-  border-radius: 4px;
-  height: 52px;
+#cb-price-box {
+  background-color: #ab7ab6;
+  min-width: fit-content;
+  word-wrap: break-word;
+  width: 45%;
+  border-radius: 5px;
+  height: auto;
+  padding: 1.5rem;
+  text-align: center;
 }
 
-.explore-search-form {
-  border: none !important;
+#cb-contract-box {
+  width: 45%;
+  min-width: fit-content;
+  word-wrap: break-word;
+  border-radius: 5px;
+  height: auto;
+  background: transparent;
+  padding: 1.5rem;
+  border: 1px solid #ae7cb8;
+  text-align: center;
 }
 
-.explore-search-form input {
-  width: 80%;
-}
-
-.explore-search-form::placeholder {
-  font-family: "Poppins regular";
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 27px;
-  color: #000000;
-}
-
-#explore-dropdown-div {
-  width: 20%;
-}
-
-#explore-inner-div {
-  margin-top: 3rem;
-}
-
-#explore-cards-pagination-wrapper {
+#card-footer > #features {
   display: flex;
   justify-content: space-between;
   margin-bottom: 3rem;
 }
 
-#explore-cards-shown {
-  margin-bottom: 23rem;
+#cf-dot {
+  height: 10px;
+  width: 10px;
+  background-color: #000000;
+  border-radius: 50%;
+  display: block;
 }
 
-#explore-compare-holder input[type="checkbox"] {
-  width: 25px;
-  height: 25px;
-  /* margin-bottom: 1rem; */
-  float: left;
-  margin-left: 0;
+#card-footer #cf-features-holder {
+  margin-top: 1rem;
 }
 
-#input-compare-text {
-  overflow: auto;
-  margin-left: 1rem;
-}
-
-#explore-compare-holder input[type="checkbox"]:checked {
-  background: green !important;
-  accent-color:green ;
-}
-
-#compare-label {
-  display: inline-block;
-}
-
-#explore-compare-items-wrapper {
-  position: fixed;
-  background-color: #fff;
-  z-index: 1;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  box-shadow: 0 -2px 6px 0 rgb(33 48 56 / 20%);
-  padding: 2.5rem 3rem 0rem 2.5rem;
-  animation-duration: 0.5s;
-  animation-name: animate-pop;
-  animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
-}
-
-#explore-compare-items-wrapper > p {
-  text-align: center;
-  font-family: "Poppins bold";
-  font-size: 24px;
-}
-
-#explore-compare-items-inner {
-  border-radius: 10px;
-  border: 1px solid #cdd8df;
-  background-color: #fff;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+#cf-cta-holder {
+  float: right;
   display: flex;
   justify-content: space-between;
 }
 
-#explore-compare-item {
-  width: 80%;
-  border-right: 1px solid grey;
+#card-footer-2 {
+  background-color: #f5f5f5;
 }
 
-#explore-compare-delete-btn {
-  padding: .7rem;
-  font-family: "Poppins regular";
-  background: transparent;
-  border-radius: 25%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border: 2px solid #5e5e5e;
+#card-footer-2 .desktop-text {
+  color: #005fb9;
+  font-style: italic;
 }
 
-#explore-compare-delete-btn > p {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 30px;
-  color: #000000;
+#ch-promotions-col:not(:last-child) {
+  border-right: solid 2px black;
 }
+@media screen and (max-width: 768px) {
+  #dsk-card-header {
+    display: none;
+  }
+  #mw-card-header {
+    display: block;
+  }
 
-#explore-compare-btn {
-  margin-top: 2rem;
-  margin-bottom: 0;
-  display: flex;
-  justify-content: center;
+  #card-footer > #features {
+    display: block;
+    text-align: center;
+    width: auto;
+  }
+
+  #card-body {
+    margin: 3rem 0 3rem 0;
+  }
 }

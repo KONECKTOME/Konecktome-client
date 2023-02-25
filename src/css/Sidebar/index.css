@@ -18,7 +18,7 @@
 }
 
 #sidebar-list {
-  margin-top: 54px;
+  margin-top: 2rem;
   display: flex;
 }
 
@@ -44,7 +44,9 @@
   border-bottom: 2px solid transparent;
 }
 #user-detail {
-  display: none;
+  display: block;
+  padding-block: 30px 20px;
+  padding-inline: 1rem;
 }
 
 .links.active #nav-items-list {
@@ -105,16 +107,15 @@
   color: #ffffff;
 }
 
-@media screen and (max-width: 768px) {
-  
+#nav-items-list input[type="checkbox"]:checked {
+  background: green !important;
+  accent-color: green;
+}
 
-  
+@media screen and (max-width: 768px) {
   #sidebar-list {
     margin-top: 10px;
   }
-
-
-
   #sidebar-wrapper,
   #sidebar-wrapper ul {
     height: 100%;
@@ -127,7 +128,7 @@
     display: block;
     padding-block: 30px 20px;
     padding-inline: 2rem;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+    /* border-bottom: 2px solid rgba(0, 0, 0, 0.08); */
     /* padding-bottom: 30px !important; */
   }
   .user-Avatar {

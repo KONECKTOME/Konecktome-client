@@ -45,13 +45,6 @@ const Navbar = (props) => {
   return (
     <div id="nav-wrapper">
       <ul>
-        {/* <div id="notification-wrapper">
-          <li>
-            <img src={notifications_icon} />
-            <span id="notifications-badge">1</span>
-          </li>
-        </div> */}
-
         <li id="Hamburger-Icon">
           <button
             onClick={() => {
@@ -61,11 +54,7 @@ const Navbar = (props) => {
             <HamburgerIcon size="30" color="#19233A" />
           </button>
         </li>
-        <li id="notification-icon">
-          <button>
-            <NotificationIcon notifications={5} />
-          </button>
-        </li>
+
         <li id="nav-image">
           <div>
             {userDetails.imageUrl === undefined || !userDetails.imageUrl ? (
