@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Explore_home from "./Components/Client/Explore/Explore_home";
-import Navbar from "./Components/Client/Navbar/Navbar";
+// import Navbar from "./Components/Client/Navbar/Navbar";
 import Explore_comparison from "./Components/Client/Explore/Explore_comparison";
 import Explore_details from "./Components/Client/Explore/Explore_details";
 import Index from "./Components/Client/Sidebar/Index";
+import Home from "./Components/Client/LandingPage/Home";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { UserDetailsContext } from "./Components/Client/Context/UserDetailsContext";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -17,19 +18,7 @@ import "../src/App.css";
 
 class App extends Component {
   state = {
-    userDetails: {},
-    dealDetails: [],
-    loading: false,
-    installationDateAndTime: null,
     sideBarClassName: "default",
-  };
-
-  checkForLettersAndNumbers = (str) => {
-    return /^[a-zA-Z]+$/.test(str);
-  };
-
-  resetBoughtDeal = () => {
-    this.setState({ installationDateAndTime: "" });
   };
 
   sideBarToggle = (boolean) => {
@@ -45,12 +34,10 @@ class App extends Component {
   };
 
   render(props) {
-    const userDetails = this.state.userDetails;
-    const dealDetails = this.state.dealDetails;
-    const loading = this.state.loading;
     return (
       <div className="App">
         <Router>
+          {console.log("app")}
           <div id="fe-wrapper">
             <div
               id="left-col"
@@ -68,49 +55,19 @@ class App extends Component {
                   e.stopPropagation();
                 }}
               >
-                <Index
-                  userDetails={this.state.userDetails}
-                  signOut={() => this.signOut()}
-                  isSideBarShown={this.sideBarToggle}
-                  {...props}
-                />
+                <Index isSideBarShown={this.sideBarToggle} {...props} />
               </div>
             </div>
             <div id="right-col">
-              <UserDetailsContext.Provider
-                value={{ userDetails, dealDetails, loading }}
-              >
-                <Navbar
-                  isSideBarShown={this.sideBarToggle}
-                  signOut={() => this.signOut()}
-                  {...props}
+              {/* <Navbar isSideBarShown={this.sideBarToggle} {...props} /> */}
+              <Switch>
+                <Route
+                  path="/explore/details"
+                  exact
+                  component={Explore_details}
                 />
-                <Switch>
-                  <Route
-                    path="/dashboard/explore/details/:userid/:dealId"
-                    exact
-                    render={(props) => (
-                      <Explore_details
-                        fetchUser={() => this.getUser()}
-                        populateBoughtDeal={(dealName) =>
-                          this.populateBoughtDeal(dealName)
-                        }
-                        userDetailsAsProps={this.state.userDetails}
-                        dealDetails={this.state.dealDetails}
-                        {...props}
-                        // key={window.location.pathname}
-                      />
-                    )}
-                  />
-                  <Route path="/" exact component={Explore_home} />
-
-                  <Route
-                    path="/dashboard/explore/compare/:userid/:dealId"
-                    exact
-                    component={Explore_comparison}
-                  />
-                </Switch>
-              </UserDetailsContext.Provider>
+                <Route path="/explore" exact component={Explore_home} />
+              </Switch>
             </div>
           </div>
         </Router>

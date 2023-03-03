@@ -6,56 +6,40 @@ import { Link, withRouter } from "react-router-dom";
 
 class Explore_details_left_col extends React.Component {
   state = {
-    compareDeals: [],
+    deals: [1, 2, 3],
   };
 
-  componentDidUpdate(prevProps) {
-    if (this.props.match.params.dealId !== prevProps.match.params.dealId) {
-      this.props.getDeal(this.props.match.params.dealId);
-    }
-  }
-
-  goToDeal = (dealId) => {
-    this.props.history.push(
-      "/dashboard/explore/details/" +
-        this.props.match.params.userid +
-        "/" +
-        dealId
-    );
-  };
   render() {
     return (
       <>
-          <p className="desktop-sub-header2 left-col-heading">
-            People viewing this deal, also viewed
-          </p>
+        <p className="desktop-sub-header2 left-col-heading">
+          People viewing this deal, also viewed
+        </p>
         <div id="left">
-          {this.props.deals.slice(0, 2).map((item) => {
+          {this.state.deals.slice(0, 2).map((item) => {
             return (
               <div className="card" id="explore-details-left-card">
                 <div id="image-holder">
-                  <img src={item.companyLogo} className="card-image" />
+                  {/* <img src={item.companyLogo} className="card-image" /> */}
                 </div>
                 <div
                   id="account-card-inner-first-div"
                   onClick={() => this.goToDeal(item._id)}
                 >
-                  <p className="desktop-sub-header2">
-                    {item.dealName} By {item.companyName}
-                  </p>
+                  <p className="desktop-sub-header2">here</p>
                 </div>
 
-                <p className="desktop-sub-header2">{item.subTitle}</p>
+                <p className="desktop-sub-header2">here</p>
 
                 <div>
                   <div className="desktop-badge1 mt-3">
-                    <p className="desktop-badge-text ">{item.tag}</p>
+                    <p className="desktop-badge-text ">here</p>
                   </div>
                 </div>
                 <div id="account-card-footer">
                   <div>
                     <p className="desktop-price"> Price</p>
-                    <p className="desktop-price-number">£{item.dealPrice}</p>
+                    <p className="desktop-price-number">£here</p>
                   </div>
                   <div
                     onClick={() => this.goToDeal(item._id)}

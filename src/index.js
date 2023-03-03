@@ -3,12 +3,21 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  withRouter,
+} from "react-router-dom";
+import Home from "./Components/Client/LandingPage/Home";
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {console.log("here")}
+    <Router>
+      <Route path="/" exact component={Home} />
+      <Route path="/explore" exact component={App} />
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );
