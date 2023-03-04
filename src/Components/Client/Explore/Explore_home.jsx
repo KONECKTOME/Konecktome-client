@@ -2,37 +2,19 @@ import React, { Component } from "react";
 import "../../../css/Explore/Explore_home.css";
 import { Row, Col } from "react-bootstrap";
 import placeholder from "../../../Assets/virginMediaLogo.png";
+import { Link } from "react-router-dom";
 
 class Explore_home extends Component {
   state = {
     data: [1, 2, 3],
-    deals: [],
   };
 
-  componentDidMount = async () => {
-    this.getDeals();
-  };
-
-  getDeals = async () => {
-    const response = await fetch(`http://localhost:3002/aff/`, {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    const deals = await response.json();
-    console.clear();
-    console.log(deals.message);
-
-    this.setState({ deals: deals.message });
-  };
-
-  render() {
+  render(props) {
     return (
       <>
         <div id="kt-af-deals">
           <div className="cards">
-            {this.state.deals.map((item) => {
+            {this.props.deals.map((item) => {
               return (
                 <div className="card">
                   <div>
@@ -141,9 +123,11 @@ class Explore_home extends Component {
                       </div>
                     </div>
                   </div>
-                  <div id="card-footer-2">
-                    <p className="desktop-text">See all deals from brand</p>
-                  </div>
+                  <Link to={"/explore/brand/" + item._id} className="links">
+                    <div id="card-footer-2">
+                      <p className="desktop-text">See all deals from brand</p>
+                    </div>
+                  </Link>
                 </div>
               );
             })}

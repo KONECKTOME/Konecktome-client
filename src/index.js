@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import Explore_details from "./Components/Client/Explore/Explore_details";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -14,10 +15,7 @@ import Home from "./Components/Client/LandingPage/Home";
 ReactDOM.render(
   <React.StrictMode>
     {console.log("here")}
-    <Router>
-      <Route path="/" exact component={Home} />
-      <Route path="/explore" exact component={App} />
-    </Router>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

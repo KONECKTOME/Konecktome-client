@@ -1,40 +1,13 @@
 import React, { Component } from "react";
 import "../../../css/Sidebar/index.css";
 import konecktome_icon from "../../../Assets/konecktome-logo.svg";
-import { Row, Col } from "react-bootstrap";
 import { NavLink, withRouter } from "react-router-dom";
-import DashboardIcon from "../../SvgIcons/DashboardIcon";
 import AvatarIcon from "../../SvgIcons/AvatarIcon";
-import ExploreIcon from "../../SvgIcons/ExploreIcon";
-import HistoryIcon from "../../SvgIcons/HistoryIcon";
-import WishlistIcon from "../../SvgIcons/WishlistIcon";
-import SurveyIcon from "../../SvgIcons/SurveyIcon";
-import SettingsIcon from "../../SvgIcons/SettingsIcon";
 
 class Index extends Component {
   state = {
     active: false,
     activeCheckBoxClass: false,
-    userId: "",
-  };
-
-  componentDidMount = () => {
-    this.getUserId();
-  };
-
-  getUserId = () => {
-    let userId = "";
-    const idInArray = this.props.location.pathname.split("/");
-    if (idInArray.length === 4) {
-      userId = this.props.location.pathname.split("/")[3];
-    } else if (idInArray.length === 3) {
-      userId = this.props.location.pathname.split("/")[2];
-    } else if (idInArray.length === 6) {
-      userId = this.props.location.pathname.split("/")[4];
-    } else if (idInArray.length === 5) {
-      userId = this.props.location.pathname.split("/")[3];
-    }
-    this.setState({ userId: userId });
   };
 
   activeClass = (e) => {
@@ -46,6 +19,7 @@ class Index extends Component {
       };
     });
   };
+
   render() {
     return (
       <div id="sidebar-wrapper">
@@ -74,7 +48,10 @@ class Index extends Component {
                 </div>
               </div>
             </li>
-            <li id="nav-items-list">
+            <li
+              id="nav-items-list"
+              onClick={() => this.props.setFilter("speed", 10)}
+            >
               <div>
                 <div className={`d-flex align-item-center`}>
                   <div>
@@ -90,7 +67,10 @@ class Index extends Component {
                 </div>
               </div>
             </li>
-            <li id="nav-items-list">
+            <li
+              id="nav-items-list"
+              onClick={() => this.props.setFilter("speed", 30)}
+            >
               <div>
                 <div className={`d-flex align-item-center`}>
                   <div>
@@ -106,7 +86,10 @@ class Index extends Component {
                 </div>
               </div>
             </li>
-            <li id="nav-items-list">
+            <li
+              id="nav-items-list"
+              onClick={() => this.props.setFilter("speed", 50)}
+            >
               <div>
                 <div className={`d-flex align-item-center`}>
                   <div>
@@ -178,7 +161,10 @@ class Index extends Component {
                 </div>
               </div>
             </li>
-            <li id="nav-items-list">
+            <li
+              id="nav-items-list"
+              onClick={() => this.props.setFilter("price", 25)}
+            >
               <div>
                 <div className={`d-flex align-item-center`}>
                   <div>
