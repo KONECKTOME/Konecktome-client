@@ -1,10 +1,5 @@
 import React, { Component, useContext } from "react";
-import menu_icon from "../../../Assets/Navbar_menu_icon.svg";
-import search_icon from "../../../Assets/navbar_search_icon.svg";
-import notifications_icon from "../../../Assets/notification.svg";
-import placeholder_image from "../../../Assets/nav-placeholder-image.png";
-import dropdown_icon from "../../../Assets/dropdown-icon.svg";
-import { UserDetailsContext } from "../Context/UserDetailsContext";
+
 import "../../../css/Navbar/Navbar.css";
 import { useState } from "react";
 import AvatarIcon from "../../SvgIcons/AvatarIcon";
