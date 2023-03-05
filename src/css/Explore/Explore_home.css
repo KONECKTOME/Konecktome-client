@@ -31,36 +31,45 @@
 #card-body {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin: 3rem 0 3rem 0;
 }
 
 #cb-price-box {
   background-color: #ab7ab6;
   min-width: fit-content;
-  word-wrap: break-word;
-  width: 45%;
+  width: 20%;
   border-radius: 5px;
-  height: auto;
+  max-height: 150px;
   padding: 1.5rem;
-  text-align: center;
 }
 
 #cb-contract-box {
-  width: 45%;
-
-  word-wrap: break-word;
+  width: 25%;
   border-radius: 5px;
-  height: auto;
+  max-height: 150px;
   background: transparent;
   padding: 1.5rem;
   border: 1px solid #ae7cb8;
+}
+
+#cb-package-box {
+  width: 20%;
+  border-radius: 5px;
+  max-height: 150px;
+  background: transparent;
+  padding: 1.5rem;
+  border: 1px solid #ae7cb8;
+}
+
+#cb-package-box > .desktop-header {
   text-align: center;
 }
 
-#card-footer > #features {
+#cb-package-icon-box {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 3rem;
+  width: 80%;
+  margin-top: 1.5rem;
 }
 
 #cf-dot {
@@ -71,9 +80,18 @@
   display: block;
 }
 
-#card-footer #cf-features-holder {
-  margin-top: 1rem;
+#features-col {
+  margin-bottom: 2rem;
 }
+
+/* #features-col ::before {
+  content: "";
+  height: 10px;
+  width: 10px;
+  background-color: #000000;
+  border-radius: 50%;
+  display: block;
+} */
 
 #cf-cta-holder {
   float: right;
@@ -83,6 +101,7 @@
 
 #card-footer-2 {
   background-color: #f5f5f5;
+  padding: 2rem;
 }
 
 #card-footer-2 .desktop-text {
@@ -90,8 +109,28 @@
   font-style: italic;
 }
 
+/* #cb-package-icon-box > div {
+  padding: 1rem 2rem;
+  border-radius: 90em;
+  background-color: #ab7ab6;
+} */
+
+#cb-package-icon-box > div:not(:last-child) {
+  margin-right: 1rem;
+}
+
+#cb-package-icon-box > div > .desktop-text {
+  font-weight: 700;
+  font-size: 16px;
+}
+
 #ch-promotions-col:not(:last-child) {
-  border-right: solid 2px black;
+  border-right: solid 2px #000000;
+}
+
+.cb-icon-box-image {
+  width: 35px;
+  height: 35px;
 }
 @media screen and (max-width: 768px) {
   #dsk-card-header {
