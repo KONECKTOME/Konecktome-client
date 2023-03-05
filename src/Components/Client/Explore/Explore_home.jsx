@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../../css/Explore/Explore_home.css";
 import { Row, Col } from "react-bootstrap";
-import placeholder from "../../../Assets/virginMediaLogo.png";
+// import placeholder from "../../../Assets/virginMediaLogo.png";
 import { Link } from "react-router-dom";
 
 class Explore_home extends Component {
@@ -21,7 +21,7 @@ class Explore_home extends Component {
                     <div id="dsk-card-header">
                       <Row>
                         <Col lg={2} md={2}>
-                          <img src={placeholder} className="card-image" />
+                          {/* <img src={placeholder} className="card-image" /> */}
                         </Col>
                         <Col lg={8} md={8}>
                           <div>
@@ -59,7 +59,7 @@ class Explore_home extends Component {
                     <div id="mw-card-header">
                       <Row>
                         <Col>
-                          <img src={placeholder} className="card-image" />
+                          {/* <img src={placeholder} className="card-image" /> */}
                         </Col>
                         <Col>
                           <div className="desktop-big-button-transparent">

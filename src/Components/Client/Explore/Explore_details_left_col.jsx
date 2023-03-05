@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
-import placeholder from "../../../Assets/virginMediaLogo.png";
+// import placeholder from "../../../Assets/virginMediaLogo.png";
 
 class Explore_details_left_col extends React.Component {
   state = {
@@ -42,7 +42,7 @@ class Explore_details_left_col extends React.Component {
                   <div id="dsk-card-header">
                     <Row>
                       <Col lg={2} md={2}>
-                        <img src={placeholder} className="card-image" />
+                        {/* <img src={placeholder} className="card-image" /> */}
                       </Col>
                       <Col lg={8} md={8}>
                         <div>
@@ -61,7 +61,7 @@ class Explore_details_left_col extends React.Component {
                   <div id="mw-card-header">
                     <Row>
                       <Col>
-                        <img src={placeholder} className="card-image" />
+                        {/* <img src={placeholder} className="card-image" /> */}
                       </Col>
                       <Col>
                         <div className="desktop-big-button-transparent">

@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 import "../../../css/Explore/Explore_details.css";
-import image_placeholder from "../../../Assets/account-card-placeholder.png";
 import placeholder_image from "../../../Assets/nav-placeholder-image.png";
 import { Link, withRouter } from "react-router-dom";
-import { UserDetailsContext } from "../Context/UserDetailsContext";
-import ExploreInstallationInfo from "./ExploreInstallationInfo";
-import Loader from "../Loader/Loader";
-import { Row, Col } from "react-bootstrap";
+
 import Rating from "../../Reusable/Rating";
 class Explore_details_right_col extends React.Component {
-  static contextType = UserDetailsContext;
   state = {
     reviews: [1, 2, 3],
   };
