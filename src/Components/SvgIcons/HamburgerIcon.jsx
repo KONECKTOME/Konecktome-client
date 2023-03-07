@@ -4,7 +4,7 @@ const HamburgerIcon = ({ size = "20",color = "#A3A2A2" }) => {
       width={size}
       height={size}
       viewBox="0 0 24 24"
-      fill="none"
+      fill={color}
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect
@@ -13,7 +13,6 @@ const HamburgerIcon = ({ size = "20",color = "#A3A2A2" }) => {
         width="18.8095"
         height="2.28571"
         rx="1.14286"
-        fill={color}
       />
       <rect
         x="3"
@@ -21,7 +20,6 @@ const HamburgerIcon = ({ size = "20",color = "#A3A2A2" }) => {
         width="13.022"
         height="2.28571"
         rx="1.14286"
-        fill={color}
       />
       <rect
         x="3"
@@ -29,7 +27,6 @@ const HamburgerIcon = ({ size = "20",color = "#A3A2A2" }) => {
         width="15.9158"
         height="2.28571"
         rx="1.14286"
-        fill={color}
       />
     </svg>
   );

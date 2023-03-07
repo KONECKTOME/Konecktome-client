@@ -1,0 +1,157 @@
+.heroSection {
+  padding-inline: 2.4rem;
+  padding-block: 113px 48px;
+  background-image: radial-gradient(
+    bottom right,
+    circle cover,
+    #dfc0e0 5%,
+    #C5A3CC 16%,
+    #D4B5D8 32%,
+    #E2C6E3 48%,
+    #D4B5D8 60%,
+    #FFE9FA 80%
+  );
+  background-image: -moz-radial-gradient(
+    bottom right,
+    circle cover,
+    #dfc0e0 5%,
+    #C5A3CC 16%,
+    #D4B5D8 32%,
+    #E2C6E3 48%,
+    #D4B5D8 60%,
+    #FFE9FA 80%
+  );
+  background-image: -o-radial-gradient(
+    bottom right,
+    circle cover,
+    #dfc0e0 5%,
+    #C5A3CC 16%,
+    #D4B5D8 32%,
+    #E2C6E3 48%,
+    #D4B5D8 60%,
+    #FFE9FA 80%
+  );
+  background-image: -webkit-radial-gradient(
+    top,
+    circle cover,
+    #dfc0e0 5%,
+    #C5A3CC 16%,
+    #D4B5D8 32%,
+    #E2C6E3 48%,
+    #D4B5D8 60%,
+    #FFE9FA 80%
+  );
+}
+.heroSection h2 {
+  text-align: center;
+  font-size: 4.8rem;
+  font-family: "ui-serif", "Times New Roman", "Cambria", "Georgia", "Times",
+    "serif";
+    font-weight: 600;
+  margin-bottom: 20px;
+color: #6a385f;
+
+}
+.heroSection .tagline {
+  font-family: "Poppins Regular";
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  max-width: 896px;
+  margin-bottom: 7rem !important;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.heroSection .cardContainer {
+  padding-inline: calc(2rem + (125vw - 34rem) / 54.5);
+  max-width: 1280px;
+  margin-inline: auto;
+
+
+}
+.heroSection .cardContainer .title {
+  font-family: "Poppins medium";
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.heroSection .cardContainer .cardWrapper {
+  padding: 8px;
+}
+.heroSection .cardContainer .cardWrapper button {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 100%;
+  padding-block: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: #fff;
+  box-shadow: 0 3px 14px rgba(125, 42, 111, 0.1);
+  transition: 0.3s linear;
+  border-radius: 5px;
+
+}
+
+.heroSection .cardWrapper button div {
+  border: 4px solid;
+  border-radius: 16px;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s linear;
+}
+.heroSection .cardWrapper button:hover {
+  box-shadow: 0 4px 8px 0 rgba(100, 102, 106, 0.2),
+    0 8px 16px 0 rgba(100, 102, 106, 0.2);
+}
+.heroSection .cardWrapper button:hover div {
+  transform: scale(1.2);
+}
+.heroSection .cardWrapper button h4 {
+  font-family: "Poppins bold";
+  font-weight: 700;
+  text-align: center;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 1200px) {
+  .heroSection .cardContainer .cardWrapper button {
+    flex-direction: row;
+    padding: 24px;
+  }
+  .heroSection .cardWrapper button div {
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 1028px) {
+  .heroSection .cardContainer {
+    padding-inline: 1rem;
+  }
+  .heroSection .cardWrapper button:hover div {
+    transform: scale(1.1);
+  }
+}
+@media screen and (max-width: 768px) {
+  .heroSection {
+    padding-top: 48px;
+  }
+  .heroSection h2 {
+    font-size: 3.6rem;
+  }
+  .heroSection .tagline {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .heroSection .cardWrapper button h4 {
+    text-align: left;
+    font-size: 16px;
+  }
+}

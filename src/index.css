@@ -12,8 +12,8 @@ html {
 }
 
 body {
-    font-size: 1.6rem;
-    font-family: "Poppins regular", sans-serif;
+    font-size: 1.6rem !important;
+    font-family: "Poppins regular", sans-serif !important;
     /* width: 100vw !important; */
     /* overflow-x: hidden; */
     line-height: 1.5;

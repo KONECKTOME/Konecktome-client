@@ -10,6 +10,7 @@ import {
   withRouter,
 } from "react-router-dom";
 import "../src/App.css";
+import Blog from "./Components/Client/Blog/Blog";
 
 class App extends Component {
   state = {
@@ -34,6 +35,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path="/" exact component={Home} />
+            <Route path="/blog" exact component={Blog} />
             <Route path="/explore" component={RHome}></Route>
           </Switch>
         </Router>

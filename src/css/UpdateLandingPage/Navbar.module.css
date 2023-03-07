@@ -1,0 +1,106 @@
+.header{
+    background-color: #fff;
+    border-bottom: 2px solid #eae5eb;
+}
+.navContainer {
+  max-width: 1280px;
+  padding-inline: calc(2rem + (125vw - 34rem) / 54.5);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  column-gap: 4.8rem;
+}
+.navContainer .linksContainer {
+  display: flex;
+  height: 82px;
+}
+
+.navContainer .linksContainer .filterButton {
+  all: unset;
+  flex-shrink: 0;
+  width: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 1.6rem 2rem;
+  transition: background-color 0.4s ease-out;
+}
+.navContainer .linksContainer .filterButton .iconWrapper {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-right: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navContainer .linksContainer .filterButton .iconWrapper svg {
+  transition: transform 0.3s ease-in-out;
+}
+
+.navContainer .linksContainer .filterButton h4 {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+}
+.navContainer .linksContainer .filterButton p {
+  font-size: 1.2rem;
+}
+
+.filterButtonDefault {
+  background-color: #fff;
+}
+
+.filterButtonDefault .iconWrapper {
+  background-color: #f5f5f5;
+}
+.filterButtonDefault .iconWrapper svg {
+  fill: #000;
+}
+
+.filterButtonDefault p {
+  color: #64666a;
+}
+
+.filterButtonActive {
+  background-color: #f5f5f5 !important;
+}
+.filterButtonActive .iconWrapper {
+  background-color: #ac7ab6;
+}
+.filterButtonActive .iconWrapper svg {
+  fill: #fff;
+  transform: rotate(180deg);
+}
+
+.filterButtonActive h4,
+.filterButtonActive p {
+  color: #ac7ab6;
+}
+
+.navContainer .hamBurgerBtn {
+  all: unset;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  display: none;
+}
+
+@media screen and (max-width: 1028px) {
+  .navContainer {
+    height: 82px;
+    padding-inline: 1.6rem;
+    justify-content: space-between;
+  }
+  .navContainer .linksContainer {
+    display: none;
+  }
+  .navContainer .hamBurgerBtn {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+    .navContainer {
+        height: 64px;
+      }
+}
