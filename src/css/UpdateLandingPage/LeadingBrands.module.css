@@ -1,0 +1,51 @@
+.leadingBrandsContainer {
+  /* padding-block: 4.8rem; */
+  padding-bottom: 4.8rem;
+  padding-inline: calc(3rem + (125vw - 34rem) / 54.5);
+  max-width: 1280px;
+  margin-inline: auto;
+  background-color: #fff;
+}
+.leadingBrandsContainer h4 {
+  font-family: "Poppins bold";
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.4rem;
+}
+.leadingBrandsContainer .gridContainer {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.6rem;
+}
+.leadingBrandsContainer .gridContainer > * {
+  outline: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.leadingBrandsContainer .gridContainer > * img {
+  max-width: 100%;
+  object-fit: contain;
+  width: 168px;
+  aspect-ratio: 168/60;
+}
+
+@media screen and (max-width: 1028px) {
+  .leadingBrandsContainer {
+    padding-inline: 3.4rem;
+  }
+  .leadingBrandsContainer .gridContainer {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media screen and (max-width: 768px) {
+  .leadingBrandsContainer .gridContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media screen and (max-width: 600px) {
+  .leadingBrandsContainer h4 {
+    text-align: center;
+  }
+}
