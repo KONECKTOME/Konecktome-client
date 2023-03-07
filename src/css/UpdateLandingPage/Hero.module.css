@@ -5,41 +5,41 @@
     bottom right,
     circle cover,
     #dfc0e0 5%,
-    #C5A3CC 16%,
-    #D4B5D8 32%,
-    #E2C6E3 48%,
-    #D4B5D8 60%,
-    #FFE9FA 80%
+    #c5a3cc 16%,
+    #d4b5d8 32%,
+    #e2c6e3 48%,
+    #d4b5d8 60%,
+    #ffe9fa 80%
   );
   background-image: -moz-radial-gradient(
     bottom right,
     circle cover,
     #dfc0e0 5%,
-    #C5A3CC 16%,
-    #D4B5D8 32%,
-    #E2C6E3 48%,
-    #D4B5D8 60%,
-    #FFE9FA 80%
+    #c5a3cc 16%,
+    #d4b5d8 32%,
+    #e2c6e3 48%,
+    #d4b5d8 60%,
+    #ffe9fa 80%
   );
   background-image: -o-radial-gradient(
     bottom right,
     circle cover,
     #dfc0e0 5%,
-    #C5A3CC 16%,
-    #D4B5D8 32%,
-    #E2C6E3 48%,
-    #D4B5D8 60%,
-    #FFE9FA 80%
+    #c5a3cc 16%,
+    #d4b5d8 32%,
+    #e2c6e3 48%,
+    #d4b5d8 60%,
+    #ffe9fa 80%
   );
   background-image: -webkit-radial-gradient(
     top,
     circle cover,
     #dfc0e0 5%,
-    #C5A3CC 16%,
-    #D4B5D8 32%,
-    #E2C6E3 48%,
-    #D4B5D8 60%,
-    #FFE9FA 80%
+    #c5a3cc 16%,
+    #d4b5d8 32%,
+    #e2c6e3 48%,
+    #d4b5d8 60%,
+    #ffe9fa 80%
   );
 }
 .heroSection h2 {
@@ -47,10 +47,9 @@
   font-size: 4.8rem;
   font-family: "ui-serif", "Times New Roman", "Cambria", "Georgia", "Times",
     "serif";
-    font-weight: 600;
+  font-weight: 600;
   margin-bottom: 20px;
-color: #6a385f;
-
+  color: #6a385f;
 }
 .heroSection .tagline {
   font-family: "Poppins Regular";
@@ -67,8 +66,10 @@ color: #6a385f;
   padding-inline: calc(2rem + (125vw - 34rem) / 54.5);
   max-width: 1280px;
   margin-inline: auto;
+}
 
-
+.heroSection .heroLinks {
+  display: contents;
 }
 .heroSection .cardContainer .title {
   font-family: "Poppins medium";
@@ -94,7 +95,6 @@ color: #6a385f;
   box-shadow: 0 3px 14px rgba(125, 42, 111, 0.1);
   transition: 0.3s linear;
   border-radius: 5px;
-
 }
 
 .heroSection .cardWrapper button div {
@@ -118,6 +118,7 @@ color: #6a385f;
   font-weight: 700;
   text-align: center;
   font-size: 18px;
+  color: #000000;
 }
 
 @media screen and (max-width: 1200px) {

@@ -1,4 +1,4 @@
-const DashboardIcon = ({color="#A3A2A2",size="20"}) => {
+const DashboardIcon = ({ color = "#A3A2A2", size = "20" }) => {
   return (
     <svg
       width={size}
