@@ -1,0 +1,74 @@
+.articlesContainer {
+  padding-top: 4.8rem;
+  margin-bottom: 3.2rem;
+
+  padding-inline: calc(3rem + (125vw - 34rem) / 54.5);
+  max-width: 1280px;
+  margin-inline: auto;
+  background-color: #fff;
+}
+.articlesContainer h4 {
+  font-family: "Poppins bold";
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.4rem;
+}
+.articlesContainer .gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3.2rem;
+}
+.articlesContainer .gridContainer a {
+  text-decoration: none;
+  color: #000;
+}
+.articlesContainer .gridContainer .imageWrapper {
+  display: block;
+  height: 192px;
+  width: 100%;
+  margin-bottom: 1.6rem;
+}
+
+.articlesContainer .gridContainer .imageWrapper img {
+  /* max-width: 100%; */
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.articlesContainer .gridContainer .title h3 {
+  margin-bottom: 1.2rem;
+  font-family: "Poppins bold";
+  font-weight: 700;
+  font-size: 1.6rem;
+
+}
+.articlesContainer .gridContainer .readMore {
+  color: #ac7ab6;
+
+}
+
+
+@media screen and (max-width: 1028px) {
+  .articlesContainer {
+    padding-inline: 3.4rem;
+  }
+  .articlesContainer .gridContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media screen and (max-width: 768px) {
+  .articlesContainer .gridContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media screen and (max-width: 600px) {
+  .articlesContainer .gridContainer {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .articlesContainer h4 {
+    text-align: center;
+  }
+}
