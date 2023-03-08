@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Hero from "./Hero";
 import LeadingBrands from "./LeadingBrands";
 import Navbar from "./Navbar";
+import Services from "./Services";
 
 class Home extends Component {
   state = {};
@@ -12,6 +13,7 @@ class Home extends Component {
       <>
         <Navbar />
         <Hero />
+        <Services />
         <Articles />
         <LeadingBrands />
         <Footer />

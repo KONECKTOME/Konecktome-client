@@ -1,0 +1,86 @@
+.servicesContainer {
+  padding-block: 6.8rem 4.8rem;
+  padding-inline: calc(3rem + (125vw - 34rem) / 54.5);
+  max-width: 1280px;
+  margin-inline: auto;
+  background-color: #fff;
+}
+.contentWrapper {
+  display: flex;
+}
+.contentWrapper > * {
+  flex: 1;
+}
+.textContent {
+  padding-right: 32px;
+}
+.textContent > p {
+  font-family: "Poppins bold";
+  font-weight: 700;
+  margin-bottom: 1.6rem !important;
+  text-transform: uppercase;
+  color: #4b5563;
+}
+.textContent h4 {
+  font-family: "Poppins bold";
+  font-weight: 700;
+  font-size: 24px;
+}
+.textContent > h4 {
+  margin-bottom: 20px;
+}
+.textContent > div {
+  margin-top: 20px;
+}
+.textContent > div h4 {
+  margin-top: 16px;
+  color: #ac7ab6;
+}
+
+.imageWrapper {
+  background-image: -o-radial-gradient(
+    center,
+    circle cover,
+    #dfc0e0 5%,
+    #c5a3cc 16%,
+    #d4b5d8 32%,
+    #e2c6e3 48%,
+    #d4b5d8 60%,
+    #ffe9fa 80%
+  );
+  background-image: -webkit-radial-gradient(
+    center,
+    circle cover,
+    #dfc0e0 5%,
+    #c5a3cc 16%,
+    #d4b5d8 32%,
+    #e2c6e3 48%,
+    #d4b5d8 60%,
+    #ffe9fa 80%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  padding: 2rem;
+}
+.imageWrapper img {
+  width: 80%;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 1028px) {
+  .servicesContainer {
+    padding-top: 48px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .imageWrapper img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .imageWrapper {
+    display: none;
+  }
+}
