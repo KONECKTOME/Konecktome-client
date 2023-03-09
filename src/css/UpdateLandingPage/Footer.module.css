@@ -1,5 +1,5 @@
 .footerContainer {
-  background-color: #faecff;
+  background: linear-gradient(90deg, #fda3d6, #ab7ab6 97.64%);
   padding-block: 80px;
 }
 .footerContainer .gridWrapper {
@@ -59,30 +59,29 @@
   color: #ac7ab6;
 }
 
-.footerContainer .copyRightContainer{
-    margin-top: 5rem;
-    padding-top: 3rem;
-    border-top: 1px solid #dbc0da;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.footerContainer .copyRightContainer {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid #dbc0da;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.footerContainer .copyRightContainer .socialLinks a{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    margin-right: 0.5rem;
-    border-radius: 8px;
-    background-color:#ac7ab6;
+.footerContainer .copyRightContainer .socialLinks a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 8px;
+  background-color: #ac7ab6;
 }
-.footerContainer .copyRightContainer .socialLinks a:hover{
-    background-color:#8d6496;
+.footerContainer .copyRightContainer .socialLinks a:hover {
+  background-color: #8d6496;
+}
 
-}
-
-.footerContainer .copyRightContainer .socialLinks a path{
-    fill: white;
+.footerContainer .copyRightContainer .socialLinks a path {
+  fill: white;
 }
 
 @media screen and (max-width: 1028px) {
@@ -114,12 +113,12 @@
     flex: 1;
   }
 
-.footerContainer .copyRightContainer{
+  .footerContainer .copyRightContainer {
     flex-direction: column;
     row-gap: 2rem;
-}
-.footerContainer .copyRightContainer > p{
+  }
+  .footerContainer .copyRightContainer > p {
     order: 2;
     text-align: center;
-}
+  }
 }

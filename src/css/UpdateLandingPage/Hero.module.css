@@ -1,7 +1,8 @@
 .heroSection {
   padding-inline: 2.4rem;
   padding-block: 113px 48px;
-  background-image: radial-gradient(
+  background: linear-gradient(90deg, #fda3d6, #ab7ab6 97.64%);
+  /* background-image: radial-gradient(
     bottom right,
     circle cover,
     #dfc0e0 5%,
@@ -40,16 +41,15 @@
     #e2c6e3 48%,
     #d4b5d8 60%,
     #ffe9fa 80%
-  );
+  ); */
 }
 .heroSection h2 {
   text-align: center;
   font-size: 4.8rem;
-  font-family: "ui-serif", "Times New Roman", "Cambria", "Georgia", "Times",
-    "serif";
+  font-family: "Poppins Bold";
   font-weight: 600;
   margin-bottom: 20px;
-  color: #6a385f;
+  /* color: #6a385f; */
 }
 .heroSection .tagline {
   font-family: "Poppins Regular";

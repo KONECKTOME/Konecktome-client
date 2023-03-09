@@ -8,6 +8,44 @@ import { Link } from "react-router-dom";
 class Explore_home extends Component {
   state = {
     data: [1, 2, 3],
+    deals: [
+      {
+        promotions: [],
+        title: "220 Mbps per secodns",
+        image: "test",
+        price: "23",
+        priceSubSection: "here for you always",
+        features: ["here for you", "here for you", "here for you"],
+        duration: "34",
+      },
+      {
+        promotions: [],
+        title: "220 Mbps per secodns",
+        image: "test",
+        price: "23",
+        priceSubSection: "here for you always",
+        features: ["here for you", "here for you", "here for you"],
+        duration: "34",
+      },
+      {
+        promotions: [],
+        title: "220 Mbps per secodns",
+        image: "test",
+        price: "23",
+        priceSubSection: "here for you always",
+        features: ["here for you", "here for you", "here for you"],
+        duration: "34",
+      },
+      {
+        promotions: [],
+        title: "220 Mbps per secodns for here to come",
+        image: "test",
+        price: "23",
+        priceSubSection: "here for you always",
+        features: ["here for you", "here for you", "here for you"],
+        duration: "34",
+      },
+    ],
   };
 
   render(props) {
@@ -15,7 +53,7 @@ class Explore_home extends Component {
       <>
         <div id="kt-af-deals">
           <div className="cards">
-            {this.props.deals.map((item) => {
+            {this.state.deals.map((item) => {
               return (
                 <div className="card">
                   <div>

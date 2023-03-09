@@ -1,48 +1,43 @@
 import styles from "../../../css/UpdateLandingPage/Articles.module.css";
+import { Link } from "react-router-dom";
 
 let images = [
   {
     imgSrc:
       "https://www.nerdwallet.com/uk-cdn/ghost-images/content/images/2023/03/GettyImages-555716673.jpeg",
     title: "'The biggest challenge for small businesses is marketing'",
-    link:"#!"
+    link: "#!",
   },
   {
     imgSrc:
       "https://www.nerdwallet.com/uk-cdn/ghost-images/content/images/2023/03/unnamed.jpg",
     title: "Entrepreneur Spotlight: Georgina Atwell of Toppsta",
-    link:"#!"
-
+    link: "#!",
   },
   {
     imgSrc:
       "https://www.nerdwallet.com/uk-cdn/ghost-images/content/images/2023/02/Mature-woman-using-smartphone-pension-age.jpeg",
     title: "How an Earlier Rise in the State Pension Age Could Affect You",
-    link:"#!"
-
+    link: "#!",
   },
   {
     imgSrc:
       "https://www.nerdwallet.com/uk-cdn/ghost-images/content/images/2023/03/unnamed.jpg",
     title: "Entrepreneur Spotlight: Georgina Atwell of Toppsta",
-    link:"#!"
-
+    link: "#!",
   },
   {
     imgSrc:
       "https://www.nerdwallet.com/uk-cdn/ghost-images/content/images/2023/02/Mature-woman-using-smartphone-pension-age.jpeg",
     title: "How an Earlier Rise in the State Pension Age Could Affect You",
-    link:"#!"
-
+    link: "#!",
   },
   {
     imgSrc:
       "https://www.nerdwallet.com/uk-cdn/ghost-images/content/images/2023/03/GettyImages-555716673.jpeg",
     title: "'The biggest challenge for small businesses is marketing'",
-    link:"#!"
-
+    link: "#!",
   },
-  
 ];
 
 const Articles = () => {
@@ -52,13 +47,15 @@ const Articles = () => {
       <div className={`${styles.gridContainer}`}>
         {images.map((data, index) => (
           <div key={data.imgSrc + index}>
-            <a href={data.link}  className={`${styles.imageWrapper}`} >
+            <a href={data.link} className={`${styles.imageWrapper}`}>
               <img src={data.imgSrc} alt="" />
             </a>
-            <a href={data.link} className={`${styles.title}`} >
+            <a href={data.link} className={`${styles.title}`}>
               <h3>{data.title}</h3>
             </a>
-            <a href={data.link} className={`${styles.readMore}`} >Read more &#10230;</a>
+            <Link className={`${styles.readMore}`} to={"/article"}>
+              Read more &#10230;
+            </Link>
           </div>
         ))}
       </div>
