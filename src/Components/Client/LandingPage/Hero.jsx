@@ -1,7 +1,15 @@
 import styles from "../../../css/UpdateLandingPage/Hero.module.css";
-import ExploreIcon from "../../SvgIcons/ExploreIcon";
-import SettingsIcon from "../../SvgIcons/SettingsIcon";
 import { Link } from "react-router-dom";
+import {
+  BroadBandIcon,
+  LifeInsuranceIcon,
+  MotorInsuranceIcon,
+  CarFinanceIcon,
+  PersonalLoansIcon,
+  MortgageIcon,
+  HealthInsuranceIcon,
+  HomeInsuranceIcon,
+} from "../../SvgIcons/HeroSection";
 
 const Card = ({ title, Icon, color }) => {
   return (
@@ -31,15 +39,23 @@ const Hero = () => {
         </h4>
         <div className={`row`}>
           <Link to={"/explore/deals/"} className={`${styles.heroLinks}`}>
-            <Card title="Broadband" Icon={SettingsIcon} color="#54A0E8" />
+            <Card title="Broadband" Icon={BroadBandIcon} color="#54A0E8" />
           </Link>
-          <Card title="Life insurance" Icon={ExploreIcon} color="#55B78A" />
-          <Card title="Motor Insurance" Icon={SettingsIcon} color="#FF9090" />
-          <Card title="Car Finance" Icon={ExploreIcon} color="#9F6A93" />
-          <Card title="Personal Loans" Icon={SettingsIcon} color="#EFA92E" />
-          <Card title="Mortgage" Icon={ExploreIcon} color="#54A0E8" />
-          <Card title="Health Insurance" Icon={SettingsIcon} color="#55B78A" />
-          <Card title="Home Insurance" Icon={ExploreIcon} color="#de4e4e" />
+          <Card
+            title="Life insurance"
+            Icon={LifeInsuranceIcon}
+            color="#55B78A"
+          />
+          <Card
+            title="Motor Insurance"
+            Icon={MotorInsuranceIcon}
+            color="#FF9090"
+          />
+          <Card title="Car Finance" Icon={CarFinanceIcon} color="#9F6A93" />
+          <Card title="Personal Loans" Icon={PersonalLoansIcon} color="#EFA92E" />
+          <Card title="Mortgage" Icon={MortgageIcon} color="#54A0E8" />
+          <Card title="Health Insurance" Icon={HealthInsuranceIcon} color="#55B78A" />
+          <Card title="Home Insurance" Icon={HomeInsuranceIcon} color="#de4e4e" />
         </div>
       </div>
     </section>

@@ -15,7 +15,7 @@ class Explore_details_left_col extends React.Component {
   };
 
   getBrandDetails = async () => {
-    const response = await fetch(`http://localhost:3002/aff/brand-details/`, {
+    const response = await fetch(`http://localhost:3000/aff/brand-details/`, {
       method: "POST",
       body: JSON.stringify({
         brandId: this.props.match.params.id,

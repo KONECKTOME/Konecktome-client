@@ -1,0 +1,44 @@
+.container {
+  margin-block: 2rem 1rem;
+  font-size:12px !important ;
+}
+.container,
+.container .homeLink {
+    display: flex;
+    align-items: center;
+    color: #000;
+}
+.container .homeLink:hover path{
+    fill: #fda3d6;
+
+}
+.container .homeLink {
+  margin-right: 1rem;
+  
+}
+.container .parentLinks {
+  margin-inline: 1rem;
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: "Poppins bold";
+}
+.container .parentLinks:hover {
+  color: #fda3d6;
+  text-decoration: underline #fda3d6;
+}
+.container p {
+    margin-left: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: "Poppins bold";
+}
+
+
+@media screen and (max-width:768px){
+    .container .linksContainer {
+        display: none;
+    }
+
+}

@@ -111,29 +111,29 @@ class Explore_home extends Component {
                     <div id="card-body">
                       <div id="cb-price-box">
                         <p className="desktop-header">
-                          £{item.price}{" "}
+                          £{item.price}
                           <span className="desktop-text">/month</span>
                         </p>
                         <p className="desktop-header">
-                          £{item.price}{" "}
+                          £{item.price}
                           <span className="desktop-text">Setup Fee</span>
                         </p>
                       </div>
                       <div id="cb-contract-box">
                         <p className="desktop-header">
-                          24{" "}
+                          24
                           <span className="desktop-text">months contract</span>
                         </p>
                       </div>
                       <div id="cb-contract-box">
                         <p className="desktop-header">
-                          110Mbps{" "}
+                          110Mbps
                           <span className="desktop-text">Average Speed</span>
                         </p>
                       </div>
                       <div id="cb-contract-box">
                         <p className="desktop-header">
-                          Unlimited{" "}
+                          Unlimited
                           <span className="desktop-text">Downloads</span>
                         </p>
                       </div>

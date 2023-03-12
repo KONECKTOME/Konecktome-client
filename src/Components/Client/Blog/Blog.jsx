@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import Footer from "../LandingPage/Footer";
 import Navbar from "../LandingPage/Navbar";
 import styles from "../../../css/Blog/Blog.module.css";
+import BreadCrumbs from "../../Reusable/Breadcrumbs/BreadCrumbs";
 
+let breadCrumbData = [
+  { title: "Your HomePage", link: "/" },
+  { title: "Your HomePage", link: "/" },
+];
 class Blog extends Component {
   state = {};
   render() {
@@ -10,7 +15,13 @@ class Blog extends Component {
       <>
         <Navbar />
         <div className={`${styles.mainContainer}`}>
-          <h1 className={`${styles.title}`}>Entrepreneur Spotlight: Georgina Atwell of Toppsta</h1>
+          <BreadCrumbs
+            parentPages={breadCrumbData}
+            currentPage="Entrepreneur Spotlight Georgina Atwell of Toppsta"
+          />
+          <h1 className={`${styles.title}`}>
+            Entrepreneur Spotlight: Georgina Atwell of Toppsta
+          </h1>
           <p className={`${styles.reference}`}>
             As part of NerdWallet&apos;s Entrepreneur Spotlight series, we spoke
             to Georgina Atwell, founder of children&apos;s book review website

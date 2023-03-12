@@ -16,7 +16,7 @@
   font-weight: 500;
   margin-top: 2rem;
   line-height: 150%;
-  color: #ac7ab6;
+  color: #fff;
 }
 .footerContainer .gridWrapper .siteMap {
   display: flex;
@@ -56,7 +56,7 @@
   font-size: 1.4rem;
 }
 .footerContainer .gridWrapper .siteMap ul a:hover {
-  color: #ac7ab6;
+  color: #fff;
 }
 
 .footerContainer .copyRightContainer {
@@ -74,7 +74,7 @@
   padding: 1rem;
   margin-right: 0.5rem;
   border-radius: 8px;
-  background-color: #ac7ab6;
+  background-color: #2b152f;
 }
 .footerContainer .copyRightContainer .socialLinks a:hover {
   background-color: #8d6496;

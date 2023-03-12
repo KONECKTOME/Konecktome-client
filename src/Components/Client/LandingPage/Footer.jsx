@@ -1,7 +1,8 @@
 import styles from "../../../css/UpdateLandingPage/Footer.module.css";
-import konectomeLogo from "../../../Assets//konecktome-logo.svg";
+import konectomeWhiteLogo from "../../../Assets/Footer-white-logo.svg";
 import FacebookIcon from "../../SvgIcons/FacebookIcon";
 import LinkedinIcon from "../../SvgIcons/LinkedinIcon";
+import InstagramIcon from "../../SvgIcons/InstagramIcon";
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
           <div className={`col-12 col-lg-4`}>
             <div className={`text-center text-lg-start`}>
               <div className={`${styles.logoWrapper}`}>
-                <img src={konectomeLogo} width={250} alt="Konectome Logo" />
+                <img src={konectomeWhiteLogo} width={250} alt="Konectome Logo" />
                 <h4>Serve people who deserve the best</h4>
               </div>
             </div>
@@ -87,6 +88,9 @@ const Footer = () => {
             </a>
             <a href="#!">
               <LinkedinIcon />
+            </a>
+            <a href="#!">
+              <InstagramIcon />
             </a>
           </div>
         </div>
