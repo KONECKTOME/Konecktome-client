@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../../css/Sidebar/index.css";
 import konecktome_icon from "../../../Assets/konecktome-logo.svg";
-import { NavLink, withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import AvatarIcon from "../../SvgIcons/AvatarIcon";
 
 class Index extends Component {
@@ -23,9 +23,11 @@ class Index extends Component {
   render() {
     return (
       <div id="sidebar-wrapper">
-        <div id="logo-wrapper">
-          <img src={konecktome_icon} />
-        </div>
+        <Link to="/">
+          <div id="logo-wrapper">
+            <img src={konecktome_icon} />
+          </div>
+        </Link>
         <div id="user-detail">
           <div className="d-flex align-items-center">
             <div className="user-Avatar">

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Home from "./Components/Client/LandingPage/Home";
 import RHome from "./Components/Client/Routing/RHome";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./Components/Client/LandingPage/Navbar";
 
 import {
   BrowserRouter as Router,
@@ -35,7 +36,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/blog" exact component={Blog} />
+            <Route path="/article" exact component={Blog} />
             <Route path="/explore" component={RHome}></Route>
           </Switch>
         </Router>

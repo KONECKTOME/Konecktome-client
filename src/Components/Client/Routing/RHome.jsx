@@ -45,7 +45,7 @@ class RHome extends Component {
   };
 
   getDeals = async () => {
-    const response = await fetch(`http://localhost:3000/aff/`, {
+    const response = await fetch(`http://localhost:3002/aff/`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",

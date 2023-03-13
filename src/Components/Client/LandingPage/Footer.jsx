@@ -9,15 +9,15 @@ const Footer = () => {
     <div className={`${styles.footerContainer}`}>
       <div className={`${styles.gridWrapper}`}>
         <div className={`row mx-0 gap-5 gap-lg-0`}>
-          <div className={`col-12 col-lg-4`}>
+          {/* <div className={`col-12 col-lg-4`}>
             <div className={`text-center text-lg-start`}>
               <div className={`${styles.logoWrapper}`}>
                 <img src={konectomeWhiteLogo} width={250} alt="Konectome Logo" />
                 <h4>Serve people who deserve the best</h4>
               </div>
             </div>
-          </div>
-          <div className={`col-12 col-lg-8  ${styles.siteMap}`}>
+          </div> */}
+          <div className={`col-12 col-lg-12  ${styles.siteMap}`}>
             <div>
               <h4>Explore</h4>
               <ul>

@@ -16,7 +16,7 @@ class Blog extends Component {
         <Navbar />
         <div className={`${styles.mainContainer}`}>
           <BreadCrumbs
-            parentPages={breadCrumbData}
+            // parentPages={breadCrumbData}
             currentPage="Entrepreneur Spotlight Georgina Atwell of Toppsta"
           />
           <h1 className={`${styles.title}`}>
