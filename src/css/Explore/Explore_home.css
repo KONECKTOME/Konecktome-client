@@ -29,24 +29,38 @@
 }
 
 #card-body {
+  width: 100%;
+  display: flex;
+  /* flex-wrap: wrap; */
+  gap: 15px;
+  margin: 3rem 0 3rem 0;
+}
+
+#card-div1 {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 3rem 0 3rem 0;
+  gap: 15px;
+}
+#card-div2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
 }
 
 #cb-price-box {
   background-color: #ab7ab6;
-  min-width: fit-content;
-  width: 20%;
+  width: 100%;
+  min-height: 150px;
   border-radius: 5px;
-  max-height: 150px;
   padding: 1.5rem;
 }
 
 #cb-contract-box {
-  width: 25%;
+  width: 100%;
   border-radius: 5px;
-  max-height: 150px;
+  min-height: 150px;
   background: transparent;
   padding: 1.5rem;
   border: 1px solid #ae7cb8;
@@ -55,7 +69,7 @@
 #cb-package-box {
   width: 20%;
   border-radius: 5px;
-  max-height: 150px;
+  max-height: 236px;
   background: transparent;
   padding: 1.5rem;
   border: 1px solid #ae7cb8;
@@ -68,8 +82,10 @@
 #cb-package-icon-box {
   display: flex;
   justify-content: space-between;
-  width: 80%;
-  margin-top: 1.5rem;
+  width: 150px;
+  min-width: fit-content;
+  /* margin-top: 1.5rem; */
+  margin-left: auto;
 }
 
 #cf-dot {
@@ -92,6 +108,27 @@
   border-radius: 50%;
   display: block;
 } */
+#dsk-card-header {
+  display: flex;
+  gap:20px;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+  align-items: center;
+}
+#package-txt {
+  /* width: 40%; */
+  padding-right: 40px;
+}
+.package-title {
+  font-size: 22px !important;
+  line-height: 25px !important;
+}
+.package-details {
+  font-weight: 500 !important;
+  font-size: 18px !important;
+  line-height: 20px !important;
+  margin-top: 5px;
+}
 
 #cf-cta-holder {
   float: right;
@@ -129,16 +166,32 @@
 }
 
 .cb-icon-box-image {
+  margin-right: 10px;
   width: 35px;
   height: 35px;
+}
+@media screen and (max-width: 1200px) {
+  #card-body {
+    flex-wrap: wrap;
+  }
+  #cb-package-icon-box {
+    margin-left: 0;
+  }
+  #package-txt {
+    padding-right: 10px;
+  }
 }
 @media screen and (max-width: 768px) {
   #dsk-card-header {
     display: none;
   }
   #mw-card-header {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
+
+  
 
   #card-footer > #features {
     display: block;
@@ -148,5 +201,23 @@
 
   #card-body {
     margin: 3rem 0 3rem 0;
+  }
+
+  
+}
+@media screen and (max-width: 576px) {
+  #card-div1 {
+    flex-direction: column;
+  }
+  #card-div2 {
+    flex-direction: column;
+  }
+  #mw-card-header {
+    display: block;
+  }
+
+  #promo-btn {
+    margin-top: 15px;
+    width: 150px;
   }
 }

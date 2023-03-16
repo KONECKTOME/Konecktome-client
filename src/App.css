@@ -72,7 +72,7 @@
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
-  line-height: 48px;
+  line-height: 40px;
   color: #000000;
 }
 
@@ -135,7 +135,7 @@
 }
 
 .desktop-big-button-transparent {
-  width: 100%;
+  width: auto;
   min-width: fit-content;
   word-wrap: break-word;
   padding: 1rem 2rem;

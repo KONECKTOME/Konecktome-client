@@ -58,84 +58,75 @@ class Explore_home extends Component {
                 <div className="card">
                   <div>
                     <div id="dsk-card-header">
-                      <Row>
-                        <Col lg={2} md={2}>
-                          <img
-                            src="https://res.cloudinary.com/konecktome/image/upload/v1678034301/YouFibreLogo_dhuh3m.png"
-                            className="card-image"
-                          />
-                        </Col>
-                        <Col lg={5} md={6}>
-                          <div>
-                            <p className="desktop-header">
-                              Home - {item.title}
-                            </p>
-                            <p className="desktop-sub-header1">
-                              £15 for 6 months then £33 a month
-                            </p>
-                          </div>
-                        </Col>
-                        <Col lg={3} md={2}>
-                          <div id="cb-package-icon-box">
-                            <img src={callIcon} className="cb-icon-box-image" />
+                      <img
+                        src="https://res.cloudinary.com/konecktome/image/upload/v1678034301/YouFibreLogo_dhuh3m.png"
+                        className="card-image"
+                      />
+                      <div id="package-txt">
+                        <p className="desktop-header package-title">
+                          Home - {item.title}
+                        </p>
+                        <p className="desktop-sub-header1 package-details">
+                          £15 for 6 months then £33 a month
+                        </p>
+                      </div>
+                      <div id="cb-package-icon-box">
+                        <img src={callIcon} className="cb-icon-box-image" />
 
-                            <p className="desktop-sub-header2">VAT Included</p>
-                          </div>
-                        </Col>
-                        <Col lg={2} md={2}>
-                          <div className="desktop-big-button-transparent">
-                            <p className="desktop-big-button-transparent-text">
-                              Promotion
-                            </p>
-                          </div>
-                        </Col>
-                      </Row>
+                        <p className="desktop-sub-header2">VAT Included</p>
+                      </div>
+                      <div className="desktop-big-button-transparent">
+                        <p className="desktop-big-button-transparent-text">
+                          Promotion
+                        </p>
+                      </div>
                     </div>
                     <div id="mw-card-header">
-                      <Row>
-                        <Col>
-                          {/* <img src={placeholder} className="card-image" /> */}
-                        </Col>
-                        <Col>
-                          <div className="desktop-big-button-transparent">
-                            <p className="desktop-big-button-transparent-text">
-                              Promotion
-                            </p>
-                          </div>
-                        </Col>
-                      </Row>
                       <div>
                         <p className="desktop-header">Home - {item.title}</p>
                       </div>
+                      <div id="promo-btn">
+                        <div className="desktop-big-button-transparent">
+                          <p className="desktop-big-button-transparent-text">
+                            Promotion
+                          </p>
+                        </div>
+                      </div>
                     </div>
                     <div id="card-body">
-                      <div id="cb-price-box">
-                        <p className="desktop-header">
-                          £{item.price}
-                          <span className="desktop-text">/month</span>
-                        </p>
-                        <p className="desktop-header">
-                          £{item.price}
-                          <span className="desktop-text">Setup Fee</span>
-                        </p>
+                      <div id="card-div1">
+                        <div id="cb-price-box">
+                          <p className="desktop-header">
+                            £{item.price}
+                            <span className="desktop-text">/month</span>
+                          </p>
+                          <p className="desktop-header">
+                            £{item.price}
+                            <span className="desktop-text">Setup Fee</span>
+                          </p>
+                        </div>
+                        <div id="cb-contract-box">
+                          <p className="desktop-header">
+                            24{" "}
+                            <span className="desktop-text">
+                              months contract
+                            </span>
+                          </p>
+                        </div>
                       </div>
-                      <div id="cb-contract-box">
-                        <p className="desktop-header">
-                          24
-                          <span className="desktop-text">months contract</span>
-                        </p>
-                      </div>
-                      <div id="cb-contract-box">
-                        <p className="desktop-header">
-                          110Mbps
-                          <span className="desktop-text">Average Speed</span>
-                        </p>
-                      </div>
-                      <div id="cb-contract-box">
-                        <p className="desktop-header">
-                          Unlimited
-                          <span className="desktop-text">Downloads</span>
-                        </p>
+                      <div id="card-div2">
+                        <div id="cb-contract-box">
+                          <p className="desktop-header">
+                            110Mbps{" "}
+                            <span className="desktop-text">Average Speed</span>
+                          </p>
+                        </div>
+                        <div id="cb-contract-box">
+                          <p className="desktop-header">
+                            Unlimited{" "}
+                            <span className="desktop-text">Downloads</span>
+                          </p>
+                        </div>
                       </div>
                     </div>
                     <div id="card-footer">
