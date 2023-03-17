@@ -44,7 +44,7 @@ const Navbar = (props) => {
               props.isSideBarShown(true);
             }}
           >
-            <HamburgerIcon size="30" color="#19233A" />
+            <HamburgerIcon size="30" color="#000" />
           </button>
         </li>
         <li id="nav-image">

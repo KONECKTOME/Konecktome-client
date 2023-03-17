@@ -190,7 +190,7 @@ hr {
   margin: 0 !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   #nav-wrapper {
     z-index: 9;
     position: sticky;
@@ -204,5 +204,10 @@ hr {
 
   #Hamburger-Icon {
     display: block;
+  }
+  #Hamburger-Icon > button {
+    border: none;
+    background-color: transparent;
+    outline: none;
   }
 }
