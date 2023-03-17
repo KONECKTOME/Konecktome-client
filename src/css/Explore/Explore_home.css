@@ -82,10 +82,10 @@
 #cb-package-icon-box {
   display: flex;
   justify-content: space-between;
-  width: 150px;
+  width: 143px;
   min-width: fit-content;
   /* margin-top: 1.5rem; */
-  margin-left: auto;
+  /* margin-left: auto; */
 }
 
 #cf-dot {
@@ -110,22 +110,34 @@
 } */
 #dsk-card-header {
   display: flex;
-  gap:20px;
-  /* justify-content: space-between; */
-  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
 }
-#package-txt {
-  /* width: 40%; */
-  padding-right: 40px;
+#dsk-card-header > div:first-child {
+  display: flex;
+  width: 57%;
+  align-items: center;
 }
+#dsk-card-header > div:nth-child(2) {
+  display: flex;
+  width: 43%;
+  row-gap: 15px;
+  column-gap: 15px;
+  justify-content: flex-end;
+  align-items: center;
+}
+/* #package-txt {
+  width: 40%;
+} */
 .package-title {
-  font-size: 22px !important;
+  color: #0a2765 !important;
+  font-size: 18px !important;
   line-height: 25px !important;
 }
 .package-details {
+  color: #0a2765 !important;
   font-weight: 500 !important;
-  font-size: 18px !important;
+  font-size: 14px !important;
   line-height: 20px !important;
   margin-top: 5px;
 }
@@ -166,33 +178,24 @@
 }
 
 .cb-icon-box-image {
-  margin-right: 10px;
-  width: 35px;
-  height: 35px;
+  margin-right: 9px;
+  width: 30px;
+  height: 30px;
 }
+.vat-included {
+  white-space: nowrap;
+  font-size: 16.5px !important;
+}
+
 @media screen and (max-width: 1200px) {
   #card-body {
     flex-wrap: wrap;
   }
-  #cb-package-icon-box {
+  /* #cb-package-icon-box {
     margin-left: 0;
-  }
-  #package-txt {
-    padding-right: 10px;
-  }
+  } */
 }
-@media screen and (max-width: 768px) {
-  #dsk-card-header {
-    display: none;
-  }
-  #mw-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  
-
+@media screen and (max-width: 1024px) {
   #card-footer > #features {
     display: block;
     text-align: center;
@@ -202,9 +205,40 @@
   #card-body {
     margin: 3rem 0 3rem 0;
   }
-
-  
 }
+@media screen and (max-width: 768px) {
+  #dsk-card-header {
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  #dsk-card-header > div:first-child {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  #dsk-card-header > div:nth-child(2) {
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  #cb-package-icon-box {
+    width: 135px;
+  }
+  .cb-icon-box-image {
+    margin-right: 7px;
+    width: 25px;
+    height: 25px;
+  }
+  .vat-included {
+    font-size: 15.5px !important;
+  }
+  .promo-btn {
+    padding: 0.7rem 1.2rem !important;
+  }
+  .promo-btn > p {
+    font-size: 15px !important;
+  }
+}
+
 @media screen and (max-width: 576px) {
   #card-div1 {
     flex-direction: column;
@@ -212,12 +246,46 @@
   #card-div2 {
     flex-direction: column;
   }
-  #mw-card-header {
-    display: block;
+  #cb-price-box {
+    width: 100%;
+    min-height: 130px;
+    padding: 2rem 2.2rem;
   }
-
-  #promo-btn {
-    margin-top: 15px;
-    width: 150px;
+  #cb-price-box > p {
+    font-size: 24px;
+    line-height: 35px;
   }
+  #cb-price-box > p > span {
+    font-size: 15px;
+  }
+  #cb-contract-box {
+    width: 100%;
+    min-height: 130px;
+    padding: 2rem 2.2rem; 
+  }
+  #cb-contract-box > p {
+    font-size: 24px;
+  }
+  #cb-contract-box > p > span {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 309px) {
+  #cb-package-icon-box {
+    width: 117px;
+  }
+  .cb-icon-box-image {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+  }
+  .vat-included {
+    font-size: 14px !important;
+  }
+  .promo-btn {
+    padding: 0.4rem 0.9rem !important;
+  }
+  .promo-btn > p {
+    font-size: 14px !important;
+  } 
 }

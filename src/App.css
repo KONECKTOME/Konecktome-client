@@ -272,7 +272,7 @@
 
 .card-image {
   width: 100px;
-  height: 100px;
+  height: 70px;
 }
 
 .empty-services-text {
@@ -467,7 +467,7 @@ input[type="checkbox"] {
   grid-template-columns: repeat(1, minmax(auto, auto));
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   #right-col {
     margin-left: 0px;
   }

@@ -58,35 +58,28 @@ class Explore_home extends Component {
                 <div className="card">
                   <div>
                     <div id="dsk-card-header">
-                      <img
-                        src="https://res.cloudinary.com/konecktome/image/upload/v1678034301/YouFibreLogo_dhuh3m.png"
-                        className="card-image"
-                      />
-                      <div id="package-txt">
-                        <p className="desktop-header package-title">
-                          Home - {item.title}
-                        </p>
-                        <p className="desktop-sub-header1 package-details">
-                          £15 for 6 months then £33 a month
-                        </p>
-                      </div>
-                      <div id="cb-package-icon-box">
-                        <img src={callIcon} className="cb-icon-box-image" />
-
-                        <p className="desktop-sub-header2">VAT Included</p>
-                      </div>
-                      <div className="desktop-big-button-transparent">
-                        <p className="desktop-big-button-transparent-text">
-                          Promotion
-                        </p>
-                      </div>
-                    </div>
-                    <div id="mw-card-header">
                       <div>
-                        <p className="desktop-header">Home - {item.title}</p>
+                        <img
+                          src="https://res.cloudinary.com/konecktome/image/upload/v1678034301/YouFibreLogo_dhuh3m.png"
+                          className="card-image"
+                        />
+                        <div id="package-txt">
+                          <p className="desktop-header package-title">
+                            Home - {item.title}
+                          </p>
+                          <p className="desktop-sub-header1 package-details">
+                            £15 for 6 months then £33 a month
+                          </p>
+                        </div>
                       </div>
-                      <div id="promo-btn">
-                        <div className="desktop-big-button-transparent">
+                      <div>
+                        <div id="cb-package-icon-box">
+                          <img src={callIcon} className="cb-icon-box-image" />
+                          <p className="desktop-sub-header2 vat-included">
+                            VAT Included
+                          </p>
+                        </div>
+                        <div className="desktop-big-button-transparent promo-btn">
                           <p className="desktop-big-button-transparent-text">
                             Promotion
                           </p>
