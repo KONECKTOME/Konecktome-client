@@ -2,19 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import Explore_details from "./Components/Client/Explore/Explore_details";
+import ScrollToTop from "./Components/Reusable/ScrollToTop";
+
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  withRouter,
-} from "react-router-dom";
-import Home from "./Components/Client/LandingPage/Home";
+
 ReactDOM.render(
   <React.StrictMode>
-    {console.log("here")}
+    <ScrollToTop />
     <App />
   </React.StrictMode>,
   document.getElementById("root")

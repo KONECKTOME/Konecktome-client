@@ -43,6 +43,7 @@
     #ffe9fa 80%
   ); */
 }
+
 .heroSection h2 {
   text-align: center;
   font-size: 4.8rem;
@@ -78,7 +79,12 @@
   text-align: center;
   margin-bottom: 2.5rem;
 }
+
+.heroSection .cardContainer .cardWrapper:first-child {
+  opacity: 1;
+}
 .heroSection .cardContainer .cardWrapper {
+  opacity: 0.5;
   padding: 8px;
 }
 .heroSection .cardContainer .cardWrapper button {
@@ -106,11 +112,11 @@
   justify-content: center;
   transition: 0.3s linear;
 }
-.heroSection .cardWrapper button:hover {
+.heroSection .cardWrapper button:hover:first-child {
   box-shadow: 0 4px 8px 0 rgba(100, 102, 106, 0.2),
     0 8px 16px 0 rgba(100, 102, 106, 0.2);
 }
-.heroSection .cardWrapper button:hover div {
+.heroSection .cardWrapper button:hover div:first-child {
   transform: scale(1.2);
 }
 .heroSection .cardWrapper button h4 {

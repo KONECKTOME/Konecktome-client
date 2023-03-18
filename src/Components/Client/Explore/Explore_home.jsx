@@ -8,44 +8,10 @@ import { Link } from "react-router-dom";
 class Explore_home extends Component {
   state = {
     data: [1, 2, 3],
-    deals: [
-      {
-        promotions: [],
-        title: "220 Mbps per secodns",
-        image: "test",
-        price: "23",
-        priceSubSection: "here for you always",
-        features: ["here for you", "here for you", "here for you"],
-        duration: "34",
-      },
-      {
-        promotions: [],
-        title: "220 Mbps per secodns",
-        image: "test",
-        price: "23",
-        priceSubSection: "here for you always",
-        features: ["here for you", "here for you", "here for you"],
-        duration: "34",
-      },
-      {
-        promotions: [],
-        title: "220 Mbps per secodns",
-        image: "test",
-        price: "23",
-        priceSubSection: "here for you always",
-        features: ["here for you", "here for you", "here for you"],
-        duration: "34",
-      },
-      {
-        promotions: [],
-        title: "220 Mbps per secodns for here to come",
-        image: "test",
-        price: "23",
-        priceSubSection: "here for you always",
-        features: ["here for you", "here for you", "here for you"],
-        duration: "34",
-      },
-    ],
+  };
+
+  openReferralLink = (url) => {
+    window.open(url, "_blank");
   };
 
   render(props) {
@@ -53,88 +19,131 @@ class Explore_home extends Component {
       <>
         <div id="kt-af-deals">
           <div className="cards">
-            {this.state.deals.map((item) => {
+            {this.props.deals.map((item) => {
               return (
                 <div className="card">
                   <div>
                     <div id="dsk-card-header">
                       <div>
-                        <img
-                          src="https://res.cloudinary.com/konecktome/image/upload/v1678034301/YouFibreLogo_dhuh3m.png"
-                          className="card-image"
-                        />
+                        <img src={item.image} className="card-image" />
                         <div id="package-txt">
                           <p className="desktop-header package-title">
-                            Home - {item.title}
+                            {item.Type} - {item.Name}
                           </p>
-                          <p className="desktop-sub-header1 package-details">
-                            £15 for 6 months then £33 a month
-                          </p>
+                          {item.Offers !== null ? (
+                            <p className="desktop-sub-header1 package-details">
+                              {item.Offers}
+                            </p>
+                          ) : null}
                         </div>
                       </div>
                       <div>
                         <div id="cb-package-icon-box">
-                          <img src={callIcon} className="cb-icon-box-image" />
-                          <p className="desktop-sub-header2 vat-included">
-                            VAT Included
-                          </p>
+                          {item.Calls !== "No" ? (
+                            <img src={callIcon} className="cb-icon-box-image" />
+                          ) : null}
+                          {item.VAT === "Included" ? (
+                            <img src={vatIcon} className="cb-icon-box-image" />
+                          ) : null}
                         </div>
-                        <div className="desktop-big-button-transparent promo-btn">
-                          <p className="desktop-big-button-transparent-text">
-                            Promotion
-                          </p>
-                        </div>
+                        {item.Offers !== null ? (
+                          <div className="desktop-big-button-transparent promo-btn">
+                            <p className="desktop-big-button-transparent-text">
+                              Promotion
+                            </p>
+                          </div>
+                        ) : null}
                       </div>
                     </div>
                     <div id="card-body">
                       <div id="card-div1">
                         <div id="cb-price-box">
                           <p className="desktop-header">
-                            £{item.price}
+                            £{item.Price} {""}
                             <span className="desktop-text">/month</span>
                           </p>
-                          <p className="desktop-header">
-                            £{item.price}
-                            <span className="desktop-text">Setup Fee</span>
-                          </p>
+                          {item.Setup !== "Free" ? (
+                            <p className="desktop-header">
+                              £{item.price}
+                              <span className="desktop-text">Setup Fee</span>
+                            </p>
+                          ) : (
+                            <p className="desktop-header">
+                              £0 {""}
+                              <span className="desktop-text">Setup Fee</span>
+                            </p>
+                          )}
                         </div>
                         <div id="cb-contract-box">
-                          <p className="desktop-header">
-                            24{" "}
-                            <span className="desktop-text">
-                              months contract
-                            </span>
-                          </p>
+                          {item.Contract !== "No Contract" ? (
+                            <p className="desktop-header">
+                              {item.Contract}{" "}
+                              <span className="desktop-text">
+                                months contract
+                              </span>
+                            </p>
+                          ) : (
+                            <p className="desktop-header">No Contract</p>
+                          )}
                         </div>
                       </div>
                       <div id="card-div2">
                         <div id="cb-contract-box">
-                          <p className="desktop-header">
-                            110Mbps{" "}
-                            <span className="desktop-text">Average Speed</span>
-                          </p>
+                          {item.Speed !== null ? (
+                            <p className="desktop-header">
+                              {item.Speed}Mbps{" "}
+                              <span className="desktop-text">
+                                Average Speed
+                              </span>
+                            </p>
+                          ) : (
+                            <p className="desktop-header">
+                              {" "}
+                              <p className="desktop-header">
+                                20Mbps{" "}
+                                <span className="desktop-text">
+                                  Average Speed
+                                </span>
+                              </p>
+                            </p>
+                          )}
                         </div>
                         <div id="cb-contract-box">
-                          <p className="desktop-header">
-                            Unlimited{" "}
-                            <span className="desktop-text">Downloads</span>
-                          </p>
+                          {item.Downloads === "Unlimited" ? (
+                            <p className="desktop-header">
+                              Unlimited{" "}
+                              <span className="desktop-text">Downloads</span>
+                            </p>
+                          ) : (
+                            <p className="desktop-header">
+                              Limited{" "}
+                              <span className="desktop-text">Downloads</span>
+                            </p>
+                          )}
                         </div>
                       </div>
                     </div>
                     <div id="card-footer">
                       <div id="features">
                         <Row>
-                          {item.features.map((feature) => {
-                            return (
-                              <Col lg={6} id="features-col">
-                                <p className="desktop-text">{feature}</p>
-                              </Col>
-                            );
-                          })}
+                          {item.Benefits[0] !== "No Benefits" ? (
+                            <>
+                              {" "}
+                              {item.Benefits.map((feature) => {
+                                return (
+                                  <Col lg={6} id="features-col">
+                                    <p className="desktop-text">{feature}</p>
+                                  </Col>
+                                );
+                              })}
+                            </>
+                          ) : null}
                         </Row>
                       </div>
-                      <div id="cf-cta-holder">
+                      <div
+                        id="cf-cta-holder"
+                        onClick={() => this.openReferralLink(item.url)}
+                      >
                         <div className="desktop-small-button">
                           <p className="desktop-medium-button-text">
                             Visit Now
@@ -143,7 +152,7 @@ class Explore_home extends Component {
                       </div>
                     </div>
                   </div>
-                  <Link to={"/explore/brand/" + item._id} className="links">
+                  <Link to={"/explore/brand/" + item.brandId} className="links">
                     <div id="card-footer-2">
                       <p className="desktop-text">See all deals from brand</p>
                     </div>

@@ -31,7 +31,11 @@ class RHome extends Component {
         null,
         null
       );
-    } else if (key === "price") {
+      this.setState((state) => ({
+        deals: filteredDeals,
+      }));
+    }
+    if (key === "price") {
       const filteredDeals = this.setConditions(
         this.state.deals,
         null,
@@ -41,11 +45,56 @@ class RHome extends Component {
       this.setState((state) => ({
         deals: filteredDeals,
       }));
+      console.log("value", value);
+      console.log("contract ", filteredDeals);
+    }
+    if (key === "Contract") {
+      const filteredDeals = this.setConditions(
+        this.state.deals,
+        null,
+        value,
+        null
+      );
+      this.setState((state) => ({
+        deals: filteredDeals,
+      }));
+      console.log("value", value);
+      console.log("contract ", filteredDeals);
     }
   };
 
+  setConditions = (deals, speed, contract, price) => {
+    if (speed) {
+      return deals.filter((item) => item.Speed >= speed);
+    }
+    if (contract) {
+      return deals.filter((item) => parseInt(item.Contract) === contract);
+    }
+    if (price) {
+      return deals.filter((item) => item.Speed > speed);
+    }
+    // return deals.filter((deal) => {
+    //   // Filter by deal speed
+    //   if (speed && parseInt(deal.Speed) < speed) {
+    //     return false;
+    //   }
+
+    //   // Filter by deal length
+    //   if (Contract && deal.Contract === Contract) {
+    //     return false;
+    //   }
+
+    //   // Filter by deal price
+    //   if (price && parseInt(deal.Price) < price) {
+    //     return false;
+    //   }
+    //   // If all filters pass, include the deal in the filtered array
+    //   return true;
+    // });
+  };
+
   getDeals = async () => {
-    const response = await fetch(`http://localhost:3000/aff/`, {
+    const response = await fetch(`http://localhost:3002/aff/`, {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -53,7 +102,6 @@ class RHome extends Component {
     });
     const deals = await response.json();
     this.setState({ deals: deals.message });
-    console.log("deal", this.state.deals);
   };
 
   sideBarToggle = (boolean) => {
@@ -66,26 +114,6 @@ class RHome extends Component {
           ...this.state,
           sideBarClassName: "not-active",
         });
-  };
-  setConditions = (deals, speed, length, price) => {
-    return deals.filter((deal) => {
-      // Filter by deal speed
-      if (speed && deal.speed !== speed) {
-        return false;
-      }
-
-      // Filter by deal length
-      if (length && deal.length !== length) {
-        return false;
-      }
-
-      // Filter by deal price
-      if (price && parseInt(deal.price) < price) {
-        return false;
-      }
-      // If all filters pass, include the deal in the filtered array
-      return true;
-    });
   };
 
   render(props) {

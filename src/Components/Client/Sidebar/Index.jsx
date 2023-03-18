@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../../css/Sidebar/index.css";
 import konecktome_icon from "../../../Assets/konecktome-logo.svg";
-import { NavLink, withRouter } from "react-router-dom";
+import { Link, NavLink, withRouter } from "react-router-dom";
 import AvatarIcon from "../../SvgIcons/AvatarIcon";
 
 class Index extends Component {
@@ -23,9 +23,11 @@ class Index extends Component {
   render() {
     return (
       <div id="sidebar-wrapper">
-        <div id="logo-wrapper">
-          <img src={konecktome_icon} />
-        </div>
+        <Link to="/">
+          <div id="logo-wrapper">
+            <img src={konecktome_icon} />
+          </div>
+        </Link>
         <div id="user-detail">
           <div className="d-flex align-items-center">
             <div className="user-Avatar">
@@ -50,7 +52,7 @@ class Index extends Component {
             </li>
             <li
               id="nav-items-list"
-              onClick={() => this.props.setFilter("speed", 10)}
+              onClick={() => this.props.setFilter("speed", 150)}
             >
               <div>
                 <div className={`d-flex align-item-center`}>
@@ -61,7 +63,7 @@ class Index extends Component {
                   </div>
                   <div>
                     <div>
-                      <p className="sidebar-item-paragraph">10Mb +</p>
+                      <p className="sidebar-item-paragraph">150Mbps +</p>
                     </div>
                   </div>
                 </div>
@@ -69,7 +71,7 @@ class Index extends Component {
             </li>
             <li
               id="nav-items-list"
-              onClick={() => this.props.setFilter("speed", 30)}
+              onClick={() => this.props.setFilter("speed", 300)}
             >
               <div>
                 <div className={`d-flex align-item-center`}>
@@ -80,7 +82,7 @@ class Index extends Component {
                   </div>
                   <div>
                     <div>
-                      <p className="sidebar-item-paragraph">30Mb +</p>
+                      <p className="sidebar-item-paragraph">300Mbps +</p>
                     </div>
                   </div>
                 </div>
@@ -88,7 +90,7 @@ class Index extends Component {
             </li>
             <li
               id="nav-items-list"
-              onClick={() => this.props.setFilter("speed", 50)}
+              onClick={() => this.props.setFilter("speed", 500)}
             >
               <div>
                 <div className={`d-flex align-item-center`}>
@@ -99,7 +101,7 @@ class Index extends Component {
                   </div>
                   <div>
                     <div>
-                      <p className="sidebar-item-paragraph">50Mb +</p>
+                      <p className="sidebar-item-paragraph">500Mbps +</p>
                     </div>
                   </div>
                 </div>
@@ -117,7 +119,10 @@ class Index extends Component {
                 </div>
               </div>
             </li>
-            <li id="nav-items-list">
+            <li
+              id="nav-items-list"
+              onClick={() => this.props.setFilter("Contract", 12)}
+            >
               <div>
                 <div className={`d-flex align-item-center`}>
                   <div>
@@ -133,7 +138,10 @@ class Index extends Component {
                 </div>
               </div>
             </li>
-            <li id="nav-items-list">
+            <li
+              id="nav-items-list"
+              onClick={() => this.props.setFilter("Contract", 24)}
+            >
               <div>
                 <div className={`d-flex align-item-center`}>
                   <div>

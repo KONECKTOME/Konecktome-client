@@ -5,7 +5,29 @@ import Explore_details_left_col from "./Explore_details_left_col";
 
 class Explore_details extends React.Component {
   state = {
-    arr: [1, 2],
+    brand: {},
+    dealsByBrand: [],
+  };
+
+  componentDidMount = async () => {
+    this.getBrandDetails();
+  };
+
+  getBrandDetails = async () => {
+    const response = await fetch(`http://localhost:3002/aff/brand-details/`, {
+      method: "POST",
+      body: JSON.stringify({
+        brandId: this.props.match.params.id,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    const brandDetails = await response.json();
+    this.setState({
+      brand: brandDetails.message,
+      dealsByBrand: brandDetails.message.deals,
+    });
   };
 
   render(props) {
@@ -13,8 +35,8 @@ class Explore_details extends React.Component {
       <>
         <div id="explore-details-wrapper">
           <div id="explore-details">
-            <Explore_details_right_col />
-            <Explore_details_left_col />
+            <Explore_details_right_col brand={this.state.brand} />
+            <Explore_details_left_col deals={this.state.dealsByBrand} />
           </div>
         </div>
       </>

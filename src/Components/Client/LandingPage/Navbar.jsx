@@ -36,7 +36,7 @@ const Navbar = () => {
         <div>
           <img src={konectomeLogo} alt="Konectome Logo" />
         </div>
-        <div className={`${styles.linksContainer}`}>
+        {/* <div className={`${styles.linksContainer}`}>
           <FilterButton
             clickHandler={() =>
               setActiveLink((val) => (val === "first" ? "" : "first"))
@@ -61,12 +61,12 @@ const Navbar = () => {
             desc="lorem ipsum dolor sit amature"
             open={activeLink === "third" ? true : false}
           />
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <button className={`${styles.hamBurgerBtn}`}>
             <HamburgerIcon size="30" color="#000" />
           </button>
-        </div>
+        </div> */}
       </nav>
     </header>
   );

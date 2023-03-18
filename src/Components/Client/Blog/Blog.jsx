@@ -9,47 +9,51 @@ let breadCrumbData = [
   { title: "Your HomePage", link: "/" },
 ];
 class Blog extends Component {
-  state = {};
+  state = {
+    article: {},
+    paragraphs: [],
+  };
+
+  componentDidMount = async () => {
+    this.fetchArticle();
+  };
+
+  fetchArticle = async () => {
+    const response = await fetch(`http://localhost:3002/article/get-article`, {
+      method: "POST",
+      body: JSON.stringify({
+        articleId: this.props.match.params.articleId,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    let article = await response.json();
+    this.setState({
+      article: article.message,
+      paragraphs: article.message.paragraphs,
+    });
+    console.log(this.state.article);
+  };
   render() {
     return (
       <>
         <Navbar />
         <div className={`${styles.mainContainer}`}>
           <BreadCrumbs
-            parentPages={breadCrumbData}
-            currentPage="Entrepreneur Spotlight Georgina Atwell of Toppsta"
+            // parentPages={breadCrumbData}
+            currentPage={this.state.article.title}
           />
-          <h1 className={`${styles.title}`}>
-            Entrepreneur Spotlight: Georgina Atwell of Toppsta
-          </h1>
+          <h1 className={`${styles.title}`}>{this.state.article.title}</h1>
           <p className={`${styles.reference}`}>
-            As part of NerdWallet&apos;s Entrepreneur Spotlight series, we spoke
-            to Georgina Atwell, founder of children&apos;s book review website
-            Toppsta.com. She told us about how she got started, the challenges
-            she faced when setting up her own website, and what advice she would
-            give to future entrepreneurs.
+            {this.state.article.description}
           </p>
-          <p className={`${styles.publishDate}`}>Published on 02 March 2023.</p>
+          {/* <p className={`${styles.publishDate}`}>Published on 02 March 2023.</p> */}
           <div className={`${styles.blogContainer}`}>
-            <img
-              src="https://www.nerdwallet.com/uk-cdn/ghost-images/content/images/2023/03/unnamed.jpg"
-              alt="person"
-            />
-            <p>
-              Founded in 2014 by Georgina Atwell, Toppsta.com is an online
-              review site for children&apos;s books with over 300,000 visitors a
-              month. The site aims to help parents pick the right books for
-              their kids from the thousands released every year, while giving
-              children a chance to win a book through its free giveaways.
-            </p>
-            <p>
-              Georgina leveraged decades of experience, and the relationships
-              she built over that time, into her own successful business - but
-              how exactly did she do it? We spoke to her about the unusual way
-              she funded her business, the challenges of switching from a
-              Facebook page to your own website, and the benefits of SEO versus
-              social media.
-            </p>
+            <img src={this.state.article.image} alt="person" />
+            {this.state.paragraphs.map((para) => {
+              return <p>{para}</p>;
+            })}
           </div>
         </div>
         <Footer />

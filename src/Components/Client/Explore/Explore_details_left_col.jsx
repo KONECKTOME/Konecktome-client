@@ -1,33 +1,16 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
-// import placeholder from "../../../Assets/virginMediaLogo.png";
+import callIcon from "../../../Assets/USP Assets/phone-call.png";
+import vatIcon from "../../../Assets/USP Assets/vat.png";
 
 class Explore_details_left_col extends React.Component {
   state = {
     deals: [1, 2, 3],
-    brandDetails: [],
-    dealsByBrand: [],
   };
 
-  componentDidMount = async () => {
-    this.getBrandDetails();
-  };
-
-  getBrandDetails = async () => {
-    const response = await fetch(`http://localhost:3000/aff/brand-details/`, {
-      method: "POST",
-      body: JSON.stringify({
-        brandId: this.props.match.params.id,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    console.log("is", this.props.match.params.id);
-    const brandDetails = await response.json();
-    // this.setState({ dealsByBrand: brandDetails.message.deals });
-    console.log(brandDetails);
+  openReferralLink = (url) => {
+    window.open(url, "_blank");
   };
 
   render() {
@@ -35,94 +18,140 @@ class Explore_details_left_col extends React.Component {
       <>
         <p className="desktop-header">All Deals From This Brand</p>
         <div className="cards">
-          {this.state.deals.map((item) => {
+          {this.props.deals.map((item) => {
             return (
               <div className="card">
                 <div>
                   <div id="dsk-card-header">
-                    <Row>
-                      <Col lg={2} md={2}>
-                        {/* <img src={placeholder} className="card-image" /> */}
-                      </Col>
-                      <Col lg={8} md={8}>
-                        <div>
-                          <p className="desktop-header"> test</p>
-                        </div>
-                      </Col>
-                      <Col lg={2} md={2}>
-                        <div className="desktop-big-button-transparent">
-                          <p className="desktop-big-button-transparent-text">
-                            Promotion
-                          </p>
-                        </div>
-                      </Col>
-                    </Row>
-                  </div>
-                  <div id="mw-card-header">
-                    <Row>
-                      <Col>
-                        {/* <img src={placeholder} className="card-image" /> */}
-                      </Col>
-                      <Col>
-                        <div className="desktop-big-button-transparent">
-                          <p className="desktop-big-button-transparent-text">
-                            Promotion
-                          </p>
-                        </div>
-                      </Col>
-                    </Row>
                     <div>
-                      <p className="desktop-header"> test</p>
-                      <Row id="ch-promotions">
-                        <Col id="ch-promotions-col">
-                          <p className="desktop-text">
-                            This is a promotion text
+                      <img src={item.image} className="card-image" />
+                      <div id="package-txt">
+                        <p className="desktop-header package-title">
+                          {item.Type} - {item.Name}
+                        </p>
+                        {item.Offers !== null ? (
+                          <p className="desktop-sub-header1 package-details">
+                            {item.Offers}
                           </p>
-                        </Col>
-                        <Col id="ch-promotions-col">
-                          <p className="desktop-text">
-                            This is a promotion text
+                        ) : null}
+                      </div>
+                    </div>
+                    <div>
+                      <div id="cb-package-icon-box">
+                        {item.Calls !== "No" ? (
+                          <img src={callIcon} className="cb-icon-box-image" />
+                        ) : null}
+                        {item.VAT === "Included" ? (
+                          <img src={vatIcon} className="cb-icon-box-image" />
+                        ) : null}
+                      </div>
+                      {item.Offers !== null ? (
+                        <div className="desktop-big-button-transparent promo-btn">
+                          <p className="desktop-big-button-transparent-text">
+                            Promotion
                           </p>
-                        </Col>
-                        <Col id="ch-promotions-col">
-                          <p className="desktop-text">
-                            This is a promotion text
-                          </p>
-                        </Col>
-                      </Row>
+                        </div>
+                      ) : null}
                     </div>
                   </div>
                   <div id="card-body">
-                    <div id="cb-price-box">
-                      <p className="desktop-header">
-                        test
-                        <span className="desktop-text">/month</span>
-                      </p>
+                    <div id="card-div1">
+                      <div id="cb-price-box">
+                        <p className="desktop-header">
+                          £{item.Price} {""}
+                          <span className="desktop-text">/month</span>
+                        </p>
+                        {item.Setup !== "Free" ? (
+                          <p className="desktop-header">
+                            £{item.price}
+                            <span className="desktop-text">Setup Fee</span>
+                          </p>
+                        ) : (
+                          <p className="desktop-header">
+                            £0 {""}
+                            <span className="desktop-text">Setup Fee</span>
+                          </p>
+                        )}
+                      </div>
+                      <div id="cb-contract-box">
+                        {item.Contract !== "No Contract" ? (
+                          <p className="desktop-header">
+                            {item.Contract}{" "}
+                            <span className="desktop-text">
+                              months contract
+                            </span>
+                          </p>
+                        ) : (
+                          <p className="desktop-header">No Contract</p>
+                        )}
+                      </div>
                     </div>
-                    <div id="cb-contract-box">
-                      <p className="desktop-header"> test </p>
+                    <div id="card-div2">
+                      <div id="cb-contract-box">
+                        {item.Speed !== null ? (
+                          <p className="desktop-header">
+                            {item.Speed}Mbps{" "}
+                            <span className="desktop-text">Average Speed</span>
+                          </p>
+                        ) : (
+                          <p className="desktop-header">
+                            {" "}
+                            <p className="desktop-header">
+                              20Mbps{" "}
+                              <span className="desktop-text">
+                                Average Speed
+                              </span>
+                            </p>
+                          </p>
+                        )}
+                      </div>
+                      <div id="cb-contract-box">
+                        {item.Downloads === "Unlimited" ? (
+                          <p className="desktop-header">
+                            Unlimited{" "}
+                            <span className="desktop-text">Downloads</span>
+                          </p>
+                        ) : (
+                          <p className="desktop-header">
+                            Limited{" "}
+                            <span className="desktop-text">Downloads</span>
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
                   <div id="card-footer">
-                    {/* <div id="features">
-                      {item.features.map((feature) => {
-                        return (
-                          <div id="cf-features-holder">
-                            <p className="desktop-text">{feature}</p>
-                          </div>
-                        );
-                      })}
-                    </div> */}
-                    <div id="cf-cta-holder">
+                    <div id="features">
+                      <Row>
+                        {item.Benefits[0] !== "No Benefits" ? (
+                          <>
+                            {" "}
+                            {item.Benefits.map((feature) => {
+                              return (
+                                <Col lg={6} id="features-col">
+                                  <p className="desktop-text">{feature}</p>
+                                </Col>
+                              );
+                            })}
+                          </>
+                        ) : null}
+                      </Row>
+                    </div>
+                    <div
+                      id="cf-cta-holder"
+                      onClick={() => this.openReferralLink(item.url)}
+                    >
                       <div className="desktop-small-button">
                         <p className="desktop-medium-button-text">Visit Now</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div id="card-footer-2">
-                  <p className="desktop-text">See all deals from brand</p>
-                </div>
+                <Link to={"/explore/brand/" + item.brandId} className="links">
+                  <div id="card-footer-2">
+                    <p className="desktop-text">See all deals from brand</p>
+                  </div>
+                </Link>
               </div>
             );
           })}

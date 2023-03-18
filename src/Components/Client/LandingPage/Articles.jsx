@@ -1,59 +1,41 @@
 import styles from "../../../css/UpdateLandingPage/Articles.module.css";
 import { Link } from "react-router-dom";
-
-let images = [
-  {
-    imgSrc:
-      "https://www.nerdwallet.com/uk-cdn/ghost-images/content/images/2023/03/GettyImages-555716673.jpeg",
-    title: "'The biggest challenge for small businesses is marketing'",
-    link: "/blog",
-  },
-  {
-    imgSrc:
-      "https://www.nerdwallet.com/uk-cdn/ghost-images/content/images/2023/03/unnamed.jpg",
-    title: "Entrepreneur Spotlight: Georgina Atwell of Toppsta",
-    link: "/blog",
-  },
-  {
-    imgSrc:
-      "https://www.nerdwallet.com/uk-cdn/ghost-images/content/images/2023/02/Mature-woman-using-smartphone-pension-age.jpeg",
-    title: "How an Earlier Rise in the State Pension Age Could Affect You",
-    link: "/blog",
-  },
-  {
-    imgSrc:
-      "https://www.nerdwallet.com/uk-cdn/ghost-images/content/images/2023/03/unnamed.jpg",
-    title: "Entrepreneur Spotlight: Georgina Atwell of Toppsta",
-    link: "/blog",
-  },
-  {
-    imgSrc:
-      "https://www.nerdwallet.com/uk-cdn/ghost-images/content/images/2023/02/Mature-woman-using-smartphone-pension-age.jpeg",
-    title: "How an Earlier Rise in the State Pension Age Could Affect You",
-    link: "/blog",
-  },
-  {
-    imgSrc:
-      "https://www.nerdwallet.com/uk-cdn/ghost-images/content/images/2023/03/GettyImages-555716673.jpeg",
-    title: "'The biggest challenge for small businesses is marketing'",
-    link: "/blog",
-  },
-];
+import { useEffect, useState } from "react";
 
 const Articles = () => {
+  let [articles, setArticles] = useState([]);
+
+  useEffect(async () => {
+    fetchArticles();
+  }, []);
+
+  const fetchArticles = async () => {
+    const response = await fetch(`http://localhost:3002/article/`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    let articles = await response.json();
+    setArticles(articles.message);
+  };
+
   return (
     <div className={`${styles.articlesContainer}`}>
       <h4>Latest Articles</h4>
       <div className={`${styles.gridContainer}`}>
-        {images.map((data, index) => (
-          <div key={data.imgSrc + index}>
-            <Link to={data.link} className={`${styles.imageWrapper}`}>
-              <img src={data.imgSrc} alt="" />
+        {articles.map((data, index) => (
+          <div key={index}>
+            <Link
+              to={"/article/" + data._id}
+              className={`${styles.imageWrapper}`}
+            >
+              <img src={data.image} alt="article-image" />
             </Link>
-            <Link to={data.link} className={`${styles.title}`}>
+            <Link to={"/article/" + data._id} className={`${styles.title}`}>
               <h3>{data.title}</h3>
             </Link>
-            <Link className={`${styles.readMore}`} to={"/article"}>
+            <Link className={`${styles.readMore}`} to={"/article/" + data._id}>
               Read more &#10230;
             </Link>
           </div>

@@ -1,15 +1,14 @@
 import styles from "../../../css/UpdateLandingPage/Services.module.css";
-import GlobeImage from "../../../Assets/globe.svg"
+import GlobeImage from "../../../Assets/globe.svg";
 const Services = () => {
   return (
     <div className={`${styles.servicesContainer}`}>
       <div className={`${styles.contentWrapper}`}>
         <div className={`${styles.textContent}`}>
           <p className="">YOU GOT THIS</p>
-          <h4 className="">Everything you need about Konectome</h4>
-
+          {/* <h4 className="">Everything you need about Konectome</h4> */}
           <div>
-            <h4>User Experience</h4>
+            <h4>Make Informed Decisions</h4>
             <p>
               We provide user reviews and necessary extra information on all
               listed services, to give you greater confidence in your buying
@@ -17,11 +16,10 @@ const Services = () => {
             </p>
           </div>
           <div>
-            <h4>Security</h4>
+            <h4>Empower Yourself With The Best</h4>
             <p>
-              We securely store your personal information so you never have to.
-              Great for purchasing new services and keeping all your details in
-              one place.
+              With us, you have the power to choose from the best-rated
+              providers in the industry, all in one place.
             </p>
           </div>
           <div>
@@ -33,7 +31,7 @@ const Services = () => {
           </div>
         </div>
         <div className={`${styles.imageWrapper}`}>
-            <img src={GlobeImage} alt="" />
+          <img src={GlobeImage} alt="" />
         </div>
       </div>
     </div>
