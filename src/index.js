@@ -3,13 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import ScrollToTop from "./Components/Reusable/ScrollToTop";
-
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ScrollToTop />
+    {/* <ScrollToTop /> */}
     <App />
   </React.StrictMode>,
   document.getElementById("root")
