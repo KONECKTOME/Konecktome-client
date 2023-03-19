@@ -15,7 +15,7 @@ class Home extends Component {
         <Hero />
         <Services />
         <Articles />
-        <LeadingBrands />
+        {/* <LeadingBrands /> */}
         <Footer />
       </>
     );

@@ -6,7 +6,7 @@ const Services = () => {
       <div className={`${styles.contentWrapper}`}>
         <div className={`${styles.textContent}`}>
           <p className="">YOU GOT THIS</p>
-          {/* <h4 className="">Everything you need about Konectome</h4> */}
+          <h4 className="">Unlock endless possibilities</h4>
           <div>
             <h4>Make Informed Decisions</h4>
             <p>
@@ -23,10 +23,10 @@ const Services = () => {
             </p>
           </div>
           <div>
-            <h4>Simply Enabled</h4>
+            <h4>Experience Exceptional Service</h4>
             <p>
-              We keep everything simple by enabling and switching all in one
-              place.
+              Trust in our commitment to providing you with the top notch
+              service you desire
             </p>
           </div>
         </div>

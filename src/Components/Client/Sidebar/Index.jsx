@@ -8,6 +8,15 @@ class Index extends Component {
   state = {
     active: false,
     activeCheckBoxClass: false,
+    isChecked: {
+      checkbox1: false,
+      checkbox2: false,
+      checkbox3: false,
+      checkbox4: false,
+      checkbox5: false,
+      checkbox6: false,
+      checkbox7: false,
+    },
   };
 
   activeClass = (e) => {
@@ -18,6 +27,28 @@ class Index extends Component {
         activeCheckBoxClass: !previousState.activeCheckBoxClass,
       };
     });
+  };
+
+  clearFilters = () => {
+    this.setState({
+      isChecked: {
+        checkbox1: false,
+        checkbox2: false,
+        checkbox3: false,
+        checkbox4: false,
+        checkbox5: false,
+        checkbox6: false,
+        checkbox7: false,
+      },
+    });
+    this.props.clearFilters();
+  };
+
+  compareCheckBoxes = (key, value, e) => {
+    this.setState({
+      isChecked: { ...this.state.isChecked, [e.target.name]: e.target.checked },
+    });
+    this.props.setFilter(key, value);
   };
 
   render() {
@@ -50,15 +81,20 @@ class Index extends Component {
                 </div>
               </div>
             </li>
-            <li
-              id="nav-items-list"
-              onClick={() => this.props.setFilter("speed", 150)}
-            >
+
+            <li id="nav-items-list">
               <div>
                 <div className={`d-flex align-item-center`}>
                   <div>
                     <div>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        name="checkbox1"
+                        checked={this.state.isChecked.checkbox1}
+                        onChange={(e) =>
+                          this.compareCheckBoxes("speed", 150, e)
+                        }
+                      />
                     </div>
                   </div>
                   <div>
@@ -69,15 +105,19 @@ class Index extends Component {
                 </div>
               </div>
             </li>
-            <li
-              id="nav-items-list"
-              onClick={() => this.props.setFilter("speed", 300)}
-            >
+            <li id="nav-items-list">
               <div>
                 <div className={`d-flex align-item-center`}>
                   <div>
                     <div>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        name="checkbox2"
+                        checked={this.state.isChecked.checkbox2}
+                        onChange={(e) =>
+                          this.compareCheckBoxes("speed", 300, e)
+                        }
+                      />
                     </div>
                   </div>
                   <div>
@@ -88,15 +128,19 @@ class Index extends Component {
                 </div>
               </div>
             </li>
-            <li
-              id="nav-items-list"
-              onClick={() => this.props.setFilter("speed", 500)}
-            >
+            <li id="nav-items-list">
               <div>
                 <div className={`d-flex align-item-center`}>
                   <div>
                     <div>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        name="checkbox3"
+                        checked={this.state.isChecked.checkbox3}
+                        onChange={(e) =>
+                          this.compareCheckBoxes("speed", 500, e)
+                        }
+                      />
                     </div>
                   </div>
                   <div>
@@ -119,15 +163,19 @@ class Index extends Component {
                 </div>
               </div>
             </li>
-            <li
-              id="nav-items-list"
-              onClick={() => this.props.setFilter("Contract", 12)}
-            >
+            <li id="nav-items-list">
               <div>
                 <div className={`d-flex align-item-center`}>
                   <div>
                     <div>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        name="checkbox4"
+                        checked={this.state.isChecked.checkbox4}
+                        onChange={(e) =>
+                          this.compareCheckBoxes("contract", 12, e)
+                        }
+                      />
                     </div>
                   </div>
                   <div>
@@ -138,15 +186,19 @@ class Index extends Component {
                 </div>
               </div>
             </li>
-            <li
-              id="nav-items-list"
-              onClick={() => this.props.setFilter("Contract", 24)}
-            >
+            <li id="nav-items-list">
               <div>
                 <div className={`d-flex align-item-center`}>
                   <div>
                     <div>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        name="checkbox5"
+                        checked={this.state.isChecked.checkbox5}
+                        onChange={(e) =>
+                          this.compareCheckBoxes("contract", 24, e)
+                        }
+                      />
                     </div>
                   </div>
                   <div>
@@ -169,15 +221,17 @@ class Index extends Component {
                 </div>
               </div>
             </li>
-            <li
-              id="nav-items-list"
-              onClick={() => this.props.setFilter("price", 25)}
-            >
+            <li id="nav-items-list">
               <div>
                 <div className={`d-flex align-item-center`}>
                   <div>
                     <div>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        name="checkbox6"
+                        checked={this.state.isChecked.checkbox6}
+                        onChange={(e) => this.compareCheckBoxes("price", 25, e)}
+                      />
                     </div>
                   </div>
                   <div>
@@ -193,14 +247,26 @@ class Index extends Component {
                 <div className={`d-flex align-item-center`}>
                   <div>
                     <div>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        name="checkbox7"
+                        checked={this.state.isChecked.checkbox7}
+                        onChange={(e) => this.compareCheckBoxes("price", 50, e)}
+                      />
                     </div>
                   </div>
                   <div>
                     <div>
-                      <p className="sidebar-item-paragraph">Under £25</p>
+                      <p className="sidebar-item-paragraph">Under £50</p>
                     </div>
                   </div>
+                </div>
+              </div>
+            </li>
+            <li onClick={() => this.clearFilters()}>
+              <div id="cf-cta-holder">
+                <div className="desktop-small-button">
+                  <p className="desktop-medium-button-text">Clear Filters</p>
                 </div>
               </div>
             </li>

@@ -5,18 +5,30 @@ import callIcon from "../../../Assets/USP Assets/phone-call.png";
 import vatIcon from "../../../Assets/USP Assets/vat.png";
 
 class Explore_details_left_col extends React.Component {
-  state = {
-    deals: [1, 2, 3],
-  };
+  state = {};
 
-  openReferralLink = (url) => {
-    window.open(url, "_blank");
+  openReferralLink = async (url, brandId) => {
+    const response = await fetch(
+      `http://localhost:3002/tracking/new-tracking`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          brandId: brandId,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const details = await response.json();
+    if (details.message === "Click Added") {
+      window.open(url, "_blank");
+    }
   };
 
   render() {
     return (
-      <>
-        <p className="desktop-header">All Deals From This Brand</p>
+      <div id="explore-brand-deals">
         <div className="cards">
           {this.props.deals.map((item) => {
             return (
@@ -139,7 +151,9 @@ class Explore_details_left_col extends React.Component {
                     </div>
                     <div
                       id="cf-cta-holder"
-                      onClick={() => this.openReferralLink(item.url)}
+                      onClick={() =>
+                        this.openReferralLink(item.url, item.brandId)
+                      }
                     >
                       <div className="desktop-small-button">
                         <p className="desktop-medium-button-text">Visit Now</p>
@@ -147,16 +161,11 @@ class Explore_details_left_col extends React.Component {
                     </div>
                   </div>
                 </div>
-                <Link to={"/explore/brand/" + item.brandId} className="links">
-                  <div id="card-footer-2">
-                    <p className="desktop-text">See all deals from brand</p>
-                  </div>
-                </Link>
               </div>
             );
           })}
         </div>
-      </>
+      </div>
     );
   }
 }

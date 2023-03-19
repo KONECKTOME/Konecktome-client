@@ -2,6 +2,8 @@ import React from "react";
 import Explore_details_right_col from "./Explore_details_right_col";
 import { Link, withRouter } from "react-router-dom";
 import Explore_details_left_col from "./Explore_details_left_col";
+import BreadCrumbs from "../../Reusable/Breadcrumbs/BreadCrumbs";
+let breadCrumbData = [{ title: "Explore All Deals", link: "/explore/deals" }];
 
 class Explore_details extends React.Component {
   state = {
@@ -34,6 +36,10 @@ class Explore_details extends React.Component {
     return (
       <>
         <div id="explore-details-wrapper">
+          <BreadCrumbs
+            parentPages={breadCrumbData}
+            currentPage={`Explore Deals From ${this.state.brand.brandName}`}
+          />
           <div id="explore-details">
             <Explore_details_right_col brand={this.state.brand} />
             <Explore_details_left_col deals={this.state.dealsByBrand} />

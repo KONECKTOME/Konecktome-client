@@ -3,21 +3,36 @@ import "../../../css/Explore/Explore_home.css";
 import { Row, Col } from "react-bootstrap";
 import callIcon from "../../../Assets/USP Assets/phone-call.png";
 import vatIcon from "../../../Assets/USP Assets/vat.png";
+import BreadCrumbs from "../../Reusable/Breadcrumbs/BreadCrumbs";
 import { Link } from "react-router-dom";
 
 class Explore_home extends Component {
-  state = {
-    data: [1, 2, 3],
-  };
+  state = {};
 
-  openReferralLink = (url) => {
-    window.open(url, "_blank");
+  openReferralLink = async (url, brandId) => {
+    const response = await fetch(
+      `http://localhost:3002/tracking/new-tracking`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          brandId: brandId,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    const details = await response.json();
+    if (details.message === "Click Added") {
+      window.open(url, "_blank");
+    }
   };
 
   render(props) {
     return (
       <>
         <div id="kt-af-deals">
+          <BreadCrumbs currentPage="Explore All Deals" />
           <div className="cards">
             {this.props.deals.map((item) => {
               return (
@@ -75,15 +90,15 @@ class Explore_home extends Component {
                           )}
                         </div>
                         <div id="cb-contract-box">
-                          {item.Contract !== "No Contract" ? (
+                          {item.Contract === "No Contract" ? (
+                            <p className="desktop-header">No Contract</p>
+                          ) : (
                             <p className="desktop-header">
                               {item.Contract}{" "}
                               <span className="desktop-text">
                                 months contract
                               </span>
                             </p>
-                          ) : (
-                            <p className="desktop-header">No Contract</p>
                           )}
                         </div>
                       </div>
@@ -142,7 +157,9 @@ class Explore_home extends Component {
                       </div>
                       <div
                         id="cf-cta-holder"
-                        onClick={() => this.openReferralLink(item.url)}
+                        onClick={() =>
+                          this.openReferralLink(item.url, item.brandId)
+                        }
                       >
                         <div className="desktop-small-button">
                           <p className="desktop-medium-button-text">

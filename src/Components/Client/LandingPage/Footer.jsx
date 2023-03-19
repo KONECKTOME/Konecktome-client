@@ -3,6 +3,7 @@ import konectomeWhiteLogo from "../../../Assets/Footer-white-logo.svg";
 import FacebookIcon from "../../SvgIcons/FacebookIcon";
 import LinkedinIcon from "../../SvgIcons/LinkedinIcon";
 import InstagramIcon from "../../SvgIcons/InstagramIcon";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -22,7 +23,7 @@ const Footer = () => {
               <h4>Terms & Conditions</h4>
               <ul>
                 <li>
-                  <a href="#!">Diamond Package</a>
+                  <Link to="/terms">Terms & Conditions</Link>
                 </li>
               </ul>
             </div>
@@ -30,7 +31,7 @@ const Footer = () => {
               <h4>Privacy Policy</h4>
               <ul>
                 <li>
-                  <a href="#!">Bronze Package</a>
+                  <Link to="/privacy">Privacy Policy</Link>
                 </li>
               </ul>
             </div>
@@ -38,7 +39,7 @@ const Footer = () => {
               <h4>Contact Us</h4>
               <ul>
                 <li>
-                  <a href="#!">Diamond Package</a>
+                  <Link to="/contact">Contact Us</Link>
                 </li>
               </ul>
             </div>
@@ -47,13 +48,19 @@ const Footer = () => {
         <div className={`${styles.copyRightContainer}`}>
           <p>&#169; 2023 KONECKTOME&#174; - All rights reserved.</p>
           <div className={`${styles.socialLinks}`}>
-            <a href="#!">
+            <a
+              href="https://www.facebook.com/Konecktome-101748959105629"
+              target="_blank"
+            >
               <FacebookIcon />
             </a>
-            <a href="#!">
+            <a
+              href="https://www.linkedin.com/company/konecktome/"
+              target="_blank"
+            >
               <LinkedinIcon />
             </a>
-            <a href="#!">
+            <a href="https://www.instagram.com/konecktome/" target="_blank">
               <InstagramIcon />
             </a>
           </div>

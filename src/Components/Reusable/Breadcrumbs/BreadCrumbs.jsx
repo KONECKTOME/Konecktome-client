@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import ArrowIcon from "../../SvgIcons/ArrowIcon";
 import HomeIcon from "../../SvgIcons/HomeIcon";
 import styles from "./BreadCrumbs.module.css";
@@ -29,4 +29,4 @@ const BreadCrumbs = ({
   );
 };
 
-export default BreadCrumbs;
+export default withRouter(BreadCrumbs);

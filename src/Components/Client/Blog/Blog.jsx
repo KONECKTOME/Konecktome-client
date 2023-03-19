@@ -33,7 +33,6 @@ class Blog extends Component {
       article: article.message,
       paragraphs: article.message.paragraphs,
     });
-    console.log(this.state.article);
   };
   render() {
     return (

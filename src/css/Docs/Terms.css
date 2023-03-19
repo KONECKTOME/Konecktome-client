@@ -1,0 +1,28 @@
+#terms-header {
+  text-align: center;
+  padding-inline: calc(2rem + (125vw - 34rem) / 54.5);
+  margin-inline: auto;
+
+  align-items: center;
+  column-gap: 4.8rem;
+  padding: 2rem;
+  background: linear-gradient(90deg, #fda3d6 0%, #ab7ab6 97.64%);
+}
+
+#terms {
+  text-align: center;
+  max-width: 1280px;
+  padding-inline: calc(2rem + (125vw - 34rem) / 54.5);
+  margin-inline: auto;
+  align-items: center;
+  column-gap: 4.8rem;
+  padding: 2rem;
+}
+
+#terms div {
+  margin-bottom: 3rem;
+}
+
+#terms div p {
+  margin-top: 3rem;
+}
