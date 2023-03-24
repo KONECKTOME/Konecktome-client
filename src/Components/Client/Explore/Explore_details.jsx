@@ -12,7 +12,7 @@ class Explore_details extends React.Component {
   };
 
   componentDidMount = async () => {
-    this.getBrandDetails();
+    this.props.getBrandDetails();
   };
 
   getBrandDetails = async () => {
@@ -41,8 +41,8 @@ class Explore_details extends React.Component {
             currentPage={`Explore Deals From ${this.state.brand.brandName}`}
           />
           <div id="explore-details">
-            <Explore_details_right_col brand={this.state.brand} />
-            <Explore_details_left_col deals={this.state.dealsByBrand} />
+            <Explore_details_right_col brand={this.props.brand} />
+            <Explore_details_left_col deals={this.props.dealsByBrand} />
           </div>
         </div>
       </>

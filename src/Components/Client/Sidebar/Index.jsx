@@ -44,11 +44,11 @@ class Index extends Component {
     this.props.clearFilters();
   };
 
-  compareCheckBoxes = (key, value, e) => {
+  compareCheckBoxes = (key, value, e, checkBoxValue) => {
     this.setState({
       isChecked: { ...this.state.isChecked, [e.target.name]: e.target.checked },
     });
-    this.props.setFilter(key, value);
+    this.props.setFilter(key, value, checkBoxValue);
   };
 
   render() {
@@ -92,7 +92,12 @@ class Index extends Component {
                         name="checkbox1"
                         checked={this.state.isChecked.checkbox1}
                         onChange={(e) =>
-                          this.compareCheckBoxes("speed", 150, e)
+                          this.compareCheckBoxes(
+                            "speed",
+                            150,
+                            e,
+                            this.state.isChecked.checkbox1
+                          )
                         }
                       />
                     </div>
@@ -115,7 +120,12 @@ class Index extends Component {
                         name="checkbox2"
                         checked={this.state.isChecked.checkbox2}
                         onChange={(e) =>
-                          this.compareCheckBoxes("speed", 300, e)
+                          this.compareCheckBoxes(
+                            "speed",
+                            300,
+                            e,
+                            this.state.isChecked.checkbox2
+                          )
                         }
                       />
                     </div>
@@ -138,7 +148,12 @@ class Index extends Component {
                         name="checkbox3"
                         checked={this.state.isChecked.checkbox3}
                         onChange={(e) =>
-                          this.compareCheckBoxes("speed", 500, e)
+                          this.compareCheckBoxes(
+                            "speed",
+                            500,
+                            e,
+                            this.state.isChecked.checkbox3
+                          )
                         }
                       />
                     </div>
@@ -173,7 +188,12 @@ class Index extends Component {
                         name="checkbox4"
                         checked={this.state.isChecked.checkbox4}
                         onChange={(e) =>
-                          this.compareCheckBoxes("contract", 12, e)
+                          this.compareCheckBoxes(
+                            "contract",
+                            12,
+                            e,
+                            this.state.isChecked.checkbox4
+                          )
                         }
                       />
                     </div>
@@ -196,7 +216,12 @@ class Index extends Component {
                         name="checkbox5"
                         checked={this.state.isChecked.checkbox5}
                         onChange={(e) =>
-                          this.compareCheckBoxes("contract", 24, e)
+                          this.compareCheckBoxes(
+                            "contract",
+                            24,
+                            e,
+                            this.state.isChecked.checkbox5
+                          )
                         }
                       />
                     </div>
@@ -230,7 +255,14 @@ class Index extends Component {
                         type="checkbox"
                         name="checkbox6"
                         checked={this.state.isChecked.checkbox6}
-                        onChange={(e) => this.compareCheckBoxes("price", 25, e)}
+                        onChange={(e) =>
+                          this.compareCheckBoxes(
+                            "price",
+                            25,
+                            e,
+                            this.state.isChecked.checkbox6
+                          )
+                        }
                       />
                     </div>
                   </div>
@@ -251,7 +283,14 @@ class Index extends Component {
                         type="checkbox"
                         name="checkbox7"
                         checked={this.state.isChecked.checkbox7}
-                        onChange={(e) => this.compareCheckBoxes("price", 50, e)}
+                        onChange={(e) =>
+                          this.compareCheckBoxes(
+                            "price",
+                            50,
+                            e,
+                            this.state.isChecked.checkbox7
+                          )
+                        }
                       />
                     </div>
                   </div>

@@ -7,9 +7,12 @@ import BreadCrumbs from "../../Reusable/Breadcrumbs/BreadCrumbs";
 import { Link } from "react-router-dom";
 
 class Explore_home extends Component {
-  state = {};
+  state = {
+    loading: false,
+  };
 
   openReferralLink = async (url, brandId) => {
+    this.setState({ loading: true });
     const response = await fetch(
       `http://localhost:3002/tracking/new-tracking`,
       {
@@ -25,6 +28,7 @@ class Explore_home extends Component {
     const details = await response.json();
     if (details.message === "Click Added") {
       window.open(url, "_blank");
+      this.setState({ loading: false });
     }
   };
 
@@ -37,6 +41,9 @@ class Explore_home extends Component {
             {this.props.deals.map((item) => {
               return (
                 <div className="card">
+                  <div id="card-footer-2">
+                    <div>Speed and price may vary based on location.</div>
+                  </div>
                   <div>
                     <div id="dsk-card-header">
                       <div>
@@ -46,9 +53,11 @@ class Explore_home extends Component {
                             {item.Type} - {item.Name}
                           </p>
                           {item.Offers !== null ? (
-                            <p className="desktop-sub-header1 package-details">
-                              {item.Offers}
-                            </p>
+                            <>
+                              <p className="desktop-sub-header1 package-details">
+                                {item.Offers}
+                              </p>
+                            </>
                           ) : null}
                         </div>
                       </div>
@@ -77,20 +86,20 @@ class Explore_home extends Component {
                             £{item.Price} {""}
                             <span className="desktop-text">/month</span>
                           </p>
-                          {item.Setup !== "Free" ? (
+                          {item.Setup === "Free" ? (
                             <p className="desktop-header">
-                              £{item.price}
+                              £0 {""}
                               <span className="desktop-text">Setup Fee</span>
                             </p>
                           ) : (
                             <p className="desktop-header">
-                              £0 {""}
+                              £{item.Setup} {""}
                               <span className="desktop-text">Setup Fee</span>
                             </p>
                           )}
                         </div>
                         <div id="cb-contract-box">
-                          {item.Contract === "No Contract" ? (
+                          {!item.contractStatus ? (
                             <p className="desktop-header">No Contract</p>
                           ) : (
                             <p className="desktop-header">
@@ -162,18 +171,31 @@ class Explore_home extends Component {
                         }
                       >
                         <div className="desktop-small-button">
-                          <p className="desktop-medium-button-text">
-                            Visit Now
-                          </p>
+                          {this.state.loading ? (
+                            <p className="desktop-medium-button-text">
+                              Redirecting...
+                            </p>
+                          ) : (
+                            <p className="desktop-medium-button-text">
+                              Visit Now
+                            </p>
+                          )}
                         </div>
                       </div>
                     </div>
                   </div>
-                  <Link to={"/explore/brand/" + item.brandId} className="links">
-                    <div id="card-footer-2">
-                      <p className="desktop-text">See all deals from brand</p>
+                  <div id="card-footer-2">
+                    <div>
+                      <Link
+                        to={"/explore/brand/" + item.brandId}
+                        className="links"
+                      >
+                        <p className="desktop-text">
+                          See all deals from {item.Brand}
+                        </p>
+                      </Link>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               );
             })}

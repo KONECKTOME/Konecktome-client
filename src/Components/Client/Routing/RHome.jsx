@@ -18,6 +18,10 @@ class RHome extends Component {
     filterParams: [],
     deals: [],
     dealsBackUp: [],
+    brand: {},
+    dealsByBrand: [],
+    brandDetails: false,
+    dealsByBrandBackUp: [],
   };
 
   componentDidMount = async () => {
@@ -36,55 +40,99 @@ class RHome extends Component {
         });
   };
 
-  setFilter = async (key, value) => {
-    if (this.state.deals.length !== 0) {
-      if (key === "speed") {
-        const filteredDeals = this.setConditions(
-          this.state.deals,
-          value,
-          null,
-          null
-        );
-        this.setState((state) => ({
-          deals: filteredDeals,
-        }));
-      }
-      if (key === "price") {
-        const filteredDeals = this.setConditions(
-          this.state.deals,
-          null,
-          null,
-          value
-        );
-        this.setState((state) => ({
-          deals: filteredDeals,
-        }));
-      }
-      if (key === "contract") {
-        const filteredDeals = this.setConditions(
-          this.state.deals,
-          null,
-          value,
-          null
-        );
-        this.setState((state) => ({
-          deals: filteredDeals,
-        }));
-      }
-    } else {
-      this.getDeals();
-    }
+  getBrandDetails = async () => {
+    let search = "/explore/brand";
+    let brandId = window.location.href.split("/")[5];
+    const response = await fetch(`http://localhost:3002/aff/brand-details/`, {
+      method: "POST",
+      body: JSON.stringify({
+        brandId: brandId,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    const brandDetails = await response.json();
+    this.setState({
+      brand: brandDetails.message,
+      dealsByBrand: brandDetails.message.deals,
+      dealsByBrandBackUp: brandDetails.message.deals,
+      brandDetails: true,
+    });
   };
 
-  setConditions = (deals, speed, contract, price) => {
-    if (speed) {
-      return deals.filter((item) => item.Speed >= speed);
-    }
-    if (contract) {
-      return deals.filter((item) => parseInt(item.Contract) === contract);
-    }
-    if (price) {
-      return deals.filter((item) => item.Price <= price);
+  setFilter = async (key, value, checkBoxValue) => {
+    let search = "/explore/brand";
+    let currentPage = window.location.href.includes(search);
+    let deals = [];
+    switch (currentPage) {
+      case false:
+        deals = this.state.dealsBackUp;
+        if (key === "speed") {
+          if (!checkBoxValue) {
+            let filteredDeals = deals.filter((item) => item.Speed >= value);
+            this.setState({
+              deals: filteredDeals,
+              filterParams: [1],
+            });
+          }
+        } else if (key === "price") {
+          if (!checkBoxValue) {
+            const filteredDeals = deals.filter((item) => item.Price <= value);
+            this.setState({
+              deals: filteredDeals,
+              filterParams: [1],
+            });
+          }
+        } else if (key === "contract") {
+          if (!checkBoxValue) {
+            const filteredDeals = deals.filter(
+              (item) => item.Contract === value
+            );
+            this.setState({
+              deals: filteredDeals,
+              filterParams: [1],
+            });
+          }
+        }
+        break;
+      case true:
+        deals = this.state.dealsByBrandBackUp;
+        if (key === "speed") {
+          if (!checkBoxValue) {
+            let filteredDeals = deals.filter((item) => item.Speed >= value);
+            if (filteredDeals.length !== 0) {
+              this.setState({
+                dealsByBrand: filteredDeals,
+                filterParams: [1],
+              });
+            }
+          }
+        } else if (key === "price") {
+          if (!checkBoxValue) {
+            const filteredDeals = deals.filter((item) => item.Price <= value);
+            if (filteredDeals.length !== 0) {
+              this.setState({
+                dealsByBrand: filteredDeals,
+                filterParams: [1],
+              });
+            }
+          }
+        } else if (key === "contract") {
+          if (!checkBoxValue) {
+            const filteredDeals = deals.filter(
+              (item) => item.Contract === value
+            );
+            if (filteredDeals.length !== 0) {
+              this.setState({
+                dealsByBrand: filteredDeals,
+                filterParams: [1],
+              });
+            }
+          }
+        }
+        break;
+      default:
     }
   };
 
@@ -100,8 +148,21 @@ class RHome extends Component {
   };
 
   clearFilters = async () => {
-    this.getDeals();
-    this.sideBarToggle();
+    let search = "/explore/brand";
+    let currentPage = window.location.href.includes(search);
+    if (currentPage) {
+      if (this.state.filterParams.length !== 0) {
+        this.getBrandDetails();
+        this.sideBarToggle();
+        this.setState({ filterParams: [] });
+      }
+    } else {
+      if (this.state.filterParams.length !== 0) {
+        this.getDeals();
+        this.sideBarToggle();
+        this.setState({ filterParams: [] });
+      }
+    }
   };
 
   render(props) {
@@ -126,7 +187,9 @@ class RHome extends Component {
             >
               <Index
                 isSideBarShown={this.sideBarToggle}
-                setFilter={(key, value) => this.setFilter(key, value)}
+                setFilter={(key, value, checkBoxValue) =>
+                  this.setFilter(key, value, checkBoxValue)
+                }
                 clearFilters={() => this.clearFilters()}
                 {...props}
               />
@@ -146,7 +209,17 @@ class RHome extends Component {
                     />
                   )}
                 />
-                <Route path="/explore/brand/:id" component={Explore_details} />
+                <Route
+                  path="/explore/brand/:id"
+                  render={(props) => (
+                    <Explore_details
+                      getBrandDetails={() => this.getBrandDetails()}
+                      brand={this.state.brand}
+                      dealsByBrand={this.state.dealsByBrand}
+                      {...props}
+                    />
+                  )}
+                />
               </Router>
             </Switch>
           </div>
@@ -156,4 +229,4 @@ class RHome extends Component {
   }
 }
 
-export default RHome;
+export default withRouter(RHome);

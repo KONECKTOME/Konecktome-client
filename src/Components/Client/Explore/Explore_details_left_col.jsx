@@ -5,9 +5,12 @@ import callIcon from "../../../Assets/USP Assets/phone-call.png";
 import vatIcon from "../../../Assets/USP Assets/vat.png";
 
 class Explore_details_left_col extends React.Component {
-  state = {};
+  state = {
+    loading: false,
+  };
 
   openReferralLink = async (url, brandId) => {
+    this.setState({ loading: true });
     const response = await fetch(
       `http://localhost:3002/tracking/new-tracking`,
       {
@@ -23,6 +26,7 @@ class Explore_details_left_col extends React.Component {
     const details = await response.json();
     if (details.message === "Click Added") {
       window.open(url, "_blank");
+      this.setState({ loading: false });
     }
   };
 
@@ -73,28 +77,28 @@ class Explore_details_left_col extends React.Component {
                           £{item.Price} {""}
                           <span className="desktop-text">/month</span>
                         </p>
-                        {item.Setup !== "Free" ? (
+                        {item.Setup === "Free" ? (
                           <p className="desktop-header">
-                            £{item.price}
+                            £0 {""}
                             <span className="desktop-text">Setup Fee</span>
                           </p>
                         ) : (
                           <p className="desktop-header">
-                            £0 {""}
+                            £{item.Setup} {""}
                             <span className="desktop-text">Setup Fee</span>
                           </p>
                         )}
                       </div>
                       <div id="cb-contract-box">
-                        {item.Contract !== "No Contract" ? (
+                        {!item.contractStatus ? (
+                          <p className="desktop-header">No Contract</p>
+                        ) : (
                           <p className="desktop-header">
                             {item.Contract}{" "}
                             <span className="desktop-text">
                               months contract
                             </span>
                           </p>
-                        ) : (
-                          <p className="desktop-header">No Contract</p>
                         )}
                       </div>
                     </div>
@@ -156,7 +160,15 @@ class Explore_details_left_col extends React.Component {
                       }
                     >
                       <div className="desktop-small-button">
-                        <p className="desktop-medium-button-text">Visit Now</p>
+                        {this.state.loading ? (
+                          <p className="desktop-medium-button-text">
+                            Redirecting...
+                          </p>
+                        ) : (
+                          <p className="desktop-medium-button-text">
+                            Visit Now
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>

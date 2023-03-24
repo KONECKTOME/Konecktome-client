@@ -38,14 +38,25 @@ const Navbar = (props) => {
   return (
     <div id="nav-wrapper">
       <ul>
-        <li id="Hamburger-Icon">
-          <button
+        <li
+          id="Hamburger-Icon"
+          onClick={() => {
+            props.isSideBarShown(true);
+          }}
+        >
+          <div id="cf-cta-holder">
+            <div className="desktop-small-button">
+              <p className="desktop-medium-button-text">Show Filters</p>
+            </div>
+          </div>
+          {/* <button
             onClick={() => {
               props.isSideBarShown(true);
             }}
           >
+            <p>View Filters</p>
             <HamburgerIcon size="30" color="#000" />
-          </button>
+          </button> */}
         </li>
         <li id="nav-image">
           <div></div>
