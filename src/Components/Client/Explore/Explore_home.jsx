@@ -27,7 +27,9 @@ class Explore_home extends Component {
     );
     const details = await response.json();
     if (details.message === "Click Added") {
-      window.open(url, "_blank");
+      var newTab = window.open();
+      newTab.opener = null;
+      newTab.location = url;
       this.setState({ loading: false });
     }
   };
