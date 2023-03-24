@@ -16,15 +16,18 @@ class Explore_details extends React.Component {
   };
 
   getBrandDetails = async () => {
-    const response = await fetch(`http://localhost:3002/aff/brand-details/`, {
-      method: "POST",
-      body: JSON.stringify({
-        brandId: this.props.match.params.id,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://kt-affiliate-server-9yt3t.ondigitalocean.app/aff/brand-details/`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          brandId: this.props.match.params.id,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     const brandDetails = await response.json();
     this.setState({
       brand: brandDetails.message,

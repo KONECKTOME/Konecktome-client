@@ -19,15 +19,18 @@ class Blog extends Component {
   };
 
   fetchArticle = async () => {
-    const response = await fetch(`http://localhost:3002/article/get-article`, {
-      method: "POST",
-      body: JSON.stringify({
-        articleId: this.props.match.params.articleId,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://kt-affiliate-server-9yt3t.ondigitalocean.app/article/get-article`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          articleId: this.props.match.params.articleId,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     let article = await response.json();
     this.setState({
       article: article.message,

@@ -43,15 +43,18 @@ class RHome extends Component {
   getBrandDetails = async () => {
     let search = "/explore/brand";
     let brandId = window.location.href.split("/")[5];
-    const response = await fetch(`http://localhost:3002/aff/brand-details/`, {
-      method: "POST",
-      body: JSON.stringify({
-        brandId: brandId,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://kt-affiliate-server-9yt3t.ondigitalocean.app/aff/brand-details/`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          brandId: brandId,
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     const brandDetails = await response.json();
     this.setState({
       brand: brandDetails.message,
@@ -137,12 +140,15 @@ class RHome extends Component {
   };
 
   getDeals = async () => {
-    const response = await fetch(`http://localhost:3002/aff/`, {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://kt-affiliate-server-9yt3t.ondigitalocean.app/aff/`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     const deals = await response.json();
     this.setState({ deals: deals.message, dealsBackUp: deals.message });
   };

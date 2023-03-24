@@ -34,7 +34,6 @@ class App extends Component {
   render(props) {
     return (
       <div className="App">
-        {console.log("app")}
         <Router>
           <Switch>
             <Route path="/" exact component={Home} />

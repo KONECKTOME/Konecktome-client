@@ -10,12 +10,15 @@ const Articles = () => {
   }, []);
 
   const fetchArticles = async () => {
-    const response = await fetch(`http://localhost:3002/article/`, {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://kt-affiliate-server-9yt3t.ondigitalocean.app/article/`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     let articles = await response.json();
     setArticles(articles.message);
   };

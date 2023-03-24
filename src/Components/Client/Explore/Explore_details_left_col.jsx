@@ -12,7 +12,7 @@ class Explore_details_left_col extends React.Component {
   openReferralLink = async (url, brandId) => {
     this.setState({ loading: true });
     const response = await fetch(
-      `http://localhost:3002/tracking/new-tracking`,
+      `https://kt-affiliate-server-9yt3t.ondigitalocean.app/tracking/new-tracking`,
       {
         method: "POST",
         body: JSON.stringify({
