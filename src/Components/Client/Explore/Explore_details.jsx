@@ -41,7 +41,7 @@ class Explore_details extends React.Component {
         <div id="explore-details-wrapper">
           <BreadCrumbs
             parentPages={breadCrumbData}
-            currentPage={`Explore Deals From ${this.state.brand.brandName}`}
+            currentPage={`Explore Deals From ${this.props.brand.brandName}`}
           />
           <div id="explore-details">
             <Explore_details_right_col brand={this.props.brand} />

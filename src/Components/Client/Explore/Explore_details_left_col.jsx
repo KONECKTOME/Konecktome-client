@@ -25,7 +25,9 @@ class Explore_details_left_col extends React.Component {
     );
     const details = await response.json();
     if (details.message === "Click Added") {
-      window.open(url, "_blank");
+      var newTab = window.open();
+      newTab.opener = null;
+      newTab.location = url;
       this.setState({ loading: false });
     }
   };
