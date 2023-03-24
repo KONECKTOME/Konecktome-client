@@ -78,7 +78,6 @@ class RHome extends Component {
               deals: filteredDeals,
               filterParams: [1],
             });
-            this.sideBarToggle();
           }
         } else if (key === "price") {
           if (!checkBoxValue) {
@@ -87,7 +86,6 @@ class RHome extends Component {
               deals: filteredDeals,
               filterParams: [1],
             });
-            this.sideBarToggle();
           }
         } else if (key === "contract") {
           if (!checkBoxValue) {
@@ -98,7 +96,6 @@ class RHome extends Component {
               deals: filteredDeals,
               filterParams: [1],
             });
-            this.sideBarToggle();
           }
         }
         break;
