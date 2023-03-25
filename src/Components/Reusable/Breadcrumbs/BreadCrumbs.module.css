@@ -39,7 +39,7 @@
     display: block;
   }
 
-  .container p {
+  .container .currentPage {
     text-overflow: ellipsis;
     overflow: hidden;
     width: 180px;
@@ -51,8 +51,7 @@
   .container .linksContainer {
     display: block;
   }
-  .container p {
-    margin-left: 0.1rem;
+  .container .currentPage {
     text-overflow: ellipsis;
     overflow: hidden;
     width: 80px;

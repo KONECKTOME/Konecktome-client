@@ -28,7 +28,7 @@ const BreadCrumbs = ({
             <ArrowIcon color="#000" position="right" size="12" />
           </div>
         ))}
-      <p id="currentPage">{currentPage}</p>
+      <p className={styles.currentPage}>{currentPage}</p>
     </div>
   );
 };
