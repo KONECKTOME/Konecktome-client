@@ -8,6 +8,26 @@ import Services from "./Services";
 
 class Home extends Component {
   state = {};
+
+  componentDidMount = async () => {
+    this.impression();
+  };
+
+  impression = async () => {
+    const response = await fetch(
+      `http://localhost:3002/impressions/new-impressions`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          page: "Landing",
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    let landing = await response.json();
+  };
   render() {
     return (
       <>

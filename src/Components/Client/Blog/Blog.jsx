@@ -16,6 +16,7 @@ class Blog extends Component {
 
   componentDidMount = async () => {
     this.fetchArticle();
+    this.impression();
   };
 
   fetchArticle = async () => {
@@ -36,6 +37,22 @@ class Blog extends Component {
       article: article.message,
       paragraphs: article.message.paragraphs,
     });
+  };
+
+  impression = async () => {
+    const response = await fetch(
+      `http://localhost:3002/impressions/new-impressions`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          page: "Article",
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    let landing = await response.json();
   };
   render() {
     return (

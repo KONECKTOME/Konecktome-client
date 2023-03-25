@@ -11,6 +11,10 @@ class Explore_home extends Component {
     loading: false,
   };
 
+  componentDidMount = async () => {
+    this.impression();
+  };
+
   openReferralLink = async (url, brandId) => {
     this.setState({ loading: true });
     const response = await fetch(
@@ -36,6 +40,22 @@ class Explore_home extends Component {
       }
       this.setState({ loading: false });
     }
+  };
+
+  impression = async () => {
+    const response = await fetch(
+      `http://localhost:3002/impressions/new-impressions`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          page: "Explore",
+        }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    let landing = await response.json();
   };
 
   render(props) {
