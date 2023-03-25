@@ -19,15 +19,15 @@ class Index extends Component {
     },
   };
 
-  activeClass = (e) => {
-    e.preventDefault();
-    this.setState((previousState) => {
-      return {
-        active: !previousState.active,
-        activeCheckBoxClass: !previousState.activeCheckBoxClass,
-      };
-    });
-  };
+  // activeClass = (e) => {
+  //   e.preventDefault();
+  //   this.setState((previousState) => {
+  //     return {
+  //       active: !previousState.active,
+  //       activeCheckBoxClass: !previousState.activeCheckBoxClass,
+  //     };
+  //   });
+  // };
 
   clearFilters = () => {
     this.setState({

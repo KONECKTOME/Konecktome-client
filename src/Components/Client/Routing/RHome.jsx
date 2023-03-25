@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Index from "../Sidebar/Index";
 import Explore_details from "../Explore/Explore_details";
-
+import Footer from "../LandingPage/Footer";
 import Explore_home from "../Explore/Explore_home";
 import Navbar from "../Navbar/Navbar";
+import ScrollToTop from "../../Reusable/ScrollToTop";
 
 import {
   BrowserRouter as Router,
@@ -30,18 +31,20 @@ class RHome extends Component {
 
   sideBarToggle = (boolean) => {
     boolean
-      ? this.setState({
-          ...this.state,
-          sideBarClassName: "active",
-        })
-      : this.setState({
-          ...this.state,
-          sideBarClassName: "not-active",
-        });
+      ? this.setState({ sideBarClassName: "active" })
+      : this.setState({ sideBarClassName: "not-active" });
+    // boolean
+    //   ? this.setState({
+    //       ...this.state,
+    //       sideBarClassName: "active",
+    //     })
+    //   : this.setState({
+    //       ...this.state,
+    //       sideBarClassName: "not-active",
+    //     });
   };
 
   getBrandDetails = async () => {
-    let search = "/explore/brand";
     let brandId = window.location.href.split("/")[5];
     const response = await fetch(
       `https://kt-affiliate-server-9yt3t.ondigitalocean.app/aff/brand-details/`,
@@ -137,6 +140,7 @@ class RHome extends Component {
         break;
       default:
     }
+    this.sideBarToggle();
   };
 
   getDeals = async () => {
@@ -173,64 +177,66 @@ class RHome extends Component {
 
   render(props) {
     return (
-      <div>
-        <div id="fe-wrapper">
-          <div
-            id="left-col"
-            onClick={(e) => {
-              this.setState({
-                ...this.state,
-                sideBarClassName: "not-active",
-              });
-            }}
-            className={this.state.sideBarClassName}
-          >
+      <>
+        <div>
+          <div id="fe-wrapper">
             <div
-              id="sidebar-warpper"
+              id="left-col"
               onClick={(e) => {
-                e.stopPropagation();
+                this.setState({
+                  ...this.state,
+                  sideBarClassName: "not-active",
+                });
               }}
+              className={this.state.sideBarClassName}
             >
-              <Index
-                isSideBarShown={this.sideBarToggle}
-                setFilter={(key, value, checkBoxValue) =>
-                  this.setFilter(key, value, checkBoxValue)
-                }
-                clearFilters={() => this.clearFilters()}
-                {...props}
-              />
+              <div
+                id="sidebar-warpper"
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+              >
+                <Index
+                  isSideBarShown={this.sideBarToggle}
+                  setFilter={(key, value, checkBoxValue) =>
+                    this.setFilter(key, value, checkBoxValue)
+                  }
+                  clearFilters={() => this.clearFilters()}
+                  {...props}
+                />
+              </div>
+            </div>
+            <div id="right-col">
+              <Navbar isSideBarShown={this.sideBarToggle} {...props} />
+              <Router>
+                <Switch>
+                  <Route
+                    path="/explore/deals"
+                    render={(props) => (
+                      <Explore_home
+                        filterParams={this.state.filterParams}
+                        deals={this.state.deals}
+                        {...props}
+                      />
+                    )}
+                  />
+                  <Route
+                    path="/explore/brand/:id"
+                    render={(props) => (
+                      <Explore_details
+                        getBrandDetails={() => this.getBrandDetails()}
+                        brand={this.state.brand}
+                        dealsByBrand={this.state.dealsByBrand}
+                        {...props}
+                      />
+                    )}
+                  />
+                </Switch>
+              </Router>
             </div>
           </div>
-          <div id="right-col">
-            <Navbar isSideBarShown={this.sideBarToggle} {...props} />
-            <Switch>
-              <Router>
-                <Route
-                  path="/explore/deals"
-                  render={(props) => (
-                    <Explore_home
-                      filterParams={this.state.filterParams}
-                      deals={this.state.deals}
-                      {...props}
-                    />
-                  )}
-                />
-                <Route
-                  path="/explore/brand/:id"
-                  render={(props) => (
-                    <Explore_details
-                      getBrandDetails={() => this.getBrandDetails()}
-                      brand={this.state.brand}
-                      dealsByBrand={this.state.dealsByBrand}
-                      {...props}
-                    />
-                  )}
-                />
-              </Router>
-            </Switch>
-          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

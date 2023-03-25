@@ -8,11 +8,15 @@ const BreadCrumbs = ({
   parentPages = [],
   currentPage = "Your Current Page",
 }) => {
+  const goHome = () => {
+    // window.location.href = "http://localhost:3000/";
+    window.location.href = "https://konecktome.com/";
+  };
   return (
     <div className={styles.container}>
-      <Link className={styles.homeLink} to="/">
+      <div className={styles.homeLink} onClick={goHome}>
         <HomeIcon color="#000" size="20" />
-      </Link>
+      </div>
       <ArrowIcon color="#000" position="right" size="12" />
       {parentPages &&
         parentPages.length > 0 &&

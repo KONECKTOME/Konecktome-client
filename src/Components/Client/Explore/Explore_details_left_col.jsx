@@ -25,9 +25,13 @@ class Explore_details_left_col extends React.Component {
     );
     const details = await response.json();
     if (details.message === "Click Added") {
-      var newTab = window.open();
-      newTab.opener = null;
-      newTab.location = url;
+      var newTab = window.open("", "_blank");
+      if (newTab) {
+        newTab.opener = null;
+        newTab.location.href = url;
+      } else {
+        window.location.href = url;
+      }
       this.setState({ loading: false });
     }
   };
@@ -39,6 +43,9 @@ class Explore_details_left_col extends React.Component {
           {this.props.deals.map((item) => {
             return (
               <div className="card">
+                <div id="card-footer-2">
+                  <div>Speed and price may vary based on location.</div>
+                </div>
                 <div>
                   <div id="dsk-card-header">
                     <div>

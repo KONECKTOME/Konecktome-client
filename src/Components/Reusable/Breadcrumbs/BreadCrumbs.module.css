@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   color: #000;
+  cursor: pointer;
 }
 .container .homeLink:hover path {
   fill: #fda3d6;
@@ -33,12 +34,34 @@
   font-family: "Poppins bold";
 }
 
-@media screen and (min-width: 300px) {
+@media screen and (max-width: 600px) {
   .container .linksContainer {
-    display: none;
+    display: block;
   }
 
-  .container #currentPage {
-    max-width: 185px;
+  .container p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 180px;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container .linksContainer {
+    display: block;
+  }
+  .container p {
+    margin-left: 0.1rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 80px;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .container .linksContainer {
+    display: none;
   }
 }
