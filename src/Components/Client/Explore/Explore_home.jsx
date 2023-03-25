@@ -44,7 +44,7 @@ class Explore_home extends Component {
 
   impression = async () => {
     const response = await fetch(
-      `http://localhost:3002/impressions/new-impressions`,
+      `https://kt-affiliate-server-9yt3t.ondigitalocean.app/impressions/new-impressions`,
       {
         method: "POST",
         body: JSON.stringify({
