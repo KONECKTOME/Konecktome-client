@@ -36,7 +36,6 @@ class App extends Component {
   render(props) {
     return (
       <div className="App">
-        {console.log("app")}
         <Router>
           <ScrollToTop />
           <Switch>
